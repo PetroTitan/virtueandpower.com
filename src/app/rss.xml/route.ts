@@ -1,5 +1,13 @@
 import { siteConfig } from "@/lib/site";
-import { getAllContentRefs, hrefFor } from "@/content/loader";
+import {
+  getBooks,
+  getComparisons,
+  getPhilosophers,
+  getQuotes,
+  getThemes,
+  hrefFor,
+} from "@/content/loader";
+import type { AnyFrontmatter, ContentEntry } from "@/content/types";
 
 function escapeXml(input: string): string {
   return input
@@ -22,21 +30,42 @@ export const dynamic = "force-static";
 export const revalidate = 3600;
 
 export async function GET() {
-  const refs = await getAllContentRefs();
-  const sorted = [...refs].sort(
-    (a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime(),
+  const [philosophers, books, themes, quotes, comparisons] = await Promise.all([
+    getPhilosophers(),
+    getBooks(),
+    getThemes(),
+    getQuotes(),
+    getComparisons(),
+  ]);
+
+  // Only authoritative entries appear in the feed. Stubs are noindex and
+  // are not yet meant for discovery.
+  const published: ContentEntry<AnyFrontmatter>[] = [
+    ...philosophers,
+    ...books,
+    ...themes,
+    ...quotes,
+    ...comparisons,
+  ].filter((e) => e.frontmatter.status === "published");
+
+  const sorted = published.sort(
+    (a, b) =>
+      new Date(b.frontmatter.updated).getTime() -
+      new Date(a.frontmatter.updated).getTime(),
   );
 
   const items = sorted
-    .map((ref) => {
-      const url = `${siteConfig.url}${hrefFor(ref.kind, ref.slug)}`;
-      const title = `${kindLabel[ref.kind] ?? "Entry"}: ${ref.slug}`;
+    .map((entry) => {
+      const url = `${siteConfig.url}${hrefFor(entry.kind, entry.slug)}`;
+      const label = kindLabel[entry.kind] ?? "Entry";
+      const title = `${label}: ${entry.frontmatter.title}`;
       return `    <item>
       <title>${escapeXml(title)}</title>
       <link>${escapeXml(url)}</link>
       <guid isPermaLink="true">${escapeXml(url)}</guid>
-      <pubDate>${new Date(ref.updated).toUTCString()}</pubDate>
-      <category>${escapeXml(kindLabel[ref.kind] ?? ref.kind)}</category>
+      <pubDate>${new Date(entry.frontmatter.updated).toUTCString()}</pubDate>
+      <category>${escapeXml(label)}</category>
+      <description>${escapeXml(entry.frontmatter.description)}</description>
     </item>`;
     })
     .join("\n");

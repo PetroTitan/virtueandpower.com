@@ -40,6 +40,7 @@ export async function generateMetadata({
     path: hrefFor("theme", slug),
     type: "article",
     modifiedTime: entry.frontmatter.updated,
+    noindex: entry.frontmatter.status === "stub",
   });
 }
 

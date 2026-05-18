@@ -15,6 +15,7 @@ import {
 } from "@/content/loader";
 import {
   articleJsonLd,
+  bookJsonLd,
   breadcrumbJsonLd,
   buildMetadata,
 } from "@/lib/seo";
@@ -40,6 +41,7 @@ export async function generateMetadata({
     path: hrefFor("book", slug),
     type: "article",
     modifiedTime: entry.frontmatter.updated,
+    noindex: entry.frontmatter.status === "stub",
   });
 }
 
@@ -72,6 +74,13 @@ export default async function BookPage({
             url: path,
             dateModified: fm.updated,
             section: "Books",
+          }),
+          bookJsonLd({
+            name: fm.title,
+            url: path,
+            authorName: fm.author,
+            description: fm.description,
+            inLanguage: fm.originalLanguage,
           }),
         ]}
       />

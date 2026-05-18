@@ -44,13 +44,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: p === "/" ? 1 : 0.7,
   }));
 
-  const contentEntries: MetadataRoute.Sitemap = [
+  // Only authoritative (status: "published") entries appear in the sitemap.
+  // Stub entries are noindex on the page itself and would be reported as a
+  // configuration mismatch if listed here.
+  const publishedEntries = [
     ...philosophers,
     ...books,
     ...themes,
     ...quotes,
     ...comparisons,
-  ].map((e) => ({
+  ].filter((e) => e.frontmatter.status === "published");
+
+  const contentEntries: MetadataRoute.Sitemap = publishedEntries.map((e) => ({
     url: `${siteConfig.url}${hrefFor(e.kind, e.slug)}`,
     lastModified: new Date(e.frontmatter.updated),
     changeFrequency: "monthly",
