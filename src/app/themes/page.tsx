@@ -3,6 +3,7 @@ import { Container } from "@/components/layout/Container";
 import { PageHeader } from "@/components/editorial/PageHeader";
 import { EditorialGrid } from "@/components/editorial/EditorialGrid";
 import { ThemeCard } from "@/components/editorial/ThemeCard";
+import { Prose } from "@/components/editorial/Typography";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getThemes } from "@/content/loader";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
@@ -35,6 +36,16 @@ export default async function ThemesIndex() {
         description={DESCRIPTION}
       />
       <Container width="editorial" className="py-16">
+        <Prose as="section" className="mb-16">
+          <p>
+            Themes are the questions the classical tradition returned to
+            again and again — virtue and justice, courage and self-control,
+            leadership and ambition, power, statecraft and war. Each entry
+            traces the question through its classical formation and its
+            later reception, with the texts and figures named where they
+            do the work.
+          </p>
+        </Prose>
         {themes.length ? (
           <EditorialGrid columns={3}>
             {themes.map((t) => (

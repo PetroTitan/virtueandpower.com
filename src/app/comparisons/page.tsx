@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { PageHeader } from "@/components/editorial/PageHeader";
 import { EssayHero } from "@/components/editorial/EssayHero";
+import { Prose } from "@/components/editorial/Typography";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getComparisons, hrefFor } from "@/content/loader";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
@@ -33,7 +34,18 @@ export default async function ComparisonsIndex() {
         title="Comparisons"
         description={DESCRIPTION}
       />
-      <Container width="editorial" className="py-12">
+      <Container width="editorial" className="pt-16 pb-4">
+        <Prose as="section">
+          <p>
+            Comparison entries pair thinkers, texts or traditions and read
+            them against each other. We follow the platform&rsquo;s "and"
+            convention rather than "vs" — the comparisons are treated as
+            genuine relationships, not contests. The aim is to follow the
+            argument rather than to declare a winner.
+          </p>
+        </Prose>
+      </Container>
+      <Container width="editorial" className="pb-12">
         {comparisons.length ? (
           <div>
             {comparisons.map((c) => (
