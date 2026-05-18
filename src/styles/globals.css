@@ -5,12 +5,14 @@
 @layer base {
   :root {
     color-scheme: light;
+    --vp-rhythm: 1.25rem;
   }
 
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    text-size-adjust: 100%;
   }
 
   html,
@@ -23,6 +25,14 @@
     font-family: theme("fontFamily.sans");
     font-size: 1rem;
     line-height: 1.7;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+  }
+
+  /* Long single words (foreign-language terms, URLs) shouldn't break the
+     reading column on narrow viewports. */
+  p, h1, h2, h3, h4, h5, h6, cite, dd, li {
+    overflow-wrap: anywhere;
   }
 
   h1,
@@ -49,6 +59,12 @@
   hr {
     border: 0;
     border-top: 1px solid theme("colors.rule");
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.bronze.DEFAULT");
+    outline-offset: 2px;
+    border-radius: 1px;
   }
 }
 
@@ -79,20 +95,130 @@
     color: theme("colors.bronze.DEFAULT");
   }
 
+  /* Reading container.
+     Drop caps are opt-in via the .vp-prose--drop modifier so they don't fire
+     on notices or stub markers that happen to lead the article body. */
   .vp-prose {
     max-width: theme("maxWidth.prose");
+    color: theme("colors.charcoal.100");
   }
 
-  .vp-prose p {
-    margin-bottom: 1.25em;
+  .vp-prose > * + * {
+    margin-top: var(--vp-rhythm);
   }
 
-  .vp-prose p:first-of-type::first-letter {
+  .vp-prose h2 {
+    margin-top: 2.5rem;
+    font-size: theme("fontSize.heading-1[0]");
+    line-height: theme("fontSize.heading-1[1].lineHeight");
+    letter-spacing: theme("fontSize.heading-1[1].letterSpacing");
+    color: theme("colors.charcoal.DEFAULT");
+  }
+
+  .vp-prose h3 {
+    margin-top: 2rem;
+    font-size: theme("fontSize.heading-2[0]");
+    line-height: theme("fontSize.heading-2[1].lineHeight");
+    color: theme("colors.charcoal.DEFAULT");
+  }
+
+  .vp-prose h4 {
+    margin-top: 1.75rem;
+    font-size: 1.125rem;
+    color: theme("colors.charcoal.DEFAULT");
+  }
+
+  .vp-prose p,
+  .vp-prose li {
+    line-height: 1.75;
+  }
+
+  .vp-prose ul,
+  .vp-prose ol {
+    padding-left: 1.5rem;
+  }
+
+  .vp-prose ul { list-style: disc; }
+  .vp-prose ol { list-style: decimal; }
+
+  .vp-prose li + li {
+    margin-top: 0.5rem;
+  }
+
+  .vp-prose blockquote {
+    border-left: 1px solid theme("colors.bronze.DEFAULT");
+    padding-left: 1.5rem;
+    font-family: theme("fontFamily.serif");
+    font-style: italic;
+    color: theme("colors.charcoal.DEFAULT");
+  }
+
+  .vp-prose code:not(pre code) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.92em;
+    background-color: theme("colors.parchment.50");
+    border: 1px solid theme("colors.rule");
+    padding: 0.05em 0.35em;
+    border-radius: 2px;
+  }
+
+  .vp-prose pre {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9em;
+    background-color: theme("colors.parchment.50");
+    border: 1px solid theme("colors.rule");
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+  }
+
+  .vp-prose strong { color: theme("colors.charcoal.DEFAULT"); font-weight: 600; }
+  .vp-prose em { font-style: italic; }
+  .vp-prose cite { font-style: normal; }
+
+  .vp-prose a {
+    border-bottom: 1px solid theme("colors.rule");
+    color: theme("colors.charcoal.DEFAULT");
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .vp-prose a:hover {
+    border-color: theme("colors.bronze.DEFAULT");
+    color: theme("colors.bronze.DEFAULT");
+  }
+
+  .vp-prose hr {
+    margin: 2.5rem 0;
+  }
+
+  .vp-prose img,
+  .vp-prose figure {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .vp-prose figcaption {
+    font-size: 0.875rem;
+    color: theme("colors.stone.DEFAULT");
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  /* Opt-in drop cap.
+     Apply .vp-prose--drop to the prose container only when the first child
+     is a real opening paragraph (not a notice, stub marker, or pull-quote). */
+  .vp-prose--drop > p:first-child::first-letter {
     font-family: theme("fontFamily.serif");
     font-size: 3.6em;
     line-height: 0.9;
     float: left;
-    padding: 0.05em 0.12em 0 0;
+    padding: 0.05em 0.18em 0 0;
     color: theme("colors.bronze.DEFAULT");
+  }
+}
+
+@layer utilities {
+  .vp-tap {
+    min-height: 44px;
+    min-width: 44px;
   }
 }

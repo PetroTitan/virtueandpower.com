@@ -1,11 +1,13 @@
 import Link from "next/link";
-import { Container } from "@/components/layout/Container";
 import { SectionIntro } from "@/components/editorial/SectionIntro";
 import { EditorialGrid } from "@/components/editorial/EditorialGrid";
 import { ThinkerCard } from "@/components/editorial/ThinkerCard";
 import { ThemeCard } from "@/components/editorial/ThemeCard";
 import { BookCard } from "@/components/editorial/BookCard";
 import { EssayHero } from "@/components/editorial/EssayHero";
+import { EssayCard } from "@/components/editorial/EssayCard";
+import { Eyebrow, Lede } from "@/components/editorial/Typography";
+import { PageSection } from "@/components/layout/PageSection";
 import { Hero } from "@/components/site/Hero";
 import { NewsletterCta } from "@/components/site/NewsletterCta";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -19,6 +21,30 @@ import {
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 export const revalidate = 3600;
+
+const featuredEssays = [
+  {
+    href: "/virtue",
+    eyebrow: "Studies",
+    title: "Virtue, read on its own terms",
+    dek: "Excellence of character, realised in action — and why the Aristotelian doctrine of the mean is not a slogan but an analysis.",
+    meta: "Series · Virtue",
+  },
+  {
+    href: "/statecraft",
+    eyebrow: "Studies",
+    title: "The architecture of political life",
+    dek: "Constitutions, factions, the cycle of regimes — what classical statecraft actually asked, and why those questions persist.",
+    meta: "Series · Statecraft",
+  },
+  {
+    href: "/religion-and-wisdom",
+    eyebrow: "Studies",
+    title: "Philosophy and revelation, in conversation",
+    dek: "How the wisdom traditions — Hebrew, Greek, Christian — engaged the philosophical schools without surrendering to them.",
+    meta: "Series · Religion & Wisdom",
+  },
+] as const;
 
 export default async function HomePage() {
   const [philosophers, books, themes, comparisons] = await Promise.all([
@@ -38,8 +64,8 @@ export default async function HomePage() {
       <JsonLd data={[websiteJsonLd(), organizationJsonLd()]} />
       <Hero />
 
-      {/* Featured essay */}
-      <Container width="editorial" className="pt-20">
+      {/* Founding note */}
+      <PageSection label="Founding note" spacing="tight">
         <SectionIntro
           eyebrow="From the Journal"
           title="A founding note on what this platform is for"
@@ -56,10 +82,26 @@ export default async function HomePage() {
             meta="By the Editors · Founding note"
           />
         </div>
-      </Container>
+      </PageSection>
+
+      {/* Featured essays */}
+      <PageSection label="Featured essays">
+        <SectionIntro
+          eyebrow="Featured essays"
+          title="Studies on the questions classical thought returned to"
+          description="Long-form work-in-progress across the platform's main lines of inquiry."
+        />
+        <div className="mt-12">
+          <EditorialGrid columns={3}>
+            {featuredEssays.map((essay) => (
+              <EssayCard key={essay.href} {...essay} />
+            ))}
+          </EditorialGrid>
+        </div>
+      </PageSection>
 
       {/* Thinkers */}
-      <Container width="editorial" className="pt-24">
+      <PageSection label="Philosophers">
         <SectionIntro
           eyebrow="Philosophers"
           title="Read the thinkers themselves"
@@ -82,10 +124,10 @@ export default async function HomePage() {
             ))}
           </EditorialGrid>
         </div>
-      </Container>
+      </PageSection>
 
       {/* Themes */}
-      <Container width="editorial" className="pt-24">
+      <PageSection label="Themes">
         <SectionIntro
           eyebrow="Themes"
           title="Virtue, justice, power, leadership"
@@ -106,13 +148,13 @@ export default async function HomePage() {
             ))}
           </EditorialGrid>
         </div>
-      </Container>
+      </PageSection>
 
-      {/* Leadership + Statecraft (cross-link block) */}
-      <Container width="editorial" className="pt-24">
-        <div className="grid gap-10 border-y border-rule py-16 md:grid-cols-2">
+      {/* Leadership + Statecraft */}
+      <PageSection label="Leadership and Statecraft" variant="ruled" spacing="tight">
+        <div className="grid gap-12 md:grid-cols-2">
           <div>
-            <p className="vp-eyebrow">Leadership</p>
+            <Eyebrow>Leadership</Eyebrow>
             <h2 className="mt-3 font-serif text-display-2 text-charcoal">
               On rule, command and stewardship.
             </h2>
@@ -123,44 +165,77 @@ export default async function HomePage() {
               should rule, and how.
             </p>
             <p className="mt-6">
-              <Link href="/leadership" className="vp-link text-sm uppercase tracking-eyebrow">
+              <Link
+                href="/leadership"
+                className="vp-link text-sm uppercase tracking-eyebrow"
+              >
                 Explore Leadership
               </Link>
             </p>
           </div>
           <div>
-            <p className="vp-eyebrow">Statecraft</p>
+            <Eyebrow>Statecraft</Eyebrow>
             <h2 className="mt-3 font-serif text-display-2 text-charcoal">
               The architecture of political life.
             </h2>
             <p className="mt-4 max-w-prose text-charcoal-100">
               Constitutions, factions, the cycle of regimes, the relation
-              between virtue and institutions — read across Plato,
-              Aristotle, Polybius, Cicero, Tacitus, and the long Roman and
-              Christian afterlives of these questions.
+              between virtue and institutions — read across Plato, Aristotle,
+              Polybius, Cicero, Tacitus, and the long Roman and Christian
+              afterlives of these questions.
             </p>
             <p className="mt-6">
-              <Link href="/statecraft" className="vp-link text-sm uppercase tracking-eyebrow">
+              <Link
+                href="/statecraft"
+                className="vp-link text-sm uppercase tracking-eyebrow"
+              >
                 Explore Statecraft
               </Link>
             </p>
           </div>
         </div>
-      </Container>
+      </PageSection>
 
-      {/* Quotes */}
-      <Container width="editorial" className="pt-24">
-        <SectionIntro
-          eyebrow="Quotes"
-          title="Verified, sourced, traceable"
-          description="A working library of quotations from the classical tradition. Every entry carries its precise citation — Stephanus page, Bekker number, book and chapter — and no quotation is published before it is verified to a primary text."
-          href="/quotes"
-          hrefLabel="The quote library"
-        />
-      </Container>
+      {/* Quotes — the editorial commitment, given visual weight */}
+      <PageSection label="The Quote Library">
+        <div className="grid gap-12 md:grid-cols-12 md:items-start">
+          <div className="md:col-span-5">
+            <Eyebrow>The Quote Library</Eyebrow>
+            <h2 className="mt-3 font-serif text-display-2 text-charcoal">
+              Verified. Sourced. Traceable.
+            </h2>
+            <p className="mt-6 max-w-prose text-charcoal-100">
+              Every quotation we publish carries its precise citation — a
+              Stephanus page for Plato, a Bekker number for Aristotle, a book
+              and chapter for the historians and theologians. No quotation
+              appears here until it has been verified to a primary text.
+            </p>
+            <p className="mt-6">
+              <Link
+                href="/quotes"
+                className="vp-link text-sm uppercase tracking-eyebrow"
+              >
+                Visit the quote library
+              </Link>
+            </p>
+          </div>
+          <figure className="md:col-span-7 border-l border-bronze pl-6 sm:pl-8">
+            <Lede as="p" className="max-w-none font-serif text-2xl italic text-charcoal sm:text-3xl">
+              We do not invent quotations, we do not paraphrase a passage and
+              present it as a verbatim quote, and we do not attribute lines to
+              figures who did not write them.
+            </Lede>
+            <figcaption className="mt-6 text-sm text-stone">
+              <span className="text-charcoal-100">Editorial policy</span>
+              <span aria-hidden> · </span>
+              Virtue &amp; Power
+            </figcaption>
+          </figure>
+        </div>
+      </PageSection>
 
       {/* Books */}
-      <Container width="editorial" className="pt-24">
+      <PageSection label="Books">
         <SectionIntro
           eyebrow="Books"
           title="The primary texts"
@@ -182,13 +257,13 @@ export default async function HomePage() {
             ))}
           </EditorialGrid>
         </div>
-      </Container>
+      </PageSection>
 
       {/* Ancient World */}
-      <Container width="editorial" className="pt-24">
-        <div className="grid gap-10 border-y border-rule py-16 md:grid-cols-12">
+      <PageSection label="The Ancient World" variant="ruled" spacing="tight">
+        <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <p className="vp-eyebrow">The Ancient World</p>
+            <Eyebrow>The Ancient World</Eyebrow>
             <h2 className="mt-3 font-serif text-display-2 text-charcoal">
               Athens, Rome, Jerusalem.
             </h2>
@@ -210,11 +285,11 @@ export default async function HomePage() {
             </p>
           </div>
         </div>
-      </Container>
+      </PageSection>
 
       {/* Comparisons */}
       {featuredComparison ? (
-        <Container width="editorial" className="pt-24">
+        <PageSection label="Comparisons">
           <SectionIntro
             eyebrow="Comparisons"
             title="Thinkers and traditions, read against each other"
@@ -231,10 +306,9 @@ export default async function HomePage() {
               meta={featuredComparison.frontmatter.domain ?? undefined}
             />
           </div>
-        </Container>
+        </PageSection>
       ) : null}
 
-      <div className="pt-24" />
       <NewsletterCta />
     </>
   );

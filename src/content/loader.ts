@@ -119,6 +119,116 @@ export async function resolveRefs(refs: ContentRef[] | undefined) {
   return resolved.filter((x): x is NonNullable<typeof x> => x !== null);
 }
 
+/**
+ * Collect every typed cross-reference an entry's frontmatter declares,
+ * regardless of which kind-specific field it lives on (related, primaryWorks,
+ * primaryThemes, keyThinkers, keyTexts, subjects). Used both for forward
+ * link rendering and for backlink computation.
+ */
+function collectOutgoingRefs(entry: ContentEntry<AnyFrontmatter>): ContentRef[] {
+  const fm = entry.frontmatter;
+  const refs: ContentRef[] = [];
+  const push = (list?: ContentRef[]) => {
+    if (list?.length) refs.push(...list);
+  };
+  push(fm.related);
+  switch (fm.kind) {
+    case "philosopher":
+      push(fm.primaryWorks);
+      break;
+    case "book":
+      push(fm.primaryThemes);
+      break;
+    case "theme":
+      push(fm.keyThinkers);
+      push(fm.keyTexts);
+      break;
+    case "comparison":
+      push(fm.subjects);
+      break;
+    case "quote":
+      // quotes don't have an extra typed-list field beyond `related`
+      break;
+  }
+  return refs;
+}
+
+/**
+ * Find every entry across the corpus that points at the given (kind, slug)
+ * via any of its typed cross-reference fields. The result is the in-edges of
+ * the content graph: who links to me. Entries that already appear in the
+ * caller's forward refs should be filtered out before display.
+ */
+export async function getBacklinksFor(
+  kind: ContentKind,
+  slug: string,
+): Promise<Array<{ ref: ContentRef; entry: ContentEntry<AnyFrontmatter> }>> {
+  const [philosophers, books, themes, quotes, comparisons] = await Promise.all([
+    getPhilosophers(),
+    getBooks(),
+    getThemes(),
+    getQuotes(),
+    getComparisons(),
+  ]);
+  const all: ContentEntry<AnyFrontmatter>[] = [
+    ...philosophers,
+    ...books,
+    ...themes,
+    ...quotes,
+    ...comparisons,
+  ];
+  const inEdges: Array<{ ref: ContentRef; entry: ContentEntry<AnyFrontmatter> }> = [];
+  for (const entry of all) {
+    if (entry.kind === kind && entry.slug === slug) continue;
+    const outgoing = collectOutgoingRefs(entry);
+    if (outgoing.some((r) => r.kind === kind && r.slug === slug)) {
+      inEdges.push({
+        ref: { kind: entry.kind, slug: entry.slug },
+        entry,
+      });
+    }
+  }
+  // Stable, readable order: by kind then by title.
+  const kindOrder: Record<ContentKind, number> = {
+    philosopher: 0,
+    book: 1,
+    theme: 2,
+    comparison: 3,
+    quote: 4,
+  };
+  inEdges.sort((a, b) => {
+    const k = kindOrder[a.entry.kind] - kindOrder[b.entry.kind];
+    if (k !== 0) return k;
+    return a.entry.frontmatter.title.localeCompare(
+      b.entry.frontmatter.title,
+      "en",
+    );
+  });
+  return inEdges;
+}
+
+/**
+ * Merge typed forward refs (from the entry's own frontmatter) with computed
+ * backlinks (entries that point at this entry). Backlinks already covered by
+ * the forward refs are de-duplicated so the rendered list shows each related
+ * entry exactly once.
+ */
+export async function getRelatedAndBacklinks(
+  kind: ContentKind,
+  slug: string,
+  forwardRefs: ContentRef[] | undefined,
+) {
+  const [forward, back] = await Promise.all([
+    resolveRefs(forwardRefs),
+    getBacklinksFor(kind, slug),
+  ]);
+  const seen = new Set(forward.map(({ ref }) => `${ref.kind}:${ref.slug}`));
+  const backFiltered = back.filter(
+    ({ ref }) => !seen.has(`${ref.kind}:${ref.slug}`),
+  );
+  return [...forward, ...backFiltered];
+}
+
 export function hrefFor(kind: ContentKind, slug: string): string {
   return `/${dirByKind[kind]}/${slug}`;
 }

@@ -9,13 +9,14 @@ import { MdxContent } from "@/content/mdx";
 import {
   getEntryBySlug,
   getPhilosophers,
+  getRelatedAndBacklinks,
   hrefFor,
-  resolveRefs,
 } from "@/content/loader";
 import {
   articleJsonLd,
   breadcrumbJsonLd,
   buildMetadata,
+  personJsonLd,
 } from "@/lib/seo";
 
 type Params = { slug: string };
@@ -39,7 +40,21 @@ export async function generateMetadata({
     path: hrefFor("philosopher", slug),
     type: "article",
     modifiedTime: entry.frontmatter.updated,
+    noindex: entry.frontmatter.status === "stub",
   });
+}
+
+function parseLifespan(input?: string): { birthDate?: string; deathDate?: string } {
+  if (!input) return {};
+  // e.g. "c. 428 – 348 BCE" or "384 – 322 BCE". Best-effort: extract two
+  // year tokens and tag the era; if parsing fails, omit the dates entirely
+  // rather than emit a wrong schema value.
+  const match = input.match(/(\d{1,4})\s*[–-]\s*(\d{1,4})\s*(BCE|BC|CE|AD)?/i);
+  if (!match) return {};
+  const [, a, b, era] = match;
+  const isBce = era ? /b/i.test(era) : true;
+  const fmt = (n: string) => (isBce ? `-${n.padStart(4, "0")}` : n.padStart(4, "0"));
+  return { birthDate: fmt(a), deathDate: fmt(b) };
 }
 
 export default async function PhilosopherPage({
@@ -53,7 +68,8 @@ export default async function PhilosopherPage({
 
   const fm = entry.frontmatter;
   const path = hrefFor("philosopher", slug);
-  const related = await resolveRefs(fm.related);
+  const related = await getRelatedAndBacklinks("philosopher", slug, fm.related);
+  const lifespan = parseLifespan(fm.lifespan);
 
   return (
     <>
@@ -70,6 +86,13 @@ export default async function PhilosopherPage({
             url: path,
             dateModified: fm.updated,
             section: "Philosophers",
+          }),
+          personJsonLd({
+            name: fm.title,
+            url: path,
+            description: fm.description,
+            alternateName: fm.epithet,
+            ...lifespan,
           }),
         ]}
       />

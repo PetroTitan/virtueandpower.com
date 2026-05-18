@@ -9,11 +9,13 @@ import { MdxContent } from "@/content/mdx";
 import {
   getBooks,
   getEntryBySlug,
+  getRelatedAndBacklinks,
   hrefFor,
   resolveRefs,
 } from "@/content/loader";
 import {
   articleJsonLd,
+  bookJsonLd,
   breadcrumbJsonLd,
   buildMetadata,
 } from "@/lib/seo";
@@ -39,6 +41,7 @@ export async function generateMetadata({
     path: hrefFor("book", slug),
     type: "article",
     modifiedTime: entry.frontmatter.updated,
+    noindex: entry.frontmatter.status === "stub",
   });
 }
 
@@ -53,7 +56,7 @@ export default async function BookPage({
 
   const fm = entry.frontmatter;
   const path = hrefFor("book", slug);
-  const related = await resolveRefs(fm.related);
+  const related = await getRelatedAndBacklinks("book", slug, fm.related);
   const themes = await resolveRefs(fm.primaryThemes);
 
   return (
@@ -71,6 +74,13 @@ export default async function BookPage({
             url: path,
             dateModified: fm.updated,
             section: "Books",
+          }),
+          bookJsonLd({
+            name: fm.title,
+            url: path,
+            authorName: fm.author,
+            description: fm.description,
+            inLanguage: fm.originalLanguage,
           }),
         ]}
       />

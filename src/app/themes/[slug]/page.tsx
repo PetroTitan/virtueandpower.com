@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { MdxContent } from "@/content/mdx";
 import {
   getEntryBySlug,
+  getRelatedAndBacklinks,
   getThemes,
   hrefFor,
   resolveRefs,
@@ -39,6 +40,7 @@ export async function generateMetadata({
     path: hrefFor("theme", slug),
     type: "article",
     modifiedTime: entry.frontmatter.updated,
+    noindex: entry.frontmatter.status === "stub",
   });
 }
 
@@ -53,7 +55,7 @@ export default async function ThemePage({
 
   const fm = entry.frontmatter;
   const path = hrefFor("theme", slug);
-  const related = await resolveRefs(fm.related);
+  const related = await getRelatedAndBacklinks("theme", slug, fm.related);
   const keyThinkers = await resolveRefs(fm.keyThinkers);
   const keyTexts = await resolveRefs(fm.keyTexts);
 

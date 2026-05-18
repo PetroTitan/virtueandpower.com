@@ -9,6 +9,9 @@ type BuildMetaInput = {
   image?: string;
   publishedTime?: string;
   modifiedTime?: string;
+  /** When true, emits robots: noindex/follow. Use for stub entries and
+   *  any page whose content is not yet authoritative. */
+  noindex?: boolean;
 };
 
 export function absoluteUrl(path: string): string {
@@ -25,6 +28,7 @@ export function buildMetadata({
   image = siteConfig.defaultOgImage,
   publishedTime,
   modifiedTime,
+  noindex = false,
 }: BuildMetaInput): Metadata {
   const canonical = absoluteUrl(path);
   const imageUrl = absoluteUrl(image);
@@ -51,6 +55,15 @@ export function buildMetadata({
       images: [imageUrl],
       creator: siteConfig.twitterHandle,
     },
+    ...(noindex
+      ? {
+          robots: {
+            index: false,
+            follow: true,
+            googleBot: { index: false, follow: true },
+          },
+        }
+      : {}),
   };
 }
 
@@ -134,5 +147,63 @@ export function organizationJsonLd() {
     name: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.description,
+  };
+}
+
+type PersonJsonLdInput = {
+  name: string;
+  url: string;
+  description?: string;
+  birthDate?: string;
+  deathDate?: string;
+  alternateName?: string;
+};
+
+export function personJsonLd({
+  name,
+  url,
+  description,
+  birthDate,
+  deathDate,
+  alternateName,
+}: PersonJsonLdInput) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name,
+    url: absoluteUrl(url),
+    ...(alternateName ? { alternateName } : {}),
+    ...(description ? { description } : {}),
+    ...(birthDate ? { birthDate } : {}),
+    ...(deathDate ? { deathDate } : {}),
+  };
+}
+
+type BookJsonLdInput = {
+  name: string;
+  url: string;
+  authorName: string;
+  description?: string;
+  inLanguage?: string;
+  datePublished?: string;
+};
+
+export function bookJsonLd({
+  name,
+  url,
+  authorName,
+  description,
+  inLanguage,
+  datePublished,
+}: BookJsonLdInput) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    name,
+    url: absoluteUrl(url),
+    author: { "@type": "Person", name: authorName },
+    ...(description ? { description } : {}),
+    ...(inLanguage ? { inLanguage } : {}),
+    ...(datePublished ? { datePublished } : {}),
   };
 }
