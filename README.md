@@ -86,7 +86,8 @@ The site is designed to grow slowly and to last:
 │   │   │   ├── SourceCard
 │   │   │   └── StubNotice
 │   │   ├── site/                     # Hero, NewsletterCta, StudyLanding
-│   │   └── seo/                      # JsonLd
+│   │   ├── seo/                      # JsonLd
+│   │   └── analytics/                # WebmasterID (inlined SDK)
 │   ├── content/                      # Typed loader + MDX renderer
 │   │   ├── types.ts                  # Frontmatter schemas
 │   │   ├── loader.ts                 # File-system loader + ref resolver
@@ -225,6 +226,56 @@ index. Three working rules:
 3. **One canonical URL per idea.** Sections live at clean, durable paths;
    internal links use the typed graph rather than ad-hoc hrefs, so the
    structure doesn't drift as the corpus grows.
+
+### Analytics
+
+The platform uses [WebmasterID](https://webmasterid.com) for traffic
+and AI-referral analytics. The integration is intentionally minimal:
+
+- One inline server component at
+  [`src/components/analytics/WebmasterID.tsx`](src/components/analytics/WebmasterID.tsx)
+  that mirrors the public `@webmasterid/sdk-next` API. (The SDK is a
+  private workspace package at the moment; once it ships to npm the
+  import path can be swapped with a one-line change.)
+- Mounted once at the bottom of `<body>` in
+  [`src/app/layout.tsx`](src/app/layout.tsx) so every App-Router
+  route picks it up automatically.
+- Loaded via `next/script` with `strategy="afterInteractive"` and
+  `defer` — no render blocking, no first-paint penalty.
+- Stable `id="webmasterid-tracker"` so even an accidental double
+  render injects the script only once.
+
+Configuration:
+
+| Var | Default |
+|---|---|
+| `NEXT_PUBLIC_WEBMASTERID_SITE_ID` | `wm_5flk74cqef8jjxar` |
+| `NEXT_PUBLIC_WEBMASTERID_ENDPOINT` | `https://webmasterid-ingest-api.vercel.app/api/events` |
+| `NEXT_PUBLIC_WEBMASTERID_DISABLED` | _(unset)_; set to `1` to skip the tracker entirely |
+
+To **change the site id** (e.g. for a staging deploy), set
+`NEXT_PUBLIC_WEBMASTERID_SITE_ID` in the deployment environment. To
+**point at a private ingest endpoint**, set
+`NEXT_PUBLIC_WEBMASTERID_ENDPOINT`. To **disable analytics
+completely** (local dev, preview builds, environments with stricter
+privacy posture), set `NEXT_PUBLIC_WEBMASTERID_DISABLED=1` — the
+check is hoisted to the layout, so when disabled the component isn't
+even invoked and the site id is absent from the RSC payload.
+
+### Analytics philosophy
+
+Three working rules, deliberately matching the rest of the site's
+restraint:
+
+1. **No reader-visible analytics surface.** No banner, no widget, no
+   "we use cookies" overlay, no opt-in popup. The editorial reading
+   experience is the entire reading experience.
+2. **Public, public-keyed data only.** The `data-wmid` attribute is a
+   public identifier (visible to anyone who views the page source) and
+   carries no personal information. There is no separate consent flow
+   because there is nothing being collected that would require one.
+3. **Reversible by environment variable.** Any deployment can switch
+   the tracker off with one env var without touching the code.
 
 ---
 
