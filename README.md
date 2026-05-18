@@ -289,25 +289,101 @@ These are non-negotiable and they govern every entry:
 
 ---
 
+## The classical library
+
+The current published corpus, organised by section.
+
+**Philosophers** (`/philosophers`, grouped by era)
+
+- *Archaic Greece:* Homer
+- *Classical Greece:* Socrates, Plato, Aristotle, Xenophon
+- *Roman Empire (Greek under Rome):* Plutarch
+
+**Books** (`/books`)
+
+- Homer — *Iliad*
+- Plato — *Republic*
+- Xenophon — *Cyropaedia*, *Memorabilia*
+- Aristotle — *Nicomachean Ethics*
+- Plutarch — *Parallel Lives*
+
+**Themes** (`/themes`)
+
+- *Character virtues:* Virtue, Courage, Self-Control, Ambition
+- *Political:* Justice, Leadership, Statecraft, Power
+- *Historical:* War and Peace
+
+**Comparisons** (`/comparisons`)
+
+- Plato and Aristotle
+- Plato and Xenophon
+- Socrates and the Sophists
+- Iliad and Odyssey
+
+The catalog grows slowly. A figure or work is added only after a human
+editor has read the primary text and the surrounding scholarship.
+
+### Expansion philosophy
+
+A few working rules govern how the library is grown:
+
+1. **Depth before breadth.** A new entry is worth more than a third
+   philosopher entry at the same depth as the existing two. We extend
+   in the direction where the platform's claims get sharper.
+2. **Pair entries with their texts.** Adding a philosopher entry without
+   the principal work it depends on (or vice versa) leaves a hole in the
+   graph. Where possible, philosophers and their primary works land
+   together — Xenophon with the *Cyropaedia* and the *Memorabilia*,
+   Plutarch with the *Lives*, Homer with the *Iliad*.
+3. **Sources before claims.** A new entry is preceded by the addition
+   (or confirmation) of the source records it depends on in
+   `src/data/sources.ts`, which appears on the public `/sources` page.
+   No source is added to the catalog that the editorial team has not
+   actually consulted.
+4. **Conservative on contested ground.** Where the Homeric Question,
+   the Socratic problem, or the historicity of an ancient detail is
+   genuinely disputed, the entry says so rather than picking a side.
+
+### The semantic graph
+
+Cross-references are typed `{ kind, slug }` tuples and form a directed
+graph: philosophers → books, books → themes, themes → philosophers,
+comparisons → multiple subjects. The loader's backlink computation
+surfaces in-edges automatically, so an entry that another entry points
+at will see the inbound link in its Related Reading without having to
+duplicate the reference in its own frontmatter.
+
+In practice this means we can add forward references opportunistically
+(when an entry's body actually mentions another) without losing the
+relationship — Aristotle's entry doesn't need to list every theme that
+references him; those themes still surface via backlinks.
+
+The denser the corpus, the richer the graph; the richer the graph, the
+more useful the platform becomes as a reading aid.
+
+---
+
 ## Roadmap
 
 The architecture is in place; the long work is the content. The next
 phases, in order:
 
-1. **Expand the published entries.** Build out the next layer of
-   philosophers (the Hellenistic schools, the Roman tradition, the
-   Augustinian and Thomist inheritance) and the primary texts that go
-   with them, on the same editorial standard as the first published
-   entries.
+1. **Extend the philosopher / book layer.** The Hellenistic schools
+   (the Stoics, the Epicureans, the Skeptics), Cicero and the Roman
+   moralists, the historians (Thucydides, Polybius, Tacitus), the
+   patristic and medieval inheritance (Augustine, Aquinas), and the
+   primary texts that go with them.
 2. **Verified quote library.** Open the `/quotes` library with a small
    number of verified, cited passages from the published entries —
    each passing the four requirements set out on the page.
 3. **Source catalog growth.** Add to `src/data/sources.ts` as the
    editorial workload requires new editions; never add a source there
    that has not actually been consulted for a live entry.
-4. **Era pages.** Flesh out `/ancient-world`, `/war-and-peace` and
-   `/religion-and-wisdom` with their own typed content kinds (eras,
-   conflicts, traditions) once the entry density justifies it.
+4. **Era kinds.** Once the entry density justifies it, give
+   `/ancient-world`, `/war-and-peace` and `/religion-and-wisdom` their
+   own typed content kinds for eras, conflicts and traditions, so
+   those study landings list the kind-specific entries the way the
+   philosopher / book / theme landings already do.
 5. **Editorial workflow.** Lightweight tooling for slug uniqueness,
    broken cross-reference detection, source-id integrity, and a
    content-status report (stubs vs. published) surfaced in CI.

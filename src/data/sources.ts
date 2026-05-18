@@ -93,6 +93,61 @@ export const sources: Source[] = [
     relatedThinkers: ["aristotle"],
     relatedBooks: ["nicomachean-ethics"],
   },
+  {
+    id: "xenophontis-opera-marchant",
+    title: "Xenophontis Opera Omnia",
+    author: "Xenophon",
+    editor: "E. C. Marchant",
+    type: "classical-text",
+    originalPeriod: "4th century BCE; OCT edition published in five volumes, early 20th century",
+    language: "Ancient Greek",
+    publicDomainStatus: "public-domain",
+    notes:
+      "The standard Oxford Classical Texts edition of Xenophon's complete works in Greek. Includes the historical works (Hellenica, Anabasis), the Socratic works (Memorabilia, Symposium, Apology, Oeconomicus), the Cyropaedia, and the shorter treatises. Cited by work, book and chapter.",
+    relatedThinkers: ["xenophon", "socrates"],
+    relatedBooks: ["cyropaedia", "memorabilia"],
+  },
+  {
+    id: "homeri-opera-oct",
+    title: "Homeri Opera",
+    author: "Homer (attrib.)",
+    editor: "David B. Monro and Thomas W. Allen",
+    type: "classical-text",
+    originalPeriod: "Composition conventionally placed in the 8th century BCE; OCT edition early 20th century",
+    language: "Ancient Greek",
+    publicDomainStatus: "public-domain",
+    notes:
+      "The standard Oxford Classical Texts edition of the Iliad and Odyssey in Greek, in five volumes. The standard citation is by book and line (e.g. Iliad 1.1).",
+    relatedThinkers: ["homer"],
+    relatedBooks: ["iliad"],
+  },
+  {
+    id: "plutarchi-vitae-teubner",
+    title: "Plutarchi Vitae Parallelae (Teubner)",
+    author: "Plutarch",
+    editor: "Konrat Ziegler (general editor of the standard 20th-century Teubner)",
+    type: "classical-text",
+    originalPeriod: "Late 1st / early 2nd century CE; standard Teubner edition mid-20th century",
+    language: "Ancient Greek",
+    publicDomainStatus: "unverified",
+    notes:
+      "The standard scholarly edition of the Parallel Lives in Greek (Bibliotheca Teubneriana). Cited by the name of the Life followed by chapter and section (e.g. Alexander 1.1). Copyright status of individual Teubner volumes varies and has not been verified here.",
+    relatedThinkers: ["plutarch"],
+    relatedBooks: ["plutarchs-lives"],
+  },
+  {
+    id: "liddell-scott-jones",
+    title: "A Greek-English Lexicon (Liddell–Scott–Jones)",
+    author: "Henry George Liddell and Robert Scott",
+    editor: "Revised by Henry Stuart Jones with Roderick McKenzie",
+    type: "reference",
+    originalPeriod: "First edition 1843; revised ninth edition 1940; supplements thereafter",
+    language: "Ancient Greek / English",
+    publicDomainStatus: "public-domain",
+    notes:
+      "The standard Greek lexicon, known by the abbreviation LSJ. Older editions are out of copyright and are mirrored on Perseus, which is the most convenient way to look up Greek terms used in our entries (aretē, dikaiosynē, sōphrosynē, phronēsis, andreia, eudaimonia and the rest).",
+    url: "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0057",
+  },
 
   // ─── Open-access digital archives of classical texts ─────────────────
   {
@@ -105,7 +160,7 @@ export const sources: Source[] = [
     url: "https://www.perseus.tufts.edu/hopper/",
     notes:
       "Open-access digital collection of Greek and Latin texts hosted by Tufts University. Useful for locating passages and for working between original and a (typically older, public-domain) translation. Individual translations have their own rights status; check before quoting.",
-    relatedThinkers: ["plato", "aristotle"],
+    relatedThinkers: ["plato", "aristotle", "xenophon", "plutarch", "homer", "socrates"],
   },
   {
     id: "internet-classics-archive",
@@ -117,7 +172,7 @@ export const sources: Source[] = [
     url: "https://classics.mit.edu/",
     notes:
       "An MIT-hosted archive of older English translations of classical works. Translations are largely nineteenth- and early-twentieth-century and out of copyright in many jurisdictions; check each work individually.",
-    relatedThinkers: ["plato", "aristotle"],
+    relatedThinkers: ["plato", "aristotle", "xenophon", "plutarch", "homer"],
   },
   {
     id: "project-gutenberg",
@@ -140,8 +195,8 @@ export const sources: Source[] = [
     url: "https://plato.stanford.edu/",
     notes:
       "Peer-reviewed scholarly encyclopedia, freely accessible. Each entry is signed and dated. Useful for orienting on the current state of scholarship on a thinker, work or theme; not a substitute for the primary texts themselves.",
-    relatedThinkers: ["plato", "aristotle"],
-    relatedThemes: ["virtue", "justice", "leadership"],
+    relatedThinkers: ["plato", "aristotle", "socrates", "xenophon", "plutarch"],
+    relatedThemes: ["virtue", "justice", "leadership", "courage", "self-control"],
   },
   {
     id: "internet-encyclopedia-philosophy",
@@ -165,7 +220,7 @@ export const sources: Source[] = [
     url: "https://www.loebclassics.com/",
     notes:
       "The familiar small green (Greek) and red (Latin) volumes with facing-page translations. Many texts in the Loeb are themselves in the public domain in their original language; the *translations* in modern Loeb volumes are typically still under copyright. Cite the Greek or Latin by line / Bekker / Stephanus number rather than by Loeb page.",
-    relatedThinkers: ["plato", "aristotle"],
+    relatedThinkers: ["plato", "aristotle", "xenophon", "plutarch", "homer"],
   },
   {
     id: "oxford-classical-texts",
@@ -176,7 +231,7 @@ export const sources: Source[] = [
     language: "Greek/Latin",
     notes:
       "The standard scholarly critical editions of Greek and Latin texts in their original language. The reference set most commonly cited in academic work.",
-    relatedThinkers: ["plato", "aristotle"],
+    relatedThinkers: ["plato", "aristotle", "xenophon", "homer"],
   },
 ];
 

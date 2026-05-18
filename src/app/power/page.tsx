@@ -41,8 +41,10 @@ export default function PowerPage() {
         </>
       }
       related={[
+        { href: "/themes/power", label: "Theme · Power" },
         { href: "/themes/justice", label: "Theme · Justice" },
         { href: "/themes/leadership", label: "Theme · Leadership" },
+        { href: "/themes/ambition", label: "Theme · Ambition" },
         { href: "/statecraft", label: "Section · Statecraft" },
         { href: "/leadership", label: "Section · Leadership" },
       ]}

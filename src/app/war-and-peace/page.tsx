@@ -37,6 +37,10 @@ export default function WarAndPeacePage() {
         </>
       }
       related={[
+        { href: "/themes/war-and-peace", label: "Theme · War & Peace" },
+        { href: "/themes/courage", label: "Theme · Courage" },
+        { href: "/books/iliad", label: "Book · Iliad" },
+        { href: "/philosophers/homer", label: "Philosopher · Homer" },
         { href: "/statecraft", label: "Section · Statecraft" },
         { href: "/power", label: "Section · Power" },
         { href: "/ancient-world", label: "Section · Ancient World" },
