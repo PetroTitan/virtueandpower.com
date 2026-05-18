@@ -3,7 +3,24 @@ import { EB_Garamond, Inter } from "next/font/google";
 import { siteConfig } from "@/lib/site";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { WebmasterID } from "@/components/analytics/WebmasterID";
 import "@/styles/globals.css";
+
+// WebmasterID analytics — production site id and ingest endpoint.
+// Both are public values (the site id is the same one the tracker
+// script reports from the browser); overridable via NEXT_PUBLIC_* env
+// vars per src/components/analytics/WebmasterID.tsx.
+const WEBMASTERID_SITE_ID =
+  process.env.NEXT_PUBLIC_WEBMASTERID_SITE_ID ?? "wm_5flk74cqef8jjxar";
+const WEBMASTERID_ENDPOINT =
+  process.env.NEXT_PUBLIC_WEBMASTERID_ENDPOINT ??
+  "https://webmasterid-ingest-api.vercel.app/api/events";
+// Hoist the disabled check to the layout so the component isn't even
+// invoked in disabled environments. The component does the same check
+// internally as defence-in-depth, but skipping the invocation here
+// keeps the site id out of the RSC serialization payload entirely.
+const WEBMASTERID_ENABLED =
+  process.env.NEXT_PUBLIC_WEBMASTERID_DISABLED !== "1";
 
 const serif = EB_Garamond({
   subsets: ["latin"],
@@ -78,6 +95,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
           <SiteFooter />
         </div>
+        {WEBMASTERID_ENABLED ? (
+          <WebmasterID
+            siteId={WEBMASTERID_SITE_ID}
+            endpoint={WEBMASTERID_ENDPOINT}
+          />
+        ) : null}
       </body>
     </html>
   );
