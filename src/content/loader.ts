@@ -8,6 +8,8 @@ import type {
   ContentEntry,
   ContentKind,
   ContentRef,
+  EssayFrontmatter,
+  GuideFrontmatter,
   PhilosopherFrontmatter,
   QuoteFrontmatter,
   ThemeFrontmatter,
@@ -21,6 +23,8 @@ const dirByKind: Record<ContentKind, string> = {
   theme: "themes",
   quote: "quotes",
   comparison: "comparisons",
+  essay: "essays",
+  guide: "guides",
 };
 
 type FrontmatterFor<K extends ContentKind> = K extends "philosopher"
@@ -33,7 +37,11 @@ type FrontmatterFor<K extends ContentKind> = K extends "philosopher"
         ? QuoteFrontmatter
         : K extends "comparison"
           ? ComparisonFrontmatter
-          : never;
+          : K extends "essay"
+            ? EssayFrontmatter
+            : K extends "guide"
+              ? GuideFrontmatter
+              : never;
 
 const cache = new Map<ContentKind, ContentEntry<AnyFrontmatter>[]>();
 
@@ -99,6 +107,12 @@ export function getQuotes() {
 export function getComparisons() {
   return loadKind("comparison");
 }
+export function getEssays() {
+  return loadKind("essay");
+}
+export function getGuides() {
+  return loadKind("guide");
+}
 
 export async function getEntryBySlug<K extends ContentKind>(
   kind: K,
@@ -131,6 +145,9 @@ function collectOutgoingRefs(entry: ContentEntry<AnyFrontmatter>): ContentRef[] 
   const push = (list?: ContentRef[]) => {
     if (list?.length) refs.push(...list);
   };
+  const pushOne = (ref?: ContentRef) => {
+    if (ref) refs.push(ref);
+  };
   push(fm.related);
   switch (fm.kind) {
     case "philosopher":
@@ -149,6 +166,14 @@ function collectOutgoingRefs(entry: ContentEntry<AnyFrontmatter>): ContentRef[] 
     case "quote":
       // quotes don't have an extra typed-list field beyond `related`
       break;
+    case "essay":
+      push(fm.primaryThinkers);
+      push(fm.primaryBooks);
+      push(fm.primaryThemes);
+      break;
+    case "guide":
+      pushOne(fm.mainSubject);
+      break;
   }
   return refs;
 }
@@ -163,19 +188,24 @@ export async function getBacklinksFor(
   kind: ContentKind,
   slug: string,
 ): Promise<Array<{ ref: ContentRef; entry: ContentEntry<AnyFrontmatter> }>> {
-  const [philosophers, books, themes, quotes, comparisons] = await Promise.all([
-    getPhilosophers(),
-    getBooks(),
-    getThemes(),
-    getQuotes(),
-    getComparisons(),
-  ]);
+  const [philosophers, books, themes, quotes, comparisons, essays, guides] =
+    await Promise.all([
+      getPhilosophers(),
+      getBooks(),
+      getThemes(),
+      getQuotes(),
+      getComparisons(),
+      getEssays(),
+      getGuides(),
+    ]);
   const all: ContentEntry<AnyFrontmatter>[] = [
     ...philosophers,
     ...books,
     ...themes,
     ...quotes,
     ...comparisons,
+    ...essays,
+    ...guides,
   ];
   const inEdges: Array<{ ref: ContentRef; entry: ContentEntry<AnyFrontmatter> }> = [];
   for (const entry of all) {
@@ -194,7 +224,9 @@ export async function getBacklinksFor(
     book: 1,
     theme: 2,
     comparison: 3,
-    quote: 4,
+    essay: 4,
+    guide: 5,
+    quote: 6,
   };
   inEdges.sort((a, b) => {
     const k = kindOrder[a.entry.kind] - kindOrder[b.entry.kind];
@@ -240,13 +272,16 @@ export function sectionRootFor(kind: ContentKind): string {
 export async function getAllContentRefs(): Promise<
   Array<{ kind: ContentKind; slug: string; updated: string }>
 > {
-  const [philosophers, books, themes, quotes, comparisons] = await Promise.all([
-    getPhilosophers(),
-    getBooks(),
-    getThemes(),
-    getQuotes(),
-    getComparisons(),
-  ]);
+  const [philosophers, books, themes, quotes, comparisons, essays, guides] =
+    await Promise.all([
+      getPhilosophers(),
+      getBooks(),
+      getThemes(),
+      getQuotes(),
+      getComparisons(),
+      getEssays(),
+      getGuides(),
+    ]);
   return [
     ...philosophers.map((e) => ({
       kind: "philosopher" as const,
@@ -270,6 +305,16 @@ export async function getAllContentRefs(): Promise<
     })),
     ...comparisons.map((e) => ({
       kind: "comparison" as const,
+      slug: e.slug,
+      updated: e.frontmatter.updated,
+    })),
+    ...essays.map((e) => ({
+      kind: "essay" as const,
+      slug: e.slug,
+      updated: e.frontmatter.updated,
+    })),
+    ...guides.map((e) => ({
+      kind: "guide" as const,
       slug: e.slug,
       updated: e.frontmatter.updated,
     })),
