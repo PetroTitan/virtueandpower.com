@@ -38,8 +38,8 @@ export default async function ComparisonsIndex() {
         <Prose as="section">
           <p>
             Comparison entries pair thinkers, texts or traditions and read
-            them against each other. We follow the platform&rsquo;s "and"
-            convention rather than "vs" — the comparisons are treated as
+            them against each other. We follow the platform&rsquo;s &ldquo;and&rdquo;
+            convention rather than &ldquo;vs&rdquo; — the comparisons are treated as
             genuine relationships, not contests. The aim is to follow the
             argument rather than to declare a winner.
           </p>
