@@ -25,6 +25,14 @@
     font-family: theme("fontFamily.sans");
     font-size: 1rem;
     line-height: 1.7;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+  }
+
+  /* Long single words (foreign-language terms, URLs) shouldn't break the
+     reading column on narrow viewports. */
+  p, h1, h2, h3, h4, h5, h6, cite, dd, li {
+    overflow-wrap: anywhere;
   }
 
   h1,
