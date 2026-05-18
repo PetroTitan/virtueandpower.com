@@ -53,8 +53,10 @@ export const siteConfig = {
       { slug: "war-and-peace", label: "War & Peace" },
       { slug: "comparisons", label: "Comparisons" },
     ],
-    Journal: [
+    Editorial: [
       { slug: "about", label: "About" },
+      { slug: "editorial-policy", label: "Editorial policy" },
+      { slug: "sources", label: "Sources" },
       { slug: "rss.xml", label: "RSS" },
       { slug: "sitemap.xml", label: "Sitemap" },
     ],

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { PageHeader } from "@/components/editorial/PageHeader";
 import { Prose } from "@/components/editorial/Typography";
@@ -83,6 +84,23 @@ export default function AboutPage() {
             and entries that improve over years rather than weeks. We would
             rather publish one well-sourced essay than ten thin ones, and we
             will keep that ratio.
+          </p>
+
+          <h2>Further reading</h2>
+          <p>
+            The full statement of the standards behind every entry — on
+            primary sources, citation discipline, the no-invented-quotations
+            rule, the lifecycle of stub content, and the corrections
+            process — lives on the{" "}
+            <Link href="/editorial-policy" className="vp-link">
+              editorial policy
+            </Link>{" "}
+            page. The catalogue of texts and reference works we read from is
+            on{" "}
+            <Link href="/sources" className="vp-link">
+              Sources
+            </Link>
+            .
           </p>
         </Prose>
       </Container>
