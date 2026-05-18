@@ -3,6 +3,8 @@ import { siteConfig } from "@/lib/site";
 import {
   getBooks,
   getComparisons,
+  getEssays,
+  getGuides,
   getPhilosophers,
   getQuotes,
   getThemes,
@@ -31,13 +33,16 @@ const staticPaths = [
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [philosophers, books, themes, quotes, comparisons] = await Promise.all([
-    getPhilosophers(),
-    getBooks(),
-    getThemes(),
-    getQuotes(),
-    getComparisons(),
-  ]);
+  const [philosophers, books, themes, quotes, comparisons, essays, guides] =
+    await Promise.all([
+      getPhilosophers(),
+      getBooks(),
+      getThemes(),
+      getQuotes(),
+      getComparisons(),
+      getEssays(),
+      getGuides(),
+    ]);
 
   const now = new Date();
 
@@ -57,6 +62,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...themes,
     ...quotes,
     ...comparisons,
+    ...essays,
+    ...guides,
   ].filter((e) => e.frontmatter.status === "published");
 
   const contentEntries: MetadataRoute.Sitemap = publishedEntries.map((e) => ({
