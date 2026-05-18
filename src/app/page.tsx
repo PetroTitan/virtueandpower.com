@@ -14,50 +14,41 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import {
   getBooks,
   getComparisons,
+  getEssays,
   getPhilosophers,
   getThemes,
   hrefFor,
 } from "@/content/loader";
+import {
+  estimateReadingMinutes,
+  formatReadingTime,
+} from "@/content/reading-time";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 export const revalidate = 3600;
 
-const featuredEssays = [
-  {
-    href: "/virtue",
-    eyebrow: "Studies",
-    title: "Virtue, read on its own terms",
-    dek: "Excellence of character, realised in action — and why the Aristotelian doctrine of the mean is not a slogan but an analysis.",
-    meta: "Series · Virtue",
-  },
-  {
-    href: "/statecraft",
-    eyebrow: "Studies",
-    title: "The architecture of political life",
-    dek: "Constitutions, factions, the cycle of regimes — what classical statecraft actually asked, and why those questions persist.",
-    meta: "Series · Statecraft",
-  },
-  {
-    href: "/religion-and-wisdom",
-    eyebrow: "Studies",
-    title: "Philosophy and revelation, in conversation",
-    dek: "How the wisdom traditions — Hebrew, Greek, Christian — engaged the philosophical schools without surrendering to them.",
-    meta: "Series · Religion & Wisdom",
-  },
-] as const;
-
 export default async function HomePage() {
-  const [philosophers, books, themes, comparisons] = await Promise.all([
+  const [philosophers, books, themes, comparisons, essays] = await Promise.all([
     getPhilosophers(),
     getBooks(),
     getThemes(),
     getComparisons(),
+    getEssays(),
   ]);
 
   const featuredThinkers = philosophers.slice(0, 3);
   const featuredThemes = themes.slice(0, 3);
   const featuredBooks = books.slice(0, 3);
   const featuredComparison = comparisons[0];
+  // Three most recent published essays.
+  const featuredEssays = essays
+    .filter((e) => e.frontmatter.status === "published")
+    .sort(
+      (a, b) =>
+        new Date(b.frontmatter.updated).getTime() -
+        new Date(a.frontmatter.updated).getTime(),
+    )
+    .slice(0, 3);
 
   return (
     <>
@@ -87,17 +78,36 @@ export default async function HomePage() {
       {/* Featured essays */}
       <PageSection label="Featured essays">
         <SectionIntro
-          eyebrow="Featured essays"
+          eyebrow="Essays"
           title="Studies on the questions classical thought returned to"
-          description="Long-form work-in-progress across the platform's main lines of inquiry."
+          description="Editorial long-form on the platform's central themes — written to the same source discipline as the library entries, but willing to commit to a reading where the entries hold back."
+          href="/essays"
+          hrefLabel="All essays"
         />
-        <div className="mt-12">
-          <EditorialGrid columns={3}>
-            {featuredEssays.map((essay) => (
-              <EssayCard key={essay.href} {...essay} />
-            ))}
-          </EditorialGrid>
-        </div>
+        {featuredEssays.length ? (
+          <div className="mt-12">
+            <EditorialGrid columns={3}>
+              {featuredEssays.map((essay) => {
+                const minutes = estimateReadingMinutes(
+                  essay.body,
+                  essay.frontmatter.readingTime,
+                );
+                return (
+                  <EssayCard
+                    key={essay.slug}
+                    href={hrefFor("essay", essay.slug)}
+                    eyebrow={essay.frontmatter.domain ?? "Essay"}
+                    title={essay.frontmatter.title}
+                    dek={
+                      essay.frontmatter.subtitle ?? essay.frontmatter.description
+                    }
+                    meta={formatReadingTime(minutes)}
+                  />
+                );
+              })}
+            </EditorialGrid>
+          </div>
+        ) : null}
       </PageSection>
 
       {/* Thinkers */}

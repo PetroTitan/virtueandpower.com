@@ -13,6 +13,8 @@ export const siteConfig = {
   defaultOgImage: "/og/default.png",
   twitterHandle: "@virtueandpower",
   sections: [
+    { slug: "essays", label: "Essays" },
+    { slug: "guides", label: "Guides" },
     { slug: "philosophers", label: "Philosophers" },
     { slug: "books", label: "Books" },
     { slug: "themes", label: "Themes" },
@@ -27,11 +29,11 @@ export const siteConfig = {
     { slug: "ancient-world", label: "Ancient World" },
   ] as const,
   primaryNav: [
+    { slug: "essays", label: "Essays" },
     { slug: "philosophers", label: "Philosophers" },
     { slug: "books", label: "Books" },
     { slug: "themes", label: "Themes" },
-    { slug: "quotes", label: "Quotes" },
-    { slug: "comparisons", label: "Comparisons" },
+    { slug: "guides", label: "Guides" },
     { slug: "about", label: "About" },
   ] as const,
   footerNav: {
@@ -40,6 +42,11 @@ export const siteConfig = {
       { slug: "books", label: "Books" },
       { slug: "themes", label: "Themes" },
       { slug: "quotes", label: "Quotes" },
+    ],
+    Journal: [
+      { slug: "essays", label: "Essays" },
+      { slug: "guides", label: "Guides" },
+      { slug: "comparisons", label: "Comparisons" },
     ],
     Studies: [
       { slug: "leadership", label: "Leadership" },
@@ -51,7 +58,6 @@ export const siteConfig = {
       { slug: "ancient-world", label: "Ancient World" },
       { slug: "religion-and-wisdom", label: "Religion & Wisdom" },
       { slug: "war-and-peace", label: "War & Peace" },
-      { slug: "comparisons", label: "Comparisons" },
     ],
     Editorial: [
       { slug: "about", label: "About" },

@@ -14,6 +14,8 @@ const staticPaths = [
   "/about",
   "/editorial-policy",
   "/sources",
+  "/essays",
+  "/guides",
   "/philosophers",
   "/books",
   "/themes",
