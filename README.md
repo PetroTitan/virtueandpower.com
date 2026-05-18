@@ -48,6 +48,8 @@ The site is designed to grow slowly and to last:
 │   │   ├── layout.tsx                # Root layout, fonts, header/footer
 │   │   ├── page.tsx                  # Homepage
 │   │   ├── about/
+│   │   ├── editorial-policy/         # The standards behind every entry
+│   │   ├── sources/                  # The catalog (rendered from src/data/sources.ts)
 │   │   ├── philosophers/             # index + [slug]
 │   │   ├── books/                    # index + [slug]
 │   │   ├── themes/                   # index + [slug]
@@ -81,6 +83,7 @@ The site is designed to grow slowly and to last:
 │   │   │   ├── EditorialGrid
 │   │   │   ├── Breadcrumbs
 │   │   │   ├── PageHeader
+│   │   │   ├── SourceCard
 │   │   │   └── StubNotice
 │   │   ├── site/                     # Hero, NewsletterCta, StudyLanding
 │   │   └── seo/                      # JsonLd
@@ -89,6 +92,8 @@ The site is designed to grow slowly and to last:
 │   │   ├── loader.ts                 # File-system loader + ref resolver
 │   │   ├── mdx.tsx                   # MDX renderer with built-in components
 │   │   └── README.md                 # Authoring guide
+│   ├── data/                         # Source governance
+│   │   └── sources.ts                # Typed catalog of editions & references
 │   ├── lib/
 │   │   ├── site.ts                   # Site config, navigation
 │   │   ├── seo.ts                    # buildMetadata, JSON-LD helpers
@@ -143,6 +148,45 @@ noindex,follow` so they don't enter the search index; they are also
 filtered out of `sitemap.xml` and `rss.xml`. Only `published` entries are
 presented as authoritative and discoverable.
 
+### Content lifecycle
+
+```
+draft (local)  →  stub (in repo, status:"stub")  →  published (status:"published")
+```
+
+- **Draft.** Work-in-progress sitting on a working branch.
+- **Stub.** Frontmatter committed, status `stub`, body limited to a brief
+  scope note. Renders on the site behind a visible "Editorial status"
+  notice, emits `robots:noindex`, and is excluded from sitemap and RSS.
+  The structure is legible but the entry makes no specific claims.
+- **Published.** Body written, sources checked, status flipped to
+  `published`, `updated` date refreshed. The entry now appears in the
+  sitemap and the feed, and is indexable. The transition is a deliberate
+  editorial act, not an automated one.
+
+There is intentionally no automation that promotes a stub to published.
+
+### Editorial governance
+
+Two pieces of the project make the editorial standards visible and
+auditable rather than just stated:
+
+- **[`/editorial-policy`](src/app/editorial-policy/page.tsx)** — the live
+  policy page. Covers editorial review, historical accuracy, the use of
+  primary sources, the distinction between factual summary,
+  interpretation and commentary, citation discipline, the no-invented-
+  quotations rule, the stub-content lifecycle, corrections, and
+  conflicts of interest.
+- **[`/sources`](src/app/sources/page.tsx)** — rendered from
+  [`src/data/sources.ts`](src/data/sources.ts), the typed registry of
+  the texts, critical editions and reference works the editorial team
+  reads from. Each entry carries author, editor, translator (where
+  applicable), original period, language, public-domain status and a
+  short editorial note. Public-domain status is asserted only where it
+  is well established; otherwise marked `unverified` rather than
+  guessed at. Sources cross-reference into the content graph via
+  `relatedThinkers`, `relatedBooks` and `relatedThemes`.
+
 ### SEO
 
 - Per-page `Metadata` via `buildMetadata()` (canonical, OG, Twitter card,
@@ -185,16 +229,51 @@ npm run lint
 npm run build
 ```
 
-### Adding content
+### Adding content safely
 
-1. Create `/content/<kind>s/<slug>.mdx` (one of `philosophers`, `books`,
-   `themes`, `quotes`, `comparisons`).
-2. Fill the frontmatter — see [`src/content/types.ts`](src/content/types.ts)
-   for required fields and [`src/content/README.md`](src/content/README.md)
-   for the authoring guide.
-3. Write the body as MDX. `QuoteBlock`, `ReadingList`, `TimelineBlock` and
-   `RelatedReading` are available without imports.
-4. Cross-link with `related: [{ kind: "philosopher", slug: "..." }]`.
+The workflow below is what we run for every new entry. Following it is
+how the no-invented-quotations and no-invented-citations rules stay
+true in practice.
+
+1. **Open as a stub first.** Create `/content/<kind>s/<slug>.mdx`, fill
+   the required frontmatter, set `status: "stub"`, and write a short
+   scope note in the body. This gets the URL into the graph and the
+   editorial team can plan cross-references without committing claims.
+2. **Identify the sources before writing the body.** If there is no
+   primary text and no reputable secondary work to ground the entry,
+   the entry is not ready to leave stub. Sources go in
+   [`src/data/sources.ts`](src/data/sources.ts) so they are visible on
+   the `/sources` page; do not list a source there until you have
+   actually consulted it.
+3. **Write the body to those sources.** Stick to what the texts and the
+   scholarship support. Where a claim is contested or a date is
+   approximate, mark it. Do not introduce specific quotations,
+   Stephanus / Bekker page numbers, or precise dates that you have not
+   verified to a primary text or critical edition.
+4. **Cross-link.** Add `related: [{ kind, slug }]` entries and the
+   kind-specific fields (`primaryWorks`, `primaryThemes`, `keyThinkers`,
+   `keyTexts`, `subjects`) so the page connects into the graph in both
+   directions. The backlink computation will surface the entry from
+   pages it references, even before those pages link back.
+5. **Promote and refresh the date.** Flip `status` to `"published"` and
+   set `updated` to the publication or last-revision date. This is the
+   editorial sign-off; do it deliberately.
+
+For the surrounding standards — what counts as a primary source, how
+quotations are handled, how stubs are treated, how corrections work —
+see the live [`/editorial-policy`](src/app/editorial-policy/page.tsx)
+page and the source catalog at
+[`/sources`](src/app/sources/page.tsx) (backed by
+[`src/data/sources.ts`](src/data/sources.ts)).
+
+### Quote policy in one paragraph
+
+A quote page on this site is not published until the editorial team can
+state the exact wording, the work it comes from, the chapter / section
+or Stephanus / Bekker citation, and the translator and edition (where
+the wording is a translation) — and can write enough surrounding
+context that the line is not prised out of its argument. The library
+opens largely empty by design.
 
 ### Editorial commitments
 
@@ -215,21 +294,26 @@ These are non-negotiable and they govern every entry:
 The architecture is in place; the long work is the content. The next
 phases, in order:
 
-1. **First published entries.** Replace the placeholder stubs with full,
-   sourced entries — starting with the philosophers and primary texts
-   already present (Plato, Aristotle, *Republic*, *Nicomachean Ethics*),
-   then the Virtue and Justice themes.
+1. **Expand the published entries.** Build out the next layer of
+   philosophers (the Hellenistic schools, the Roman tradition, the
+   Augustinian and Thomist inheritance) and the primary texts that go
+   with them, on the same editorial standard as the first published
+   entries.
 2. **Verified quote library.** Open the `/quotes` library with a small
-   number of verified, cited passages from those first entries.
-3. **Era pages.** Flesh out `/ancient-world`, `/war-and-peace` and
+   number of verified, cited passages from the published entries —
+   each passing the four requirements set out on the page.
+3. **Source catalog growth.** Add to `src/data/sources.ts` as the
+   editorial workload requires new editions; never add a source there
+   that has not actually been consulted for a live entry.
+4. **Era pages.** Flesh out `/ancient-world`, `/war-and-peace` and
    `/religion-and-wisdom` with their own typed content kinds (eras,
    conflicts, traditions) once the entry density justifies it.
-4. **Editorial workflow.** Lightweight tooling for slug uniqueness, broken
-   cross-reference detection, and a content-status report (stubs vs.
-   published) surfaced in CI.
-5. **OG image generation.** Per-entry editorial OG images using the same
-   serif/parchment palette, generated at build time.
-6. **i18n foundation.** Originally Greek and Latin terms (and their
+5. **Editorial workflow.** Lightweight tooling for slug uniqueness,
+   broken cross-reference detection, source-id integrity, and a
+   content-status report (stubs vs. published) surfaced in CI.
+6. **OG image generation.** Per-entry editorial OG images using the
+   same serif/parchment palette, generated at build time.
+7. **i18n foundation.** Originally Greek and Latin terms (and their
    precise transliteration) get a small typed glossary that the prose
    renderer can link.
 
