@@ -97,9 +97,18 @@ The site is designed to grow slowly and to last:
 │   ├── lib/
 │   │   ├── site.ts                   # Site config, navigation
 │   │   ├── seo.ts                    # buildMetadata, JSON-LD helpers
-│   │   └── cn.ts
+│   │   ├── cn.ts
+│   │   └── content-health/           # Editorial QA module
+│   │       ├── types.ts              # Issue · Severity · IssueCode · ValidationReport
+│   │       ├── checks.ts             # 10 typed validators
+│   │       └── report.ts             # Console + markdown formatters
 │   └── styles/
 │       └── globals.css
+├── scripts/
+│   └── validate-content.ts           # CLI entry; runs all checks, exits 1 on errors
+├── .github/workflows/
+│   └── ci.yml                        # typecheck · lint · validate · build
+├── reports/                          # Generated; gitignored
 ├── next.config.mjs
 ├── tailwind.config.ts
 └── tsconfig.json
@@ -223,11 +232,97 @@ index. Three working rules:
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000
+npm run dev                          # http://localhost:3000
 npm run typecheck
 npm run lint
-npm run build
+npm run validate:content             # editorial QA (10 checks)
+npm run validate:content:report      # additionally writes reports/content-health.md
+npm run build                        # validate:content runs again via prebuild
 ```
+
+`npm run build` runs `validate:content` first via the `prebuild` hook, so
+an unhealthy corpus cannot ship a broken site even if a developer skips
+the validator locally.
+
+## Content health
+
+A typed editorial-QA module lives at
+[`src/lib/content-health/`](src/lib/content-health/) and is exercised by
+[`scripts/validate-content.ts`](scripts/validate-content.ts). It runs ten
+focused checks against the live MDX corpus and the typed source catalog
+and reports each issue with a stable code, a human message, the file
+location and (where useful) a one-line hint about how to fix it.
+
+### What the checks cover
+
+| Check | Severity | What it catches |
+|---|---|---|
+| `frontmatter` | error | Unknown content kinds, missing required fields, invalid `status`, malformed `updated` dates (incl. silent YAML date-overflow like `2026-13-99 → April 8, 2027`) |
+| `duplicate-slugs` | error | Two entries claiming the same `{kind, slug}` |
+| `broken-refs` | error | Any typed cross-reference (`related`, `primaryWorks`, `primaryThemes`, `keyThinkers`, `keyTexts`, `subjects`) pointing at an entry that doesn't exist |
+| `source-integrity` | error | Duplicate source ids; `relatedThinkers / relatedBooks / relatedThemes` in `sources.ts` pointing at entries that don't exist |
+| `metadata` | error / warning | Missing title or description; description over the 320-char cap; short-description warning under 50 chars |
+| `published-quality` | error | A published entry that still contains a stub-notice block, a placeholder marker (`TODO` / `TKTK` / `FIXME` / `lorem ipsum`), or lacks the structural minimum (one H2 + two substantive paragraphs) |
+| `sitemap-consistency` | error | The `/quotes/_placeholder` marker being accidentally promoted to `status: published` (would leak into the sitemap) |
+| `rss-consistency` | error | Same predicate, against the RSS feed |
+| `quote-safety` | error | A published quote missing `attribution`, `workTitle` or `workCitation`; placeholder markers in a quote body |
+| `orphans` | warning | A published entry with zero inbound cross-references from any other entry |
+
+The validator deliberately does *not* enforce word counts. The
+published-quality check is structural — about whether an entry has
+actually been written, not about hitting an arbitrary length target.
+
+### CI validation philosophy
+
+Three working rules guide what the checks do (and don't):
+
+1. **Catch silent failures, not stylistic ones.** A broken cross-reference
+   or a YAML date-overflow is the kind of bug that breaks the platform's
+   credibility without ever throwing an error at build time. The checks
+   focus there. They do not try to be a style guide.
+2. **Fail loudly, fail clearly.** Every issue carries a stable code
+   (`BROKEN_REF`, `STUB_NOTICE_IN_PUBLISHED`, `PUBLISHED_TOO_THIN`, etc.),
+   a human-readable message that names the affected file, and where
+   useful a hint about the right fix. Greppable on a CI page; obvious in
+   a terminal.
+3. **Warnings don't fail builds.** Orphan detection and the short-
+   description nudge are warnings — they surface for an editor to read
+   and act on, but they don't block a deploy. Errors do.
+
+### Editorial QA workflow
+
+```
+edit / add MDX  →  npm run validate:content  →  fix any errors
+                                            ↓
+                                   warnings? consider them, deploy if not blocking
+                                            ↓
+                              git push  →  CI re-runs the same checks
+                                            ↓
+                                npm run build  →  ships
+```
+
+The flow is the same locally and in CI because the validator is the same
+module on both sides. The GitHub Actions workflow runs typecheck, lint,
+`validate:content:report` (uploaded as a 14-day artefact) and the
+build, on every push to main and every PR against main.
+
+### Resolving validation failures
+
+| Code | What to do |
+|---|---|
+| `BROKEN_REF` | Either create the missing entry at `/content/<kind>s/<slug>.mdx` or remove the stale reference from the entry's frontmatter. |
+| `DUPLICATE_SLUG` | One of the two entries was almost certainly meant to have a different slug; pick which is canonical and rename the other. |
+| `INVALID_FRONTMATTER` | Add the missing required field, or correct the kind. See `KIND_REQUIRED_FIELDS` in `checks.ts` for the per-kind list. |
+| `INVALID_STATUS` | `status` must be exactly `"stub"` or `"published"`. |
+| `INVALID_DATE` | `updated` must be a strict `YYYY-MM-DD` with sensible month and day. Often this means a typo (`2026-13-09`); fix the literal. |
+| `MISSING_SOURCE_REF` | A source in `sources.ts` references a thinker/book/theme slug that doesn't exist. Either correct the slug in the catalog or add the missing entry. |
+| `STUB_NOTICE_IN_PUBLISHED` | Remove the "this entry is a placeholder stub" block before promoting to `status: published`. |
+| `PUBLISHED_TOO_THIN` | Add at least one H2 heading and a second substantive paragraph, or move the entry back to `status: stub`. |
+| `PLACEHOLDER_MARKER` | Resolve the TODO / FIXME / lorem ipsum in the body. |
+| `MISSING_METADATA` / `INVALID_METADATA` | Tighten the title or description; the OG and search-snippet limit is ~300 chars. |
+| `QUOTE_INCOMPLETE` | A published quote needs `attribution`, `workTitle` and `workCitation`. If any of those can't be supplied, downgrade to `status: stub`. |
+| `ORPHANED_ENTRY` (warning) | Add the entry to a `related: [{kind, slug}]` list on at least one other entry so it surfaces in Related Reading. |
+| `WEAK_DESCRIPTION` (warning) | Write a slightly longer description (>= 50 chars); improves OG cards and search snippets. |
 
 ### Adding content safely
 
