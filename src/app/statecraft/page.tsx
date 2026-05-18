@@ -39,10 +39,13 @@ export default function StatecraftPage() {
         </>
       }
       related={[
+        { href: "/themes/statecraft", label: "Theme · Statecraft" },
         { href: "/themes/justice", label: "Theme · Justice" },
+        { href: "/themes/power", label: "Theme · Power" },
         { href: "/leadership", label: "Section · Leadership" },
         { href: "/power", label: "Section · Power" },
         { href: "/books/republic", label: "Book · Republic" },
+        { href: "/books/cyropaedia", label: "Book · Cyropaedia" },
       ]}
     />
   );
