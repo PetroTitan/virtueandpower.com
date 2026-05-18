@@ -10,8 +10,8 @@ import { MdxContent } from "@/content/mdx";
 import {
   getEntryBySlug,
   getQuotes,
+  getRelatedAndBacklinks,
   hrefFor,
-  resolveRefs,
 } from "@/content/loader";
 import {
   articleJsonLd,
@@ -54,7 +54,7 @@ export default async function QuotePage({
 
   const fm = entry.frontmatter;
   const path = hrefFor("quote", slug);
-  const related = await resolveRefs(fm.related);
+  const related = await getRelatedAndBacklinks("quote", slug, fm.related);
 
   return (
     <>

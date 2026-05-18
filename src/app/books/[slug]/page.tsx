@@ -9,6 +9,7 @@ import { MdxContent } from "@/content/mdx";
 import {
   getBooks,
   getEntryBySlug,
+  getRelatedAndBacklinks,
   hrefFor,
   resolveRefs,
 } from "@/content/loader";
@@ -53,7 +54,7 @@ export default async function BookPage({
 
   const fm = entry.frontmatter;
   const path = hrefFor("book", slug);
-  const related = await resolveRefs(fm.related);
+  const related = await getRelatedAndBacklinks("book", slug, fm.related);
   const themes = await resolveRefs(fm.primaryThemes);
 
   return (

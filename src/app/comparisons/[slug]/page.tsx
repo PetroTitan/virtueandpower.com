@@ -9,6 +9,7 @@ import { MdxContent } from "@/content/mdx";
 import {
   getComparisons,
   getEntryBySlug,
+  getRelatedAndBacklinks,
   hrefFor,
   resolveRefs,
 } from "@/content/loader";
@@ -54,7 +55,7 @@ export default async function ComparisonPage({
   const fm = entry.frontmatter;
   const path = hrefFor("comparison", slug);
   const subjects = await resolveRefs(fm.subjects);
-  const related = await resolveRefs(fm.related);
+  const related = await getRelatedAndBacklinks("comparison", slug, fm.related);
 
   return (
     <>

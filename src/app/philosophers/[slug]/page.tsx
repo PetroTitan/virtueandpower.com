@@ -9,8 +9,8 @@ import { MdxContent } from "@/content/mdx";
 import {
   getEntryBySlug,
   getPhilosophers,
+  getRelatedAndBacklinks,
   hrefFor,
-  resolveRefs,
 } from "@/content/loader";
 import {
   articleJsonLd,
@@ -53,7 +53,7 @@ export default async function PhilosopherPage({
 
   const fm = entry.frontmatter;
   const path = hrefFor("philosopher", slug);
-  const related = await resolveRefs(fm.related);
+  const related = await getRelatedAndBacklinks("philosopher", slug, fm.related);
 
   return (
     <>
