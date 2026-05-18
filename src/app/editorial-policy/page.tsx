@@ -137,9 +137,9 @@ export default function EditorialPolicyPage() {
             edition, it does not appear on this site as a quotation.
           </p>
           <p>
-            Many of the most widely shared "classical" quotations on the
-            modern web fail this test. We will publish a smaller library
-            for that reason.
+            Many of the most widely shared &ldquo;classical&rdquo;
+            quotations on the modern web fail this test. We will publish a
+            smaller library for that reason.
           </p>
 
           <h2>7. How stub content is treated</h2>
@@ -162,7 +162,7 @@ export default function EditorialPolicyPage() {
           <p>
             Editorial mistakes happen. When they do, we correct the entry
             and note that it has been corrected. We do not silently rewrite
-            a published entry to obscure the earlier version's errors. If
+            a published entry to obscure the earlier version&rsquo;s errors. If
             you find a mistake on this site — a misattribution, a
             misleading paraphrase, an inaccurate date — we want to hear
             about it.

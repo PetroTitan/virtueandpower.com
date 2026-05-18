@@ -89,7 +89,8 @@ export default async function QuotesIndex() {
           <p>
             Many of the most widely shared classical quotations on the
             modern web do not, in fact, originate where they are said to.
-            Some are paraphrases that have hardened into "quotations." Some
+            Some are paraphrases that have hardened into &ldquo;quotations.&rdquo;
+            Some
             are nineteenth- or twentieth-century lines that have drifted
             backwards in time. Some are simply invented. We will publish a
             smaller library for that reason. The library opens largely
