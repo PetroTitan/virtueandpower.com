@@ -6,6 +6,7 @@ import { ThinkerCard } from "@/components/editorial/ThinkerCard";
 import { Eyebrow, Prose } from "@/components/editorial/Typography";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getPhilosophers } from "@/content/loader";
+import { getBustByFigure } from "@/data/busts";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 const PATH = "/philosophers";
@@ -105,6 +106,7 @@ export default async function PhilosophersIndex() {
                       era={p.frontmatter.era}
                       lifespan={p.frontmatter.lifespan}
                       summary={p.frontmatter.description}
+                      bust={getBustByFigure(p.slug)}
                     />
                   ))}
                 </EditorialGrid>

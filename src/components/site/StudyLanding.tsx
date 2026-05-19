@@ -17,6 +17,10 @@ type StudyLandingProps = {
    *  full-width composition. Use sparingly: study landings work
    *  without it. */
   hero?: ReactNode;
+  /** Optional full-width composition rendered after the body /
+   *  related grid — typically a FiguresStrip with the era's
+   *  principal figures. */
+  afterBody?: ReactNode;
 };
 
 export function StudyLanding({
@@ -27,6 +31,7 @@ export function StudyLanding({
   body,
   related,
   hero,
+  afterBody,
 }: StudyLandingProps) {
   return (
     <>
@@ -66,6 +71,11 @@ export function StudyLanding({
           </aside>
         </div>
       </Container>
+      {afterBody ? (
+        <Container width="editorial" className="border-t border-rule py-20">
+          {afterBody}
+        </Container>
+      ) : null}
     </>
   );
 }

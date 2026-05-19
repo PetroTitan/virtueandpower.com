@@ -88,7 +88,7 @@ export const busts: ReadonlyArray<Bust> = [
     caption: "Marcus Aurelius · 2nd century · Marble",
     attribution: "Archaeological Museum of Heraklion · Wikimedia Commons (CC0)",
     notes:
-      "Vendored as the default hero anchor. Used by src/components/site/BustImage.tsx; see /public/images/busts/README.md for processing details.",
+      "Vendored for the imperial-era essays and for a future Marcus Aurelius figure entry. Was the homepage hero anchor through phases 7–11; superseded as the default bust in phase 12 by the Tusculum portrait of Caesar.",
   },
   {
     slug: "julius-caesar-tusculum",
@@ -196,5 +196,21 @@ export function getBust(slug: string): Bust | undefined {
   return busts.find((b) => b.slug === slug);
 }
 
-/** The bust to use when none is requested explicitly. */
-export const DEFAULT_BUST_SLUG = "marcus-aurelius-heraklion";
+/** The bust to use when none is requested explicitly. The Tusculum
+ *  portrait of Caesar is the platform's default hero anchor: the only
+ *  surviving likeness of Caesar widely accepted by scholarship as
+ *  carved from life, and the figure the platform reads as the working
+ *  centre of the late Republic — the convergence point of virtue,
+ *  power, civic order, and the collapse the European tradition has
+ *  not stopped reading. */
+export const DEFAULT_BUST_SLUG = "julius-caesar-tusculum";
+
+/**
+ * Resolve a bust by the figure slug it depicts (e.g. "cicero",
+ * "trajan"). Returns undefined if no bust in the registry has that
+ * figureSlug. Used by figure pages, related-figure sidebars, and the
+ * homepage featured-figures composition.
+ */
+export function getBustByFigure(figureSlug: string): Bust | undefined {
+  return busts.find((b) => b.figureSlug === figureSlug);
+}

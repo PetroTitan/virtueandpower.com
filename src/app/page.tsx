@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { SectionIntro } from "@/components/editorial/SectionIntro";
 import { EditorialGrid } from "@/components/editorial/EditorialGrid";
-import { ThinkerCard } from "@/components/editorial/ThinkerCard";
 import { ThemeCard } from "@/components/editorial/ThemeCard";
 import { BookCard } from "@/components/editorial/BookCard";
 import { EssayHero } from "@/components/editorial/EssayHero";
 import { EssayCard } from "@/components/editorial/EssayCard";
 import { Eyebrow, Lede } from "@/components/editorial/Typography";
 import { PageSection } from "@/components/layout/PageSection";
+import { FiguresStrip } from "@/components/site/FiguresStrip";
 import { Hero } from "@/components/site/Hero";
 import { NewsletterCta } from "@/components/site/NewsletterCta";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -15,7 +15,6 @@ import {
   getBooks,
   getComparisons,
   getEssays,
-  getPhilosophers,
   getThemes,
   hrefFor,
 } from "@/content/loader";
@@ -28,15 +27,13 @@ import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 export const revalidate = 3600;
 
 export default async function HomePage() {
-  const [philosophers, books, themes, comparisons, essays] = await Promise.all([
-    getPhilosophers(),
+  const [books, themes, comparisons, essays] = await Promise.all([
     getBooks(),
     getThemes(),
     getComparisons(),
     getEssays(),
   ]);
 
-  const featuredThinkers = philosophers.slice(0, 3);
   const featuredThemes = themes.slice(0, 3);
   const featuredBooks = books.slice(0, 3);
   const featuredComparison = comparisons[0];
@@ -110,30 +107,29 @@ export default async function HomePage() {
         ) : null}
       </PageSection>
 
-      {/* Thinkers */}
-      <PageSection label="Philosophers">
-        <SectionIntro
-          eyebrow="Philosophers"
-          title="Read the thinkers themselves"
-          description="A growing library of editorial entries on the philosophers, statesmen, theologians and historians who shaped the inheritance."
-          href="/philosophers"
-          hrefLabel="All philosophers"
+      {/* Figures — the visual centre of gravity. The strip surfaces
+          four marble portraits from across the corpus so the
+          homepage carries the museum-catalogue weight the platform
+          is for. */}
+      <PageSection label="Figures">
+        <FiguresStrip
+          eyebrow="Figures"
+          heading="Read the people through whom the tradition speaks"
+          items={[
+            { slug: "cicero", role: "Senator · Orator · Republic" },
+            { slug: "augustus", role: "Princeps · Empire" },
+            { slug: "pericles", role: "Strategos · Athens" },
+            { slug: "trajan", role: "Optimus Princeps · High Empire" },
+          ]}
         />
-        <div className="mt-12">
-          <EditorialGrid columns={3}>
-            {featuredThinkers.map((p) => (
-              <ThinkerCard
-                key={p.slug}
-                slug={p.slug}
-                name={p.frontmatter.title}
-                epithet={p.frontmatter.epithet}
-                era={p.frontmatter.era}
-                lifespan={p.frontmatter.lifespan}
-                summary={p.frontmatter.description}
-              />
-            ))}
-          </EditorialGrid>
-        </div>
+        <p className="mt-12">
+          <Link
+            href="/philosophers"
+            className="vp-link text-sm uppercase tracking-eyebrow"
+          >
+            All philosophers and figures
+          </Link>
+        </p>
       </PageSection>
 
       {/* Themes */}

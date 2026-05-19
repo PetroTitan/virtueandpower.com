@@ -870,22 +870,59 @@ marble rather than as a postcard.
 The visual layer is deliberately sparse. The aesthetic is museum
 catalogue, not blog feed.
 
+- **Homepage** anchors on the Tusculum portrait of Julius Caesar
+  (the only surviving likeness widely accepted as carved from
+  life). Below the hero, a `FiguresStrip` surfaces a curated
+  set of four portraits — Cicero, Augustus, Pericles, Trajan —
+  as a museum-strip composition. Caesar replaced Marcus
+  Aurelius as the homepage figure in phase 12; the platform's
+  centre of gravity is the late Republic, and the Tusculum head
+  does that iconographic work better than the more familiar
+  imperial-era idealisations.
 - **Figure pages** that have a registered bust in the bust
   catalog render the bust at the top of the sidebar
   automatically. Caesar, Augustus, Pericles, Cicero, Marcus
   Aurelius and Trajan all currently surface this way; figures
   without a registered bust render with no visual stub.
+- **Figure index** (`/philosophers`) — `ThinkerCard` now
+  renders a portrait crop of the figure's bust above the era
+  rule when a bust is registered. The catalog grid is
+  intentionally uneven: figures with securely identified
+  surviving portraits get the portrait; figures without do
+  not. That asymmetry is the museum-catalogue choice.
 - **Study landings** (the era pages) accept an optional `hero`
-  slot; `/roman-republic` uses it to anchor the Forum overview
-  between the page header and the body.
-- **Homepage** uses the Marcus Aurelius bust as its sculptural
-  focal point (unchanged since the marble redesign).
+  slot and an optional `afterBody` slot. `/roman-republic`
+  uses the hero for the Forum overview and the afterBody for
+  a `FiguresStrip` carrying Caesar, Cicero, Augustus and
+  Trajan as the era's principal portraits.
 
 We do not add visuals to dense editorial pages (essays, guides,
 themes) unless an image is doing real interpretive work in the
 argument. The brief's caution against blog-feed crowding governs
 this: the visual layer supports the editorial layer; it does not
 overpower it.
+
+#### Resolving the default bust
+
+[`src/data/busts.ts`](src/data/busts.ts) exports `DEFAULT_BUST_SLUG`
+— the slug used by `BustImage` when no specific bust is requested
+— and a `getBustByFigure(figureSlug)` helper that resolves a bust
+by the figure it depicts (used by the philosopher detail template,
+the figure cards, and the `FiguresStrip`).
+
+The default flipped from Marcus Aurelius to the Tusculum Caesar in
+phase 12. The platform's hierarchy for picking a bust when one is
+not explicitly named:
+
+- *power / republic / statecraft contexts* — Julius Caesar
+  (Tusculum)
+- *imperial order contexts* — Trajan (Glyptothek)
+- *Greek civic contexts* — Pericles (Vatican Pio-Clementino)
+- *civic rhetoric / law contexts* — Cicero (Vatican Museums)
+
+Marcus Aurelius remains in the catalog and on imperial-era pages
+where he is contextually relevant, but he is no longer the
+platform's default brand image.
 
 #### What the image catalog will and will not contain
 

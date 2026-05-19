@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { StudyLanding } from "@/components/site/StudyLanding";
 import { ArchiveImage } from "@/components/site/ArchiveImage";
+import { FiguresStrip } from "@/components/site/FiguresStrip";
 import { buildMetadata } from "@/lib/seo";
 
 const PATH = "/roman-republic";
@@ -26,6 +27,18 @@ export default function RomanRepublicPage() {
           slug="roman-forum-view"
           priority
           sizes="(min-width: 1280px) 1100px, (min-width: 768px) 90vw, 100vw"
+        />
+      }
+      afterBody={
+        <FiguresStrip
+          eyebrow="Figures of the era"
+          heading="Read the Republic through the people who made it and unmade it"
+          items={[
+            { slug: "julius-caesar", role: "General · Dictator · 100–44 BCE" },
+            { slug: "cicero", role: "Senator · Orator · 106–43 BCE" },
+            { slug: "augustus", role: "Princeps · 63 BCE – 14 CE" },
+            { slug: "trajan", role: "Optimus Princeps · 53–117 CE" },
+          ]}
         />
       }
       body={
