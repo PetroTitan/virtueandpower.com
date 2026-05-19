@@ -110,6 +110,46 @@ on Wikimedia's CDN and so the provenance is file-system-traceable.
 - **Local processing.** Same pipeline; resulting file is ~124
   KB at 1228 × 1600.
 
+### `aristotle-altemps.webp`
+
+- **Subject.** Marble bust of Aristotle, Roman copy after a lost
+  Greek bronze original by Lysippos c. 330 BCE — the canonical
+  likeness of Aristotle in the European tradition.
+- **Location.** Palazzo Altemps, Rome (Inv. 8575).
+- **Source.** Wikimedia Commons,
+  [`File:Aristotle Altemps Inv8575.jpg`](https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg).
+- **Photographer.** Marie-Lan Nguyen (Wikimedia user *Jastrow*).
+- **Licence.** **Public domain.**
+- **Source dimensions.** 1700 × 2275.
+- **Local processing.** Same pipeline; ~112 KB at 1196 × 1600.
+
+### `socrates-pio-clementino.webp`
+
+- **Subject.** Marble bust of Socrates, Roman copy after a Greek
+  original — the iconographic type the ancient sources record
+  (flat nose, broad face, prominent forehead).
+- **Location.** Museo Pio-Clementino, Vatican (Inv. 314).
+- **Source.** Wikimedia Commons,
+  [`File:Socrates Pio-Clementino Inv314.jpg`](https://commons.wikimedia.org/wiki/File:Socrates_Pio-Clementino_Inv314.jpg).
+- **Photographer.** Marie-Lan Nguyen (Wikimedia user *Jastrow*).
+- **Licence.** **Public domain.**
+- **Source dimensions.** 1300 × 1740.
+- **Local processing.** Same pipeline; ~173 KB at 1195 × 1600.
+
+### `plato-pio-clementino.webp`
+
+- **Subject.** Marble herm of Plato, Roman copy after a Greek
+  original from the last quarter of the 4th century BCE — the
+  standard Plato-portrait type, identified by inscribed copies
+  of the same model.
+- **Location.** Museo Pio-Clementino, Vatican (Inv. 305).
+- **Source.** Wikimedia Commons,
+  [`File:Plato Pio-Clemetino Inv305.jpg`](https://commons.wikimedia.org/wiki/File:Plato_Pio-Clemetino_Inv305.jpg).
+- **Photographer.** Marie-Lan Nguyen (Wikimedia user *Jastrow*).
+- **Licence.** **Public domain.**
+- **Source dimensions.** 1450 × 2200.
+- **Local processing.** Same pipeline; ~123 KB at 1055 × 1600.
+
 ## Adding new busts
 
 1. Find a public-domain (CC0 / PD-old) or attribution-friendly

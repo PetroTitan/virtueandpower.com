@@ -41,7 +41,13 @@ export type ArchiveImageKind =
   | "relief"
   | "inscription";
 
-export type ArchiveImageCulture = "greek" | "roman" | "persian" | "byzantine" | "modern";
+export type ArchiveImageCulture =
+  | "greek"
+  | "roman"
+  | "persian"
+  | "egyptian"
+  | "byzantine"
+  | "modern";
 
 export interface ArchiveImage {
   /** Stable kebab-case identifier. */
@@ -141,7 +147,128 @@ export const archiveImages: ReadonlyArray<ArchiveImage> = [
     notes:
       "Vendored as a civilizational anchor. The most intact major imperial-era building, and the architectural type that European architects from Brunelleschi to Jefferson worked through. The coffered dome and oculus are the surviving record of Roman concrete engineering at its full reach.",
   },
+  {
+    slug: "colosseum-curves",
+    kind: "architecture",
+    subject: "The Colosseum, exterior curve in vertical perspective",
+    culture: "roman",
+    era: "Flavian, 70–80 CE",
+    location: "Rome, Italy",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Curves_perspective,_Colosseum,_Rome,_Italy.jpg",
+    license: "cc-zero",
+    photographer: "Jebulon",
+    imagePath: "/images/architecture/colosseum-curves.webp",
+    width: 1065,
+    height: 1600,
+    alt: "The Colosseum in Rome — exterior curve seen in vertical perspective from below.",
+    caption: "The Colosseum · 70–80 CE · Travertine, tuff, brick-faced concrete",
+    attribution: "Rome · photo Jebulon · Wikimedia Commons (CC0)",
+    notes:
+      "Vendored as a civilizational anchor for the Rome hub. The Flavian amphitheatre as the largest civic-spectacle architecture of antiquity and the architectural type that defined imperial-era leisure infrastructure across the empire.",
+  },
+  {
+    slug: "parthenon-east",
+    kind: "architecture",
+    subject: "The Parthenon, east end on the Athenian Acropolis",
+    culture: "greek",
+    era: "Classical Greece, 447–432 BCE",
+    location: "Acropolis, Athens, Greece",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Parthenon_east_Acropolis,_Athens,_Greece.jpg",
+    license: "cc-zero",
+    photographer: "Jebulon",
+    imagePath: "/images/architecture/parthenon-east.webp",
+    width: 1055,
+    height: 1600,
+    alt: "The Parthenon, east front, on the Athenian Acropolis — Pentelic marble Doric temple to Athena Polias, built 447–432 BCE under Pericles.",
+    caption: "The Parthenon · 5th century BCE · Pentelic marble",
+    attribution: "Acropolis, Athens · photo Jebulon · Wikimedia Commons (CC0)",
+    notes:
+      "Vendored as the civilizational anchor for the Greece hub. Built under Pericles by Iktinos and Kallikrates with the sculptural programme overseen by Phidias; the central architectural statement of the high classical city.",
+  },
+  {
+    slug: "delphi-apollo",
+    kind: "architecture",
+    subject: "The Temple of Apollo at Delphi, six columns standing",
+    culture: "greek",
+    era: "4th-century BCE temple on a much older sanctuary site",
+    location: "Delphi, Greece",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Delphes,_Gr%C3%A8ce._Temple_d%27Apollon._Six_colonnes.jpg",
+    license: "cc-zero",
+    photographer: "Jebulon",
+    imagePath: "/images/architecture/delphi-apollo.webp",
+    width: 1600,
+    height: 1067,
+    alt: "Six columns standing of the Temple of Apollo at Delphi, with the Phaedriades cliffs behind.",
+    caption: "Temple of Apollo · Delphi · 4th century BCE",
+    attribution: "Delphi · photo Jebulon · Wikimedia Commons (CC0)",
+    notes:
+      "Vendored for the Greece hub's gallery composition. Delphi was the panhellenic sanctuary the Greek city-states ranked themselves against and consulted before war and constitutional change; the temple of Apollo was its centre.",
+  },
+  {
+    slug: "persepolis-apadana",
+    kind: "relief",
+    subject: "Eastern stairway of the Apadana, Persepolis — tribute procession",
+    culture: "persian",
+    era: "Achaemenid, c. 515–490 BCE under Darius I and Xerxes I",
+    location: "Persepolis (Takht-e Jamshid), Iran",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Persepolis_Apadana_Eastern_Stairway_Triangle.jpg",
+    license: "public-domain",
+    photographer: "JMCC1",
+    imagePath: "/images/architecture/persepolis-apadana.webp",
+    width: 1600,
+    height: 1067,
+    alt: "Bas-relief on the eastern stairway of the Apadana at Persepolis, depicting the Achaemenid tribute procession of subject peoples.",
+    caption: "Apadana stairway · Persepolis · c. 500 BCE",
+    attribution: "Persepolis · photo JMCC1 · Wikimedia Commons (Public Domain)",
+    notes:
+      "Vendored as the civilizational anchor for the Persia hub. The Apadana relief is the single most legible Achaemenid statement on the imperial order — tribute peoples (Medes, Elamites, Babylonians, Lydians, Egyptians, Scythians, Indians and others) arrayed in registers ascending toward the Great King.",
+  },
+  {
+    slug: "giza-pyramids",
+    kind: "architecture",
+    subject: "The Pyramids of Giza, the three principal pyramids",
+    culture: "egyptian",
+    era: "Old Kingdom, c. 2600–2500 BCE",
+    location: "Giza Plateau, near Cairo, Egypt",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Pyramids_of_Giza,_Giza,_GG,_EGY_(47113315194).jpg",
+    license: "cc-zero",
+    photographer: "Tm",
+    imagePath: "/images/architecture/giza-pyramids.webp",
+    width: 1600,
+    height: 1199,
+    alt: "The three principal pyramids of Giza — Khufu, Khafre and Menkaure — on the Giza Plateau outside Cairo.",
+    caption: "The Pyramids of Giza · Old Kingdom · Limestone and granite",
+    attribution: "Giza · photo Tm · Wikimedia Commons (CC0)",
+    notes:
+      "Vendored as the civilizational anchor for the Egypt hub. The Old Kingdom pyramid complex at Giza is the architectural form most associated with pharaonic sacred-monarchical continuity in the long European imagination, although the Old Kingdom itself ended more than two thousand years before the periods most of the platform's primary classical material concerns.",
+  },
+  {
+    slug: "karnak-hypostyle",
+    kind: "architecture",
+    subject: "The Great Hypostyle Hall of the Temple of Amun at Karnak",
+    culture: "egyptian",
+    era: "New Kingdom, c. 1290–1224 BCE under Seti I and Ramesses II",
+    location: "Karnak, Luxor, Egypt",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Karnak_Temple_Great_Hypostyle_Hall_2014.jpg",
+    license: "cc-zero",
+    photographer: "Tsyganov Sergey",
+    imagePath: "/images/architecture/karnak-hypostyle.webp",
+    width: 1600,
+    height: 1315,
+    alt: "Sandstone columns of the Great Hypostyle Hall of the Temple of Amun at Karnak, New Kingdom Egypt.",
+    caption: "Karnak · Hypostyle Hall · New Kingdom",
+    attribution: "Karnak, Luxor · photo Tsyganov Sergey · Wikimedia Commons (CC0)",
+    notes:
+      "Vendored for the Egypt hub's gallery composition. The Great Hypostyle Hall at Karnak is the largest surviving column hall of antiquity and the architectural statement of the New Kingdom theocratic state.",
+  },
 ];
+
 
 /** Look up an archive image by slug. */
 export function getArchiveImage(slug: string): ArchiveImage | undefined {
