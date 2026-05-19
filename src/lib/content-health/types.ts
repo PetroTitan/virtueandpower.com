@@ -23,6 +23,7 @@ export type IssueCode =
   | "INVALID_METADATA"
   | "QUOTE_INCOMPLETE"
   | "PLACEHOLDER_MARKER"
+  | "NON_PROD_URL"
   // warnings
   | "ORPHANED_ENTRY"
   | "STALE_UPDATED"

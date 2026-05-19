@@ -607,6 +607,51 @@ export function checkQuoteSafety(
 }
 
 // ──────────────────────────────────────────────────────────────────────
+// 11. Production-URL hygiene: no localhost / preview URLs in content bodies
+// ──────────────────────────────────────────────────────────────────────
+
+/**
+ * Catches URLs that should never have shipped: localhost, raw IPs, and
+ * any *.vercel.app preview hostname. The check looks at MDX bodies
+ * because that is where editor-pasted snippets are most likely to slip
+ * through. Source code is covered by typecheck + lint + the production
+ * canonical URL test in seo.ts.
+ *
+ * The platform's legitimate uses of *.vercel.app (the WebmasterID
+ * analytics ingest endpoint at webmasterid-ingest-api.vercel.app) live
+ * in src/components/analytics/WebmasterID.tsx and are deliberately
+ * outside the scope of this content-side check.
+ */
+const NON_PROD_URL_PATTERNS: ReadonlyArray<{ regex: RegExp; label: string }> = [
+  { regex: /https?:\/\/localhost(?::\d+)?/i, label: "localhost" },
+  { regex: /https?:\/\/127\.0\.0\.1(?::\d+)?/i, label: "127.0.0.1" },
+  { regex: /https?:\/\/[a-z0-9-]+\.vercel\.app/i, label: "*.vercel.app" },
+  { regex: /https?:\/\/[a-z0-9-]+\.ngrok(?:-free)?\.app/i, label: "*.ngrok.app" },
+];
+
+export function checkProductionUrls(
+  entries: ContentEntry<AnyFrontmatter>[],
+): Issue[] {
+  const issues: Issue[] = [];
+  for (const entry of entries) {
+    for (const { regex, label } of NON_PROD_URL_PATTERNS) {
+      const match = entry.body.match(regex);
+      if (match) {
+        issues.push({
+          severity: "error",
+          code: "NON_PROD_URL",
+          message: `Non-production URL in body: "${match[0]}" (${label})`,
+          location: locOf(entry),
+          hint: "Replace with the production https://virtueandpower.com URL, or remove the link entirely if it was a development-time reference.",
+        });
+        break;
+      }
+    }
+  }
+  return issues;
+}
+
+// ──────────────────────────────────────────────────────────────────────
 // Composition
 // ──────────────────────────────────────────────────────────────────────
 
@@ -629,6 +674,7 @@ export function runAllChecks(
     { name: "sitemap-consistency", issues: checkSitemapConsistency(entries) },
     { name: "rss-consistency", issues: checkRssConsistency(entries) },
     { name: "quote-safety", issues: checkQuoteSafety(entries) },
+    { name: "production-urls", issues: checkProductionUrls(entries) },
     { name: "orphans", issues: checkOrphans(entries) },
   ];
 }
