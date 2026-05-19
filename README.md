@@ -66,6 +66,15 @@ The site is designed to grow slowly and to last:
 │   │   ├── war-and-peace/            # study landing
 │   │   ├── religion-and-wisdom/      # study landing
 │   │   ├── ancient-world/            # study landing
+│   │   ├── privacy-policy/           # Trust pages
+│   │   ├── terms/
+│   │   ├── cookie-policy/
+│   │   ├── icon.tsx                  # Favicon (32x32 V&P monogram)
+│   │   ├── apple-icon.tsx            # iOS home-screen icon
+│   │   ├── opengraph-image.tsx       # Default OG card (1200x630)
+│   │   ├── twitter-image.tsx         # Same image, twitter:card slot
+│   │   ├── llms.txt/route.ts         # Machine-readable description for AI crawlers
+│   │   ├── humans.txt/route.ts       # humanstxt.org-style colophon
 │   │   ├── rss.xml/route.ts          # RSS 2.0 feed
 │   │   ├── robots.ts                 # robots.txt
 │   │   ├── sitemap.ts                # sitemap.xml
@@ -106,10 +115,13 @@ The site is designed to grow slowly and to last:
 │   │   ├── cn.ts
 │   │   └── content-health/           # Editorial QA module
 │   │       ├── types.ts              # Issue · Severity · IssueCode · ValidationReport
-│   │       ├── checks.ts             # 10 typed validators
+│   │       ├── checks.ts             # 11 typed validators
 │   │       └── report.ts             # Console + markdown formatters
 │   └── styles/
 │       └── globals.css
+├── public/
+│   ├── 9e157e…ffd.txt                # IndexNow key (see public/README-indexnow.md)
+│   └── README-indexnow.md            # IndexNow submission protocol notes
 ├── scripts/
 │   └── validate-content.ts           # CLI entry; runs all checks, exits 1 on errors
 ├── .github/workflows/
@@ -290,6 +302,82 @@ restraint:
 3. **Reversible by environment variable.** Any deployment can switch
    the tracker off with one env var without touching the code.
 
+### Launch readiness
+
+The platform is built to be discoverable on its own terms — by search
+engines, by AI systems that summarise classical material, and by
+human readers who arrive via a link in a citation.
+
+**Production domain.** Everything canonicalises on
+`https://virtueandpower.com`. `siteConfig.url` (overridable via
+`NEXT_PUBLIC_SITE_URL`) flows through `buildMetadata` to OG, Twitter,
+Article and Breadcrumb JSON-LD, `sitemap.xml`, `rss.xml`, `robots.txt`,
+`/llms.txt` and `/humans.txt`. The `production-urls` content-health
+check verifies no MDX body ever contains a localhost, preview or
+tunnel URL that would survive into production.
+
+**Branding.** Four Next.js file-convention assets render at request
+time via `ImageResponse`:
+
+| File | Surface |
+|---|---|
+| [`app/icon.tsx`](src/app/icon.tsx) | 32x32 favicon (V&P serif monogram) |
+| [`app/apple-icon.tsx`](src/app/apple-icon.tsx) | 180x180 iOS home-screen icon |
+| [`app/opengraph-image.tsx`](src/app/opengraph-image.tsx) | 1200x630 default OG card |
+| [`app/twitter-image.tsx`](src/app/twitter-image.tsx) | Same image at the Twitter slot |
+
+Per-page Metadata sets `images` only when an explicit override is
+given; otherwise the file-convention images flow through Next's
+metadata merging. There is no static PNG to maintain.
+
+**AI discoverability.**
+
+- [`/llms.txt`](src/app/llms.txt/route.ts) — plain text in the loose
+  [llmstxt.org](https://llmstxt.org) tradition; names the editorial
+  commitments, the stub/published lifecycle, and points at the seven
+  main sections plus the sitemap and RSS. Cached for 1 hour.
+- The editorial-policy and source catalog are public surfaces (`/editorial-policy`,
+  `/sources`); LLMs that read those pages get the same source-discipline
+  framing readers get.
+- `robots.txt` permits all user agents by default. We do not block AI
+  crawlers; the platform is built to be the kind of thing they should
+  read.
+
+**Search-engine readiness.**
+
+- `sitemap.xml` enumerates every static section + every `status:
+  "published"` MDX entry; stubs are filtered out so a noindex URL is
+  never advertised.
+- `rss.xml` lists every published entry sorted by `updated` for
+  Google Search Console / Bing Webmaster discovery and for standard
+  feed readers.
+- Per-entry Article + Breadcrumb JSON-LD on every detail page; Person
+  on philosopher pages, Book on book pages.
+
+**IndexNow.** The static key file at
+[`public/9e157ec92314db2f0278703fe2b90ffd.txt`](public/README-indexnow.md)
+verifies ownership for the [IndexNow](https://www.indexnow.org/)
+protocol (Bing, Yandex, Seznam.cz). Manual submission is the current
+process; see `public/README-indexnow.md` for the curl recipe.
+Automated pinging on publish is a deliberate non-goal until the
+publish cadence justifies it.
+
+**Trust pages.** Three short, honest pages match how the platform
+actually behaves:
+
+- `/privacy-policy` — WebmasterID is the only analytics; no
+  third-party ads, retargeting or social trackers; standard Vercel
+  operational logs.
+- `/terms` — free to read, link and quote; substantial republication
+  needs permission; standard no-warranty disclaimers.
+- `/cookie-policy` — first-party analytics identifier only; no
+  third-party cookies; three plain ways to opt out; the absence of a
+  consent banner is stated as a goal rather than treated as a gap.
+
+The footer carries the seven editorial nav groups plus a new **Trust**
+group (Privacy / Terms / Cookies) and a **Discovery** group (RSS /
+Sitemap / llms.txt / humans.txt).
+
 ---
 
 ## Development
@@ -299,7 +387,7 @@ npm install
 npm run dev                          # http://localhost:3000
 npm run typecheck
 npm run lint
-npm run validate:content             # editorial QA (10 checks)
+npm run validate:content             # editorial QA (11 checks)
 npm run validate:content:report      # additionally writes reports/content-health.md
 npm run build                        # validate:content runs again via prebuild
 ```
@@ -330,6 +418,7 @@ location and (where useful) a one-line hint about how to fix it.
 | `sitemap-consistency` | error | The `/quotes/_placeholder` marker being accidentally promoted to `status: published` (would leak into the sitemap) |
 | `rss-consistency` | error | Same predicate, against the RSS feed |
 | `quote-safety` | error | A published quote missing `attribution`, `workTitle` or `workCitation`; placeholder markers in a quote body |
+| `production-urls` | error | A URL in an MDX body that points at `localhost`, `127.0.0.1`, `*.vercel.app` (preview hostnames) or `*.ngrok.app` — anything that wouldn't survive a production deploy. |
 | `orphans` | warning | A published entry with zero inbound cross-references from any other entry |
 
 The validator deliberately does *not* enforce word counts. The
@@ -385,6 +474,7 @@ build, on every push to main and every PR against main.
 | `PLACEHOLDER_MARKER` | Resolve the TODO / FIXME / lorem ipsum in the body. |
 | `MISSING_METADATA` / `INVALID_METADATA` | Tighten the title or description; the OG and search-snippet limit is ~300 chars. |
 | `QUOTE_INCOMPLETE` | A published quote needs `attribution`, `workTitle` and `workCitation`. If any of those can't be supplied, downgrade to `status: stub`. |
+| `NON_PROD_URL` | Replace the non-production URL with its production https://virtueandpower.com equivalent, or remove the link entirely if it was a development reference. |
 | `ORPHANED_ENTRY` (warning) | Add the entry to a `related: [{kind, slug}]` list on at least one other entry so it surfaces in Related Reading. |
 | `WEAK_DESCRIPTION` (warning) | Write a slightly longer description (>= 50 chars); improves OG cards and search snippets. |
 
