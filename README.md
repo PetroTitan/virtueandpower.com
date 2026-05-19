@@ -561,15 +561,20 @@ The current published corpus, organised by section.
 - Xenophon — *Cyropaedia*, *Memorabilia*
 - Aristotle — *Nicomachean Ethics*
 - Plutarch — *Parallel Lives*
+- Cicero — *De Officiis*, *De Re Publica*
+- Caesar — *Commentarii de Bello Gallico*
+- Sallust — *The Conspiracy of Catiline*, *The Jugurthine War*
+- Livy — *Ab Urbe Condita*
+- Polybius — *Histories*
 
 **Themes** (`/themes`)
 
 - *Character virtues:* Virtue, Courage, Self-Control, Ambition,
   Discipline, Honor, Duty
 - *Political:* Justice, Leadership, Statecraft, Power, Republic,
-  Empire, Law, Civic virtue, Founding
+  Empire, Law, Civic virtue, Founding, Mixed constitution
 - *Historical:* War and Peace, Corruption, Decline, Military virtue,
-  Education
+  Education, Historical memory
 
 **Comparisons** (`/comparisons`)
 
@@ -599,6 +604,16 @@ The current published corpus, organised by section.
   preserved the forms while concentrating the substance
 - *The Roman idea of civic virtue* — Cicero's *De Officiis* and what
   the long tradition kept from it
+- *Why the Roman Republic collapsed* — the structural argument
+- *Polybius and the mixed constitution* — what Book VI did
+- *Cicero and the defence of civic order* — *De Re Publica* and
+  *De Officiis* read together as a working argument
+- *Sallust on corruption and ambition* — the diagnosis the European
+  moral tradition kept returning to
+- *Caesar as general and as statesman* — why the assessments run in
+  opposite directions and how to hold them together
+- *Why Roman history became moral instruction* — Livy, Sallust,
+  Plutarch and the *exempla* tradition
 
 **Guides** (`/guides`) — reading orientations
 
@@ -702,6 +717,67 @@ declares the relationship.
 The denser the corpus, the richer the graph; the richer the graph, the
 more useful the platform becomes as a reading aid.
 
+### The primary-text layer
+
+The platform takes primary classical works seriously as first-class
+editorial entities. A *book* entry is not a plot summary or a school
+report. It is an editorial reading of *why the work was written*,
+*what political or civilizational question it asks*, *how the
+European tradition has read it*, and *what about that reading we
+think should still hold up*.
+
+Book entries carry three typed cross-reference fields:
+`primaryThemes` (the platform themes the work most centrally
+concerns), `primaryThinkers` (the figures the work most closely
+concerns or is in dialogue with) and the general `related` graph.
+The book detail page surfaces resolved `primaryThemes` and
+`primaryThinkers` in the sidebar; the rest flow through the standard
+Related Reading. The point is that a primary work like Polybius'
+*Histories* sits in the corpus as a node connected on every relevant
+side — to the authors who read it (Cicero, Machiavelli, Adams), to
+the figures it makes intelligible (Scipio Africanus), to the themes
+it shaped (mixed constitution, republic, decline), and to the essays
+that develop its argument.
+
+#### Translation and edition discipline
+
+Every primary text entry includes a `recommendedTranslation` field
+written for the working reader. We distinguish three kinds of
+recommendation:
+
+- **Public-domain translations** (out of copyright in the United
+  States; safe to host on Project Gutenberg, Internet Classics
+  Archive, LacusCurtius). These are the translations we link to
+  when the question is *accessibility*. Examples: Jowett's Plato,
+  Dakyns' Xenophon, Roberts' Livy, the older Loeb volumes by
+  Rolfe (Sallust), Perrin (Plutarch), Paton (Polybius).
+- **Standard scholarly translations** in print. Named where they
+  exist as the working translations the editorial team itself
+  consults. Examples: Margaret Atkins' *De Officiis*, Niall Rudd's
+  *Republic and Laws*, Robin Waterfield's Polybius.
+- **Critical editions of the original-language text.** Named as
+  the standard reference (the Oxford Classical Texts; the Bibliotheca
+  Teubneriana). Cited so that scholarly readers know what we are
+  working from; not the form most readers will encounter.
+
+We do not assert copyright status we have not verified. Where a
+modern translation's status is genuinely complicated we point the
+reader at the older public-domain translation and at the published
+modern edition, without pretending we know what is or is not still
+under copyright in every jurisdiction.
+
+#### Sources and the historiographical layer
+
+The source catalog (`src/data/sources.ts`) carries the editions and
+archives the editorial team works from. For the primary-text layer
+it includes Cicero (Oxford Classical Texts), Caesar's
+*Commentarii*, Sallust's *Opera*, Livy's *Ab Urbe Condita*,
+Polybius (Teubner), Plutarch (Teubner), Tacitus, Suetonius, the
+two great open-access archives (Perseus, LacusCurtius), Project
+Gutenberg, and the Loeb and OCT series themselves. A source is in
+the catalog only if the team has actually consulted it for a live
+entry.
+
 ### Sculptural anchors: the bust catalog
 
 The visual identity of the platform leans on museum-grade marble
@@ -734,7 +810,7 @@ images whose rights status we have not verified.
 
 The current catalog: Marcus Aurelius (Heraklion), Julius Caesar
 (Tusculum portrait, Turin), Augustus (Louvre Ma 2577), Pericles
-(Vatican Pio-Clementino Inv. 269).
+(Vatican Pio-Clementino Inv. 269), Cicero (Vatican Museums).
 
 ---
 
@@ -743,34 +819,39 @@ The current catalog: Marcus Aurelius (Heraklion), Julius Caesar
 The architecture is in place; the long work is the content. The next
 phases, in order:
 
-1. **Primary works for the Republic-era figures.** The Roman figure
-   layer (Cicero, Caesar, Sallust, Tacitus, Livy, Polybius) now
-   exists; the next move is to pair them with the primary works the
-   tradition keeps reading — *De Officiis*, *De Re Publica*, the
-   *Commentarii*, the *Catiline* and the *Annales* — as typed `book`
-   entries with editorial reading guides.
-2. **Second wave of essays.** Argument pieces on the questions the
-   civilization layer opens — *Polybius on the mixed constitution*,
-   *Tacitus and the form of an autocracy*, *Sparta and the limits of
-   discipline*, *What survives a republic*. Each is a real argument
-   from the primary text, not an op-ed.
+1. **Roman historians as figure entries.** Sallust, Livy, Polybius,
+   Tacitus and Plutarch are present in the corpus through their
+   *works* and the source catalog, but not yet as typed
+   `philosopher` (figure) entries in their own right. The next move
+   is to give them dedicated entries written in the platform's
+   editorial mode — what each historian was actually doing and why
+   the tradition kept reading them — to complete the
+   primary-text-to-author graph.
+2. **Tacitus and the form of an autocracy.** A separate book pairing
+   for the *Annales* and the *Historiae* with an interpretive essay
+   on what Tacitus's analysis adds to the question of how
+   constitutional forms can outlive the substance they were written
+   for. This is the natural pair to phase 10's Polybius and
+   Sallust.
 3. **Grow the guide layer.** Guides to the next layer of thinkers
-   and works — *How to read Aristotle*, *How to read Plutarch*, *How
-   to read Cicero*, *Understanding the Nicomachean Ethics*,
-   *Understanding De Officiis*.
-4. **Extend the philosopher / book layer.** The Hellenistic schools
-   (the Stoics, the Epicureans, the Skeptics), the historians
-   (Thucydides, Herodotus, Polybius, Tacitus, Livy) as their own
-   entries, the patristic and medieval inheritance (Augustine,
-   Aquinas), and the primary texts that go with them.
-5. **Verified quote library.** Open the `/quotes` library with a small
-   number of verified, cited passages from the published entries —
-   each passing the four requirements set out on the page.
-6. **Expand the bust catalog.** Continue the same provenance-strict
-   approach: Cicero, Cato the Younger, Scipio Africanus, Pompey,
-   Lycurgus, Solon. Each entry follows the verification pipeline
-   described above; no image is added whose rights and identification
-   we have not checked.
+   and works — *How to read Cicero*, *How to read Plutarch*, *How
+   to read Livy*, *Understanding De Officiis*, *Understanding
+   Polybius VI*. The reading-guide layer is currently thin and
+   would do real work for new readers.
+4. **Extend the philosopher / book layer beyond Rome.** The
+   Hellenistic schools (the Stoics, the Epicureans, the Skeptics),
+   Augustine, Aquinas, and the medieval reception of the ancient
+   political vocabulary. The Roman republican tradition the
+   platform now carries is a starting point, not the whole story.
+5. **Verified quote library.** Open the `/quotes` library with a
+   small number of verified, cited passages from the published
+   entries — each passing the four requirements set out on the page.
+6. **Expand the bust catalog where provenance allows.** Cato the
+   Younger, Pompey, Solon, Lycurgus are candidates; each requires
+   the same verification pipeline. Polybius and Scipio remain
+   deliberately omitted: no surviving Polybius portrait and every
+   candidate Scipio identification is contested in current
+   scholarship.
 7. **Era kinds.** Now that `/roman-republic` joins `/ancient-world`,
    `/war-and-peace` and `/religion-and-wisdom`, give the study
    landings their own typed content kinds for eras, conflicts and
@@ -780,8 +861,9 @@ phases, in order:
    reading-time drift detection, translator-rights snapshots, and a
    content-status report (stubs vs. published) surfaced in CI.
 9. **OG image generation.** Per-entry editorial OG images using the
-   same marble palette, generated at build time — including a variant
-   that incorporates the figure's registered bust where one exists.
+   same marble palette, generated at build time — including a
+   variant that incorporates the figure's registered bust where one
+   exists.
 10. **i18n foundation.** Originally Greek and Latin terms (and their
     precise transliteration) get a small typed glossary that the
     prose renderer can link.
