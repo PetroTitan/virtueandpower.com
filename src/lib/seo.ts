@@ -25,13 +25,18 @@ export function buildMetadata({
   description = siteConfig.description,
   path,
   type = "website",
-  image = siteConfig.defaultOgImage,
+  image,
   publishedTime,
   modifiedTime,
   noindex = false,
 }: BuildMetaInput): Metadata {
   const canonical = absoluteUrl(path);
-  const imageUrl = absoluteUrl(image);
+  // Per-page OG image override; when absent, Next.js merges the
+  // file-convention opengraph-image / twitter-image from the root layout.
+  const imageBlock = image ? { images: [{ url: absoluteUrl(image) }] } : {};
+  const twitterImageBlock = image
+    ? { images: [absoluteUrl(image)] }
+    : {};
 
   return {
     title,
@@ -44,7 +49,7 @@ export function buildMetadata({
       description,
       siteName: siteConfig.name,
       locale: siteConfig.locale,
-      images: [{ url: imageUrl }],
+      ...imageBlock,
       ...(type === "article" && publishedTime ? { publishedTime } : {}),
       ...(type === "article" && modifiedTime ? { modifiedTime } : {}),
     },
@@ -52,7 +57,7 @@ export function buildMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [imageUrl],
+      ...twitterImageBlock,
       creator: siteConfig.twitterHandle,
     },
     ...(noindex
@@ -100,7 +105,7 @@ export function articleJsonLd({
   datePublished,
   dateModified,
   authorName = siteConfig.name,
-  image = siteConfig.defaultOgImage,
+  image,
   section,
 }: ArticleJsonLdInput) {
   return {
@@ -112,7 +117,7 @@ export function articleJsonLd({
     url: absoluteUrl(url),
     datePublished: datePublished ?? dateModified,
     dateModified,
-    image: absoluteUrl(image),
+    image: image ? absoluteUrl(image) : `${siteConfig.url}/opengraph-image`,
     inLanguage: siteConfig.language,
     articleSection: section,
     author: {

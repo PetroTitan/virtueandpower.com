@@ -10,7 +10,6 @@ export const siteConfig = {
     "Virtue & Power is an intellectual platform exploring classical philosophy, virtue, power, leadership, statecraft, religion and the ancient world — grounded in primary sources and the long arc of historical thought.",
   locale: "en_US",
   language: "en",
-  defaultOgImage: "/og/default.png",
   twitterHandle: "@virtueandpower",
   sections: [
     { slug: "essays", label: "Essays" },

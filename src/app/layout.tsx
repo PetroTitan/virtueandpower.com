@@ -61,14 +61,15 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
     locale: siteConfig.locale,
-    images: [siteConfig.defaultOgImage],
+    // Images are filled in automatically by app/opengraph-image.tsx
+    // (Next.js file convention); we don't hardcode them here.
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
-    images: [siteConfig.defaultOgImage],
     creator: siteConfig.twitterHandle,
+    // Images are filled in automatically by app/twitter-image.tsx.
   },
   robots: {
     index: true,
