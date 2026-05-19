@@ -542,6 +542,14 @@ These are non-negotiable and they govern every entry:
 
 The current published corpus, organised by section.
 
+**Civilizations** (`/civilizations`) — the editorial frame the
+rest of the corpus sits inside
+
+- *Rome* — Republic and Empire, c. 509 BCE – c. 235 CE
+- *Greece* — City-state federation, c. 800 – c. 30 BCE
+- *Persia* — Achaemenid imperial monarchy, c. 550 – 330 BCE
+- *Egypt* — Sacred monarchy, c. 3100 – 30 BCE
+
 **Philosophers and historical figures** (`/philosophers`, grouped by era)
 
 - *Archaic Greece:* Homer
@@ -573,9 +581,10 @@ The current published corpus, organised by section.
 - *Character virtues:* Virtue, Courage, Self-Control, Ambition,
   Discipline, Honor, Duty
 - *Political:* Justice, Leadership, Statecraft, Power, Republic,
-  Empire, Law, Civic virtue, Founding, Mixed constitution, Tyranny
+  Empire, Law, Civic virtue, Civic order, Founding, Mixed
+  constitution, Tyranny, Sacred kingship, Imperial administration
 - *Historical:* War and Peace, Corruption, Decline, Military virtue,
-  Education, Historical memory, Historical method
+  Education, Historical memory, Historical method, Empire and memory
 
 **Comparisons** (`/comparisons`)
 
@@ -624,6 +633,17 @@ The current published corpus, organised by section.
   historiography kept the older constitutional vocabulary alive
 - *Why Rome became obsessed with decline* — the consistent
   intellectual habit and the European tradition that inherited it
+- *Why civilizations remember* — the four ancient practices of
+  cultural memory and their European inheritances
+- *Rome as institutional memory* — the working Roman inheritance
+  the European tradition built on, distinct from the Roman
+  political form
+- *Greece and the invention of political argument* — the specific
+  working practice the Greek city-states invented
+- *Persia and imperial administration* — the Achaemenid answer
+  to the continental-scale administrative problem
+- *Egypt and sacred continuity* — the Pharaonic case and what the
+  Mediterranean civic tradition's vocabulary cannot fully read
 
 **Guides** (`/guides`) — reading orientations
 
@@ -832,6 +852,97 @@ possible answer to the question — but it is one of the most fully
 elaborated answers the European tradition received, and the
 platform reads it as such.
 
+### The civilizations & visual-hubs layer
+
+Civilizations are the editorial frame the rest of the corpus
+sits inside. Each civilization hub at `/civilizations/<slug>`
+reads a polity not as chronology but as a working answer to a
+small set of questions: what authority was, what law was for,
+what the citizen owed, how memory was kept, what the
+architecture and the army were the visible form of, how the
+order ended or transmitted itself.
+
+Civilizations are a first-class content kind alongside
+philosophers, books, themes, essays etc. — `CivilizationFrontmatter`
+in `src/content/types.ts`, the `/content/civilizations/` MDX
+directory, the loader's `getCivilizations()`, the validator's
+broken-refs walking of the four `relatedFigures` /
+`relatedThemes` / `relatedBooks` / `relatedEssays` fields, and
+the route templates at `/civilizations` (index) and
+`/civilizations/[slug]` (hub page). Backlinks are computed
+across the civilization layer too: a figure or essay that
+points at a civilization surfaces as inbound on the civilization
+page, and the civilization's own typed references surface as
+backlinks on the figures and essays.
+
+#### What a civilization hub does
+
+A hub page renders:
+
+- the typed metadata (period, civilization type) in the page
+  header and the hub-overview sidebar
+- a full-width hero image (an architecture or ruins photograph
+  from the archive registry) directly under the header
+- the editorial body MDX, structured as `## How the
+  civilization read itself` / `## Political structure` /
+  `## Military structure` / `## Architectural identity` /
+  `## Decline and continuity` / `## Why the platform reads it`
+- the four typed reference groups (figures, themes, primary
+  texts, essays) in the right sidebar
+- an optional gallery composition (two-column architecture
+  images) when the frontmatter declares `galleryImages`
+- the standard related-reading band at the bottom, computed
+  from forward refs + backlinks
+
+The page is text-first and SSR-rendered; the visual layer
+supports the editorial layer without overpowering it. No
+client-only interactivity is added — the hub is a reading
+surface, not a dashboard.
+
+#### Visual-archive expansion for this layer
+
+The bust catalog and the archive-image catalog both grew in
+this phase to support the civilization hubs:
+
+- Architecture & ruins (six new entries): the Roman Forum
+  (existing), Trajan's Column (existing), Pantheon ceiling
+  (existing), the Colosseum, the Parthenon east front, the
+  Temple of Apollo at Delphi, the Apadana relief at Persepolis,
+  the Pyramids of Giza, the Karnak Hypostyle Hall. All CC0 /
+  public-domain. The `ArchiveImageCulture` enum was extended
+  with `egyptian` for the new Egyptian entries.
+- Philosopher busts (three new entries): Aristotle (Palazzo
+  Altemps), Socrates (Vatican Pio-Clementino), Plato (Vatican
+  Pio-Clementino). All public-domain photographs by Marie-Lan
+  Nguyen (Jastrow). Aristotle, Socrates and Plato figure pages
+  now automatically render their portraits next to the text.
+
+Full provenance for every file is recorded in the typed
+registries (`src/data/busts.ts`, `src/data/archive-images.ts`)
+and in the directory READMEs under `public/images/`.
+
+#### Why civilizations are content, not data
+
+The brief proposed a typed registry at `src/data/civilizations.ts`.
+The implementation chose the MDX content-kind path instead:
+civilizations live as `.mdx` files under `/content/civilizations`
+with rich frontmatter, identical in pattern to the other content
+kinds. The reasons:
+
+- the body of a civilization hub is editorial prose with the
+  same MDX rendering pipeline (italics, inline links, citations)
+  the rest of the corpus uses
+- the typed cross-reference fields participate in the existing
+  graph (forward refs, backlinks, broken-refs validation) without
+  custom plumbing
+- the validator's published-quality, metadata, frontmatter and
+  orphans checks all apply automatically
+- the route templates can reuse `MdxContent`, `getRelatedAndBacklinks`,
+  `resolveRefs` and the existing JSON-LD / sitemap / RSS scaffolding
+
+The civilization layer is therefore not a parallel data system
+but a first-class member of the existing content architecture.
+
 ### The visual archive
 
 The bust catalog at [`src/data/busts.ts`](src/data/busts.ts) handles
@@ -976,7 +1087,8 @@ images whose rights status we have not verified.
 The current catalog: Marcus Aurelius (Heraklion), Julius Caesar
 (Tusculum portrait, Turin), Augustus (Louvre Ma 2577), Pericles
 (Vatican Pio-Clementino Inv. 269), Cicero (Vatican Museums),
-Trajan (Glyptothek Munich Inv. 72).
+Trajan (Glyptothek Munich Inv. 72), Aristotle (Palazzo Altemps),
+Socrates (Vatican Pio-Clementino), Plato (Vatican Pio-Clementino).
 
 ---
 
@@ -1003,12 +1115,16 @@ phases, in order:
    to read Tacitus*, *Understanding De Officiis*, *Understanding
    Polybius VI*. The reading-guide layer is currently thin and
    would do real work for new readers.
-4. **Civilization hubs.** A `/civilizations/rome`,
-   `/civilizations/greece` and `/civilizations/persia` layer was
-   considered for phase 11 and deferred because it overlapped too
-   heavily with `/ancient-world` and `/roman-republic`. The future
-   work is to design a hub layer that adds something the existing
-   era pages do not.
+4. **Deepen the civilization hubs.** Phase 12 introduced the four
+   initial hubs (Rome, Greece, Persia, Egypt). Each will repay
+   substantial deepening: Greece in particular needs separate
+   readings of Athens, Sparta and the Hellenistic kingdoms;
+   Persia needs the Sasanian and post-Achaemenid continuity laid
+   out properly; Egypt deserves much more careful treatment than
+   the platform's current Mediterranean-classical-trained
+   editorial voice can give it. The hub schema also stands ready
+   for further civilizations the corpus grows into (Byzantine,
+   medieval Christendom, the Islamic Caliphates, China).
 5. **Extend the philosopher / book layer beyond Rome.** The
    Hellenistic schools (the Stoics, the Epicureans, the Skeptics),
    Augustine, Aquinas, and the medieval reception of the ancient
