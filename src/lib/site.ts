@@ -62,8 +62,17 @@ export const siteConfig = {
       { slug: "about", label: "About" },
       { slug: "editorial-policy", label: "Editorial policy" },
       { slug: "sources", label: "Sources" },
+    ],
+    Trust: [
+      { slug: "privacy-policy", label: "Privacy" },
+      { slug: "terms", label: "Terms" },
+      { slug: "cookie-policy", label: "Cookies" },
+    ],
+    Discovery: [
       { slug: "rss.xml", label: "RSS" },
       { slug: "sitemap.xml", label: "Sitemap" },
+      { slug: "llms.txt", label: "llms.txt" },
+      { slug: "humans.txt", label: "humans.txt" },
     ],
   },
 } as const;

@@ -30,6 +30,9 @@ const staticPaths = [
   "/war-and-peace",
   "/religion-and-wisdom",
   "/ancient-world",
+  "/privacy-policy",
+  "/terms",
+  "/cookie-policy",
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
