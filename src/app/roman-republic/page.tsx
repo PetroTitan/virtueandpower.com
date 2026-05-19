@@ -53,6 +53,10 @@ export default function RomanRepublicPage() {
       related={[
         { href: "/essays/why-rome-mattered", label: "Essay · Why Rome mattered" },
         {
+          href: "/essays/why-the-roman-republic-collapsed",
+          label: "Essay · Why the Roman Republic collapsed",
+        },
+        {
           href: "/essays/marius-sulla-and-roman-norms",
           label: "Essay · Marius, Sulla and Roman norms",
         },
@@ -72,13 +76,31 @@ export default function RomanRepublicPage() {
           href: "/essays/the-roman-idea-of-civic-virtue",
           label: "Essay · The Roman idea of civic virtue",
         },
+        {
+          href: "/essays/republic-memory-under-empire",
+          label: "Essay · Republic memory under empire",
+        },
+        {
+          href: "/essays/why-rome-became-obsessed-with-decline",
+          label: "Essay · Why Rome became obsessed with decline",
+        },
         { href: "/philosophers/cicero", label: "Figure · Cicero" },
         { href: "/philosophers/cato-the-younger", label: "Figure · Cato the Younger" },
         { href: "/philosophers/julius-caesar", label: "Figure · Julius Caesar" },
         { href: "/philosophers/augustus", label: "Figure · Augustus" },
+        { href: "/philosophers/trajan", label: "Figure · Trajan" },
+        { href: "/philosophers/sallust", label: "Historian · Sallust" },
+        { href: "/philosophers/livy", label: "Historian · Livy" },
+        { href: "/philosophers/polybius", label: "Historian · Polybius" },
+        { href: "/philosophers/tacitus", label: "Historian · Tacitus" },
+        { href: "/philosophers/suetonius", label: "Historian · Suetonius" },
         { href: "/themes/republic", label: "Theme · Republic" },
         { href: "/themes/civic-virtue", label: "Theme · Civic virtue" },
         { href: "/themes/decline", label: "Theme · Decline" },
+        { href: "/themes/mixed-constitution", label: "Theme · Mixed constitution" },
+        { href: "/themes/tyranny", label: "Theme · Tyranny" },
+        { href: "/themes/historical-memory", label: "Theme · Historical memory" },
+        { href: "/themes/historical-method", label: "Theme · Historical method" },
       ]}
     />
   );

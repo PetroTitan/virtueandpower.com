@@ -174,7 +174,7 @@ export const sources: Source[] = [
     publicDomainStatus: "public-domain",
     notes:
       "Sallust's two surviving monographs are the principal narrative source for the conspiracy of Catiline and for the Jugurthine War — the latter giving us our most extended portrait of Gaius Marius. His moralising frame (Roman virtue declining under the corrosion of imperial wealth) shaped how the late Republic was read for centuries after.",
-    relatedThinkers: ["gaius-marius", "cicero"],
+    relatedThinkers: ["sallust", "gaius-marius", "cicero"],
     relatedBooks: ["conspiracy-of-catiline", "jugurthine-war"],
   },
   {
@@ -188,7 +188,7 @@ export const sources: Source[] = [
     publicDomainStatus: "public-domain",
     notes:
       "Twelve biographies running from Caesar through Domitian. Read alongside Plutarch and Tacitus; Suetonius is more anecdotal and less analytical but preserves material the others omit. Cited by emperor + chapter (e.g. Aug. 28; Iul. 76).",
-    relatedThinkers: ["julius-caesar", "augustus"],
+    relatedThinkers: ["suetonius", "julius-caesar", "augustus"],
   },
   {
     id: "tacitus-opera",
@@ -201,7 +201,7 @@ export const sources: Source[] = [
     publicDomainStatus: "public-domain",
     notes:
       "The two great surviving works of the Roman imperial historian — the Annales (Tiberius through Nero) and the Historiae (69–96 CE, partly lost). The sharpest ancient analysis of what unbounded power did to political character. Cited by book + chapter (e.g. Ann. 4.32).",
-    relatedThinkers: ["augustus"],
+    relatedThinkers: ["tacitus", "augustus"],
   },
   {
     id: "livy-ab-urbe-condita",
@@ -214,7 +214,7 @@ export const sources: Source[] = [
     publicDomainStatus: "public-domain",
     notes:
       "Livy's monumental history of Rome from its founding. Books 1–10 and 21–45 survive (with periochae summaries of the rest). The principal source for the early Republic, Numa, the regal period, and the Roman idealisation of civic virtue in the years before Marius. Cited by book + chapter (e.g. Liv. 1.18 for Numa).",
-    relatedThinkers: ["numa-pompilius", "scipio-africanus"],
+    relatedThinkers: ["livy", "numa-pompilius", "scipio-africanus"],
     relatedBooks: ["ab-urbe-condita"],
   },
   {
@@ -228,9 +228,9 @@ export const sources: Source[] = [
     publicDomainStatus: "public-domain",
     notes:
       "The Greek historian who explained the rise of Rome to a Greek audience. Book VI is the locus classicus for the anakuklōsis (cycle of regimes) and for the analysis of the Roman mixed constitution that shaped subsequent constitutional thought. Cited by book + chapter (e.g. Plb. 6.11).",
-    relatedThinkers: ["scipio-africanus"],
+    relatedThinkers: ["polybius", "scipio-africanus"],
     relatedBooks: ["polybius-histories"],
-    relatedThemes: ["statecraft", "republic"],
+    relatedThemes: ["statecraft", "republic", "mixed-constitution"],
   },
   {
     id: "herodotus-histories",
@@ -318,7 +318,7 @@ export const sources: Source[] = [
     url: "https://penelope.uchicago.edu/Thayer/E/Roman/home.html",
     notes:
       "A long-running, scholarly digital archive of Latin and Greek texts in the Roman world — full texts of Polybius, Plutarch's Roman Lives, the Augustan History, Cassius Dio, Suetonius, Livy and many others, in English translation (largely the Loeb editions out of copyright in the United States) with hyperlinked references. Particularly valuable for the historiographical layer.",
-    relatedThinkers: ["plutarch", "julius-caesar", "augustus", "scipio-africanus"],
+    relatedThinkers: ["polybius", "livy", "tacitus", "suetonius", "plutarch", "julius-caesar", "augustus", "trajan", "scipio-africanus"],
   },
 
   // ─── Scholarly reference ─────────────────────────────────────────────
