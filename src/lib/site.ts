@@ -19,6 +19,7 @@ export const siteConfig = {
     { slug: "themes", label: "Themes" },
     { slug: "quotes", label: "Quotes" },
     { slug: "comparisons", label: "Comparisons" },
+    { slug: "civilizations", label: "Civilizations" },
     { slug: "leadership", label: "Leadership" },
     { slug: "power", label: "Power" },
     { slug: "virtue", label: "Virtue" },
@@ -55,6 +56,7 @@ export const siteConfig = {
       { slug: "statecraft", label: "Statecraft" },
     ],
     Eras: [
+      { slug: "civilizations", label: "Civilizations" },
       { slug: "ancient-world", label: "Ancient World" },
       { slug: "roman-republic", label: "Roman Republic" },
       { slug: "religion-and-wisdom", label: "Religion & Wisdom" },

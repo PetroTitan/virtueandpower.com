@@ -18,7 +18,8 @@ export type ContentKind =
   | "quote"
   | "comparison"
   | "essay"
-  | "guide";
+  | "guide"
+  | "civilization";
 
 interface BaseFrontmatter {
   slug: string;
@@ -118,6 +119,44 @@ export interface GuideFrontmatter extends BaseFrontmatter {
   guideType?: "thinker" | "book" | "introduction";
 }
 
+/**
+ * Civilization hubs — the structural editorial layer above figures,
+ * books, themes and essays. Each civilization is a long-form
+ * interpretive reading of how a particular polity / cultural order
+ * understood power, law, memory, religion, war and continuity.
+ *
+ * The body MDX carries the editorial sections (## Introduction,
+ * ## Core ideas, ## Political structure, ## Military structure,
+ * ## Architectural identity, ## Decline and continuity); the
+ * frontmatter carries the structured metadata that the route and
+ * the graph use.
+ */
+export interface CivilizationFrontmatter extends BaseFrontmatter {
+  kind: "civilization";
+  /** Subtitle / standfirst rendered under the title. */
+  subtitle: string;
+  /** Period of the civilization in free-form text (e.g. "Republican
+   *  Rome and the early Empire, c. 509 BCE – 235 CE"). */
+  period: string;
+  /** Civilization type — used as the page eyebrow and as a
+   *  category in the /civilizations index (e.g. "Republic and
+   *  Empire", "City-state federation", "Imperial monarchy"). */
+  civilizationType: string;
+  /** Slug of the archive image to use as the page hero. Resolved
+   *  against src/data/archive-images.ts. */
+  heroImage?: string;
+  /** Additional archive-image slugs rendered as a small gallery
+   *  composition on the page. */
+  galleryImages?: string[];
+  /** Typed cross-references — the typed editorial graph between
+   *  the civilization hub and the figures / themes / books /
+   *  essays it concerns. */
+  relatedFigures?: ContentRef[];
+  relatedThemes?: ContentRef[];
+  relatedBooks?: ContentRef[];
+  relatedEssays?: ContentRef[];
+}
+
 export type AnyFrontmatter =
   | PhilosopherFrontmatter
   | BookFrontmatter
@@ -125,7 +164,8 @@ export type AnyFrontmatter =
   | QuoteFrontmatter
   | ComparisonFrontmatter
   | EssayFrontmatter
-  | GuideFrontmatter;
+  | GuideFrontmatter
+  | CivilizationFrontmatter;
 
 export interface ContentEntry<F extends AnyFrontmatter = AnyFrontmatter> {
   kind: F["kind"];

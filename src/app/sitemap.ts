@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import {
   getBooks,
+  getCivilizations,
   getComparisons,
   getEssays,
   getGuides,
@@ -23,6 +24,7 @@ const staticPaths = [
   "/themes",
   "/quotes",
   "/comparisons",
+  "/civilizations",
   "/leadership",
   "/power",
   "/virtue",
@@ -37,16 +39,25 @@ const staticPaths = [
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [philosophers, books, themes, quotes, comparisons, essays, guides] =
-    await Promise.all([
-      getPhilosophers(),
-      getBooks(),
-      getThemes(),
-      getQuotes(),
-      getComparisons(),
-      getEssays(),
-      getGuides(),
-    ]);
+  const [
+    philosophers,
+    books,
+    themes,
+    quotes,
+    comparisons,
+    essays,
+    guides,
+    civilizations,
+  ] = await Promise.all([
+    getPhilosophers(),
+    getBooks(),
+    getThemes(),
+    getQuotes(),
+    getComparisons(),
+    getEssays(),
+    getGuides(),
+    getCivilizations(),
+  ]);
 
   const now = new Date();
 
@@ -68,6 +79,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...comparisons,
     ...essays,
     ...guides,
+    ...civilizations,
   ].filter((e) => e.frontmatter.status === "published");
 
   const contentEntries: MetadataRoute.Sitemap = publishedEntries.map((e) => ({
