@@ -285,12 +285,18 @@ export default async function HomePage() {
               Ancient World section places the philosophers and their works
               inside the polities, religions and wars that shaped them.
             </p>
-            <p className="mt-6">
+            <p className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
               <Link
                 href="/ancient-world"
                 className="vp-link text-sm uppercase tracking-eyebrow"
               >
                 Enter the Ancient World
+              </Link>
+              <Link
+                href="/roman-republic"
+                className="vp-link text-sm uppercase tracking-eyebrow"
+              >
+                Enter the Roman Republic
               </Link>
             </p>
           </div>
