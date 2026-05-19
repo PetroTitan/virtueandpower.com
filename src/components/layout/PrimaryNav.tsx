@@ -16,7 +16,7 @@ export function PrimaryNav({ items }: { items: ReadonlyArray<NavItem> }) {
   const pathname = usePathname();
   return (
     <nav aria-label="Primary" className="hidden md:block">
-      <ul className="flex items-center gap-7 text-sm">
+      <ul className="flex items-center gap-8 lg:gap-10 text-[13px] uppercase tracking-[0.18em]">
         {items.map((item) => {
           const href = `/${item.slug}`;
           const active = isActive(pathname, href);
@@ -28,8 +28,8 @@ export function PrimaryNav({ items }: { items: ReadonlyArray<NavItem> }) {
                 className={cn(
                   "inline-flex items-center border-b border-transparent pb-1 transition-colors",
                   active
-                    ? "border-bronze text-bronze"
-                    : "text-charcoal-100 hover:text-bronze",
+                    ? "border-charcoal text-charcoal"
+                    : "text-charcoal-100 hover:text-charcoal",
                 )}
               >
                 {item.label}
@@ -88,7 +88,7 @@ export function MobileNav({ items }: { items: ReadonlyArray<NavItem> }) {
       <div
         id={panelId}
         hidden={!open}
-        className="absolute inset-x-0 top-full border-y border-rule bg-ivory shadow-sm"
+        className="absolute inset-x-0 top-full border-y border-rule bg-white shadow-sm"
       >
         <ul className="mx-auto flex max-w-[88rem] flex-col px-5 sm:px-8">
           {items.map((item) => {

@@ -19,7 +19,15 @@ export function EditorialGrid({
   className,
 }: EditorialGridProps) {
   return (
-    <div className={cn("grid gap-x-10 gap-y-12 grid-cols-1", columnClass[columns], className)}>
+    <div
+      className={cn(
+        // Generous gutters so cards can drop their own borders and let
+        // the grid air do the separation work.
+        "grid grid-cols-1 gap-x-12 gap-y-16 lg:gap-x-16",
+        columnClass[columns],
+        className,
+      )}
+    >
       {children}
     </div>
   );
