@@ -90,6 +90,66 @@ export const busts: ReadonlyArray<Bust> = [
     notes:
       "Vendored as the default hero anchor. Used by src/components/site/BustImage.tsx; see /public/images/busts/README.md for processing details.",
   },
+  {
+    slug: "julius-caesar-tusculum",
+    figure: "Julius Caesar",
+    culture: "roman",
+    era: "Late Republic, c. 50–40 BCE",
+    museum: "Museo di Antichità, Turin",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Retrato_de_Julio_C%C3%A9sar_(26724093101).jpg",
+    license: "public-domain",
+    photographer: "Ángel M. Felicísimo",
+    imagePath: "/images/busts/julius-caesar-tusculum.webp",
+    width: 907,
+    height: 1600,
+    alt: "The Tusculum portrait of Julius Caesar, a marble bust dated to the late Republic and identified as the only likeness made of him in his lifetime.",
+    caption: "Julius Caesar · Tusculum portrait · Marble",
+    attribution: "Museo di Antichità, Turin · Wikimedia Commons (Public Domain)",
+    figureSlug: "julius-caesar",
+    notes:
+      "The Tusculum head is the only surviving portrait of Caesar widely accepted as carved from life. Vendored for the Caesar essay and figure entry.",
+  },
+  {
+    slug: "augustus-louvre",
+    figure: "Augustus",
+    culture: "roman",
+    era: "Augustan period, c. 27–20 BCE",
+    museum: "Louvre, Paris (Ma 2577)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Young_August_Louvre_Ma2577.jpg",
+    license: "public-domain",
+    photographer: "Marie-Lan Nguyen (Jastrow)",
+    imagePath: "/images/busts/augustus-louvre.webp",
+    width: 1166,
+    height: 1600,
+    alt: "Marble portrait of Augustus as a young man, from Kos, Augustan period, now in the Louvre.",
+    caption: "Augustus · Augustan period · Greek marble",
+    attribution: "Louvre · Wikimedia Commons (Public Domain)",
+    figureSlug: "augustus",
+    notes:
+      "Greek marble, found on Kos, c. 27–20 BCE — among the earliest portraits of Augustus after the settlement of 27. Vendored for the Augustus essay and figure entry.",
+  },
+  {
+    slug: "pericles-vatican",
+    figure: "Pericles",
+    culture: "greek",
+    era: "Roman copy after Greek original c. 430 BCE",
+    museum: "Museo Pio-Clementino, Vatican (Inv. 269)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Pericles_Pio-Clementino_Inv269.jpg",
+    license: "public-domain",
+    photographer: "Marie-Lan Nguyen (Jastrow)",
+    imagePath: "/images/busts/pericles-vatican.webp",
+    width: 797,
+    height: 1600,
+    alt: "Marble herm of Pericles wearing the strategos helmet, Roman copy after a Greek original by Kresilas, c. 430 BCE.",
+    caption: "Pericles · Roman copy after Kresilas · Marble",
+    attribution: "Museo Pio-Clementino, Vatican · Wikimedia Commons (Public Domain)",
+    figureSlug: "pericles",
+    notes:
+      "Roman copy of the lost bronze by Kresilas, the canonical likeness of Pericles in the European tradition. Vendored for the Pericles figure entry.",
+  },
 ];
 
 /** Look up a bust by slug. */
