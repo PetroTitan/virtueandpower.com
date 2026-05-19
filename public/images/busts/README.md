@@ -78,6 +78,23 @@ on Wikimedia's CDN and so the provenance is file-system-traceable.
 - **Local processing.** Same pipeline; resulting file is ~102
   KB at 797 × 1600.
 
+### `cicero-vatican.webp`
+
+- **Subject.** Marble bust of Marcus Tullius Cicero, late
+  Republican Roman portraiture, 1st century BCE.
+- **Location.** Vatican Museums.
+- **Source.** Wikimedia Commons,
+  [`File:Marcus Tullius Cicero-Vatican Museums.jpg`](https://commons.wikimedia.org/wiki/File:Marcus_Tullius_Cicero-Vatican_Museums.jpg).
+- **Photographer.** Yair Haklai.
+- **Licence.** **CC BY-SA 3.0.** Attribution required and
+  ShareAlike condition applies to re-use. The attribution
+  is carried in `src/data/busts.ts`, in the in-page caption
+  (`Vatican Museums · photo Yair Haklai · Wikimedia
+  Commons (CC BY-SA 3.0)`), and here.
+- **Source dimensions.** 2448 × 3264.
+- **Local processing.** Same pipeline; resulting file is ~56
+  KB at 1200 × 1600.
+
 ## Adding new busts
 
 1. Find a public-domain (CC0 / PD-old) or attribution-friendly

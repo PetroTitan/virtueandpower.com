@@ -150,6 +150,26 @@ export const busts: ReadonlyArray<Bust> = [
     notes:
       "Roman copy of the lost bronze by Kresilas, the canonical likeness of Pericles in the European tradition. Vendored for the Pericles figure entry.",
   },
+  {
+    slug: "cicero-vatican",
+    figure: "Marcus Tullius Cicero",
+    culture: "roman",
+    era: "Late Republic, 1st century BCE",
+    museum: "Vatican Museums",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Marcus_Tullius_Cicero-Vatican_Museums.jpg",
+    license: "cc-by-sa",
+    photographer: "Yair Haklai",
+    imagePath: "/images/busts/cicero-vatican.webp",
+    width: 1200,
+    height: 1600,
+    alt: "Marble bust of Marcus Tullius Cicero, late Republican Roman portraiture, Vatican Museums.",
+    caption: "Cicero · Late Republic · Marble",
+    attribution: "Vatican Museums · photo Yair Haklai · Wikimedia Commons (CC BY-SA 3.0)",
+    figureSlug: "cicero",
+    notes:
+      "Vatican Museums Cicero. Licensed CC BY-SA 3.0; attribution carried in the registry, on the page caption, and in the bust README. Vendored for the Cicero figure entry and the De Officiis / De Re Publica book pages.",
+  },
 ];
 
 /** Look up a bust by slug. */
