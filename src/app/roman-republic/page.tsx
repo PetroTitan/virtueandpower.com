@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { StudyLanding } from "@/components/site/StudyLanding";
+import { ArchiveImage } from "@/components/site/ArchiveImage";
 import { buildMetadata } from "@/lib/seo";
 
 const PATH = "/roman-republic";
@@ -20,6 +21,13 @@ export default function RomanRepublicPage() {
       eyebrow="Eras"
       title={TITLE}
       description={DESCRIPTION}
+      hero={
+        <ArchiveImage
+          slug="roman-forum-view"
+          priority
+          sizes="(min-width: 1280px) 1100px, (min-width: 768px) 90vw, 100vw"
+        />
+      }
       body={
         <>
           <p>
