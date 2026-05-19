@@ -2,6 +2,8 @@ import { siteConfig } from "@/lib/site";
 import {
   getBooks,
   getComparisons,
+  getEssays,
+  getGuides,
   getPhilosophers,
   getQuotes,
   getThemes,
@@ -24,19 +26,24 @@ const kindLabel: Record<string, string> = {
   theme: "Theme",
   quote: "Quote",
   comparison: "Comparison",
+  essay: "Essay",
+  guide: "Guide",
 };
 
 export const dynamic = "force-static";
 export const revalidate = 3600;
 
 export async function GET() {
-  const [philosophers, books, themes, quotes, comparisons] = await Promise.all([
-    getPhilosophers(),
-    getBooks(),
-    getThemes(),
-    getQuotes(),
-    getComparisons(),
-  ]);
+  const [philosophers, books, themes, quotes, comparisons, essays, guides] =
+    await Promise.all([
+      getPhilosophers(),
+      getBooks(),
+      getThemes(),
+      getQuotes(),
+      getComparisons(),
+      getEssays(),
+      getGuides(),
+    ]);
 
   // Only authoritative entries appear in the feed. Stubs are noindex and
   // are not yet meant for discovery.
@@ -46,6 +53,8 @@ export async function GET() {
     ...themes,
     ...quotes,
     ...comparisons,
+    ...essays,
+    ...guides,
   ].filter((e) => e.frontmatter.status === "published");
 
   const sorted = published.sort(

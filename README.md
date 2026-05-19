@@ -42,7 +42,9 @@ The site is designed to grow slowly and to last:
 │   ├── books/
 │   ├── themes/
 │   ├── quotes/
-│   └── comparisons/
+│   ├── comparisons/
+│   ├── essays/                       # Interpretive long-form
+│   └── guides/                       # Reading orientations
 ├── src/
 │   ├── app/                          # Next.js App Router (RSC)
 │   │   ├── layout.tsx                # Root layout, fonts, header/footer
@@ -50,6 +52,8 @@ The site is designed to grow slowly and to last:
 │   │   ├── about/
 │   │   ├── editorial-policy/         # The standards behind every entry
 │   │   ├── sources/                  # The catalog (rendered from src/data/sources.ts)
+│   │   ├── essays/                   # index + [slug] — editorial long-form
+│   │   ├── guides/                   # index + [slug] — reading orientations
 │   │   ├── philosophers/             # index + [slug]
 │   │   ├── books/                    # index + [slug]
 │   │   ├── themes/                   # index + [slug]
@@ -89,9 +93,10 @@ The site is designed to grow slowly and to last:
 │   │   ├── seo/                      # JsonLd
 │   │   └── analytics/                # WebmasterID (inlined SDK)
 │   ├── content/                      # Typed loader + MDX renderer
-│   │   ├── types.ts                  # Frontmatter schemas
+│   │   ├── types.ts                  # Frontmatter schemas (7 kinds)
 │   │   ├── loader.ts                 # File-system loader + ref resolver
 │   │   ├── mdx.tsx                   # MDX renderer with built-in components
+│   │   ├── reading-time.ts           # Node-side wpm estimator for essays/guides
 │   │   └── README.md                 # Authoring guide
 │   ├── data/                         # Source governance
 │   │   └── sources.ts                # Typed catalog of editions & references
@@ -130,27 +135,35 @@ The site is designed to grow slowly and to last:
 
 ### Content model
 
-All long-form content lives under `/content` as MDX. Each kind has a typed
-frontmatter schema (see [`src/content/types.ts`](src/content/types.ts)):
+All long-form content lives under `/content` as MDX. The platform now
+supports seven typed content kinds (see
+[`src/content/types.ts`](src/content/types.ts)):
 
 - `philosopher` — era, lifespan, tradition, primary works, related entries
 - `book` — author, period, original language, composition date, themes
 - `theme` — domain, key thinkers, key texts
 - `quote` — attribution, work title, **precise citation**, translator
 - `comparison` — subjects (typed `{ kind, slug }` refs), domain
+- `essay` — subtitle, domain, primary thinkers / books / themes, reading
+  time
+- `guide` — subtitle, domain, `guideType` (`introduction` · `thinker` ·
+  `book`), single typed `mainSubject`, reading time
 
 Cross-references are typed `{ kind, slug }` tuples that the loader resolves
 into the cards rendered by `RelatedReading`, `ThinkerCard`, etc. This is the
 mechanism behind the internal-linking architecture: Plato → Republic →
-Justice → Virtue → Aristotle → Leadership.
+Justice → Virtue → Aristotle → Leadership — and now also Homer → Iliad →
+Courage → *Courage in the Iliad* (essay) → *Understanding the Iliad*
+(guide).
 
 **Backlinks.** The loader walks every entry's typed cross-reference fields
 (`related`, `primaryWorks`, `primaryThemes`, `keyThinkers`, `keyTexts`,
-`subjects`) to compute the in-edges of any given entry. Each detail page
-merges forward refs with de-duplicated backlinks, so the corpus reads
-correctly in either direction — if the Virtue theme points at Aristotle,
-the Aristotle entry surfaces the Virtue theme even before Aristotle's own
-frontmatter has been updated.
+`subjects`, `primaryThinkers`, `primaryBooks`, `mainSubject`) to compute
+the in-edges of any given entry. Each detail page merges forward refs with
+de-duplicated backlinks, so the corpus reads correctly in either direction
+— if the Virtue theme points at Aristotle, the Aristotle entry surfaces
+the Virtue theme even before Aristotle's own frontmatter has been
+updated.
 
 Every entry declares `status: "stub" | "published"`. Stubs render with a
 visible editorial notice on the page and are emitted as `robots:
@@ -466,8 +479,72 @@ The current published corpus, organised by section.
 - Socrates and the Sophists
 - Iliad and Odyssey
 
+**Essays** (`/essays`) — interpretive long-form
+
+- *Virtue without power* — virtue separated from political power
+- *Power without virtue* — the deformation of the ruler by unbounded power
+- *Courage in the Iliad* — heroism, mortality and honour in Homer
+- *The Socratic method* — what the elenchus is doing
+- *Plutarch on character* — biography as moral and political inquiry
+
+**Guides** (`/guides`) — reading orientations
+
+- *Introduction to classical philosophy* (where to begin)
+- *How to read Plato* (thinker)
+- *How to read Xenophon* (thinker)
+- *Understanding the Republic* (book)
+- *Understanding the Iliad* (book)
+
 The catalog grows slowly. A figure or work is added only after a human
 editor has read the primary text and the surrounding scholarship.
+
+### The essay & guide layer
+
+Essays and guides are the platform's long-form layer. They are written
+to the same source-discipline standards as the library entries (no
+invented quotations, no fabricated citations) but they do different
+work:
+
+- **Essays argue.** Where the library entries describe a thinker, work
+  or theme on its own terms, an essay is willing to commit to a
+  reading. Each essay carries `primaryThinkers`, `primaryBooks` and
+  `primaryThemes` typed cross-references so it joins the graph from
+  both sides: the entries it interprets surface it via backlinks, and
+  it surfaces them in its sidebar.
+- **Guides instruct.** Each guide is editorial scaffolding for a
+  reader approaching a particular thinker, work or area for the first
+  time — where to start, what to expect, what to set aside, how to
+  choose translations. Guides carry a single typed `mainSubject` and a
+  `guideType` (`introduction` · `thinker` · `book`) which the
+  `/guides` index uses to group them editorially rather than
+  alphabetically.
+
+Both kinds carry a node-side **reading-time** estimate (220 wpm,
+1-minute floor, code fences and HTML stripped — see
+[`src/content/reading-time.ts`](src/content/reading-time.ts)). Detail
+pages show it as page meta and in the sidebar; the essay landing and
+the homepage Featured Essays strip surface it as card meta.
+
+### Long-form editorial philosophy
+
+The essay and guide layer exists to give serious readers something
+worth reading — not to scale word count. Three working rules:
+
+1. **Argument, not opinion column.** An essay should advance a reading
+   the editor can defend from the primary text and is willing to be
+   refuted on. We do not write personal-reflection pieces, and we do
+   not write contemporary-politics op-eds with classical names
+   attached.
+2. **Send the reader back to the text.** A good guide leaves the
+   reader better prepared to read the primary work; a good essay
+   leaves the reader wanting to. Neither should be a substitute for
+   the texts they treat.
+3. **No invented authority.** The longer the piece, the easier it is
+   to slip in a paraphrase that hardens into a "quotation." Every
+   essay and guide on this site goes through the same source-discipline
+   review as a library entry; the content-health validator
+   (`PLACEHOLDER_MARKER`, `STUB_NOTICE_IN_PUBLISHED`,
+   `PUBLISHED_TOO_THIN`) applies to them in the same way.
 
 ### Expansion philosophy
 
@@ -493,16 +570,21 @@ A few working rules govern how the library is grown:
 ### The semantic graph
 
 Cross-references are typed `{ kind, slug }` tuples and form a directed
-graph: philosophers → books, books → themes, themes → philosophers,
-comparisons → multiple subjects. The loader's backlink computation
-surfaces in-edges automatically, so an entry that another entry points
-at will see the inbound link in its Related Reading without having to
-duplicate the reference in its own frontmatter.
+graph across seven kinds: philosophers → books, books → themes, themes
+→ philosophers, comparisons → multiple subjects, essays → primary
+thinkers / books / themes, guides → a single main subject. The
+loader's backlink computation surfaces in-edges automatically across
+all seven, so an entry that another entry points at will see the
+inbound link in its Related Reading without having to duplicate the
+reference in its own frontmatter.
 
 In practice this means we can add forward references opportunistically
 (when an entry's body actually mentions another) without losing the
-relationship — Aristotle's entry doesn't need to list every theme that
-references him; those themes still surface via backlinks.
+relationship — Aristotle's entry doesn't need to list every essay or
+theme that references him; those still surface via backlinks. The
+`ORPHANED_ENTRY` warning in the content-health validator (see above)
+is the safety net for the small number of cases where neither side
+declares the relationship.
 
 The denser the corpus, the richer the graph; the richer the graph, the
 more useful the platform becomes as a reading aid.
@@ -514,24 +596,34 @@ more useful the platform becomes as a reading aid.
 The architecture is in place; the long work is the content. The next
 phases, in order:
 
-1. **Extend the philosopher / book layer.** The Hellenistic schools
+1. **Grow the essay layer.** A second wave of essays on the questions
+   the first wave opens — pairs like *Plato on the philosopher-king
+   and its critics*, *What Aristotle's mean is not*, *Roman virtue
+   between Cato and Cicero*. Each should be a real argument from the
+   primary text and the surrounding scholarship.
+2. **Grow the guide layer.** Guides to the next layer of thinkers
+   and works — *How to read Aristotle*, *How to read Plutarch*,
+   *Understanding the Nicomachean Ethics*, *Understanding the
+   Politics* — and a second introduction-level guide on reading
+   classical history.
+3. **Extend the philosopher / book layer.** The Hellenistic schools
    (the Stoics, the Epicureans, the Skeptics), Cicero and the Roman
    moralists, the historians (Thucydides, Polybius, Tacitus), the
    patristic and medieval inheritance (Augustine, Aquinas), and the
    primary texts that go with them.
-2. **Verified quote library.** Open the `/quotes` library with a small
+4. **Verified quote library.** Open the `/quotes` library with a small
    number of verified, cited passages from the published entries —
    each passing the four requirements set out on the page.
-3. **Source catalog growth.** Add to `src/data/sources.ts` as the
+5. **Source catalog growth.** Add to `src/data/sources.ts` as the
    editorial workload requires new editions; never add a source there
    that has not actually been consulted for a live entry.
-4. **Era kinds.** Once the entry density justifies it, give
+6. **Era kinds.** Once the entry density justifies it, give
    `/ancient-world`, `/war-and-peace` and `/religion-and-wisdom` their
    own typed content kinds for eras, conflicts and traditions, so
    those study landings list the kind-specific entries the way the
-   philosopher / book / theme landings already do.
-5. **Editorial workflow.** Lightweight tooling for slug uniqueness,
-   broken cross-reference detection, source-id integrity, and a
+   philosopher / book / theme / essay / guide landings already do.
+7. **Editorial workflow.** Lightweight additional tooling for
+   reading-time drift detection, translator-rights snapshots, and a
    content-status report (stubs vs. published) surfaced in CI.
 6. **OG image generation.** Per-entry editorial OG images using the
    same serif/parchment palette, generated at build time.

@@ -19,6 +19,8 @@ import path from "node:path";
 import {
   getBooks,
   getComparisons,
+  getEssays,
+  getGuides,
   getPhilosophers,
   getQuotes,
   getThemes,
@@ -37,19 +39,24 @@ async function main(): Promise<number> {
   const write = args.has("--write");
   const quiet = args.has("--quiet");
 
-  const [philosophers, books, themes, quotes, comparisons] = await Promise.all([
-    getPhilosophers(),
-    getBooks(),
-    getThemes(),
-    getQuotes(),
-    getComparisons(),
-  ]);
+  const [philosophers, books, themes, quotes, comparisons, essays, guides] =
+    await Promise.all([
+      getPhilosophers(),
+      getBooks(),
+      getThemes(),
+      getQuotes(),
+      getComparisons(),
+      getEssays(),
+      getGuides(),
+    ]);
   const entries: ContentEntry<AnyFrontmatter>[] = [
     ...philosophers,
     ...books,
     ...themes,
     ...quotes,
     ...comparisons,
+    ...essays,
+    ...guides,
   ];
 
   const results = runAllChecks(entries);
