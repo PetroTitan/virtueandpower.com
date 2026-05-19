@@ -19,8 +19,10 @@ import {
 
 export type { Bust } from "@/data/busts";
 
-/** Default bust used by the hero when no slug is given. */
-export const MARCUS_AURELIUS = getBust(DEFAULT_BUST_SLUG)!;
+/** Default bust used by the hero when no slug is given. The current
+ *  default is the Tusculum portrait of Caesar — see DEFAULT_BUST_SLUG
+ *  in src/data/busts.ts. */
+export const DEFAULT_BUST = getBust(DEFAULT_BUST_SLUG)!;
 /** Re-export for callers that want to iterate. */
 export { busts, getBust };
 
@@ -60,7 +62,7 @@ export function BustImage({
   sizes = "(min-width: 1024px) 40vw, (min-width: 768px) 45vw, 100vw",
 }: BustImageProps) {
   const resolved =
-    bust ?? (slug ? getBust(slug) : undefined) ?? MARCUS_AURELIUS;
+    bust ?? (slug ? getBust(slug) : undefined) ?? DEFAULT_BUST;
 
   return (
     <figure className={cn("flex flex-col", className)}>
