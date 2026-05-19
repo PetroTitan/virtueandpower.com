@@ -40,7 +40,7 @@ export default async function CivilizationsIndex() {
         <Prose as="section" className="mb-16">
           <p>
             Civilizations are the editorial frame inside which the
-            platform's figures, books, themes and essays sit. Each
+            platform&apos;s figures, books, themes and essays sit. Each
             hub reads a polity not as a chronology but as a working
             answer to a small set of questions — what authority
             consisted in, what law was for, what the citizen owed,
