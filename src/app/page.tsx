@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SectionIntro } from "@/components/editorial/SectionIntro";
 import { EditorialGrid } from "@/components/editorial/EditorialGrid";
+import { CivilizationCard } from "@/components/editorial/CivilizationCard";
 import { ThemeCard } from "@/components/editorial/ThemeCard";
 import { BookCard } from "@/components/editorial/BookCard";
 import { EssayHero } from "@/components/editorial/EssayHero";
@@ -13,6 +14,7 @@ import { NewsletterCta } from "@/components/site/NewsletterCta";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   getBooks,
+  getCivilizations,
   getComparisons,
   getEssays,
   getThemes,
@@ -27,12 +29,15 @@ import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 export const revalidate = 3600;
 
 export default async function HomePage() {
-  const [books, themes, comparisons, essays] = await Promise.all([
-    getBooks(),
-    getThemes(),
-    getComparisons(),
-    getEssays(),
-  ]);
+  const [books, themes, comparisons, essays, civilizations] = await Promise.all(
+    [
+      getBooks(),
+      getThemes(),
+      getComparisons(),
+      getEssays(),
+      getCivilizations(),
+    ],
+  );
 
   const featuredThemes = themes.slice(0, 3);
   const featuredBooks = books.slice(0, 3);
@@ -265,38 +270,44 @@ export default async function HomePage() {
         </div>
       </PageSection>
 
-      {/* Ancient World */}
-      <PageSection label="The Ancient World" variant="ruled" spacing="tight">
-        <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <Eyebrow>The Ancient World</Eyebrow>
-            <h2 className="mt-3 font-serif text-display-2 text-charcoal">
-              Athens, Rome, Jerusalem.
-            </h2>
-          </div>
-          <div className="md:col-span-7">
-            <p className="text-charcoal-100">
-              The historical world that produced the classical tradition is
-              not background — it is the soil in which the texts grew. The
-              Ancient World section places the philosophers and their works
-              inside the polities, religions and wars that shaped them.
-            </p>
-            <p className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
-              <Link
-                href="/ancient-world"
-                className="vp-link text-sm uppercase tracking-eyebrow"
-              >
-                Enter the Ancient World
-              </Link>
-              <Link
-                href="/roman-republic"
-                className="vp-link text-sm uppercase tracking-eyebrow"
-              >
-                Enter the Roman Republic
-              </Link>
-            </p>
-          </div>
+      {/* Civilizations — gateway into the four hubs */}
+      <PageSection label="Civilizations" variant="ruled">
+        <SectionIntro
+          eyebrow="Civilizations"
+          title="The editorial frame the corpus sits inside"
+          description="Each civilization hub reads a polity not as chronology but as a working answer to a small set of questions — what authority was, what law was for, how memory was kept, what the architecture and the army were the visible form of."
+          href="/civilizations"
+          hrefLabel="All civilization hubs"
+        />
+        <div className="mt-12">
+          <EditorialGrid columns={2}>
+            {civilizations.map((c) => (
+              <CivilizationCard
+                key={c.slug}
+                slug={c.slug}
+                title={c.frontmatter.title}
+                subtitle={c.frontmatter.subtitle}
+                period={c.frontmatter.period}
+                description={c.frontmatter.description}
+                heroImage={c.frontmatter.heroImage}
+              />
+            ))}
+          </EditorialGrid>
         </div>
+        <p className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
+          <Link
+            href="/ancient-world"
+            className="vp-link text-sm uppercase tracking-eyebrow"
+          >
+            Enter the Ancient World
+          </Link>
+          <Link
+            href="/roman-republic"
+            className="vp-link text-sm uppercase tracking-eyebrow"
+          >
+            Enter the Roman Republic
+          </Link>
+        </p>
       </PageSection>
 
       {/* Comparisons */}
