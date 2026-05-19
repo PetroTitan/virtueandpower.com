@@ -95,6 +95,21 @@ on Wikimedia's CDN and so the provenance is file-system-traceable.
 - **Local processing.** Same pipeline; resulting file is ~56
   KB at 1200 × 1600.
 
+### `trajan-glyptothek.webp`
+
+- **Subject.** Marble bust of the Emperor Trajan wearing the
+  civic crown, aegis and sword-belt — the standard imperial
+  portrait type. Early 2nd century CE.
+- **Location.** Glyptothek, Munich (inv. 72).
+- **Source.** Wikimedia Commons,
+  [`File:Traianus Glyptothek Munich 72.jpg`](https://commons.wikimedia.org/wiki/File:Traianus_Glyptothek_Munich_72.jpg).
+- **Licence.** **Public domain** (Wikimedia's claim that the
+  faithful photograph of a long-out-of-copyright sculpture is
+  itself in the public domain).
+- **Source dimensions.** 1689 × 2200.
+- **Local processing.** Same pipeline; resulting file is ~124
+  KB at 1228 × 1600.
+
 ## Adding new busts
 
 1. Find a public-domain (CC0 / PD-old) or attribution-friendly

@@ -170,6 +170,25 @@ export const busts: ReadonlyArray<Bust> = [
     notes:
       "Vatican Museums Cicero. Licensed CC BY-SA 3.0; attribution carried in the registry, on the page caption, and in the bust README. Vendored for the Cicero figure entry and the De Officiis / De Re Publica book pages.",
   },
+  {
+    slug: "trajan-glyptothek",
+    figure: "Trajan",
+    culture: "roman",
+    era: "Early 2nd century CE",
+    museum: "Glyptothek, Munich (Inv. 72)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Traianus_Glyptothek_Munich_72.jpg",
+    license: "public-domain",
+    imagePath: "/images/busts/trajan-glyptothek.webp",
+    width: 1228,
+    height: 1600,
+    alt: "Marble bust of the Emperor Trajan wearing the civic crown, aegis and sword-belt, Glyptothek Munich, early 2nd century CE.",
+    caption: "Trajan · Early 2nd century CE · Marble",
+    attribution: "Glyptothek, Munich · Wikimedia Commons (Public Domain)",
+    figureSlug: "trajan",
+    notes:
+      "Glyptothek Inv. 72: Trajan in the civic-crown / aegis / sword-belt iconography of the imperial portrait type. Public-domain photograph of a long-out-of-copyright sculpture. Vendored for the Trajan figure entry.",
+  },
 ];
 
 /** Look up a bust by slug. */
