@@ -30,6 +30,7 @@ const staticPaths = [
   "/war-and-peace",
   "/religion-and-wisdom",
   "/ancient-world",
+  "/roman-republic",
   "/privacy-policy",
   "/terms",
   "/cookie-policy",

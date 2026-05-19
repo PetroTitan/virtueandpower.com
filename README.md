@@ -1,8 +1,8 @@
 # Virtue & Power
 
 An intellectual platform exploring classical philosophy, virtue, power,
-leadership, statecraft, religion and the ancient world — grounded in primary
-sources and the long arc of historical thought.
+leadership, statecraft, civilization and the ancient world — grounded in
+primary sources and the long arc of historical thought.
 
 This repository hosts [virtueandpower.com](https://virtueandpower.com).
 
@@ -542,11 +542,17 @@ These are non-negotiable and they govern every entry:
 
 The current published corpus, organised by section.
 
-**Philosophers** (`/philosophers`, grouped by era)
+**Philosophers and historical figures** (`/philosophers`, grouped by era)
 
 - *Archaic Greece:* Homer
-- *Classical Greece:* Socrates, Plato, Aristotle, Xenophon
-- *Roman Empire (Greek under Rome):* Plutarch
+- *Founders and lawgivers:* Lycurgus, Solon, Numa Pompilius, Cyrus
+  the Great
+- *Classical Greece:* Socrates, Plato, Aristotle, Xenophon,
+  Themistocles, Pericles
+- *Roman Republic:* Scipio Africanus, Gaius Marius, Lucius Cornelius
+  Sulla, Pompey, Julius Caesar, Cato the Younger, Cicero
+- *Roman Empire (Greek under Rome / Latin imperial):* Plutarch,
+  Augustus
 
 **Books** (`/books`)
 
@@ -558,9 +564,12 @@ The current published corpus, organised by section.
 
 **Themes** (`/themes`)
 
-- *Character virtues:* Virtue, Courage, Self-Control, Ambition
-- *Political:* Justice, Leadership, Statecraft, Power
-- *Historical:* War and Peace
+- *Character virtues:* Virtue, Courage, Self-Control, Ambition,
+  Discipline, Honor, Duty
+- *Political:* Justice, Leadership, Statecraft, Power, Republic,
+  Empire, Law, Civic virtue, Founding
+- *Historical:* War and Peace, Corruption, Decline, Military virtue,
+  Education
 
 **Comparisons** (`/comparisons`)
 
@@ -576,6 +585,20 @@ The current published corpus, organised by section.
 - *Courage in the Iliad* — heroism, mortality and honour in Homer
 - *The Socratic method* — what the elenchus is doing
 - *Plutarch on character* — biography as moral and political inquiry
+- *Why Rome mattered* — what the European tradition kept from Rome
+- *Lycurgus and Spartan discipline* — civic education as constitution
+- *Cyrus and the education of rulers* — Xenophon's *Cyropaedia* and
+  the formation of character
+- *Marius, Sulla and Roman norms* — the cumulative drift of
+  exceptional measures
+- *Pompey versus Caesar* — the war whose senatorial side was less of
+  a defence of the Republic than it pretended to be
+- *Caesar and the collapse of the Republic* — what the crossing of
+  the Rubicon foreclosed
+- *Augustus and the transformation of Rome* — the settlement that
+  preserved the forms while concentrating the substance
+- *The Roman idea of civic virtue* — Cicero's *De Officiis* and what
+  the long tradition kept from it
 
 **Guides** (`/guides`) — reading orientations
 
@@ -679,6 +702,40 @@ declares the relationship.
 The denser the corpus, the richer the graph; the richer the graph, the
 more useful the platform becomes as a reading aid.
 
+### Sculptural anchors: the bust catalog
+
+The visual identity of the platform leans on museum-grade marble
+portrait photography rather than on illustration or generated
+imagery. The typed registry lives at
+[`src/data/busts.ts`](src/data/busts.ts) and is the single point at
+which a bust enters the corpus — dropping a file into
+[`public/images/busts/`](public/images/busts/) is not enough.
+
+Every entry carries: the subject (figure), the cultural origin, the
+era of the work, the museum that holds the original, the source URL
+to the photograph, the photographer where given, the licence, the
+local image path and intrinsic dimensions, editorial alt text, a
+caption, and an attribution tail. Where the bust depicts a figure
+with a content entry, the entry's slug is linked via `figureSlug`,
+so essays and figure pages can reference busts by identifier rather
+than by file path.
+
+The licence model is conservative. Photographs are vendored locally
+under licences we have verified — CC-Zero, public-domain (typically
+faithful photographic reproductions of long-out-of-copyright
+sculpture), or, where unavoidable, CC-BY / CC-BY-SA with the
+attribution carried both in the registry and in the in-page caption.
+Full provenance for each file is also recorded in human-readable
+form at
+[`public/images/busts/README.md`](public/images/busts/README.md).
+The same editorial discipline that governs the text applies to the
+images: no fabricated provenance, no uncertain attributions, no
+images whose rights status we have not verified.
+
+The current catalog: Marcus Aurelius (Heraklion), Julius Caesar
+(Tusculum portrait, Turin), Augustus (Louvre Ma 2577), Pericles
+(Vatican Pio-Clementino Inv. 269).
+
 ---
 
 ## Roadmap
@@ -686,40 +743,48 @@ more useful the platform becomes as a reading aid.
 The architecture is in place; the long work is the content. The next
 phases, in order:
 
-1. **Grow the essay layer.** A second wave of essays on the questions
-   the first wave opens — pairs like *Plato on the philosopher-king
-   and its critics*, *What Aristotle's mean is not*, *Roman virtue
-   between Cato and Cicero*. Each should be a real argument from the
-   primary text and the surrounding scholarship.
-2. **Grow the guide layer.** Guides to the next layer of thinkers
-   and works — *How to read Aristotle*, *How to read Plutarch*,
-   *Understanding the Nicomachean Ethics*, *Understanding the
-   Politics* — and a second introduction-level guide on reading
-   classical history.
-3. **Extend the philosopher / book layer.** The Hellenistic schools
-   (the Stoics, the Epicureans, the Skeptics), Cicero and the Roman
-   moralists, the historians (Thucydides, Polybius, Tacitus), the
-   patristic and medieval inheritance (Augustine, Aquinas), and the
-   primary texts that go with them.
-4. **Verified quote library.** Open the `/quotes` library with a small
+1. **Primary works for the Republic-era figures.** The Roman figure
+   layer (Cicero, Caesar, Sallust, Tacitus, Livy, Polybius) now
+   exists; the next move is to pair them with the primary works the
+   tradition keeps reading — *De Officiis*, *De Re Publica*, the
+   *Commentarii*, the *Catiline* and the *Annales* — as typed `book`
+   entries with editorial reading guides.
+2. **Second wave of essays.** Argument pieces on the questions the
+   civilization layer opens — *Polybius on the mixed constitution*,
+   *Tacitus and the form of an autocracy*, *Sparta and the limits of
+   discipline*, *What survives a republic*. Each is a real argument
+   from the primary text, not an op-ed.
+3. **Grow the guide layer.** Guides to the next layer of thinkers
+   and works — *How to read Aristotle*, *How to read Plutarch*, *How
+   to read Cicero*, *Understanding the Nicomachean Ethics*,
+   *Understanding De Officiis*.
+4. **Extend the philosopher / book layer.** The Hellenistic schools
+   (the Stoics, the Epicureans, the Skeptics), the historians
+   (Thucydides, Herodotus, Polybius, Tacitus, Livy) as their own
+   entries, the patristic and medieval inheritance (Augustine,
+   Aquinas), and the primary texts that go with them.
+5. **Verified quote library.** Open the `/quotes` library with a small
    number of verified, cited passages from the published entries —
    each passing the four requirements set out on the page.
-5. **Source catalog growth.** Add to `src/data/sources.ts` as the
-   editorial workload requires new editions; never add a source there
-   that has not actually been consulted for a live entry.
-6. **Era kinds.** Once the entry density justifies it, give
-   `/ancient-world`, `/war-and-peace` and `/religion-and-wisdom` their
-   own typed content kinds for eras, conflicts and traditions, so
-   those study landings list the kind-specific entries the way the
+6. **Expand the bust catalog.** Continue the same provenance-strict
+   approach: Cicero, Cato the Younger, Scipio Africanus, Pompey,
+   Lycurgus, Solon. Each entry follows the verification pipeline
+   described above; no image is added whose rights and identification
+   we have not checked.
+7. **Era kinds.** Now that `/roman-republic` joins `/ancient-world`,
+   `/war-and-peace` and `/religion-and-wisdom`, give the study
+   landings their own typed content kinds for eras, conflicts and
+   traditions so they list kind-specific entries the way the
    philosopher / book / theme / essay / guide landings already do.
-7. **Editorial workflow.** Lightweight additional tooling for
+8. **Editorial workflow.** Lightweight additional tooling for
    reading-time drift detection, translator-rights snapshots, and a
    content-status report (stubs vs. published) surfaced in CI.
-6. **OG image generation.** Per-entry editorial OG images using the
-   same serif/parchment palette, generated at build time.
-7. **i18n foundation.** Originally Greek and Latin terms (and their
-   precise transliteration) get a small typed glossary that the prose
-   renderer can link.
+9. **OG image generation.** Per-entry editorial OG images using the
+   same marble palette, generated at build time — including a variant
+   that incorporates the figure's registered bust where one exists.
+10. **i18n foundation.** Originally Greek and Latin terms (and their
+    precise transliteration) get a small typed glossary that the
+    prose renderer can link.
 
 The shape of the platform is meant to stay small; the depth is meant to
 grow.

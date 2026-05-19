@@ -26,6 +26,7 @@ export const siteConfig = {
     { slug: "war-and-peace", label: "War & Peace" },
     { slug: "religion-and-wisdom", label: "Religion & Wisdom" },
     { slug: "ancient-world", label: "Ancient World" },
+    { slug: "roman-republic", label: "Roman Republic" },
   ] as const,
   primaryNav: [
     { slug: "essays", label: "Essays" },
@@ -55,6 +56,7 @@ export const siteConfig = {
     ],
     Eras: [
       { slug: "ancient-world", label: "Ancient World" },
+      { slug: "roman-republic", label: "Roman Republic" },
       { slug: "religion-and-wisdom", label: "Religion & Wisdom" },
       { slug: "war-and-peace", label: "War & Peace" },
     ],
