@@ -147,6 +147,7 @@ export const sources: Source[] = [
     notes:
       "The Oxford Classical Texts of Cicero — the speeches, philosophical works (De Officiis, De Re Publica, De Legibus, De Finibus, Tusculan Disputations), letters, and rhetorical works. Cited by the conventional short titles + book / section (e.g. De Officiis 1.20; Phil. 2.110; Att. 1.16).",
     relatedThinkers: ["cicero"],
+    relatedBooks: ["de-officiis", "de-re-publica"],
   },
   {
     id: "caesar-commentarii-oct",
@@ -160,6 +161,7 @@ export const sources: Source[] = [
     notes:
       "Caesar's own narrative — De Bello Gallico (the Gallic Wars) and De Bello Civili (the Civil War) — cited by book and chapter (e.g. BG 6.13). The single most important first-person source for a Roman statesman of the late Republic.",
     relatedThinkers: ["julius-caesar"],
+    relatedBooks: ["bello-gallico"],
   },
   {
     id: "sallust-opera",
@@ -173,6 +175,7 @@ export const sources: Source[] = [
     notes:
       "Sallust's two surviving monographs are the principal narrative source for the conspiracy of Catiline and for the Jugurthine War — the latter giving us our most extended portrait of Gaius Marius. His moralising frame (Roman virtue declining under the corrosion of imperial wealth) shaped how the late Republic was read for centuries after.",
     relatedThinkers: ["gaius-marius", "cicero"],
+    relatedBooks: ["conspiracy-of-catiline", "jugurthine-war"],
   },
   {
     id: "suetonius-de-vita-caesarum",
@@ -212,6 +215,7 @@ export const sources: Source[] = [
     notes:
       "Livy's monumental history of Rome from its founding. Books 1–10 and 21–45 survive (with periochae summaries of the rest). The principal source for the early Republic, Numa, the regal period, and the Roman idealisation of civic virtue in the years before Marius. Cited by book + chapter (e.g. Liv. 1.18 for Numa).",
     relatedThinkers: ["numa-pompilius", "scipio-africanus"],
+    relatedBooks: ["ab-urbe-condita"],
   },
   {
     id: "polybius-histories",
@@ -225,6 +229,7 @@ export const sources: Source[] = [
     notes:
       "The Greek historian who explained the rise of Rome to a Greek audience. Book VI is the locus classicus for the anakuklōsis (cycle of regimes) and for the analysis of the Roman mixed constitution that shaped subsequent constitutional thought. Cited by book + chapter (e.g. Plb. 6.11).",
     relatedThinkers: ["scipio-africanus"],
+    relatedBooks: ["polybius-histories"],
     relatedThemes: ["statecraft", "republic"],
   },
   {
@@ -302,6 +307,18 @@ export const sources: Source[] = [
     url: "https://www.gutenberg.org/",
     notes:
       "An archive of works in the public domain in the United States. Useful for early modern editions and historical translations of classical works (Jowett's Plato, Ross's Aristotle in older Oxford translations, etc.).",
+  },
+  {
+    id: "lacuscurtius",
+    title: "LacusCurtius — Bill Thayer's classical archive",
+    editor: "Bill Thayer (editor)",
+    type: "reference",
+    language: "English / Latin / Greek",
+    publicDomainStatus: "mixed",
+    url: "https://penelope.uchicago.edu/Thayer/E/Roman/home.html",
+    notes:
+      "A long-running, scholarly digital archive of Latin and Greek texts in the Roman world — full texts of Polybius, Plutarch's Roman Lives, the Augustan History, Cassius Dio, Suetonius, Livy and many others, in English translation (largely the Loeb editions out of copyright in the United States) with hyperlinked references. Particularly valuable for the historiographical layer.",
+    relatedThinkers: ["plutarch", "julius-caesar", "augustus", "scipio-africanus"],
   },
 
   // ─── Scholarly reference ─────────────────────────────────────────────
