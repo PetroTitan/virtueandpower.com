@@ -12,6 +12,11 @@ type StudyLandingProps = {
   description: string;
   body: ReactNode;
   related: Array<{ href: string; label: string }>;
+  /** Optional civilizational anchor — typically an ArchiveImage or
+   *  BustImage — rendered between the header and the body grid as a
+   *  full-width composition. Use sparingly: study landings work
+   *  without it. */
+  hero?: ReactNode;
 };
 
 export function StudyLanding({
@@ -21,6 +26,7 @@ export function StudyLanding({
   description,
   body,
   related,
+  hero,
 }: StudyLandingProps) {
   return (
     <>
@@ -36,6 +42,11 @@ export function StudyLanding({
         title={title}
         description={description}
       />
+      {hero ? (
+        <Container width="editorial" className="pt-4 pb-12">
+          {hero}
+        </Container>
+      ) : null}
       <Container width="editorial" className="py-16">
         <div className="grid gap-16 md:grid-cols-12">
           <div className="md:col-span-8">

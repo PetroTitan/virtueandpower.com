@@ -5,7 +5,9 @@ import { PageHeader } from "@/components/editorial/PageHeader";
 import { RelatedReading } from "@/components/editorial/RelatedReading";
 import { StubNotice } from "@/components/editorial/StubNotice";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { BustImage } from "@/components/site/BustImage";
 import { MdxContent } from "@/content/mdx";
+import { busts } from "@/data/busts";
 import {
   getEntryBySlug,
   getPhilosophers,
@@ -70,6 +72,7 @@ export default async function PhilosopherPage({
   const path = hrefFor("philosopher", slug);
   const related = await getRelatedAndBacklinks("philosopher", slug, fm.related);
   const lifespan = parseLifespan(fm.lifespan);
+  const bust = busts.find((b) => b.figureSlug === slug);
 
   return (
     <>
@@ -114,6 +117,13 @@ export default async function PhilosopherPage({
             <MdxContent source={entry.body} />
           </article>
           <aside className="md:col-span-4 md:border-l md:border-rule md:pl-10">
+            {bust ? (
+              <BustImage
+                bust={bust}
+                className="mb-10"
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 30vw, 100vw"
+              />
+            ) : null}
             <p className="vp-eyebrow">Quick facts</p>
             <dl className="mt-4 space-y-3 text-sm text-charcoal-100">
               <div>
