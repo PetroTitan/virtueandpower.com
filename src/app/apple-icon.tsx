@@ -20,17 +20,17 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#FAF7F1",
-          color: "#1F1B16",
+          background: "#FFFFFF",
+          color: "#0F1419",
           fontFamily: "serif",
           fontSize: 96,
           fontWeight: 500,
           letterSpacing: "-0.04em",
           lineHeight: 1,
-          border: "8px solid #F1E9D6",
+          border: "8px solid #F4F5F7",
         }}
       >
-        V<span style={{ color: "#8A6A3B", padding: "0 4px" }}>&amp;</span>P
+        V<span style={{ color: "#1E3A5F", padding: "0 4px" }}>&amp;</span>P
       </div>
     ),
     { ...size },

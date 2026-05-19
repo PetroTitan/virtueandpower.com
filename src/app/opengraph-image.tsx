@@ -6,10 +6,10 @@ import { siteConfig } from "@/lib/site";
  * doesn't define its own opengraph-image, and as the default referenced
  * by buildMetadata() in src/lib/seo.ts.
  *
- * Visual language matches the editorial palette: parchment background,
- * serif wordmark with bronze ampersand, restrained typographic
- * hierarchy. No gradients, no photographs, no logos beyond the
- * monogram.
+ * Marble redesign palette: pure white surround with a very low-opacity
+ * marble wash, ink wordmark, imperial-blue ampersand, hairline silver
+ * rules. No gradients beyond the subtle marble texture, no photographs,
+ * no logos beyond the monogram.
  */
 
 export const runtime = "edge";
@@ -28,11 +28,14 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 96,
-          background: "#F1E9D6",
-          color: "#1F1B16",
+          background: "#FFFFFF",
+          color: "#0F1419",
           fontFamily: "serif",
+          // A very subtle marble wash so the card doesn't read as flat
+          // white at small sizes. Two soft radial tints — one cool gray,
+          // one barely-imperial-blue — at very low opacity.
           backgroundImage:
-            "linear-gradient(180deg, #F1E9D6 0%, #FAF7F1 60%, #F1E9D6 100%)",
+            "radial-gradient(ellipse at 25% 15%, rgba(15, 20, 25, 0.04), transparent 55%), radial-gradient(ellipse at 85% 85%, rgba(30, 58, 95, 0.05), transparent 55%)",
         }}
       >
         {/* Top: small editorial eyebrow */}
@@ -43,7 +46,7 @@ export default function OpenGraphImage() {
             fontSize: 22,
             letterSpacing: "0.22em",
             textTransform: "uppercase",
-            color: "#8A6A3B",
+            color: "#6B7280",
           }}
         >
           An intellectual platform · Est. MMXXVI
@@ -53,24 +56,24 @@ export default function OpenGraphImage() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
-              fontSize: 168,
+              fontSize: 176,
               fontWeight: 500,
               lineHeight: 1,
-              letterSpacing: "-0.02em",
-              color: "#1F1B16",
+              letterSpacing: "-0.025em",
+              color: "#0F1419",
               display: "flex",
             }}
           >
             Virtue&nbsp;
-            <span style={{ color: "#8A6A3B" }}>&amp;</span>
+            <span style={{ color: "#1E3A5F" }}>&amp;</span>
             &nbsp;Power
           </div>
           <div
             style={{
-              marginTop: 28,
-              fontSize: 36,
+              marginTop: 32,
+              fontSize: 38,
               fontStyle: "italic",
-              color: "#3A342D",
+              color: "#3A3F47",
               maxWidth: 940,
               lineHeight: 1.25,
             }}
@@ -85,15 +88,17 @@ export default function OpenGraphImage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            borderTop: "1px solid #D6CDB8",
+            borderTop: "1px solid #E5E7EB",
             paddingTop: 24,
             fontFamily: "sans-serif",
             fontSize: 22,
-            color: "#5E5851",
+            color: "#6B7280",
           }}
         >
           <div style={{ display: "flex" }}>virtueandpower.com</div>
-          <div style={{ display: "flex" }}>Primary sources · precise citations</div>
+          <div style={{ display: "flex" }}>
+            Primary sources · precise citations
+          </div>
         </div>
       </div>
     ),

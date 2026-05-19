@@ -1,10 +1,10 @@
 import { ImageResponse } from "next/og";
 
 /**
- * Site favicon — a serif "V&P" monogram in the platform's ivory /
- * bronze / charcoal palette. Next.js App Router serves this at /icon
- * and announces it in the document head automatically; no manual
- * <link rel="icon"> wiring required.
+ * Site favicon — a serif "V&P" monogram on pure white. Ink letterforms
+ * with a single imperial-blue ampersand. Next.js App Router serves it
+ * at /icon and announces it in the document head automatically; no
+ * manual <link rel="icon"> wiring required.
  */
 
 export const runtime = "edge";
@@ -21,8 +21,8 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#FAF7F1",
-          color: "#1F1B16",
+          background: "#FFFFFF",
+          color: "#0F1419",
           fontFamily: "serif",
           fontSize: 20,
           fontWeight: 500,
@@ -30,7 +30,7 @@ export default function Icon() {
           lineHeight: 1,
         }}
       >
-        V<span style={{ color: "#8A6A3B", padding: "0 1px" }}>&amp;</span>P
+        V<span style={{ color: "#1E3A5F", padding: "0 1px" }}>&amp;</span>P
       </div>
     ),
     { ...size },
