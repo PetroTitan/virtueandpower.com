@@ -14,24 +14,28 @@ type EssayCardProps = {
  */
 export function EssayCard({ href, title, eyebrow, dek, meta }: EssayCardProps) {
   return (
-    <article className="group flex h-full flex-col border-t border-rule pt-6">
+    <article className="group flex h-full flex-col border-t border-rule pt-7">
       {eyebrow ? <p className="vp-eyebrow">{eyebrow}</p> : null}
       <h3 className="mt-3 font-serif text-heading-2 text-charcoal">
-        <Link
-          href={href}
-          className="rounded-sm transition-colors group-hover:text-bronze focus-visible:outline-none focus-visible:text-bronze"
-        >
-          {title}
-        </Link>
+        <Link href={href}>{title}</Link>
       </h3>
       {dek ? (
         <p className="mt-3 text-charcoal-100">{dek}</p>
       ) : null}
-      <div className="mt-auto pt-6 text-xs uppercase tracking-eyebrow text-stone">
+      <div className="mt-auto flex flex-wrap items-center gap-x-2 pt-7 text-xs uppercase tracking-eyebrow text-stone">
         {meta ? <span>{meta}</span> : null}
-        {meta ? <span aria-hidden> · </span> : null}
-        <Link href={href} className="text-bronze hover:text-bronze-300">
-          Read essay →
+        {meta ? <span aria-hidden>·</span> : null}
+        <Link
+          href={href}
+          className="inline-flex items-center text-bronze"
+        >
+          Read essay
+          <span
+            aria-hidden
+            className="ml-1 transition-transform group-hover:translate-x-0.5"
+          >
+            →
+          </span>
         </Link>
       </div>
     </article>

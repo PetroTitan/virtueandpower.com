@@ -35,7 +35,7 @@ const sans = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#FAF7F1",
+  themeColor: "#FFFFFF",
   width: "device-width",
   initialScale: 1,
 };
