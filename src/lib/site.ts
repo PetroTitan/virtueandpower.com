@@ -10,7 +10,6 @@ export const siteConfig = {
     "Virtue & Power is an intellectual platform exploring classical philosophy, virtue, power, leadership, statecraft, religion and the ancient world — grounded in primary sources and the long arc of historical thought.",
   locale: "en_US",
   language: "en",
-  defaultOgImage: "/og/default.png",
   twitterHandle: "@virtueandpower",
   sections: [
     { slug: "essays", label: "Essays" },
@@ -63,8 +62,17 @@ export const siteConfig = {
       { slug: "about", label: "About" },
       { slug: "editorial-policy", label: "Editorial policy" },
       { slug: "sources", label: "Sources" },
+    ],
+    Trust: [
+      { slug: "privacy-policy", label: "Privacy" },
+      { slug: "terms", label: "Terms" },
+      { slug: "cookie-policy", label: "Cookies" },
+    ],
+    Discovery: [
       { slug: "rss.xml", label: "RSS" },
       { slug: "sitemap.xml", label: "Sitemap" },
+      { slug: "llms.txt", label: "llms.txt" },
+      { slug: "humans.txt", label: "humans.txt" },
     ],
   },
 } as const;

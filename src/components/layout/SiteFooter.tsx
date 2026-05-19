@@ -22,7 +22,7 @@ export function SiteFooter() {
           </div>
 
           <nav aria-label="Footer" className="md:col-span-8">
-            <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
               {Object.entries(siteConfig.footerNav).map(([group, items]) => (
                 <div key={group}>
                   <h2 className="vp-eyebrow mb-3">{group}</h2>
@@ -31,7 +31,7 @@ export function SiteFooter() {
                       <li key={item.slug}>
                         <Link
                           href={`/${item.slug}`}
-                          className="-mx-1 inline-block min-h-[40px] px-1 py-1.5 leading-snug text-charcoal-100 hover:text-bronze"
+                          className="-mx-1 inline-block min-h-[36px] px-1 py-1 leading-snug text-charcoal-100 hover:text-bronze"
                         >
                           {item.label}
                         </Link>
