@@ -85,6 +85,7 @@ function collectOutgoingRefs(entry: ContentEntry<AnyFrontmatter>): ContentRef[] 
       break;
     case "book":
       push(fm.primaryThemes);
+      push(fm.primaryThinkers);
       break;
     case "theme":
       push(fm.keyThinkers);
