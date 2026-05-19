@@ -551,8 +551,9 @@ The current published corpus, organised by section.
   Themistocles, Pericles
 - *Roman Republic:* Scipio Africanus, Gaius Marius, Lucius Cornelius
   Sulla, Pompey, Julius Caesar, Cato the Younger, Cicero
+- *Roman historians:* Sallust, Livy, Polybius, Tacitus, Suetonius
 - *Roman Empire (Greek under Rome / Latin imperial):* Plutarch,
-  Augustus
+  Augustus, Trajan
 
 **Books** (`/books`)
 
@@ -572,9 +573,9 @@ The current published corpus, organised by section.
 - *Character virtues:* Virtue, Courage, Self-Control, Ambition,
   Discipline, Honor, Duty
 - *Political:* Justice, Leadership, Statecraft, Power, Republic,
-  Empire, Law, Civic virtue, Founding, Mixed constitution
+  Empire, Law, Civic virtue, Founding, Mixed constitution, Tyranny
 - *Historical:* War and Peace, Corruption, Decline, Military virtue,
-  Education, Historical memory
+  Education, Historical memory, Historical method
 
 **Comparisons** (`/comparisons`)
 
@@ -614,6 +615,15 @@ The current published corpus, organised by section.
   opposite directions and how to hold them together
 - *Why Roman history became moral instruction* — Livy, Sallust,
   Plutarch and the *exempla* tradition
+- *Tacitus and the psychology of empire* — the structural-
+  psychological argument the *Annales* and *Historiae* make about
+  unbounded power
+- *Suetonius and the personalisation of imperial power* — the
+  topical-biographical method and its analytical content
+- *Republic memory under empire* — how the high-imperial
+  historiography kept the older constitutional vocabulary alive
+- *Why Rome became obsessed with decline* — the consistent
+  intellectual habit and the European tradition that inherited it
 
 **Guides** (`/guides`) — reading orientations
 
@@ -778,6 +788,124 @@ Gutenberg, and the Loeb and OCT series themselves. A source is in
 the catalog only if the team has actually consulted it for a live
 entry.
 
+### The historians layer
+
+The Roman historians — Sallust, Livy, Polybius, Tacitus, Suetonius —
+are first-class figure entries in their own right, not just authors-
+of-the-books. The platform treats them as the principal
+*interpretive* voices of the Roman tradition rather than as
+chroniclers, because that is how the European reading tradition
+has used them for two thousand years.
+
+Each historian entry is written editorially around five questions:
+*why did this historian matter*, *what kind of civilization did they
+describe*, *what political anxieties shaped the work*, *what
+historical method did they develop*, and *how did later civilizations
+read them*. No date-dumping, no "born/died/wrote" structure, no
+shallow biography. The pages are interpretive editorial readings of
+600–800 words each.
+
+#### Why this layer is editorially distinct
+
+A primary text — Polybius' *Histories*, Livy's *Ab Urbe Condita* —
+asks one question of the editor: *what does this work argue about
+the political world it describes?* The corresponding historian's
+figure entry asks a different question: *what kind of working
+intellectual does this body of work imply, and what civic situation
+produced the work in that form?* The two readings reinforce each
+other and the graph carries both. Polybius VI is not a complete
+reading without an account of Polybius the Achaean hostage; the
+*Annales* are not a complete reading without an account of Tacitus
+the senatorial operator of the regime he describes.
+
+#### Civilizational memory
+
+The historians layer is also the platform's working answer to a
+question the brief made central: how a polity's memory of itself
+is part of its constitutional life. Livy, Sallust and Tacitus are
+the three principal ancient writers who took this question
+seriously enough to organise their work around it; the platform's
+themes `historical-memory` and `historical-method` carry the
+inquiry through to the modern reader. The Roman conviction that
+*history is a practice with civic work to do* is not the only
+possible answer to the question — but it is one of the most fully
+elaborated answers the European tradition received, and the
+platform reads it as such.
+
+### The visual archive
+
+The bust catalog at [`src/data/busts.ts`](src/data/busts.ts) handles
+portrait photography of figures the corpus carries. Everything
+else — architecture, ruins, maps, manuscripts, reliefs,
+inscriptions — lives in a parallel typed registry at
+[`src/data/archive-images.ts`](src/data/archive-images.ts). The
+same editorial discipline applies: full provenance, verified
+licensing, no uncertain attributions, no fabricated history.
+
+The image library is organised by visual category. Each kind has
+its own subdirectory under `public/images/` and its own README
+carrying human-readable provenance:
+
+- [`public/images/busts/`](public/images/busts/) — portrait
+  photography of figures
+- [`public/images/architecture/`](public/images/architecture/) —
+  buildings, columns, civic spaces (currently: Trajan's Column;
+  the Pantheon interior)
+- [`public/images/ruins/`](public/images/ruins/) — partial
+  structures, archaeological-site photography (currently: the
+  Roman Forum overview)
+- [`public/images/maps/`](public/images/maps/) — historical maps,
+  reconstructions of ancient geography
+- [`public/images/manuscripts/`](public/images/manuscripts/) —
+  manuscript fragments, scribal pages, papyri
+
+The render component [`src/components/site/ArchiveImage.tsx`](src/components/site/ArchiveImage.tsx)
+mirrors `BustImage.tsx` and uses the same marble framing, the
+same caption convention, and the same restrained
+desaturation-and-contrast treatment so the photograph reads as
+marble rather than as a postcard.
+
+#### Where the visuals appear
+
+The visual layer is deliberately sparse. The aesthetic is museum
+catalogue, not blog feed.
+
+- **Figure pages** that have a registered bust in the bust
+  catalog render the bust at the top of the sidebar
+  automatically. Caesar, Augustus, Pericles, Cicero, Marcus
+  Aurelius and Trajan all currently surface this way; figures
+  without a registered bust render with no visual stub.
+- **Study landings** (the era pages) accept an optional `hero`
+  slot; `/roman-republic` uses it to anchor the Forum overview
+  between the page header and the body.
+- **Homepage** uses the Marcus Aurelius bust as its sculptural
+  focal point (unchanged since the marble redesign).
+
+We do not add visuals to dense editorial pages (essays, guides,
+themes) unless an image is doing real interpretive work in the
+argument. The brief's caution against blog-feed crowding governs
+this: the visual layer supports the editorial layer; it does not
+overpower it.
+
+#### What the image catalog will and will not contain
+
+Inclusion criteria are deliberately strict:
+
+- **Identification must be securely established.** No "traditionally
+  identified as" portraits where modern scholarship is divided. The
+  Polybius and Scipio busts considered in earlier phases were
+  rejected for this reason and remain rejected.
+- **Provenance must be documented.** Source URL on Wikimedia
+  Commons (or an equivalent museum open-access programme),
+  photographer credited where given, dimensions of the source,
+  licence verified.
+- **Licence must be verified.** Preferred: CC-Zero or
+  public-domain. Acceptable with attribution: CC-BY, CC-BY-SA.
+  Rejected: anything we cannot trace to a confirmed licence.
+- **Photography must be museum-grade.** Restrained framing,
+  honest lighting, no HDR-overprocessed material, no AI-generated
+  imagery under any circumstances.
+
 ### Sculptural anchors: the bust catalog
 
 The visual identity of the platform leans on museum-grade marble
@@ -810,7 +938,8 @@ images whose rights status we have not verified.
 
 The current catalog: Marcus Aurelius (Heraklion), Julius Caesar
 (Tusculum portrait, Turin), Augustus (Louvre Ma 2577), Pericles
-(Vatican Pio-Clementino Inv. 269), Cicero (Vatican Museums).
+(Vatican Pio-Clementino Inv. 269), Cicero (Vatican Museums),
+Trajan (Glyptothek Munich Inv. 72).
 
 ---
 
@@ -819,54 +948,69 @@ The current catalog: Marcus Aurelius (Heraklion), Julius Caesar
 The architecture is in place; the long work is the content. The next
 phases, in order:
 
-1. **Roman historians as figure entries.** Sallust, Livy, Polybius,
-   Tacitus and Plutarch are present in the corpus through their
-   *works* and the source catalog, but not yet as typed
-   `philosopher` (figure) entries in their own right. The next move
-   is to give them dedicated entries written in the platform's
-   editorial mode — what each historian was actually doing and why
-   the tradition kept reading them — to complete the
-   primary-text-to-author graph.
-2. **Tacitus and the form of an autocracy.** A separate book pairing
-   for the *Annales* and the *Historiae* with an interpretive essay
-   on what Tacitus's analysis adds to the question of how
-   constitutional forms can outlive the substance they were written
-   for. This is the natural pair to phase 10's Polybius and
-   Sallust.
+1. **Tacitus pairings.** The *Annales* and the *Historiae* deserve
+   their own typed book entries with an interpretive essay
+   specifically on what Tacitus's analysis adds to the question of
+   how constitutional forms can outlive the substance they were
+   written for. Phase 11 gave Tacitus a figure entry and the
+   psychology-of-empire essay; the primary-text layer for him is
+   the obvious next move.
+2. **Stretch historians: Appian, Cassius Dio, Pliny the Younger,
+   Josephus.** Each was a candidate during phase 11 and was deferred
+   to keep the depth high on the five core entries. Appian and
+   Cassius Dio carry the late-imperial reception of the Republic;
+   Pliny the Younger gives the working voice of the Trajanic
+   senatorial class; Josephus opens the eastern-imperial layer.
 3. **Grow the guide layer.** Guides to the next layer of thinkers
    and works — *How to read Cicero*, *How to read Plutarch*, *How
-   to read Livy*, *Understanding De Officiis*, *Understanding
+   to read Tacitus*, *Understanding De Officiis*, *Understanding
    Polybius VI*. The reading-guide layer is currently thin and
    would do real work for new readers.
-4. **Extend the philosopher / book layer beyond Rome.** The
+4. **Civilization hubs.** A `/civilizations/rome`,
+   `/civilizations/greece` and `/civilizations/persia` layer was
+   considered for phase 11 and deferred because it overlapped too
+   heavily with `/ancient-world` and `/roman-republic`. The future
+   work is to design a hub layer that adds something the existing
+   era pages do not.
+5. **Extend the philosopher / book layer beyond Rome.** The
    Hellenistic schools (the Stoics, the Epicureans, the Skeptics),
    Augustine, Aquinas, and the medieval reception of the ancient
    political vocabulary. The Roman republican tradition the
    platform now carries is a starting point, not the whole story.
-5. **Verified quote library.** Open the `/quotes` library with a
+6. **Verified quote library.** Open the `/quotes` library with a
    small number of verified, cited passages from the published
    entries — each passing the four requirements set out on the page.
-6. **Expand the bust catalog where provenance allows.** Cato the
-   Younger, Pompey, Solon, Lycurgus are candidates; each requires
-   the same verification pipeline. Polybius and Scipio remain
-   deliberately omitted: no surviving Polybius portrait and every
-   candidate Scipio identification is contested in current
-   scholarship.
-7. **Era kinds.** Now that `/roman-republic` joins `/ancient-world`,
+7. **Expand the bust and archive image catalogs where provenance
+   allows.** Bust candidates: Cato the Younger, Pompey, Solon,
+   Lycurgus. Archive image candidates: a serious historical map of
+   the Mediterranean under Augustus or under Trajan; the Curia
+   Julia or Maison Carrée for Republican-era architecture; a
+   manuscript fragment of one of the major primary texts if a
+   verifiable PD image of a securely identified manuscript can be
+   sourced. The image-archive verification pipeline stays the same:
+   no uncertain attributions, no fabricated provenance.
+8. **Era kinds.** Now that `/roman-republic` joins `/ancient-world`,
    `/war-and-peace` and `/religion-and-wisdom`, give the study
    landings their own typed content kinds for eras, conflicts and
    traditions so they list kind-specific entries the way the
    philosopher / book / theme / essay / guide landings already do.
-8. **Editorial workflow.** Lightweight additional tooling for
-   reading-time drift detection, translator-rights snapshots, and a
-   content-status report (stubs vs. published) surfaced in CI.
-9. **OG image generation.** Per-entry editorial OG images using the
-   same marble palette, generated at build time — including a
-   variant that incorporates the figure's registered bust where one
-   exists.
-10. **i18n foundation.** Originally Greek and Latin terms (and their
-    precise transliteration) get a small typed glossary that the
-    prose renderer can link.
+9. **Timeline infrastructure.** The phase 11 brief named timeline
+   pages (Roman Republic, late Republic, rise of Augustus) as a
+   candidate. Deferred because the SSR-first / editorial-first
+   priority makes the interactive timeline harder to do well than to
+   skip. The slower path is to add timeline data as typed content
+   first, then render it as a deliberately static editorial timeline
+   on the era pages.
+10. **Editorial workflow.** Lightweight additional tooling for
+    reading-time drift detection, translator-rights snapshots, and
+    a content-status report (stubs vs. published) surfaced in CI.
+11. **OG image generation.** Per-entry editorial OG images using
+    the same marble palette, generated at build time — including a
+    variant that incorporates the figure's registered bust where
+    one exists.
+12. **i18n foundation.** Originally Greek and Latin terms (and
+    their precise transliteration) get a small typed glossary that
+    the prose renderer can link.
 
 The shape of the platform is meant to stay small; the depth is meant to
 grow.
