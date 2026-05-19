@@ -53,6 +53,10 @@ export interface BookFrontmatter extends BaseFrontmatter {
   composedCirca?: string;
   recommendedTranslation?: string;
   primaryThemes?: ContentRef[];
+  /** Figures the work most closely concerns or is in dialogue with —
+   *  parallel to the essay layer's primaryThinkers so the book graph
+   *  surfaces backlinks to those figures and vice versa. */
+  primaryThinkers?: ContentRef[];
 }
 
 export interface ThemeFrontmatter extends BaseFrontmatter {

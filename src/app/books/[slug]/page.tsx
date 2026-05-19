@@ -58,6 +58,7 @@ export default async function BookPage({
   const path = hrefFor("book", slug);
   const related = await getRelatedAndBacklinks("book", slug, fm.related);
   const themes = await resolveRefs(fm.primaryThemes);
+  const thinkers = await resolveRefs(fm.primaryThinkers);
 
   return (
     <>
@@ -134,6 +135,23 @@ export default async function BookPage({
                 <p className="vp-eyebrow">Primary themes</p>
                 <ul className="mt-3 space-y-2 text-sm">
                   {themes.map(({ ref, entry: t }) => (
+                    <li key={`${ref.kind}-${ref.slug}`}>
+                      <a
+                        href={hrefFor(ref.kind, ref.slug)}
+                        className="vp-link text-charcoal-100"
+                      >
+                        {t.frontmatter.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+            {thinkers.length ? (
+              <div className="mt-8">
+                <p className="vp-eyebrow">Related figures</p>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {thinkers.map(({ ref, entry: t }) => (
                     <li key={`${ref.kind}-${ref.slug}`}>
                       <a
                         href={hrefFor(ref.kind, ref.slug)}
