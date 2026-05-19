@@ -14,13 +14,17 @@ type EssayCardProps = {
  */
 export function EssayCard({ href, title, eyebrow, dek, meta }: EssayCardProps) {
   return (
-    <article className="group flex h-full flex-col border-t border-rule pt-7">
-      {eyebrow ? <p className="vp-eyebrow">{eyebrow}</p> : null}
-      <h3 className="mt-3 font-serif text-heading-2 text-charcoal">
+    <article className="group flex h-full flex-col">
+      {eyebrow ? (
+        <div className="border-b border-rule pb-3">
+          <p className="vp-eyebrow">{eyebrow}</p>
+        </div>
+      ) : null}
+      <h3 className="mt-5 font-serif text-heading-2 text-charcoal">
         <Link href={href}>{title}</Link>
       </h3>
       {dek ? (
-        <p className="mt-3 text-charcoal-100">{dek}</p>
+        <p className="mt-4 text-charcoal-100">{dek}</p>
       ) : null}
       <div className="mt-auto flex flex-wrap items-center gap-x-2 pt-7 text-xs uppercase tracking-eyebrow text-stone">
         {meta ? <span>{meta}</span> : null}

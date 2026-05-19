@@ -16,13 +16,17 @@ type ThemeCardProps = {
 export function ThemeCard({ slug, title, description, domain }: ThemeCardProps) {
   const href = `/themes/${slug}`;
   return (
-    <article className="group flex h-full flex-col border-t border-rule pt-7">
-      {domain ? <p className="vp-eyebrow">{domain}</p> : null}
-      <h3 className="mt-3 font-serif text-heading-1 text-charcoal">
+    <article className="group flex h-full flex-col">
+      {domain ? (
+        <div className="border-b border-rule pb-3">
+          <p className="vp-eyebrow">{domain}</p>
+        </div>
+      ) : null}
+      <h3 className="mt-5 font-serif text-heading-1 text-charcoal">
         <Link href={href}>{title}</Link>
       </h3>
       {description ? (
-        <p className="mt-3 text-charcoal-100">{description}</p>
+        <p className="mt-5 text-charcoal-100">{description}</p>
       ) : null}
       <p className="mt-auto pt-7">
         <Link
