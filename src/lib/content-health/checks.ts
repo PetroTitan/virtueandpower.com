@@ -20,6 +20,7 @@ const KNOWN_KINDS: ReadonlySet<ContentKind> = new Set([
   "comparison",
   "essay",
   "guide",
+  "civilization",
 ]);
 
 const VALID_STATUS = new Set(["stub", "published"]);
@@ -49,6 +50,16 @@ const KIND_REQUIRED_FIELDS: Record<ContentKind, ReadonlyArray<string>> = {
   comparison: ["slug", "title", "description", "status", "updated", "subjects"],
   essay: ["slug", "title", "description", "status", "updated"],
   guide: ["slug", "title", "description", "status", "updated"],
+  civilization: [
+    "slug",
+    "title",
+    "description",
+    "status",
+    "updated",
+    "subtitle",
+    "period",
+    "civilizationType",
+  ],
 };
 
 // Heuristics used by the published-quality and quote-safety checks.
@@ -103,6 +114,12 @@ function collectOutgoingRefs(entry: ContentEntry<AnyFrontmatter>): ContentRef[] 
       break;
     case "guide":
       pushOne(fm.mainSubject);
+      break;
+    case "civilization":
+      push(fm.relatedFigures);
+      push(fm.relatedThemes);
+      push(fm.relatedBooks);
+      push(fm.relatedEssays);
       break;
   }
   return out;

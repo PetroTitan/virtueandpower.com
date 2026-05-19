@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import type {
   AnyFrontmatter,
   BookFrontmatter,
+  CivilizationFrontmatter,
   ComparisonFrontmatter,
   ContentEntry,
   ContentKind,
@@ -25,6 +26,7 @@ const dirByKind: Record<ContentKind, string> = {
   comparison: "comparisons",
   essay: "essays",
   guide: "guides",
+  civilization: "civilizations",
 };
 
 type FrontmatterFor<K extends ContentKind> = K extends "philosopher"
@@ -41,7 +43,9 @@ type FrontmatterFor<K extends ContentKind> = K extends "philosopher"
             ? EssayFrontmatter
             : K extends "guide"
               ? GuideFrontmatter
-              : never;
+              : K extends "civilization"
+                ? CivilizationFrontmatter
+                : never;
 
 const cache = new Map<ContentKind, ContentEntry<AnyFrontmatter>[]>();
 
@@ -113,6 +117,9 @@ export function getEssays() {
 export function getGuides() {
   return loadKind("guide");
 }
+export function getCivilizations() {
+  return loadKind("civilization");
+}
 
 export async function getEntryBySlug<K extends ContentKind>(
   kind: K,
@@ -174,6 +181,12 @@ function collectOutgoingRefs(entry: ContentEntry<AnyFrontmatter>): ContentRef[] 
     case "guide":
       pushOne(fm.mainSubject);
       break;
+    case "civilization":
+      push(fm.relatedFigures);
+      push(fm.relatedThemes);
+      push(fm.relatedBooks);
+      push(fm.relatedEssays);
+      break;
   }
   return refs;
 }
@@ -188,16 +201,25 @@ export async function getBacklinksFor(
   kind: ContentKind,
   slug: string,
 ): Promise<Array<{ ref: ContentRef; entry: ContentEntry<AnyFrontmatter> }>> {
-  const [philosophers, books, themes, quotes, comparisons, essays, guides] =
-    await Promise.all([
-      getPhilosophers(),
-      getBooks(),
-      getThemes(),
-      getQuotes(),
-      getComparisons(),
-      getEssays(),
-      getGuides(),
-    ]);
+  const [
+    philosophers,
+    books,
+    themes,
+    quotes,
+    comparisons,
+    essays,
+    guides,
+    civilizations,
+  ] = await Promise.all([
+    getPhilosophers(),
+    getBooks(),
+    getThemes(),
+    getQuotes(),
+    getComparisons(),
+    getEssays(),
+    getGuides(),
+    getCivilizations(),
+  ]);
   const all: ContentEntry<AnyFrontmatter>[] = [
     ...philosophers,
     ...books,
@@ -206,6 +228,7 @@ export async function getBacklinksFor(
     ...comparisons,
     ...essays,
     ...guides,
+    ...civilizations,
   ];
   const inEdges: Array<{ ref: ContentRef; entry: ContentEntry<AnyFrontmatter> }> = [];
   for (const entry of all) {
@@ -220,13 +243,14 @@ export async function getBacklinksFor(
   }
   // Stable, readable order: by kind then by title.
   const kindOrder: Record<ContentKind, number> = {
-    philosopher: 0,
-    book: 1,
-    theme: 2,
-    comparison: 3,
-    essay: 4,
-    guide: 5,
-    quote: 6,
+    civilization: 0,
+    philosopher: 1,
+    book: 2,
+    theme: 3,
+    comparison: 4,
+    essay: 5,
+    guide: 6,
+    quote: 7,
   };
   inEdges.sort((a, b) => {
     const k = kindOrder[a.entry.kind] - kindOrder[b.entry.kind];
@@ -272,16 +296,25 @@ export function sectionRootFor(kind: ContentKind): string {
 export async function getAllContentRefs(): Promise<
   Array<{ kind: ContentKind; slug: string; updated: string }>
 > {
-  const [philosophers, books, themes, quotes, comparisons, essays, guides] =
-    await Promise.all([
-      getPhilosophers(),
-      getBooks(),
-      getThemes(),
-      getQuotes(),
-      getComparisons(),
-      getEssays(),
-      getGuides(),
-    ]);
+  const [
+    philosophers,
+    books,
+    themes,
+    quotes,
+    comparisons,
+    essays,
+    guides,
+    civilizations,
+  ] = await Promise.all([
+    getPhilosophers(),
+    getBooks(),
+    getThemes(),
+    getQuotes(),
+    getComparisons(),
+    getEssays(),
+    getGuides(),
+    getCivilizations(),
+  ]);
   return [
     ...philosophers.map((e) => ({
       kind: "philosopher" as const,
@@ -315,6 +348,11 @@ export async function getAllContentRefs(): Promise<
     })),
     ...guides.map((e) => ({
       kind: "guide" as const,
+      slug: e.slug,
+      updated: e.frontmatter.updated,
+    })),
+    ...civilizations.map((e) => ({
+      kind: "civilization" as const,
       slug: e.slug,
       updated: e.frontmatter.updated,
     })),

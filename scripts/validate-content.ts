@@ -18,6 +18,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import {
   getBooks,
+  getCivilizations,
   getComparisons,
   getEssays,
   getGuides,
@@ -39,16 +40,25 @@ async function main(): Promise<number> {
   const write = args.has("--write");
   const quiet = args.has("--quiet");
 
-  const [philosophers, books, themes, quotes, comparisons, essays, guides] =
-    await Promise.all([
-      getPhilosophers(),
-      getBooks(),
-      getThemes(),
-      getQuotes(),
-      getComparisons(),
-      getEssays(),
-      getGuides(),
-    ]);
+  const [
+    philosophers,
+    books,
+    themes,
+    quotes,
+    comparisons,
+    essays,
+    guides,
+    civilizations,
+  ] = await Promise.all([
+    getPhilosophers(),
+    getBooks(),
+    getThemes(),
+    getQuotes(),
+    getComparisons(),
+    getEssays(),
+    getGuides(),
+    getCivilizations(),
+  ]);
   const entries: ContentEntry<AnyFrontmatter>[] = [
     ...philosophers,
     ...books,
@@ -57,6 +67,7 @@ async function main(): Promise<number> {
     ...comparisons,
     ...essays,
     ...guides,
+    ...civilizations,
   ];
 
   const results = runAllChecks(entries);

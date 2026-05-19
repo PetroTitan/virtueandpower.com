@@ -189,6 +189,66 @@ export const busts: ReadonlyArray<Bust> = [
     notes:
       "Glyptothek Inv. 72: Trajan in the civic-crown / aegis / sword-belt iconography of the imperial portrait type. Public-domain photograph of a long-out-of-copyright sculpture. Vendored for the Trajan figure entry.",
   },
+  {
+    slug: "aristotle-altemps",
+    figure: "Aristotle",
+    culture: "greek",
+    era: "Roman copy after Greek bronze original c. 330 BCE",
+    museum: "Palazzo Altemps, Rome (Inv. 8575)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg",
+    license: "public-domain",
+    photographer: "Marie-Lan Nguyen (Jastrow)",
+    imagePath: "/images/busts/aristotle-altemps.webp",
+    width: 1196,
+    height: 1600,
+    alt: "Marble bust of Aristotle, Roman copy after a lost Greek bronze original by Lysippos c. 330 BCE, Palazzo Altemps.",
+    caption: "Aristotle · Roman copy after Lysippos · Marble",
+    attribution: "Palazzo Altemps, Rome · Wikimedia Commons (Public Domain)",
+    figureSlug: "aristotle",
+    notes:
+      "The Altemps Aristotle is the standard Roman-copy type for Lysippos's lost bronze, the canonical likeness of Aristotle in the European tradition.",
+  },
+  {
+    slug: "socrates-pio-clementino",
+    figure: "Socrates",
+    culture: "greek",
+    era: "Roman copy after Greek original, 1st century CE",
+    museum: "Museo Pio-Clementino, Vatican (Inv. 314)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Socrates_Pio-Clementino_Inv314.jpg",
+    license: "public-domain",
+    photographer: "Marie-Lan Nguyen (Jastrow)",
+    imagePath: "/images/busts/socrates-pio-clementino.webp",
+    width: 1195,
+    height: 1600,
+    alt: "Marble bust of Socrates, Roman copy after a Greek original, Vatican Pio-Clementino.",
+    caption: "Socrates · Roman copy · Marble",
+    attribution: "Museo Pio-Clementino, Vatican · Wikimedia Commons (Public Domain)",
+    figureSlug: "socrates",
+    notes:
+      "The Vatican Pio-Clementino Socrates carries the unmistakable iconographic features — flat nose, broad face, prominent forehead — that the ancient sources record and the European tradition has read as Socratic. Vendored for the Socrates figure entry.",
+  },
+  {
+    slug: "plato-pio-clementino",
+    figure: "Plato",
+    culture: "greek",
+    era: "Roman copy after Greek original, last quarter of 4th century BCE",
+    museum: "Museo Pio-Clementino, Vatican (Inv. 305)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Plato_Pio-Clemetino_Inv305.jpg",
+    license: "public-domain",
+    photographer: "Marie-Lan Nguyen (Jastrow)",
+    imagePath: "/images/busts/plato-pio-clementino.webp",
+    width: 1055,
+    height: 1600,
+    alt: "Marble herm of Plato, Roman copy after a Greek original from the last quarter of the 4th century BCE, Vatican Pio-Clementino.",
+    caption: "Plato · Roman copy · Marble herm",
+    attribution: "Museo Pio-Clementino, Vatican · Wikimedia Commons (Public Domain)",
+    figureSlug: "plato",
+    notes:
+      "Roman herm copy of the standard fourth-century Plato type, identified by inscribed Plato-portrait copies of the same model. Vendored for the Plato figure entry.",
+  },
 ];
 
 /** Look up a bust by slug. */
