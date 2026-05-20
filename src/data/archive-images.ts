@@ -39,7 +39,9 @@ export type ArchiveImageKind =
   | "maps"
   | "manuscripts"
   | "relief"
-  | "inscription";
+  | "mosaic"
+  | "inscription"
+  | "artifact";
 
 export type ArchiveImageCulture =
   | "greek"
@@ -266,6 +268,106 @@ export const archiveImages: ReadonlyArray<ArchiveImage> = [
     attribution: "Karnak, Luxor · photo Tsyganov Sergey · Wikimedia Commons (CC0)",
     notes:
       "Vendored for the Egypt hub's gallery composition. The Great Hypostyle Hall at Karnak is the largest surviving column hall of antiquity and the architectural statement of the New Kingdom theocratic state.",
+  },
+  {
+    slug: "erechtheum-acropolis",
+    kind: "architecture",
+    subject: "The Erechtheum on the Athenian Acropolis",
+    culture: "greek",
+    era: "Classical Greece, c. 421–406 BCE",
+    location: "Acropolis, Athens, Greece",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Erechtheum_Acropolis_Athens.jpg",
+    license: "cc-zero",
+    photographer: "Jebulon",
+    imagePath: "/images/architecture/erechtheum-acropolis.webp",
+    width: 1600,
+    height: 1065,
+    alt: "The Erechtheum on the Athenian Acropolis, with the Porch of the Caryatids visible on the south side, Pentelic marble Ionic temple of the late 5th century BCE.",
+    caption: "The Erechtheum · 421–406 BCE · Pentelic marble",
+    attribution: "Acropolis, Athens · photo Jebulon · Wikimedia Commons (CC0)",
+    notes:
+      "Vendored as a civilizational anchor for the Athens hub. The Erechtheum housed the most ancient cults of the Athenian polis (Athena Polias, Erechtheus, Poseidon), and its irregular plan accommodates the cult sites the Periclean rebuilding had to preserve.",
+  },
+  {
+    slug: "hephaestus-agora",
+    kind: "architecture",
+    subject: "The Temple of Hephaestus seen from the Ancient Agora of Athens",
+    culture: "greek",
+    era: "Classical Greece, begun c. 449 BCE",
+    location: "Ancient Agora, Athens, Greece",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Temple_of_Hephaestus_from_ancient_agora_Athens.jpg",
+    license: "cc-zero",
+    photographer: "Jebulon",
+    imagePath: "/images/architecture/hephaestus-agora.webp",
+    width: 1600,
+    height: 1065,
+    alt: "The Temple of Hephaestus on Agoraios Kolonos, seen from the Ancient Agora of Athens — Pentelic marble Doric temple, mid 5th century BCE, the best-preserved temple of the Periclean building programme.",
+    caption: "Temple of Hephaestus · 5th century BCE · Pentelic marble",
+    attribution: "Ancient Agora, Athens · photo Jebulon · Wikimedia Commons (CC0)",
+    notes:
+      "Vendored as the Agora anchor for the Athens hub. The Temple of Hephaestus stands on the western edge of the working civic space — the Agora — where the assembly, the law-courts and the marketplace conducted the day-to-day political life of the polis.",
+  },
+  {
+    slug: "dionysus-theatre",
+    kind: "ruins",
+    subject: "The Theatre of Dionysus on the south slope of the Acropolis",
+    culture: "greek",
+    era: "Classical Greece (original c. 5th century BCE; surviving stone form 4th century BCE)",
+    location: "Acropolis, Athens, Greece",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Theatre_of_Dionysus_Acropolis_Athens_Greece.jpg",
+    license: "cc-zero",
+    photographer: "Jebulon",
+    imagePath: "/images/architecture/dionysus-theatre.webp",
+    width: 1600,
+    height: 1065,
+    alt: "The Theatre of Dionysus, on the southern slope of the Athenian Acropolis — the working theatre of the Athenian dramatic festivals of the 5th and 4th centuries BCE.",
+    caption: "Theatre of Dionysus · 4th-century BCE form · Marble seating",
+    attribution: "South slope of the Acropolis · photo Jebulon · Wikimedia Commons (CC0)",
+    notes:
+      "Vendored for the Athens hub. The Theatre of Dionysus was the working theatre of the Athenian dramatic festivals — the tragedies of Aeschylus, Sophocles and Euripides, and the comedies of Aristophanes, were performed here before the assembled citizen body. The surviving stone form is the 4th-century reconstruction; the 5th-century original was wooden.",
+  },
+  {
+    slug: "corinthian-helmet",
+    kind: "artifact",
+    subject: "Bronze Corinthian helmet, c. 600 BCE",
+    culture: "greek",
+    era: "Archaic Greece, c. 600 BCE",
+    location: "National Archaeological Museum, Athens (Inv. 15153)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Corinthian_helmet_15153_NAMAthens.jpg",
+    license: "cc-zero",
+    photographer: "Jebulon",
+    imagePath: "/images/architecture/corinthian-helmet.webp",
+    width: 1558,
+    height: 1600,
+    alt: "Bronze Corinthian-type helmet of the Archaic Greek period, with full face and nasal, ca. 600 BCE, National Archaeological Museum of Athens.",
+    caption: "Corinthian helmet · c. 600 BCE · Bronze",
+    attribution: "National Archaeological Museum, Athens · photo Jebulon · Wikimedia Commons (CC0)",
+    notes:
+      "Vendored as the hoplite anchor — the Greek world's most recognizable item of warrior equipment. The Corinthian helmet, with its full-face form and nasal, was the standing Archaic and early-Classical infantry helmet of the citizen-soldier across the Greek city-states.",
+  },
+  {
+    slug: "alexander-mosaic",
+    kind: "mosaic",
+    subject: "The Alexander Mosaic — Alexander and Bucephalus at the Battle of Issus",
+    culture: "greek",
+    era: "Roman-era copy after a late-4th-century BCE Greek original; mosaic c. 100 BCE",
+    location: "Museo Archeologico Nazionale, Naples (from the House of the Faun, Pompeii)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Alexander_and_Bucephalus_-_Battle_of_Issus_mosaic_-_Museo_Archeologico_Nazionale_-_Naples_BW.jpg",
+    license: "public-domain",
+    photographer: "Berthold Werner",
+    imagePath: "/images/architecture/alexander-mosaic.webp",
+    width: 1600,
+    height: 1133,
+    alt: "Detail of the Alexander Mosaic — Alexander the Great on Bucephalus at the Battle of Issus — Roman copy after a Hellenistic Greek original, c. 100 BCE, House of the Faun, Pompeii.",
+    caption: "Alexander Mosaic · House of the Faun, Pompeii · c. 100 BCE",
+    attribution: "Museo Archeologico Nazionale, Naples · photo Berthold Werner · Wikimedia Commons (Public Domain)",
+    notes:
+      "The Roman-era floor mosaic from the House of the Faun in Pompeii, almost certainly copying a Greek panel painting of the late 4th century BCE. The most considered ancient visual statement of Alexander's encounter with the Achaemenid Persian world that the Hellenistic age was the consequence of.",
   },
 ];
 

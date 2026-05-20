@@ -150,6 +150,21 @@ on Wikimedia's CDN and so the provenance is file-system-traceable.
 - **Source dimensions.** 1450 × 2200.
 - **Local processing.** Same pipeline; ~123 KB at 1055 × 1600.
 
+### `alexander-azara.webp`
+
+- **Subject.** The Azara Herm — marble portrait of Alexander
+  the Great, Roman-Attic copy of a Greek original from the
+  late 4th century BCE in the Lysippan tradition. The most
+  securely identified Alexander portrait (the inscription
+  confirms the identification).
+- **Location.** Louvre, Paris (Ma 436).
+- **Source.** Wikimedia Commons,
+  [`File:Azara herm Louvre Ma436.jpg`](https://commons.wikimedia.org/wiki/File:Azara_herm_Louvre_Ma436.jpg).
+- **Photographer.** Marie-Lan Nguyen (Wikimedia user *Jastrow*).
+- **Licence.** **Public domain.**
+- **Source dimensions.** 2100 × 3500.
+- **Local processing.** Same pipeline; ~101 KB at 960 × 1600.
+
 ## Adding new busts
 
 1. Find a public-domain (CC0 / PD-old) or attribution-friendly

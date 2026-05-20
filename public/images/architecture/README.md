@@ -108,6 +108,70 @@ registered there.
 - **Source dimensions.** 2826 × 2322.
 - **Local processing.** Same pipeline; ~340 KB at 1600 × 1315.
 
+### `erechtheum-acropolis.webp`
+
+- **Subject.** The Erechtheum on the Athenian Acropolis,
+  Classical Greek, 421–406 BCE, Pentelic marble Ionic temple.
+- **Source.** Wikimedia Commons,
+  [`File:Erechtheum Acropolis Athens.jpg`](https://commons.wikimedia.org/wiki/File:Erechtheum_Acropolis_Athens.jpg).
+- **Photographer.** Jebulon.
+- **Licence.** **CC-Zero.**
+- **Source dimensions.** 4592 × 3056.
+- **Local processing.** Same pipeline; ~236 KB at 1600 × 1065.
+
+### `hephaestus-agora.webp`
+
+- **Subject.** The Temple of Hephaestus seen from the Ancient
+  Agora of Athens, Classical Greek, begun c. 449 BCE — the
+  best-preserved temple of the Periclean building programme.
+- **Source.** Wikimedia Commons,
+  [`File:Temple of Hephaestus from ancient agora Athens.jpg`](https://commons.wikimedia.org/wiki/File:Temple_of_Hephaestus_from_ancient_agora_Athens.jpg).
+- **Photographer.** Jebulon.
+- **Licence.** **CC-Zero.**
+- **Source dimensions.** 4536 × 3019.
+- **Local processing.** Same pipeline; ~449 KB at 1600 × 1065.
+
+### `dionysus-theatre.webp`
+
+- **Subject.** The Theatre of Dionysus on the southern slope
+  of the Athenian Acropolis — the working theatre of the
+  Athenian dramatic festivals of the 5th and 4th centuries
+  BCE. Surviving form 4th century BCE.
+- **Source.** Wikimedia Commons,
+  [`File:Theatre of Dionysus Acropolis Athens Greece.jpg`](https://commons.wikimedia.org/wiki/File:Theatre_of_Dionysus_Acropolis_Athens_Greece.jpg).
+- **Photographer.** Jebulon.
+- **Licence.** **CC-Zero.**
+- **Source dimensions.** 4592 × 3056.
+- **Local processing.** Same pipeline; ~451 KB at 1600 × 1065.
+
+### `corinthian-helmet.webp`
+
+- **Subject.** Bronze Corinthian-type helmet with full face and
+  nasal, Archaic Greek, c. 600 BCE.
+- **Location.** National Archaeological Museum, Athens
+  (Inv. 15153).
+- **Source.** Wikimedia Commons,
+  [`File:Corinthian helmet 15153 NAMAthens.jpg`](https://commons.wikimedia.org/wiki/File:Corinthian_helmet_15153_NAMAthens.jpg).
+- **Photographer.** Jebulon.
+- **Licence.** **CC-Zero.**
+- **Source dimensions.** 2741 × 2815.
+- **Local processing.** Same pipeline; ~171 KB at 1558 × 1600.
+
+### `alexander-mosaic.webp`
+
+- **Subject.** The Alexander Mosaic — Alexander on Bucephalus
+  at the Battle of Issus. Roman-era floor mosaic c. 100 BCE,
+  almost certainly copying a Greek panel painting of the late
+  4th century BCE.
+- **Location.** Museo Archeologico Nazionale, Naples (from the
+  House of the Faun, Pompeii).
+- **Source.** Wikimedia Commons,
+  [`File:Alexander and Bucephalus - Battle of Issus mosaic - Museo Archeologico Nazionale - Naples BW.jpg`](https://commons.wikimedia.org/wiki/File:Alexander_and_Bucephalus_-_Battle_of_Issus_mosaic_-_Museo_Archeologico_Nazionale_-_Naples_BW.jpg).
+- **Photographer.** Berthold Werner.
+- **Licence.** **Public domain.**
+- **Source dimensions.** 3905 × 2766.
+- **Local processing.** Same pipeline; ~312 KB at 1600 × 1133.
+
 ## Adding new architecture images
 
 1. Find a CC0 / public-domain (or attribution-friendly) photograph
