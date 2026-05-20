@@ -41,7 +41,8 @@ export type ArchiveImageKind =
   | "relief"
   | "mosaic"
   | "inscription"
-  | "artifact";
+  | "artifact"
+  | "coin";
 
 export type ArchiveImageCulture =
   | "greek"
@@ -368,6 +369,86 @@ export const archiveImages: ReadonlyArray<ArchiveImage> = [
     attribution: "Museo Archeologico Nazionale, Naples · photo Berthold Werner · Wikimedia Commons (Public Domain)",
     notes:
       "The Roman-era floor mosaic from the House of the Faun in Pompeii, almost certainly copying a Greek panel painting of the late 4th century BCE. The most considered ancient visual statement of Alexander's encounter with the Achaemenid Persian world that the Hellenistic age was the consequence of.",
+  },
+  {
+    slug: "arch-titus-relief",
+    kind: "relief",
+    subject: "Reliefs at the Arch of Titus, Forum Romanum",
+    culture: "roman",
+    era: "Flavian, c. 81 CE (built shortly after the death of Titus)",
+    location: "Forum Romanum, Rome, Italy",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Arc_Titus_Forum_romanum_Rome_Italy.jpg",
+    license: "cc-zero",
+    photographer: "Jebulon",
+    imagePath: "/images/architecture/arch-titus-relief.webp",
+    width: 1600,
+    height: 1230,
+    alt: "Reliefs in the bay of the Arch of Titus on the Via Sacra in the Forum Romanum, c. 81 CE — the triumphal panels commemorating the Jewish War of 70 CE.",
+    caption: "Arch of Titus · Reliefs · 1st century CE",
+    attribution: "Forum Romanum, Rome · photo Jebulon · Wikimedia Commons (CC0)",
+    notes:
+      "The Arch of Titus stands at the eastern end of the Forum Romanum on the Via Sacra. The Jerusalem-treasure relief inside the bay is the canonical Roman triumphal-relief composition. Vendored as a Roman atmosphere anchor.",
+  },
+  {
+    slug: "lion-darius-susa",
+    kind: "relief",
+    subject: "Glazed-brick lion panel, Apadana of Darius at Susa",
+    culture: "persian",
+    era: "Achaemenid, c. 510 BCE under Darius I",
+    location: "Louvre, Paris (Sb 3298), from the palace of Darius at Susa",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Lion_Darius_Palace_Louvre_Sb3298.jpg",
+    license: "public-domain",
+    photographer: "Marie-Lan Nguyen (Jastrow)",
+    imagePath: "/images/architecture/lion-darius-susa.webp",
+    width: 1262,
+    height: 980,
+    alt: "Glazed-brick relief of a lion in profile, from the palace of Darius I at Susa, Achaemenid c. 510 BCE, Louvre Sb 3298.",
+    caption: "Lion · Palace of Darius, Susa · c. 510 BCE · Glazed brick",
+    attribution: "Louvre · Wikimedia Commons (Public Domain)",
+    notes:
+      "Achaemenid glazed-brick lion from the palace of Darius at Susa — one of the canonical Achaemenid decorative-architectural reliefs. Vendored as a Persian atmosphere anchor.",
+  },
+  {
+    slug: "caesar-elephant-denarius",
+    kind: "coin",
+    subject: "Caesar elephant denarius — Julius Caesar's military mint coinage, 49–48 BCE",
+    culture: "roman",
+    era: "Late Roman Republic, 49–48 BCE",
+    location: "Portable Antiquities Scheme record (FindID 603459); type widely held in major numismatic collections.",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Roman_silver_denarius_elephant_(FindID_603459).jpg",
+    license: "cc-by-sa",
+    photographer: "Fæ (PAS / Wikimedia)",
+    imagePath: "/images/architecture/caesar-elephant-denarius.webp",
+    width: 1600,
+    height: 887,
+    alt: "Silver denarius of Julius Caesar, 49–48 BCE — obverse showing an elephant trampling a serpent above the legend CAESAR, reverse with priestly emblems (apex, simpulum, axe, culullus).",
+    caption: "Caesar elephant denarius · 49–48 BCE · Silver",
+    attribution: "PAS record FindID 603459 · photo Fæ · Wikimedia Commons (CC BY-SA 4.0)",
+    notes:
+      "Caesar's mobile-mint coinage struck early in the civil war. The elephant-trampling-serpent obverse is one of the most-reproduced ancient coin images, and the denarius is the canonical late-Republican coin type. Licensed CC BY-SA 4.0; attribution carried on the in-page caption.",
+  },
+  {
+    slug: "athenian-owl-tetradrachm",
+    kind: "coin",
+    subject: "Athenian silver tetradrachm — head of Athena and the owl",
+    culture: "greek",
+    era: "Classical Athens, 454–404 BCE",
+    location: "Staatliche Münzsammlung, Munich",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Athens_-_454-404_BC_-_silver_tetradrachm_-_head_of_Athena_-_owl_-_M%C3%BCnchen_SMS.jpg",
+    license: "cc-by-sa",
+    photographer: "ArchaiOptix",
+    imagePath: "/images/architecture/athenian-owl-tetradrachm.webp",
+    width: 1600,
+    height: 1600,
+    alt: "Athenian silver tetradrachm of the classical period, 454–404 BCE — obverse: helmeted head of Athena; reverse: owl of Athena with olive sprig and the inscription ΑΘΕ (Athens).",
+    caption: "Athenian tetradrachm · 5th century BCE · Silver",
+    attribution: "Staatliche Münzsammlung, Munich · photo ArchaiOptix · Wikimedia Commons (CC BY-SA 4.0)",
+    notes:
+      "The Athenian owl tetradrachm was the working international currency of the eastern Mediterranean during the Athenian fifth-century *archē* and after. Iconographically: Athena obverse, owl reverse with olive sprig and ethnic abbreviation ΑΘΕ. Licensed CC BY-SA 4.0; attribution carried on the in-page caption.",
   },
 ];
 
