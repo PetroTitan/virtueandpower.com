@@ -249,6 +249,26 @@ export const busts: ReadonlyArray<Bust> = [
     notes:
       "Roman herm copy of the standard fourth-century Plato type, identified by inscribed Plato-portrait copies of the same model. Vendored for the Plato figure entry.",
   },
+  {
+    slug: "alexander-azara",
+    figure: "Alexander the Great",
+    culture: "greek",
+    era: "Roman / Attic copy of late-4th-century BCE original (Lysippan type)",
+    museum: "Louvre, Paris (Ma 436)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Azara_herm_Louvre_Ma436.jpg",
+    license: "public-domain",
+    photographer: "Marie-Lan Nguyen (Jastrow)",
+    imagePath: "/images/busts/alexander-azara.webp",
+    width: 960,
+    height: 1600,
+    alt: "The Azara Herm — marble portrait of Alexander the Great, Roman-Attic copy after a Greek original of the late 4th century BCE in the Lysippan tradition, Louvre Ma 436.",
+    caption: "Alexander · Roman copy after Lysippan original · Marble",
+    attribution: "Louvre · Wikimedia Commons (Public Domain)",
+    figureSlug: "alexander",
+    notes:
+      "The Azara Herm, named for the Spanish diplomat José Nicolás de Azara who recovered it from Tivoli in 1779, is the most securely identified Alexander portrait — the inscription confirms the identification, and the form is the standard Lysippan type. Vendored for the Alexander figure entry and for the Hellenistic World hub.",
+  },
 ];
 
 /** Look up a bust by slug. */
