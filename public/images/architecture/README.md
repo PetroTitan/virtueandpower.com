@@ -172,6 +172,61 @@ registered there.
 - **Source dimensions.** 3905 × 2766.
 - **Local processing.** Same pipeline; ~312 KB at 1600 × 1133.
 
+### `arch-titus-relief.webp`
+
+- **Subject.** Reliefs in the bay of the Arch of Titus on the
+  Via Sacra in the Forum Romanum, c. 81 CE.
+- **Source.** Wikimedia Commons,
+  [`File:Arc Titus Forum romanum Rome Italy.jpg`](https://commons.wikimedia.org/wiki/File:Arc_Titus_Forum_romanum_Rome_Italy.jpg).
+- **Photographer.** Jebulon.
+- **Licence.** **CC-Zero.**
+- **Source dimensions.** 3840 × 2952.
+- **Local processing.** Same pipeline; ~356 KB at 1600 × 1230.
+
+### `lion-darius-susa.webp`
+
+- **Subject.** Glazed-brick lion relief from the palace of
+  Darius I at Susa, Achaemenid c. 510 BCE.
+- **Location.** Louvre, Paris (Sb 3298).
+- **Source.** Wikimedia Commons,
+  [`File:Lion Darius Palace Louvre Sb3298.jpg`](https://commons.wikimedia.org/wiki/File:Lion_Darius_Palace_Louvre_Sb3298.jpg).
+- **Photographer.** Marie-Lan Nguyen (Wikimedia user
+  *Jastrow*).
+- **Licence.** **Public domain.**
+- **Source dimensions.** 1262 × 980.
+- **Local processing.** Same pipeline; ~89 KB at 1262 × 980
+  (no upscale; source was below 1600 px).
+
+### `caesar-elephant-denarius.webp`
+
+- **Subject.** Silver denarius of Julius Caesar, 49–48 BCE —
+  elephant-trampling-serpent obverse with the legend CAESAR;
+  priestly emblems reverse.
+- **Location.** Portable Antiquities Scheme record (FindID
+  603459); the coin type is widely held in major numismatic
+  collections.
+- **Source.** Wikimedia Commons,
+  [`File:Roman silver denarius elephant (FindID 603459).jpg`](https://commons.wikimedia.org/wiki/File:Roman_silver_denarius_elephant_(FindID_603459).jpg).
+- **Photographer.** Wikimedia user *Fæ* (PAS upload).
+- **Licence.** **CC BY-SA 4.0.** Attribution required;
+  carried in the rendered caption and in the typed registry.
+- **Source dimensions.** 2748 × 1524.
+- **Local processing.** Same pipeline; ~49 KB at 1600 × 887.
+
+### `athenian-owl-tetradrachm.webp`
+
+- **Subject.** Athenian silver tetradrachm of the classical
+  period, 454–404 BCE — Athena obverse, owl reverse with
+  olive sprig and inscription ΑΘΕ.
+- **Location.** Staatliche Münzsammlung, Munich.
+- **Source.** Wikimedia Commons,
+  [`File:Athens - 454-404 BC - silver tetradrachm - head of Athena - owl - München SMS.jpg`](https://commons.wikimedia.org/wiki/File:Athens_-_454-404_BC_-_silver_tetradrachm_-_head_of_Athena_-_owl_-_M%C3%BCnchen_SMS.jpg).
+- **Photographer.** ArchaiOptix (Wikimedia).
+- **Licence.** **CC BY-SA 4.0.** Attribution required;
+  carried in the rendered caption and in the typed registry.
+- **Source dimensions.** 3648 × 3648.
+- **Local processing.** Same pipeline; ~380 KB at 1600 × 1600.
+
 ## Adding new architecture images
 
 1. Find a CC0 / public-domain (or attribution-friendly) photograph

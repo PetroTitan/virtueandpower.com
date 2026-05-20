@@ -1,6 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { Eyebrow } from "@/components/editorial/Typography";
-import { BustImage } from "./BustImage";
+import { LayeredBust } from "./LayeredBust";
 
 /**
  * Homepage hero.
@@ -78,15 +78,18 @@ export function Hero() {
           </div>
 
           {/* Sculptural anchor. Tall portrait crop; the marble bust
-              carries the visual gravity for the entire section. Hidden
-              at mobile size — at that scale the headline alone holds.
-              The bust resolves via BustImage's default (Tusculum
-              Caesar) — see src/data/busts.ts DEFAULT_BUST_SLUG. */}
+              carries the visual gravity for the entire section, with
+              a deliberately faint Roman Forum behind it as an
+              atmosphere layer (desaturated, ~13% opacity, edges
+              fading into the marble surround). Hidden at mobile size
+              — at that scale the headline alone holds. The bust
+              resolves via LayeredBust's default (Tusculum Caesar);
+              the architecture layer is the Roman Forum overview. */}
           <div className="hidden md:col-span-5 lg:col-span-5 md:block">
-            <BustImage
+            <LayeredBust
               priority
+              architectureSlug="roman-forum-view"
               className="w-full"
-              imageClassName="aspect-[3/4] object-cover"
               sizes="(min-width: 1280px) 30vw, (min-width: 768px) 40vw, 100vw"
             />
           </div>

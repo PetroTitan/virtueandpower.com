@@ -3,6 +3,7 @@ import { QuoteBlock } from "@/components/editorial/QuoteBlock";
 import { ReadingList } from "@/components/editorial/ReadingList";
 import { TimelineBlock } from "@/components/editorial/TimelineBlock";
 import { RelatedReading } from "@/components/editorial/RelatedReading";
+import { InlineArchiveFragment } from "@/components/editorial/InlineArchiveFragment";
 import { Prose } from "@/components/editorial/Typography";
 
 const baseComponents: MDXRemoteProps["components"] = {
@@ -10,6 +11,7 @@ const baseComponents: MDXRemoteProps["components"] = {
   ReadingList,
   TimelineBlock,
   RelatedReading,
+  InlineArchiveFragment,
 };
 
 type MdxContentProps = {

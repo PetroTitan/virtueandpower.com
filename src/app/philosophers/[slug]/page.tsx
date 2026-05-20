@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/editorial/PageHeader";
 import { RelatedReading } from "@/components/editorial/RelatedReading";
 import { StubNotice } from "@/components/editorial/StubNotice";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { AtmosphereStrip } from "@/components/site/AtmosphereStrip";
 import { BustImage } from "@/components/site/BustImage";
 import { MdxContent } from "@/content/mdx";
 import { busts } from "@/data/busts";
@@ -20,6 +21,74 @@ import {
   buildMetadata,
   personJsonLd,
 } from "@/lib/seo";
+
+/**
+ * Per-figure atmosphere compositions. Each entry is a curated set
+ * of 2–4 visual fragments that contextualise the figure's working
+ * world — the architecture they operated in, the artefacts of their
+ * era, the visual record they sit inside. The strip renders below
+ * the body and before the related-reading band; figures without an
+ * entry here render the page unchanged.
+ */
+const FIGURE_ATMOSPHERE: Record<
+  string,
+  { eyebrow?: string; heading: string; items: Array<{ slug: string }> }
+> = {
+  "julius-caesar": {
+    eyebrow: "Atmosphere",
+    heading: "The world Caesar moved through",
+    items: [
+      { slug: "roman-forum-view" },
+      { slug: "arch-titus-relief" },
+      { slug: "caesar-elephant-denarius" },
+    ],
+  },
+  trajan: {
+    eyebrow: "Atmosphere",
+    heading: "The world Trajan built into stone",
+    items: [
+      { slug: "trajans-column" },
+      { slug: "pantheon-ceiling" },
+      { slug: "colosseum-curves" },
+    ],
+  },
+  pericles: {
+    eyebrow: "Atmosphere",
+    heading: "The Athens Pericles led",
+    items: [
+      { slug: "parthenon-east" },
+      { slug: "dionysus-theatre" },
+      { slug: "athenian-owl-tetradrachm" },
+    ],
+  },
+  alexander: {
+    eyebrow: "Atmosphere",
+    heading: "The world Alexander crossed",
+    items: [
+      { slug: "alexander-mosaic" },
+      { slug: "persepolis-apadana" },
+      { slug: "lion-darius-susa" },
+    ],
+  },
+  cicero: {
+    eyebrow: "Atmosphere",
+    heading: "The Republic Cicero defended",
+    items: [
+      { slug: "roman-forum-view" },
+      { slug: "caesar-elephant-denarius" },
+      { slug: "arch-titus-relief" },
+    ],
+  },
+  augustus: {
+    eyebrow: "Atmosphere",
+    heading: "The settlement Augustus founded",
+    items: [
+      { slug: "roman-forum-view" },
+      { slug: "pantheon-ceiling" },
+      { slug: "arch-titus-relief" },
+    ],
+  },
+};
 
 type Params = { slug: string };
 
@@ -158,6 +227,15 @@ export default async function PhilosopherPage({
             </dl>
           </aside>
         </div>
+        {FIGURE_ATMOSPHERE[slug] ? (
+          <div className="mt-20 border-t border-rule pt-16">
+            <AtmosphereStrip
+              eyebrow={FIGURE_ATMOSPHERE[slug].eyebrow}
+              heading={FIGURE_ATMOSPHERE[slug].heading}
+              items={FIGURE_ATMOSPHERE[slug].items}
+            />
+          </div>
+        ) : null}
         <RelatedReading
           items={related.map(({ ref, entry: e }) => ({
             href: hrefFor(ref.kind, ref.slug),
