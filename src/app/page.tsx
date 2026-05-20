@@ -270,7 +270,7 @@ export default async function HomePage() {
         </div>
       </PageSection>
 
-      {/* Civilizations — gateway into the four hubs */}
+      {/* Civilizations — gateway into the four parent hubs */}
       <PageSection label="Civilizations" variant="ruled">
         <SectionIntro
           eyebrow="Civilizations"
@@ -281,17 +281,21 @@ export default async function HomePage() {
         />
         <div className="mt-12">
           <EditorialGrid columns={2}>
-            {civilizations.map((c) => (
-              <CivilizationCard
-                key={c.slug}
-                slug={c.slug}
-                title={c.frontmatter.title}
-                subtitle={c.frontmatter.subtitle}
-                period={c.frontmatter.period}
-                description={c.frontmatter.description}
-                heroImage={c.frontmatter.heroImage}
-              />
-            ))}
+            {civilizations
+              .filter((c) =>
+                ["rome", "greece", "persia", "egypt"].includes(c.slug),
+              )
+              .map((c) => (
+                <CivilizationCard
+                  key={c.slug}
+                  slug={c.slug}
+                  title={c.frontmatter.title}
+                  subtitle={c.frontmatter.subtitle}
+                  period={c.frontmatter.period}
+                  description={c.frontmatter.description}
+                  heroImage={c.frontmatter.heroImage}
+                />
+              ))}
           </EditorialGrid>
         </div>
         <p className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
@@ -308,6 +312,36 @@ export default async function HomePage() {
             Enter the Roman Republic
           </Link>
         </p>
+      </PageSection>
+
+      {/* Greek World — the three Greek sub-hubs */}
+      <PageSection label="Greek World">
+        <SectionIntro
+          eyebrow="Greek World"
+          title="Civic argument, military discipline, imperial cosmopolitanism"
+          description="The Greek civilization is read inside three working sub-hubs — Athens the polis of public political argument, Sparta the polity of integrated civic discipline, and the Hellenistic World the imperial transformation that prepared the Roman absorption."
+          href="/civilizations/greece"
+          hrefLabel="Read the umbrella hub"
+        />
+        <div className="mt-12">
+          <EditorialGrid columns={3}>
+            {civilizations
+              .filter((c) =>
+                ["athens", "sparta", "hellenistic-world"].includes(c.slug),
+              )
+              .map((c) => (
+                <CivilizationCard
+                  key={c.slug}
+                  slug={c.slug}
+                  title={c.frontmatter.title}
+                  subtitle={c.frontmatter.subtitle}
+                  period={c.frontmatter.period}
+                  description={c.frontmatter.description}
+                  heroImage={c.frontmatter.heroImage}
+                />
+              ))}
+          </EditorialGrid>
+        </div>
       </PageSection>
 
       {/* Comparisons */}
