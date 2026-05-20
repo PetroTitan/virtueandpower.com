@@ -1038,12 +1038,66 @@ layer:
   busts from phase 12 already cover the principal Athenian
   philosophical figures.
 
+### Visual density and editorial atmosphere (phase 14A)
+
+The platform's visual layer was extended in phase 14A from a
+collection of standalone museum-grade images into a layered,
+composable atmosphere system. Three SSR-only components hold
+the system together:
+
+- [`LayeredBust`](src/components/site/LayeredBust.tsx) — the
+  hero composition. Renders a faint architecture / ruins
+  photograph behind the foreground bust in the same marble
+  plinth frame. The atmosphere layer is desaturated (~25%
+  saturation), low-opacity (~13%), slightly blurred, with a
+  radial vignette that fades the edges out into the marble
+  surround. The bust sits over the top at normal
+  saturation. No client JS, no parallax, no animation. The
+  homepage hero now uses this — the Tusculum Caesar with
+  the Roman Forum behind it.
+- [`InlineArchiveFragment`](src/components/editorial/InlineArchiveFragment.tsx)
+  — a single museum-grade image inserted inside an essay or
+  civilization MDX body. Resolves against either the
+  archive-image registry or the bust registry by slug.
+  Three sizes: `small` (floats right at md+, wraps on
+  narrow), `medium` (prose-column-width pull image), `wide`
+  (breaks slightly out of the prose column). The component
+  is registered in the MDX components map at
+  [`src/content/mdx.tsx`](src/content/mdx.tsx) so any essay
+  body can use `<InlineArchiveFragment slug="..." size="..."
+  note="..." />`.
+- [`AtmosphereStrip`](src/components/site/AtmosphereStrip.tsx)
+  — a small horizontal composition of 2–4 visual fragments
+  rendered at the bottom of a figure page or civilization
+  hub to give the page a *sense of visual context* without
+  crowding the editorial body. Each plate is a 4/3-aspect
+  framed image with a short caption beneath; no links, no
+  navigation overlay. Six figure pages (Caesar, Trajan,
+  Pericles, Alexander, Cicero, Augustus) carry curated
+  three-image strips per a small mapping at the top of the
+  philosopher slug page.
+
+#### What the system avoids
+
+The brief was explicit about what *not* to add, and the
+system honours each constraint:
+
+- No client-side galleries, carousels or modal lightboxes.
+- No parallax, no scroll-linked animation, no cinematic
+  transitions.
+- No AI-generated imagery under any circumstances.
+- No movie-poster aesthetic; the layered hero is
+  deliberately barely-perceptible at first glance.
+- No reduction of whitespace; the marble surround remains
+  the dominant surface.
+
 ### The visual archive
 
 The bust catalog at [`src/data/busts.ts`](src/data/busts.ts) handles
 portrait photography of figures the corpus carries. Everything
 else — architecture, ruins, maps, manuscripts, reliefs,
-inscriptions — lives in a parallel typed registry at
+inscriptions, mosaics, artefacts, coins — lives in a parallel
+typed registry at
 [`src/data/archive-images.ts`](src/data/archive-images.ts). The
 same editorial discipline applies: full provenance, verified
 licensing, no uncertain attributions, no fabricated history.
@@ -1055,11 +1109,15 @@ carrying human-readable provenance:
 - [`public/images/busts/`](public/images/busts/) — portrait
   photography of figures
 - [`public/images/architecture/`](public/images/architecture/) —
-  buildings, columns, civic spaces (currently: Trajan's Column;
-  the Pantheon interior)
+  buildings, columns, civic spaces, plus (in the typed
+  registry) reliefs, mosaics, coins and artefacts. The
+  `ArchiveImageKind` enum now carries the full set —
+  `architecture | ruins | maps | manuscripts | relief |
+  mosaic | inscription | artifact | coin` — so different
+  categories can be filtered or counted without losing the
+  shared marble-plinth render.
 - [`public/images/ruins/`](public/images/ruins/) — partial
-  structures, archaeological-site photography (currently: the
-  Roman Forum overview)
+  structures, archaeological-site photography
 - [`public/images/maps/`](public/images/maps/) — historical maps,
   reconstructions of ancient geography
 - [`public/images/manuscripts/`](public/images/manuscripts/) —
@@ -1078,18 +1136,22 @@ catalogue, not blog feed.
 
 - **Homepage** anchors on the Tusculum portrait of Julius Caesar
   (the only surviving likeness widely accepted as carved from
-  life). Below the hero, a `FiguresStrip` surfaces a curated
-  set of four portraits — Cicero, Augustus, Pericles, Trajan —
-  as a museum-strip composition. Caesar replaced Marcus
-  Aurelius as the homepage figure in phase 12; the platform's
-  centre of gravity is the late Republic, and the Tusculum head
-  does that iconographic work better than the more familiar
-  imperial-era idealisations.
+  life), now rendered through `LayeredBust` with a faint Roman
+  Forum overview behind it as an atmosphere layer. Below the
+  hero, a `FiguresStrip` surfaces a curated set of four
+  portraits — Cicero, Augustus, Pericles, Trajan — as a
+  museum-strip composition.
 - **Figure pages** that have a registered bust in the bust
   catalog render the bust at the top of the sidebar
   automatically. Caesar, Augustus, Pericles, Cicero, Marcus
-  Aurelius and Trajan all currently surface this way; figures
-  without a registered bust render with no visual stub.
+  Aurelius, Trajan, Aristotle, Socrates, Plato and Alexander
+  all currently surface this way; figures without a registered
+  bust render with no visual stub. Six of these figure pages
+  (Caesar, Trajan, Pericles, Alexander, Cicero, Augustus) also
+  carry a curated `AtmosphereStrip` below the body — a
+  3-image composition that contextualises the figure's working
+  world (the architecture they operated in, the coin types of
+  their era, the visual record they sit inside).
 - **Figure index** (`/philosophers`) — `ThinkerCard` now
   renders a portrait crop of the figure's bust above the era
   rule when a bust is registered. The catalog grid is
