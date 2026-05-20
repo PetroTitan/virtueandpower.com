@@ -547,6 +547,11 @@ rest of the corpus sits inside
 
 - *Rome* — Republic and Empire, c. 509 BCE – c. 235 CE
 - *Greece* — City-state federation, c. 800 – c. 30 BCE
+  - *Athens* — Democratic polis (sub-hub)
+  - *Sparta* — Mixed constitutional polity with citizen-soldier
+    order (sub-hub)
+  - *Hellenistic World* — Greek-Macedonian imperial monarchies
+    (sub-hub)
 - *Persia* — Achaemenid imperial monarchy, c. 550 – 330 BCE
 - *Egypt* — Sacred monarchy, c. 3100 – 30 BCE
 
@@ -557,6 +562,7 @@ rest of the corpus sits inside
   the Great
 - *Classical Greece:* Socrates, Plato, Aristotle, Xenophon,
   Themistocles, Pericles
+- *Macedonian transition:* Alexander the Great
 - *Roman Republic:* Scipio Africanus, Gaius Marius, Lucius Cornelius
   Sulla, Pompey, Julius Caesar, Cato the Younger, Cicero
 - *Roman historians:* Sallust, Livy, Polybius, Tacitus, Suetonius
@@ -582,9 +588,12 @@ rest of the corpus sits inside
   Discipline, Honor, Duty
 - *Political:* Justice, Leadership, Statecraft, Power, Republic,
   Empire, Law, Civic virtue, Civic order, Founding, Mixed
-  constitution, Tyranny, Sacred kingship, Imperial administration
-- *Historical:* War and Peace, Corruption, Decline, Military virtue,
-  Education, Historical memory, Historical method, Empire and memory
+  constitution, Tyranny, Sacred kingship, Imperial
+  administration, Democracy, Oligarchy, Citizenship, Political
+  argument, Naval power
+- *Historical:* War and Peace, Corruption, Decline, Military
+  virtue, Discipline and order, Education, Historical memory,
+  Historical method, Empire and memory
 
 **Comparisons** (`/comparisons`)
 
@@ -633,6 +642,21 @@ rest of the corpus sits inside
   historiography kept the older constitutional vocabulary alive
 - *Why Rome became obsessed with decline* — the consistent
   intellectual habit and the European tradition that inherited it
+- *Athens and the invention of politics* — what Athens specifically
+  invented across the sixth, fifth and fourth centuries BCE
+- *Sparta and the discipline of order* — the working Spartan
+  proposition for civic-discipline-based political order, with
+  the costs placed at the centre rather than at the margin
+- *Athens versus Sparta* — the two constitutional experiments
+  held together with five working axes of contrast
+- *Why Greek political argument still matters* — what the
+  modern adaptations of the Greek invention continue to require
+- *The Hellenistic transformation of the ancient world* — the
+  three centuries between Alexander and the Roman annexation
+  of Egypt as the working hinge between the polis and Rome
+- *Thucydides and political realism* — what the
+  *Peloponnesian War* actually argues and what the modern
+  realist tradition has and has not preserved
 - *Why civilizations remember* — the four ancient practices of
   cultural memory and their European inheritances
 - *Rome as institutional memory* — the working Roman inheritance
@@ -943,6 +967,77 @@ kinds. The reasons:
 The civilization layer is therefore not a parallel data system
 but a first-class member of the existing content architecture.
 
+### The Greek-world deepening layer
+
+The umbrella `/civilizations/greece` hub is now read through
+three sub-hubs that the platform treats as the working
+political-intellectual differentiation of the Greek
+civilization:
+
+- `/civilizations/athens` — the polis in which the practice
+  of political argument as public business reached its working
+  extent. Densest single graph node in the corpus by inbound
+  ref count.
+- `/civilizations/sparta` — the most fully integrated ancient
+  military-civic discipline. Read without romanticising and
+  with the structural costs (the helot system; the demographic
+  rigidity; the inability to adapt past a certain working
+  scale) placed at the centre rather than at the margin.
+- `/civilizations/hellenistic-world` — the three centuries
+  between Alexander's death in 323 BCE and the Roman
+  annexation of Egypt in 30 BCE, read as the working hinge
+  between the classical polis and the Roman imperial order
+  that absorbed it.
+
+The schema does not formally distinguish *parent* civilizations
+from *sub-hub* civilizations — both use the same
+`CivilizationFrontmatter` — but the homepage filters the two
+bands by an inline allowlist of slugs (the four parent slugs
+in one band, the three Greek sub-hub slugs in another). The
+inline filter is a pragmatic choice for the current scale; a
+future schema extension (e.g. a `parent` field) is the natural
+move when the sub-hub count grows.
+
+#### What the Greek-world layer adds
+
+The Greek sub-hubs carry the working political differentiation
+the classical Greek world experienced: civic-argument democracy
+at Athens, integrated military-civic discipline at Sparta,
+imperial cosmopolitanism in the Hellenistic kingdoms. The
+distinction is editorial rather than schematic — each
+sub-hub is a separate civilization MDX entry, with its own
+hero image, its own gallery composition, its own typed graph
+into figures, books, themes and essays, and its own working
+voice.
+
+The six new themes (democracy, oligarchy, citizenship,
+political-argument, naval-power, discipline-and-order) and
+six new essays (Athens / Sparta / Athens-versus-Sparta /
+why Greek political argument still matters / Hellenistic
+transformation / Thucydides and political realism) extend
+the corpus's working coverage of the Greek political and
+intellectual experience. The Alexander figure entry is the
+prerequisite for the Hellenistic World hub; the Azara Herm
+(Louvre Ma 436) is the bust the figure renders.
+
+#### Visual additions for this layer
+
+The architecture and bust registries grew with the Greek
+layer:
+
+- Architecture & artifacts: Erechtheum on the Acropolis,
+  Temple of Hephaestus from the Agora, Theatre of Dionysus
+  (all Jebulon, CC0), bronze Corinthian helmet from NAM
+  Athens (Jebulon, CC0), Alexander Mosaic from the House of
+  the Faun in Pompeii (Berthold Werner, Public Domain). The
+  `ArchiveImageKind` enum extended with `mosaic` and
+  `artifact` to fit the helmet and the Alexander Mosaic
+  cleanly.
+- Bust: Azara Herm of Alexander the Great, Louvre Ma 436
+  (Jastrow, Public Domain). The Aristotle, Socrates and Plato
+  busts from phase 12 already cover the principal Athenian
+  philosophical figures.
+
 ### The visual archive
 
 The bust catalog at [`src/data/busts.ts`](src/data/busts.ts) handles
@@ -1088,7 +1183,8 @@ The current catalog: Marcus Aurelius (Heraklion), Julius Caesar
 (Tusculum portrait, Turin), Augustus (Louvre Ma 2577), Pericles
 (Vatican Pio-Clementino Inv. 269), Cicero (Vatican Museums),
 Trajan (Glyptothek Munich Inv. 72), Aristotle (Palazzo Altemps),
-Socrates (Vatican Pio-Clementino), Plato (Vatican Pio-Clementino).
+Socrates (Vatican Pio-Clementino), Plato (Vatican Pio-Clementino),
+Alexander the Great (Azara Herm, Louvre Ma 436).
 
 ---
 
@@ -1115,14 +1211,16 @@ phases, in order:
    to read Tacitus*, *Understanding De Officiis*, *Understanding
    Polybius VI*. The reading-guide layer is currently thin and
    would do real work for new readers.
-4. **Deepen the civilization hubs.** Phase 12 introduced the four
-   initial hubs (Rome, Greece, Persia, Egypt). Each will repay
-   substantial deepening: Greece in particular needs separate
-   readings of Athens, Sparta and the Hellenistic kingdoms;
-   Persia needs the Sasanian and post-Achaemenid continuity laid
-   out properly; Egypt deserves much more careful treatment than
-   the platform's current Mediterranean-classical-trained
-   editorial voice can give it. The hub schema also stands ready
+4. **Deepen the remaining civilization hubs.** Phase 13 broke
+   the Greek hub into Athens / Sparta / Hellenistic World as
+   sub-hubs; the same deepening is still needed for Persia
+   (the Sasanian and post-Achaemenid continuity laid out
+   properly) and Egypt (which deserves much more careful
+   treatment than the platform's current Mediterranean-
+   classical-trained editorial voice can give it). The Rome
+   hub could similarly grow sub-hub readings (Republican Rome,
+   the Principate, the high empire under the Antonines, the
+   third-century crisis). The hub schema also stands ready
    for further civilizations the corpus grows into (Byzantine,
    medieval Christendom, the Islamic Caliphates, China).
 5. **Extend the philosopher / book layer beyond Rome.** The
