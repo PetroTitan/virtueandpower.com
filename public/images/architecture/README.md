@@ -227,6 +227,62 @@ registered there.
 - **Source dimensions.** 3648 × 3648.
 - **Local processing.** Same pipeline; ~380 KB at 1600 × 1600.
 
+### `arch-of-constantine.webp`
+
+- **Subject.** The Arch of Constantine, lateral view, Rome —
+  triple triumphal arch dedicated in 315 CE, much of its
+  sculptural decoration reused (spolia) from monuments of Trajan,
+  Hadrian and Marcus Aurelius.
+- **Source.** Wikimedia Commons,
+  [`File:Arch of Constantine (Rome) ,lateral view.jpg`](https://commons.wikimedia.org/wiki/File:Arch_of_Constantine_(Rome)_,lateral_view.jpg).
+- **Photographer.** Livioandronico2013.
+- **Licence.** **CC BY-SA 4.0.** Attribution required; carried in the
+  registry and on the in-page caption.
+- **Source dimensions.** 4000 × 6016.
+- **Local processing.** Same pipeline; ~273 KB at 1064 × 1600.
+  Vendored Phase 15 as the Late Empire hub hero and Constantine anchor.
+
+### `pont-du-gard.webp`
+
+- **Subject.** The Pont du Gard, a three-tiered Roman aqueduct bridge
+  over the river Gardon, 1st century CE, part of the aqueduct to
+  Nîmes (Nemausus).
+- **Source.** Wikimedia Commons,
+  [`File:Pont du Gard BLS.jpg`](https://commons.wikimedia.org/wiki/File:Pont_du_Gard_BLS.jpg).
+- **Photographer.** Benh Lieu Song.
+- **Licence.** **CC BY-SA 3.0.** Attribution required.
+- **Source dimensions.** 12648 × 4882 (panoramic).
+- **Local processing.** Same pipeline; ~258 KB at 1600 × 617.
+  Vendored Phase 15 for the High Empire hub and the army-and-state
+  reading.
+
+### `maison-carree.webp`
+
+- **Subject.** The Maison Carrée at Nîmes, an exceptionally
+  well-preserved Augustan-period temple, originally dedicated to
+  Gaius and Lucius Caesar, the heirs of Augustus.
+- **Source.** Wikimedia Commons,
+  [`File:Maison Carree in Nimes (1).jpg`](https://commons.wikimedia.org/wiki/File:Maison_Carree_in_Nimes_(1).jpg).
+- **Photographer.** Krzysztof Golik.
+- **Licence.** **CC BY-SA 4.0.** Attribution required.
+- **Source dimensions.** 4784 × 3442.
+- **Local processing.** Same pipeline; ~197 KB at 1600 × 1151.
+  Vendored Phase 15 as a Principate anchor.
+
+### `tetrarchs-venice.webp`
+
+- **Subject.** The porphyry Portrait of the Four Tetrarchs, c. 300
+  CE, set into the corner of St Mark's Basilica, Venice — the two
+  Augusti and two Caesares of Diocletian's tetrarchy as identical,
+  abstract figures of office. Taken from Constantinople in 1204.
+- **Source.** Wikimedia Commons,
+  [`File:Portrait of the Four Tetrarchs (Monumento ai Tetrarchi), San Marco, Venice (36992141183).jpg`](https://commons.wikimedia.org/wiki/File:Portrait_of_the_Four_Tetrarchs_(Monumento_ai_Tetrarchi),_San_Marco,_Venice_(36992141183).jpg).
+- **Photographer.** Dimitris Kamaras.
+- **Licence.** **CC BY 2.0.** Attribution required.
+- **Source dimensions.** 3024 × 4032.
+- **Local processing.** Same pipeline; ~404 KB at 1600 × 1200.
+  Vendored Phase 15 for the Late Empire hub and the Diocletian entry.
+
 ## Adding new architecture images
 
 1. Find a CC0 / public-domain (or attribution-friendly) photograph

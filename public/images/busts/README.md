@@ -165,6 +165,37 @@ on Wikimedia's CDN and so the provenance is file-system-traceable.
 - **Source dimensions.** 2100 × 3500.
 - **Local processing.** Same pipeline; ~101 KB at 960 × 1600.
 
+### `hadrian-capitoline.webp`
+
+- **Subject.** Marble bust of the Emperor Hadrian (reigned 117–138
+  CE), bearded in the Greek manner — the first emperor to wear the
+  full Greek-style beard in his official portraiture.
+- **Location.** Capitoline Museums, Rome (MC 817).
+- **Source.** Wikimedia Commons,
+  [`File:Bust Hadrian Musei Capitolini MC817.jpg`](https://commons.wikimedia.org/wiki/File:Bust_Hadrian_Musei_Capitolini_MC817.jpg).
+- **Photographer.** Marie-Lan Nguyen (Wikimedia user *Jastrow*).
+- **Licence.** **Public domain.**
+- **Source dimensions.** 1700 × 2125.
+- **Local processing.** Same pipeline; ~118 KB at 1280 × 1600.
+  Vendored Phase 15 for the Hadrian figure entry.
+
+### `constantine-colossus.webp`
+
+- **Subject.** The colossal marble head of Constantine the Great, a
+  fragment of the acrolithic seated statue from the Basilica of
+  Maxentius, now in the courtyard of the Palazzo dei Conservatori.
+  The securely identified marble colossus (distinct from the
+  separately-held bronze head whose identification is debated).
+- **Location.** Capitoline Museums, Rome.
+- **Source.** Wikimedia Commons,
+  [`File:Rome-Capitole-StatueConstantin.jpg`](https://commons.wikimedia.org/wiki/File:Rome-Capitole-StatueConstantin.jpg).
+- **Photographer.** Jean-Christophe Benoist.
+- **Licence.** **CC BY 2.5.** Attribution required; carried in the
+  registry and on the in-page caption.
+- **Source dimensions.** 2448 × 3264.
+- **Local processing.** Same pipeline; ~118 KB at 1200 × 1600.
+  Vendored Phase 15 for the Constantine figure entry.
+
 ## Adding new busts
 
 1. Find a public-domain (CC0 / PD-old) or attribution-friendly
