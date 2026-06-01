@@ -40,6 +40,22 @@ registry at
   ~265 KB at 1600 × 926. Vendored in Phase 15 for the Late Empire hub
   and the Aurelian figure entry.
 
+### `naqsh-e-rustam.webp`
+
+- **Subject.** The cliff face at Naqsh-e Rustam with the cross-shaped
+  rock-cut façades of the Achaemenid royal tombs (traditionally Darius
+  I and successors), above later Sasanian reliefs.
+- **Location.** Naqsh-e Rustam, near Persepolis, Iran.
+- **Source.** Wikimedia Commons,
+  [`File:Hillside Tombs, Naqsh-E Rostam (14288601687).jpg`](https://commons.wikimedia.org/wiki/File:Hillside_Tombs,_Naqsh-E_Rostam_(14288601687).jpg).
+- **Photographer.** Julia Maudlin.
+- **Licence.** **CC BY 2.0.** Attribution required.
+- **Source dimensions.** larger original; resized.
+- **Local processing.** Resized to 1600 px on the longest edge with
+  `sharp`, encoded as WebP at quality 80, effort 6. ~274 KB at
+  1600 × 1200. Vendored Phase 16 for the Achaemenid Empire and
+  Persia-and-the-Mediterranean hubs.
+
 ## Adding new ruins photography
 
 Same pipeline as the architecture directory. See

@@ -283,6 +283,75 @@ registered there.
 - **Local processing.** Same pipeline; ~404 KB at 1600 × 1200.
   Vendored Phase 15 for the Late Empire hub and the Diocletian entry.
 
+### `gate-of-all-nations.webp`
+
+- **Subject.** The Gate of All Nations at Persepolis, built under
+  Xerxes I (early 5th century BCE), with its colossal lamassu.
+- **Source.** Wikimedia Commons,
+  [`File:Persepolis – Gate of All Nations 02.jpg`](https://commons.wikimedia.org/wiki/File:Persepolis_%E2%80%93_Gate_of_All_Nations_02.jpg).
+- **Photographer.** Skot.
+- **Licence.** **CC BY-SA 4.0.** Attribution required.
+- **Source dimensions.** larger original; resized.
+- **Local processing.** Same pipeline; ~177 KB at 1600 × 1067.
+  Vendored Phase 16 as the Persian Imperial System hub hero.
+
+### `tomb-of-cyrus.webp`
+
+- **Subject.** The free-standing stepped tomb of Cyrus the Great at
+  Pasargadae, c. 530 BCE.
+- **Source.** Wikimedia Commons,
+  [`File:Tomb of Cyrus the Great.jpg`](https://commons.wikimedia.org/wiki/File:Tomb_of_Cyrus_the_Great.jpg).
+- **Photographer.** Mohammad Reza Domiri Ganji.
+- **Licence.** **CC BY-SA 4.0.** Attribution required.
+- **Local processing.** Same pipeline; ~142 KB at 783 × 1175.
+  Vendored Phase 16 for the Cyrus the Great figure entry.
+
+### `persepolis-columns.webp`
+
+- **Subject.** Surviving columns of the Apadana audience hall at
+  Persepolis, begun by Darius I and completed by Xerxes I.
+- **Source.** Wikimedia Commons,
+  [`File:Ruins of the Apadana Palace (4691185332).jpg`](https://commons.wikimedia.org/wiki/File:Ruins_of_the_Apadana_Palace_(4691185332).jpg).
+- **Photographer.** A. Davey.
+- **Licence.** **CC BY 2.0.** Attribution required.
+- **Local processing.** Same pipeline; ~64 KB at 1121 × 1600.
+  Vendored Phase 16 for the Achaemenid Empire hub.
+
+### `behistun-relief.webp`
+
+- **Subject.** The relief of the Behistun Inscription — Darius I
+  treading on the usurper Gaumata before a line of bound rebel kings.
+- **Source.** Wikimedia Commons,
+  [`File:Behistun relief Darius and Gaumata.jpg`](https://commons.wikimedia.org/wiki/File:Behistun_relief_Darius_and_Gaumata.jpg).
+- **Photographer.** Patrick C.
+- **Licence.** **CC BY-SA 2.0.** Attribution required.
+- **Local processing.** Same pipeline; ~305 KB at 1238 × 1600.
+  Vendored Phase 16 for the Darius figure entry and the Behistun text.
+
+### `daric-coin.webp`
+
+- **Subject.** Achaemenid gold daric, the royal-archer type, the
+  empire's standard high-value gold coin introduced under Darius I.
+- **Location.** The Metropolitan Museum of Art (52.127.1).
+- **Source.** Wikimedia Commons,
+  [`File:Daric with king MET me 52 127 1.jpg`](https://commons.wikimedia.org/wiki/File:Daric_with_king_MET_me_52_127_1.jpg).
+- **Licence.** **CC0** (Metropolitan Museum Open Access).
+- **Local processing.** Same pipeline; ~22 KB at 800 × 742.
+  Vendored Phase 16 for the Persian Imperial System hub.
+
+### `persepolis-bull-capital.webp`
+
+- **Subject.** A double-bull (addorsed bull-protome) column capital
+  from the Apadana at Persepolis, the signature Achaemenid
+  architectural element.
+- **Location.** National Museum of Iran, Tehran.
+- **Source.** Wikimedia Commons,
+  [`File:Double Bull Column Capital from the Apadana in Persepolis – National Museum of Iran.jpg`](https://commons.wikimedia.org/wiki/File:Double_Bull_Column_Capital_from_the_Apadana_in_Persepolis_%E2%80%93_National_Museum_of_Iran.jpg).
+- **Photographer.** Skot.
+- **Licence.** **CC BY-SA 4.0.** Attribution required.
+- **Local processing.** Same pipeline; ~255 KB at 1067 × 1600.
+  Vendored Phase 16 for the Persian Imperial System hub.
+
 ## Adding new architecture images
 
 1. Find a CC0 / public-domain (or attribution-friendly) photograph

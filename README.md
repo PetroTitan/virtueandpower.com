@@ -1152,6 +1152,58 @@ licence-verified through the Wikimedia API and WebP-encoded by the
 pipeline recorded in
 [`scripts/vendor-roman-images.mjs`](scripts/vendor-roman-images.mjs).
 
+### The Persian world deepening layer (phase 16)
+
+Phase 16 raises the Persian civilization to a first-class pillar beside
+the Greek and Roman worlds, read through the lens of *empire,
+administration, kingship, logistics and communication*. It is a
+content-and-graph phase on the existing infrastructure (the only code
+changes are a homepage band and the per-figure atmosphere map), and
+everything is `status: published` and passes every content-health
+check.
+
+It adds:
+
+- **Three deepening hubs** — the [Achaemenid
+  Empire](content/civilizations/achaemenid-empire.mdx) (the empire as a
+  historical entity), the [Persian Imperial
+  System](content/civilizations/persian-imperial-system.mdx) (the
+  administrative machinery), and [Persia and the
+  Mediterranean](content/civilizations/persia-and-the-mediterranean.mdx)
+  (the western frontier and the Greek-source problem) — each with the
+  ten required sections, sitting under the existing `persia` umbrella.
+- **Four kings as interpretive statecraft entries** — Cyrus the Great
+  (substantially expanded), Darius I (the architect of the system),
+  Xerxes I (read from the Persian side against the Greek caricature),
+  and Artaxerxes I (empire managed by diplomacy).
+- **Eight Persian statecraft themes** — `satrapies`, `royal-road`,
+  `imperial-logistics`, `kingship-and-legitimacy`, `empire-and-diversity`,
+  `imperial-communication`, `frontiers-and-borderlands` and
+  `governance-at-scale` — reaching across to the Roman and Hellenistic
+  layers (`empire-and-diversity` ↔ Persia / Rome / Hellenistic World).
+- **A Persian primary-text layer** — the [Cyrus
+  Cylinder](content/books/cyrus-cylinder.mdx), the [Behistun
+  Inscription](content/books/behistun-inscription.mdx), Herodotus's
+  [Histories](content/books/herodotus-histories.mdx), the
+  [Anabasis](content/books/anabasis.mdx) and Ctesias's
+  [Persica](content/books/persica.mdx), with the
+  [Cyropaedia](content/books/cyropaedia.mdx) expanded — each with full
+  source-criticism (the Cyrus Cylinder's "human-rights charter" myth
+  corrected; Behistun flagged as royal apologetic; the Persica as a
+  fragmentary, unreliable tradition).
+- **Nine interpretive essays**, mechanism-first, including *Persia
+  through Greek eyes* — the explicit discipline for using the Greek
+  sources while seeing through their frame.
+
+It also vendors **seven verified Persian archive images** (the Gate of
+All Nations, the Tomb of Cyrus, the Apadana columns, Naqsh-e Rustam,
+the Behistun relief, a gold daric, and an Apadana bull-capital),
+licence-verified through the Wikimedia API by
+[`scripts/vendor-persian-images.mjs`](scripts/vendor-persian-images.mjs),
+taking the Persian archive from 2 images to 9 and the platform total to
+42. After this phase the homepage carries three civilizational bands —
+Greek, Roman and Persian — as equal pillars.
+
 ### The visual archive
 
 The bust catalog at [`src/data/busts.ts`](src/data/busts.ts) handles

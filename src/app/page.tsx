@@ -374,6 +374,36 @@ export default async function HomePage() {
         </div>
       </PageSection>
 
+      {/* Persian World — the three Achaemenid sub-hubs, the third
+          civilizational pillar beside the Greek and Roman worlds. */}
+      <PageSection label="Persian World">
+        <SectionIntro
+          eyebrow="Persian World"
+          title="The first world-empire, read as a civilizational pillar"
+          description="The Persian civilization is read inside three working sub-hubs — the Achaemenid Empire as a historical entity, the Persian Imperial System as the administrative machinery that governed a continent, and Persia and the Mediterranean as the frontier where it met, and was recorded by, the Greek world."
+          href="/civilizations/persia"
+          hrefLabel="Read the umbrella hub"
+        />
+        <div className="mt-12">
+          <EditorialGrid columns={3}>
+            {(["achaemenid-empire", "persian-imperial-system", "persia-and-the-mediterranean"] as const)
+              .map((slug) => civilizations.find((c) => c.slug === slug))
+              .filter((c): c is NonNullable<typeof c> => c !== undefined)
+              .map((c) => (
+                <CivilizationCard
+                  key={c.slug}
+                  slug={c.slug}
+                  title={c.frontmatter.title}
+                  subtitle={c.frontmatter.subtitle}
+                  period={c.frontmatter.period}
+                  description={c.frontmatter.description}
+                  heroImage={c.frontmatter.heroImage}
+                />
+              ))}
+          </EditorialGrid>
+        </div>
+      </PageSection>
+
       {/* Comparisons */}
       {featuredComparison ? (
         <PageSection label="Comparisons">
