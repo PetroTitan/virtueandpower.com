@@ -1091,6 +1091,67 @@ system honours each constraint:
 - No reduction of whitespace; the marble surround remains
   the dominant surface.
 
+### The Roman deepening layer (phase 15)
+
+Phase 15 extends the Roman layer from the late Republic across the
+full arc of Roman political development — **Republic → Principate →
+High Empire → Late Empire** — to make civilization and statecraft the
+deepest section of the platform. It is a content-and-graph phase: no
+new routes or components beyond the homepage band and the per-figure
+atmosphere map; everything else is MDX, typed registries and graph
+wiring on the existing infrastructure.
+
+It adds, all at `status: published` and passing every content-health
+check:
+
+- **Four phase hubs** — [`roman-republic`](content/civilizations/roman-republic.mdx),
+  [`principate`](content/civilizations/principate.mdx),
+  [`high-empire`](content/civilizations/high-empire.mdx) and
+  [`late-empire`](content/civilizations/late-empire.mdx) — each reading
+  the phase through its constitutional, political, military and
+  administrative structure, its civic ideals, its central tension, and
+  its relationship to the phases on either side. They are chained to
+  each other and to the existing `rome` umbrella hub.
+- **Eight imperial figures** — Marcus Agrippa, Tiberius, Hadrian,
+  Antoninus Pius, Marcus Aurelius, Aurelian, Diocletian and
+  Constantine — written as interpretive statecraft entries, not
+  biographies. (Marcus Aurelius is added beyond the original brief as
+  the author of the *Meditations* and the platform's central
+  virtue-and-power case; Caracalla appears as context inside the
+  citizenship theme rather than as a node.)
+- **Seven statecraft themes** — `imperial-law`, `roman-citizenship`,
+  `provincial-government`, `army-and-state`, `imperial-succession`,
+  `crisis-of-the-third-century` and `state-and-religion` — each
+  connecting multiple phases, figures and texts. The phase-13
+  `imperial-administration` theme is reused and cross-linked rather
+  than duplicated.
+- **Eight primary texts** — the *Res Gestae*, *Agricola*, *Germania*,
+  *Annals*, *Histories*, *The Twelve Caesars*, *Meditations* and the
+  *Strategikon* — to the phase-10 standard (what it is / historical
+  context / argument / reception / citation discipline), each with a
+  source-catalog entry.
+- **Nine interpretive essays**, mechanism-first rather than
+  chronological, on how Augustus rebuilt Rome, why the Principate
+  worked, the second-century apogee, imperial consolidation, the army
+  as a political institution, why empires become bureaucracies, the
+  third-century crisis, and the Diocletianic and Constantinian
+  reinventions.
+
+The contested-scholarship and citation rules are honoured throughout:
+the *Strategikon*'s attribution to Maurice is flagged as convention;
+the *Germania*'s and *Histories*' dangerous reception histories are
+named; Caracalla's motive for the universal citizenship grant is given
+as contested; the third-century sources (the *Historia Augusta*) are
+flagged as unreliable; and the Constantine colossus image is the
+securely-identified marble head, not the contested bronze.
+
+The phase also vendors **seven new archive images** (Arch of
+Constantine, Pont du Gard, Maison Carrée, the Venice Tetrarchs, the
+Aurelian Walls, and Hadrian and Constantine portraits), each
+licence-verified through the Wikimedia API and WebP-encoded by the
+pipeline recorded in
+[`scripts/vendor-roman-images.mjs`](scripts/vendor-roman-images.mjs).
+
 ### The visual archive
 
 The bust catalog at [`src/data/busts.ts`](src/data/busts.ts) handles
