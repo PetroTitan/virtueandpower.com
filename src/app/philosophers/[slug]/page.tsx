@@ -70,6 +70,42 @@ const FIGURE_ATMOSPHERE: Record<
       { slug: "lion-darius-susa" },
     ],
   },
+  "cyrus-the-great": {
+    eyebrow: "Atmosphere",
+    heading: "The empire Cyrus founded",
+    items: [
+      { slug: "tomb-of-cyrus" },
+      { slug: "persepolis-apadana" },
+      { slug: "daric-coin" },
+    ],
+  },
+  "darius-i": {
+    eyebrow: "Atmosphere",
+    heading: "The system Darius built",
+    items: [
+      { slug: "behistun-relief" },
+      { slug: "persepolis-columns" },
+      { slug: "gate-of-all-nations" },
+    ],
+  },
+  "xerxes-i": {
+    eyebrow: "Atmosphere",
+    heading: "The Persepolis Xerxes completed",
+    items: [
+      { slug: "gate-of-all-nations" },
+      { slug: "persepolis-bull-capital" },
+      { slug: "persepolis-apadana" },
+    ],
+  },
+  "artaxerxes-i": {
+    eyebrow: "Atmosphere",
+    heading: "The empire Artaxerxes held",
+    items: [
+      { slug: "persepolis-apadana" },
+      { slug: "naqsh-e-rustam" },
+      { slug: "lion-darius-susa" },
+    ],
+  },
   cicero: {
     eyebrow: "Atmosphere",
     heading: "The Republic Cicero defended",
