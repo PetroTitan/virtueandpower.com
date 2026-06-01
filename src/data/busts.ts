@@ -87,8 +87,9 @@ export const busts: ReadonlyArray<Bust> = [
     alt: "Marble head of the Emperor Marcus Aurelius, 2nd century, Archaeological Museum of Heraklion.",
     caption: "Marcus Aurelius · 2nd century · Marble",
     attribution: "Archaeological Museum of Heraklion · Wikimedia Commons (CC0)",
+    figureSlug: "marcus-aurelius",
     notes:
-      "Vendored for the imperial-era essays and for a future Marcus Aurelius figure entry. Was the homepage hero anchor through phases 7–11; superseded as the default bust in phase 12 by the Tusculum portrait of Caesar.",
+      "Vendored for the imperial-era essays and now wired to the Marcus Aurelius figure entry (Phase 15). Was the homepage hero anchor through phases 7–11; superseded as the default bust in phase 12 by the Tusculum portrait of Caesar.",
   },
   {
     slug: "julius-caesar-tusculum",
@@ -268,6 +269,46 @@ export const busts: ReadonlyArray<Bust> = [
     figureSlug: "alexander",
     notes:
       "The Azara Herm, named for the Spanish diplomat José Nicolás de Azara who recovered it from Tivoli in 1779, is the most securely identified Alexander portrait — the inscription confirms the identification, and the form is the standard Lysippan type. Vendored for the Alexander figure entry and for the Hellenistic World hub.",
+  },
+  {
+    slug: "hadrian-capitoline",
+    figure: "Hadrian",
+    culture: "roman",
+    era: "2nd century CE",
+    museum: "Capitoline Museums, Rome (MC 817)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Bust_Hadrian_Musei_Capitolini_MC817.jpg",
+    license: "public-domain",
+    photographer: "Marie-Lan Nguyen (Jastrow)",
+    imagePath: "/images/busts/hadrian-capitoline.webp",
+    width: 1280,
+    height: 1600,
+    alt: "Marble bust of the Emperor Hadrian, bearded in the Greek manner, 2nd century CE, Capitoline Museums, Rome.",
+    caption: "Hadrian · 2nd century CE · Marble",
+    attribution: "Capitoline Museums, Rome · Wikimedia Commons (Public Domain)",
+    figureSlug: "hadrian",
+    notes:
+      "Capitoline MC 817. Hadrian was the first emperor to wear the full Greek-style beard in his official portraiture, a visible mark of the philhellenism that defined his reign. Public-domain photograph of a long-out-of-copyright sculpture. Vendored for the Hadrian figure entry (Phase 15).",
+  },
+  {
+    slug: "constantine-colossus",
+    figure: "Constantine the Great",
+    culture: "roman",
+    era: "c. 312–315 CE",
+    museum: "Palazzo dei Conservatori, Capitoline Museums, Rome",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Rome-Capitole-StatueConstantin.jpg",
+    license: "cc-by",
+    photographer: "Jean-Christophe Benoist",
+    imagePath: "/images/busts/constantine-colossus.webp",
+    width: 1200,
+    height: 1600,
+    alt: "The colossal marble head of Constantine the Great, from the acrolithic seated statue in the Basilica of Maxentius, now in the courtyard of the Palazzo dei Conservatori, Rome.",
+    caption: "Constantine the Great · c. 312–315 CE · Marble",
+    attribution: "Capitoline Museums, Rome · photo Jean-Christophe Benoist · Wikimedia Commons (CC BY 2.5)",
+    figureSlug: "constantine",
+    notes:
+      "The head is a fragment of a seated acrolithic colossus some twelve metres high that stood in the Basilica of Maxentius and Constantine in the Forum. The securely identified marble colossus of Constantine (distinct from the separately-held bronze head whose identification is debated). Licensed CC BY 2.5; attribution carried in the registry and on the page caption. Vendored for the Constantine figure entry (Phase 15).",
   },
 ];
 

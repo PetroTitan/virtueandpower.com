@@ -314,6 +314,36 @@ export default async function HomePage() {
         </p>
       </PageSection>
 
+      {/* Roman World — the four Roman phase sub-hubs, read as a
+          Republic -> Principate -> High Empire -> Late Empire pathway. */}
+      <PageSection label="Roman World" variant="ruled">
+        <SectionIntro
+          eyebrow="Roman World"
+          title="Republic, Principate, High Empire, Late Empire"
+          description="The Roman civilization is read across four working phases — the self-governing Republic, the veiled monarchy of the Principate, the second-century apogee of the High Empire, and the militarised, Christianising Late Empire. Together they trace why Rome lasted, why the Republic fell, and what the empire became."
+          href="/civilizations/rome"
+          hrefLabel="Read the umbrella hub"
+        />
+        <div className="mt-12">
+          <EditorialGrid columns={2}>
+            {(["roman-republic", "principate", "high-empire", "late-empire"] as const)
+              .map((slug) => civilizations.find((c) => c.slug === slug))
+              .filter((c): c is NonNullable<typeof c> => c !== undefined)
+              .map((c) => (
+                <CivilizationCard
+                  key={c.slug}
+                  slug={c.slug}
+                  title={c.frontmatter.title}
+                  subtitle={c.frontmatter.subtitle}
+                  period={c.frontmatter.period}
+                  description={c.frontmatter.description}
+                  heroImage={c.frontmatter.heroImage}
+                />
+              ))}
+          </EditorialGrid>
+        </div>
+      </PageSection>
+
       {/* Greek World — the three Greek sub-hubs */}
       <PageSection label="Greek World">
         <SectionIntro

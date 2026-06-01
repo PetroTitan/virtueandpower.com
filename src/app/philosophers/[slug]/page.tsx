@@ -88,6 +88,69 @@ const FIGURE_ATMOSPHERE: Record<
       { slug: "arch-titus-relief" },
     ],
   },
+  "marcus-agrippa": {
+    eyebrow: "Atmosphere",
+    heading: "The Rome Agrippa built",
+    items: [
+      { slug: "pantheon-ceiling" },
+      { slug: "pont-du-gard" },
+      { slug: "roman-forum-view" },
+    ],
+  },
+  hadrian: {
+    eyebrow: "Atmosphere",
+    heading: "The empire Hadrian bounded",
+    items: [
+      { slug: "pantheon-ceiling" },
+      { slug: "maison-carree" },
+      { slug: "pont-du-gard" },
+    ],
+  },
+  "antoninus-pius": {
+    eyebrow: "Atmosphere",
+    heading: "The world Antoninus governed",
+    items: [
+      { slug: "maison-carree" },
+      { slug: "pantheon-ceiling" },
+      { slug: "roman-forum-view" },
+    ],
+  },
+  "marcus-aurelius": {
+    eyebrow: "Atmosphere",
+    heading: "The empire Marcus held",
+    items: [
+      { slug: "trajans-column" },
+      { slug: "pantheon-ceiling" },
+      { slug: "colosseum-curves" },
+    ],
+  },
+  aurelian: {
+    eyebrow: "Atmosphere",
+    heading: "The world Aurelian held together",
+    items: [
+      { slug: "aurelian-walls" },
+      { slug: "arch-of-constantine" },
+      { slug: "roman-forum-view" },
+    ],
+  },
+  diocletian: {
+    eyebrow: "Atmosphere",
+    heading: "The state Diocletian rebuilt",
+    items: [
+      { slug: "tetrarchs-venice" },
+      { slug: "aurelian-walls" },
+      { slug: "arch-of-constantine" },
+    ],
+  },
+  constantine: {
+    eyebrow: "Atmosphere",
+    heading: "The Rome Constantine transformed",
+    items: [
+      { slug: "arch-of-constantine" },
+      { slug: "tetrarchs-venice" },
+      { slug: "aurelian-walls" },
+    ],
+  },
 };
 
 type Params = { slug: string };
