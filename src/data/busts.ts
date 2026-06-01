@@ -87,8 +87,9 @@ export const busts: ReadonlyArray<Bust> = [
     alt: "Marble head of the Emperor Marcus Aurelius, 2nd century, Archaeological Museum of Heraklion.",
     caption: "Marcus Aurelius · 2nd century · Marble",
     attribution: "Archaeological Museum of Heraklion · Wikimedia Commons (CC0)",
+    figureSlug: "marcus-aurelius",
     notes:
-      "Vendored for the imperial-era essays and for a future Marcus Aurelius figure entry. Was the homepage hero anchor through phases 7–11; superseded as the default bust in phase 12 by the Tusculum portrait of Caesar.",
+      "Vendored for the imperial-era essays and now wired to the Marcus Aurelius figure entry (Phase 15). Was the homepage hero anchor through phases 7–11; superseded as the default bust in phase 12 by the Tusculum portrait of Caesar.",
   },
   {
     slug: "julius-caesar-tusculum",
