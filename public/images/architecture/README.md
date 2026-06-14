@@ -352,6 +352,35 @@ registered there.
 - **Local processing.** Same pipeline; ~255 KB at 1067 × 1600.
   Vendored Phase 16 for the Persian Imperial System hub.
 
+### `ishtar-gate.webp`
+
+- **Subject.** The reconstructed Ishtar Gate of Babylon, built under
+  Nebuchadnezzar II (c. 575 BCE), faced in lapis-blue glazed brick.
+- **Location.** Pergamon Museum, Berlin.
+- **Source.** Wikimedia Commons,
+  [`File:Pergamonmuseum Ishtartor 03.jpg`](https://commons.wikimedia.org/wiki/File:Pergamonmuseum_Ishtartor_03.jpg).
+- **Photographer.** Hahaha.
+- **Licence.** **CC BY-SA 2.5.** Attribution required.
+- **Source dimensions.** 2592 × 1944.
+- **Local processing.** Resized to 1600 px on the longest edge,
+  WebP quality 80 effort 6; ~245 KB at 1600 × 1200. Vendored Phase 17
+  for the Babylon hub.
+
+### `great-wall-jinshanling.webp`
+
+- **Subject.** The Great Wall of China at Jinshanling. The visible
+  masonry is Ming (14th–16th c. CE); it stands on the line of far
+  older northern walls, the first integration of which is attributed
+  to Qin Shi Huang. The caption and hub text are explicit about this.
+- **Location.** Jinshanling, Hebei, China.
+- **Source.** Wikimedia Commons,
+  [`File:The Great Wall of China at Jinshanling-edit.jpg`](https://commons.wikimedia.org/wiki/File:The_Great_Wall_of_China_at_Jinshanling-edit.jpg).
+- **Photographer.** Severin.stalder.
+- **Licence.** **CC BY-SA 3.0.** Attribution required.
+- **Source dimensions.** 4288 × 2848.
+- **Local processing.** Same pipeline; ~266 KB at 1600 × 1063.
+  Vendored Phase 17 for the early-imperial-China hub.
+
 ## Adding new architecture images
 
 1. Find a CC0 / public-domain (or attribution-friendly) photograph

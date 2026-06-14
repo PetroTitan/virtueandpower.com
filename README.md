@@ -1204,6 +1204,66 @@ taking the Persian archive from 2 images to 9 and the platform total to
 42. After this phase the homepage carries three civilizational bands —
 Greek, Roman and Persian — as equal pillars.
 
+### Phase 17 — Founders, lawgivers & constitutions
+
+Phase 17 builds the platform's authority cluster on *how civilizations
+are founded* — how institutions emerge, how constitutions survive, how
+laws become durable, how legitimacy is created and order maintained. It
+reaches deliberately beyond the Mediterranean, bringing Mesopotamia and
+early imperial China into the corpus beside Greece, Rome and Persia, and
+reads its figures not as biographies but as founders, lawgivers,
+institutional architects and state-builders. Everything is
+`status: published` and passes every content-health check (0 errors, 0
+warnings, no orphans).
+
+It adds:
+
+- **Four founder/lawgiver figures** — [Hammurabi](content/philosophers/hammurabi.mdx)
+  (Babylonian codification), [Confucius](content/philosophers/confucius.mdx)
+  (order through virtue and custom), [Han Fei](content/philosophers/han-fei.mdx)
+  (the Legalist synthesis) and [Qin Shi Huang](content/philosophers/qin-shi-huang.mdx)
+  (the administrative unification of China) — with Cyrus the Great
+  expanded and Lycurgus, Solon and Numa wired into the new cluster.
+- **Ten themes** — `constitution`, `rule-of-law`, `political-legitimacy`,
+  `institution-building`, `codification`, `custom-and-law`,
+  `founding-myths`, `law-and-order`, `citizenship-and-duty` and
+  `administrative-state` — the conceptual spine of the cluster.
+- **Six primary texts** — the [Code of
+  Hammurabi](content/books/code-of-hammurabi.mdx), the
+  [Analects](content/books/the-analects.mdx), the [Book of Lord
+  Shang](content/books/book-of-lord-shang.mdx), the
+  [Han Feizi](content/books/han-feizi.mdx), Plato's
+  [Laws](content/books/the-laws.mdx) and Aristotle's
+  [Politics](content/books/politics.mdx) — each registered in the typed
+  source catalog with editions, translators and public-domain status.
+- **Three civilization hubs** — [Babylon](content/civilizations/babylon.mdx),
+  [early imperial China](content/civilizations/early-imperial-china.mdx),
+  and the [Athenian reforms](content/civilizations/athens-reforms.mdx) —
+  deep, source-based and visually rich, with the Sparta hub wired in.
+- **Nine interpretive essays** — *why constitutions survive*, *why
+  constitutions fail*, *law before democracy*, *the invention of
+  citizenship*, *why founders matter*, *how institutions outlive
+  rulers*, *order versus charisma*, *the long history of political
+  legitimacy*, and *the birth of the administrative state*.
+- **Eight comparisons** — Lycurgus vs Solon, Athens vs Sparta, Rome vs
+  Sparta, Hammurabi vs Roman Law, Confucius vs Legalism, Cyrus vs
+  Alexander, Republic vs Empire, and Law vs Personal Rule.
+
+It also vendors **ten verified archive images** — the Hammurabi stele
+relief, the Ishtar Gate, the Processional Way lion of Babylon, the Great
+Code of Gortyn inscription, the Terracotta Army (pit and single
+warrior), the Great Wall at Jinshanling, the traditional Confucius
+portrait, the "Leonidas" Spartan hoplite, and the Pnyx of Athens — all
+licence-verified through the Wikimedia API by
+[`scripts/vendor-founders-images.mjs`](scripts/vendor-founders-images.mjs),
+extending the `ArchiveImageCulture` union with `mesopotamian` and
+`chinese` and the `ArchiveImageKind` union with `painting`, and taking
+the platform archive past 50 images. The homepage gains a fourth band,
+**Founders & Constitutions**, beside the Greek, Roman and Persian worlds.
+Every new page connects through the typed graph to the Roman, Greek,
+Persian and Egyptian pillars; the backlink engine surfaces each new hub
+on the existing civilization pages it references.
+
 ### The visual archive
 
 The bust catalog at [`src/data/busts.ts`](src/data/busts.ts) handles

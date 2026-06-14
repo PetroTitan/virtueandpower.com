@@ -42,12 +42,15 @@ export type ArchiveImageKind =
   | "mosaic"
   | "inscription"
   | "artifact"
+  | "painting"
   | "coin";
 
 export type ArchiveImageCulture =
   | "greek"
   | "roman"
   | "persian"
+  | "mesopotamian"
+  | "chinese"
   | "egyptian"
   | "byzantine"
   | "modern";
@@ -686,6 +689,208 @@ export const archiveImages: ReadonlyArray<ArchiveImage> = [
     attribution: "National Museum of Iran · photo Skot · Wikimedia Commons (CC BY-SA 4.0)",
     notes:
       "Vendored for the Persian Imperial System hub. The addorsed-bull capital is the signature Achaemenid architectural element, fusing Mesopotamian and Iranian motifs into the imperial style; the Apadana's columns were crowned with them. Licensed CC BY-SA 4.0; attribution carried on the in-page caption.",
+  },
+
+  // ─── Phase 17 · Founders, lawgivers & constitutions ──────────────────
+  {
+    slug: "hammurabi-stele",
+    kind: "relief",
+    subject: "The upper relief of the Code of Hammurabi stele",
+    culture: "mesopotamian",
+    era: "Old Babylonian, c. 1754 BCE",
+    location: "Musée du Louvre, Paris (Sb 8)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:P1050763_Louvre_code_Hammurabi_face_rwk.JPG",
+    license: "cc-by",
+    photographer: "Mbzt",
+    imagePath: "/images/artifacts/hammurabi-stele.webp",
+    width: 972,
+    height: 1600,
+    alt: "The carved upper register of the basalt stele of Hammurabi: the king standing in worship before the enthroned sun-god Shamash, who hands him the rod and ring of just rule, above the dense columns of cuneiform law.",
+    caption: "Code of Hammurabi stele, upper relief · c. 1754 BCE · Basalt",
+    attribution: "Louvre · photo Mbzt · Wikimedia Commons (CC BY 3.0)",
+    notes:
+      "Vendored for the Hammurabi figure entry, the Code of Hammurabi text page, and the Babylon hub. The relief makes the code's central claim visible — the king's law is the god's justice, received and published. Licensed CC BY 3.0; attribution carried on the in-page caption.",
+  },
+  {
+    slug: "ishtar-gate",
+    kind: "architecture",
+    subject: "The reconstructed Ishtar Gate of Babylon",
+    culture: "mesopotamian",
+    era: "Neo-Babylonian, c. 575 BCE (reign of Nebuchadnezzar II)",
+    location: "Pergamon Museum, Berlin",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Pergamonmuseum_Ishtartor_03.jpg",
+    license: "cc-by-sa",
+    photographer: "Hahaha",
+    imagePath: "/images/architecture/ishtar-gate.webp",
+    width: 1600,
+    height: 1200,
+    alt: "The reconstructed Ishtar Gate of Babylon in the Pergamon Museum — a monumental arched gateway faced in lapis-blue glazed brick, ranked with reliefs of bulls and dragons.",
+    caption: "Ishtar Gate, reconstruction · Neo-Babylonian, c. 575 BCE · Glazed brick",
+    attribution: "Pergamon Museum, Berlin · photo Hahaha · Wikimedia Commons (CC BY-SA 2.5)",
+    notes:
+      "Vendored for the Babylon hub as the civilization's signature monument. Built under Nebuchadnezzar II, two centuries after Hammurabi, but the canonical visual image of Babylonian royal architecture. Licensed CC BY-SA 2.5; attribution carried on the in-page caption.",
+  },
+  {
+    slug: "babylon-processional-lion",
+    kind: "relief",
+    subject: "Striding lion of the Processional Way, Babylon",
+    culture: "mesopotamian",
+    era: "Neo-Babylonian, c. 575 BCE",
+    location: "Pergamon Museum, Berlin",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Reconstructed_Processional_Street_of_Babylon_showing_striding_and_roaring_lions._From_Babylon,_Iraq._Pergamon_Museum_in_Berlin.jpg",
+    license: "cc-by-sa",
+    photographer: "Osama Shukir Muhammed Amin FRCP(Glasg)",
+    imagePath: "/images/artifacts/babylon-processional-lion.webp",
+    width: 1600,
+    height: 1068,
+    alt: "Reconstructed wall of the Processional Way of Babylon, ranked with striding lions in moulded relief on a field of lapis-blue glazed brick — the lion of Ishtar, emblem of the city.",
+    caption: "Processional Way lions, Babylon · Neo-Babylonian, c. 575 BCE · Glazed brick",
+    attribution: "Pergamon Museum, Berlin · photo Osama S. M. Amin · Wikimedia Commons (CC BY-SA 4.0)",
+    notes:
+      "Vendored for the Babylon hub. The striding lion of Ishtar is the most reproduced single image of Babylonian monumental art; the Processional Way ran from the Ishtar Gate into the city. Licensed CC BY-SA 4.0; attribution carried on the in-page caption.",
+  },
+  {
+    slug: "gortyn-law-code",
+    kind: "inscription",
+    subject: "The Great Code of Gortyn, boustrophedon legal inscription",
+    culture: "greek",
+    era: "Archaic-to-Classical Crete, c. 450 BCE",
+    location: "Gortyn, Crete",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Boustrophedon_inscriptions_Gortys.jpg",
+    license: "cc-zero",
+    photographer: "Jebulon",
+    imagePath: "/images/artifacts/gortyn-law-code.webp",
+    width: 1600,
+    height: 1320,
+    alt: "A stretch of the Great Code of Gortyn carved into a curved stone wall — long lines of archaic Greek letters running in boustrophedon, alternately left-to-right and right-to-left.",
+    caption: "The Great Code of Gortyn · Crete, c. 450 BCE · Limestone inscription",
+    attribution: "Gortyn, Crete · photo Jebulon · Wikimedia Commons (CC0)",
+    notes:
+      "Vendored for the codification theme and the Athenian-reforms and law essays. The longest surviving Greek law inscription, written boustrophedon; the physical case for codification as a public, consultable standard. CC0 (public-domain dedication).",
+  },
+  {
+    slug: "terracotta-army",
+    kind: "ruins",
+    subject: "Pit 1 of the Terracotta Army, mausoleum of the First Emperor",
+    culture: "chinese",
+    era: "Qin dynasty, c. 210 BCE",
+    location: "Mausoleum of Qin Shi Huang, Lintong, Xi'an",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Terracotta_Army,_View_of_Pit_1.jpg",
+    license: "cc-by",
+    photographer: "Jmhullot",
+    imagePath: "/images/ruins/terracotta-army.webp",
+    width: 1600,
+    height: 1067,
+    alt: "Ranks of life-size terracotta soldiers standing in the excavated earthen corridors of Pit 1 at the mausoleum of the First Emperor of China, the army drawn up in formation underground.",
+    caption: "Terracotta Army, Pit 1 · Qin dynasty, c. 210 BCE · Fired earthenware",
+    attribution: "Mausoleum of Qin Shi Huang, Xi'an · photo Jmhullot · Wikimedia Commons (CC BY 3.0)",
+    notes:
+      "Vendored for the Qin Shi Huang figure entry and the early-imperial-China hub. The buried army is the visible measure of the scale the First Emperor's centralised state could command. Licensed CC BY 3.0; attribution carried on the in-page caption.",
+  },
+  {
+    slug: "terracotta-warrior",
+    kind: "artifact",
+    subject: "Terracotta Army infantryman, close view",
+    culture: "chinese",
+    era: "Qin dynasty, c. 210 BCE",
+    location: "Mausoleum of Qin Shi Huang, Lintong, Xi'an",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Terracota_warrior_close-up.jpg",
+    license: "cc-by-sa",
+    photographer: "J. Arpon",
+    imagePath: "/images/artifacts/terracotta-warrior.webp",
+    width: 1148,
+    height: 1600,
+    alt: "Close view of a single terracotta soldier from the army of the First Emperor — an individually modelled face, topknot and armoured torso, each figure made distinct.",
+    caption: "Terracotta infantryman · Qin dynasty, c. 210 BCE · Fired earthenware",
+    attribution: "Mausoleum of Qin Shi Huang, Xi'an · photo J. Arpon · Wikimedia Commons (CC BY-SA 3.0)",
+    notes:
+      "Vendored for the Qin Shi Huang figure entry and the early-imperial-China hub. The individuation of the figures is itself an administrative fact — a standardised production system that still produced distinct faces at scale. Licensed CC BY-SA 3.0.",
+  },
+  {
+    slug: "great-wall-jinshanling",
+    kind: "architecture",
+    subject: "The Great Wall of China at Jinshanling",
+    culture: "chinese",
+    era: "the visible masonry is Ming (14th–16th c. CE), on the line of far older northern walls",
+    location: "Jinshanling, Hebei, China",
+    source:
+      "https://commons.wikimedia.org/wiki/File:The_Great_Wall_of_China_at_Jinshanling-edit.jpg",
+    license: "cc-by-sa",
+    photographer: "Severin.stalder",
+    imagePath: "/images/architecture/great-wall-jinshanling.webp",
+    width: 1600,
+    height: 1063,
+    alt: "The Great Wall of China running along a ridgeline at Jinshanling, watchtowers stepping away over the hills into haze.",
+    caption: "The Great Wall at Jinshanling · Ming-era masonry on a far older line",
+    attribution: "Jinshanling, China · photo Severin.stalder · Wikimedia Commons (CC BY-SA 3.0)",
+    notes:
+      "Vendored for the early-imperial-China hub as the emblem of the northern frontier. The visible brick wall is Ming, not Qin; the caption and the hub text are explicit that Qin Shi Huang's contribution was the first integration of earlier earthen walls, not this masonry. Licensed CC BY-SA 3.0.",
+  },
+  {
+    slug: "confucius-portrait",
+    kind: "painting",
+    subject: "Confucius, after the Tang-dynasty painter Wu Daozi",
+    culture: "chinese",
+    era: "traditional portrait type attributed to Wu Daozi (8th c. CE), of the sage who lived 551–479 BCE",
+    location: "after Wu Daozi (685–758 CE)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Confucius_Tang_Dynasty.jpg",
+    license: "public-domain",
+    photographer: "after Wu Daozi (Tang dynasty)",
+    imagePath: "/images/artifacts/confucius-portrait.webp",
+    width: 350,
+    height: 640,
+    alt: "The traditional standing portrait of Confucius after Wu Daozi — the sage in robes, hands clasped, a sword at his side, in the canonical Chinese image of the Master.",
+    caption: "Confucius · traditional portrait type after Wu Daozi · Tang dynasty",
+    attribution: "after Wu Daozi · Wikimedia Commons (public domain)",
+    notes:
+      "Vendored for the Confucius figure entry and the early-imperial-China hub. A traditional portrait type, not a contemporary likeness — no such likeness exists; the image is the canonical Chinese representation of the sage. Public domain by age.",
+  },
+  {
+    slug: "leonidas-hoplite",
+    kind: "artifact",
+    subject: "Marble statue of a hoplite, known as 'Leonidas'",
+    culture: "greek",
+    era: "early Classical Sparta, c. 480–470 BCE",
+    location: "Archaeological Museum of Sparta",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Statue_of_a_hoplite,_known_as_%E2%80%9CLeonidas.%E2%80%9D_5th_cent._B.C.jpg",
+    license: "cc-by-sa",
+    photographer: "George E. Koronaios",
+    imagePath: "/images/artifacts/leonidas-hoplite.webp",
+    width: 1162,
+    height: 1600,
+    alt: "The marble torso of an early-Classical Spartan warrior, helmeted with a crested Corinthian helmet, found on the Spartan acropolis and traditionally called 'Leonidas.'",
+    caption: "Hoplite known as 'Leonidas' · Sparta, c. 480–470 BCE · Marble",
+    attribution: "Archaeological Museum of Sparta · photo G. E. Koronaios · Wikimedia Commons (CC BY-SA 4.0)",
+    notes:
+      "Vendored for the Sparta hub, the Lycurgus figure and the Athens-vs-Sparta and Rome-vs-Sparta comparisons. The identification with Leonidas is traditional, not certain; the figure is the finest surviving Spartan representation of the citizen-soldier. Licensed CC BY-SA 4.0.",
+  },
+  {
+    slug: "pnyx-athens",
+    kind: "ruins",
+    subject: "The Pnyx, meeting place of the Athenian assembly",
+    culture: "greek",
+    era: "Classical Athens, the hill in use as the assembly ground from the late 6th century BCE",
+    location: "Athens, Greece",
+    source:
+      "https://commons.wikimedia.org/wiki/File:View_of_the_Acropolis_of_Athens_and_Mount_Lycabettus_from_the_Orator%E2%80%99s_Bema_on_the_Pnyx_on_23_September_2018.jpg",
+    license: "cc-zero",
+    photographer: "George E. Koronaios",
+    imagePath: "/images/ruins/pnyx-athens.webp",
+    width: 1600,
+    height: 1067,
+    alt: "The view from the speaker's platform on the Pnyx hill toward the Acropolis of Athens and Mount Lycabettus — the ground on which the Athenian citizen assembly met and voted.",
+    caption: "The Pnyx, looking to the Acropolis · Athens · assembly ground from c. 500 BCE",
+    attribution: "Athens · photo G. E. Koronaios · Wikimedia Commons (CC0)",
+    notes:
+      "Vendored for the Athenian-reforms hub and the invention-of-citizenship essay. The Pnyx is where the reforms of Solon and Cleisthenes were finally exercised — the physical site of Athenian self-government. CC0 (public-domain dedication).",
   },
 ];
 
