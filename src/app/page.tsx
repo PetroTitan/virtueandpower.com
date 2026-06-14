@@ -404,6 +404,52 @@ export default async function HomePage() {
         </div>
       </PageSection>
 
+      {/* Founders & Constitutions — the founders/lawgivers/constitutions
+          cluster, read through three civilizational entry points that
+          span Mesopotamia, Greece and China beside the Roman, Greek and
+          Persian worlds above. */}
+      <PageSection label="Founders & Constitutions" variant="ruled">
+        <SectionIntro
+          eyebrow="Founders & Constitutions"
+          title="How civilizations are founded and how constitutions survive"
+          description="How institutions emerge, how laws become durable, how legitimacy is created and order maintained — read through the founders, lawgivers and codes of Babylon, the Athenian reforms, and the bureaucratic empire of early China, beside the lawgivers of Sparta, Rome and Persia."
+          href="/themes/constitution"
+          hrefLabel="Begin with the constitution"
+        />
+        <div className="mt-12">
+          <EditorialGrid columns={3}>
+            {(["babylon", "athens-reforms", "early-imperial-china"] as const)
+              .map((slug) => civilizations.find((c) => c.slug === slug))
+              .filter((c): c is NonNullable<typeof c> => c !== undefined)
+              .map((c) => (
+                <CivilizationCard
+                  key={c.slug}
+                  slug={c.slug}
+                  title={c.frontmatter.title}
+                  subtitle={c.frontmatter.subtitle}
+                  period={c.frontmatter.period}
+                  description={c.frontmatter.description}
+                  heroImage={c.frontmatter.heroImage}
+                />
+              ))}
+          </EditorialGrid>
+        </div>
+        <p className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
+          <Link
+            href="/philosophers/hammurabi"
+            className="vp-link text-sm uppercase tracking-eyebrow"
+          >
+            The lawgivers
+          </Link>
+          <Link
+            href="/comparisons/law-vs-personal-rule"
+            className="vp-link text-sm uppercase tracking-eyebrow"
+          >
+            Law versus personal rule
+          </Link>
+        </p>
+      </PageSection>
+
       {/* Comparisons */}
       {featuredComparison ? (
         <PageSection label="Comparisons">
