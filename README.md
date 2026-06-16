@@ -1315,6 +1315,61 @@ with the first entries in the new `manuscripts` image catalog. The
 homepage gains a **Plutarch** band, and the footer an Eras-group link.
 No AI imagery; no uncertain ancient identifications.
 
+### Phase 19 — Xenophon deepening
+
+Phase 19 establishes Xenophon as one of the central intellectual pillars
+of the platform, beside Plato, Aristotle, Plutarch, Polybius and Cicero.
+It reads the soldier-philosopher who bridges Greece, Persia and Sparta —
+student of Socrates, elected general of the Ten Thousand, historian,
+political thinker and the first sustained theorist of leadership.
+Everything is `status: published` and passes every content-health check
+(0 errors, 0 warnings, 0 orphans).
+
+It adds:
+
+- **Two authority routes** — [`/xenophon`](src/app/xenophon/page.tsx)
+  (Xenophon as soldier, student of Socrates, historian, political thinker,
+  theorist of leadership, and his Persian and Spartan connections and
+  influence) and [`/xenophon/works`](src/app/xenophon/works/page.tsx) (the
+  whole corpus by genre) — long-form SSR pages on `StudyLanding` with
+  Article + breadcrumb JSON-LD and vendored hero imagery.
+- **Seven new works** — the [Hellenica](content/books/hellenica.mdx), the
+  [Agesilaus](content/books/xenophon-agesilaus.mdx), the
+  [Oeconomicus](content/books/oeconomicus.mdx), the
+  [Symposium](content/books/symposium.mdx), the [Apology of
+  Socrates](content/books/apology-of-socrates.mdx), the [Constitution of
+  the Lacedaemonians](content/books/constitution-of-the-lacedaemonians.mdx)
+  and the [Hipparchicus](content/books/hipparchicus.mdx) — each to
+  primary-text standards (purpose, context, argument, influence,
+  reception, significance), with the Cyropaedia, Anabasis and Memorabilia
+  expanded into the new graph.
+- **Ten themes** — `leadership-through-example`, `education-of-rulers`,
+  `military-command`, `discipline-and-character`, `friendship-and-loyalty`,
+  `socratic-practical-philosophy`, `persian-kingship`, `spartan-order`,
+  `retreat-and-survival`, `governance-through-character`.
+- **Seven comparisons** — Xenophon vs Plato, Cyropaedia vs Republic,
+  Xenophon vs Plutarch, Anabasis vs the Commentaries of Caesar, Sparta vs
+  Persia in Xenophon, Socrates in Plato vs Xenophon, and Leadership in the
+  Cyropaedia vs the Meditations.
+- **Ten essays** — why Xenophon still matters; the education of Cyrus;
+  what the Anabasis teaches; Xenophon and practical leadership; Socrates
+  through Xenophon; why Xenophon admired Sparta; the limits of kingship;
+  character as political force; military leadership and self-control;
+  Xenophon versus Plato.
+
+It also vendors **four verified images** — the d'Anville route map of the
+Retreat of the Ten Thousand (first entry in the maps catalog), a
+Byzantine manuscript of the Anabasis, the securely-identified grave stele
+of the Athenian cavalryman Dexileos, and a nineteenth-century history
+painting of the retreat (honestly labelled) — licence-verified through
+the Wikimedia API by
+[`scripts/vendor-xenophon-images.mjs`](scripts/vendor-xenophon-images.mjs).
+The Xenophon cluster bridges the Persian and Spartan material the platform
+already carries: Cyropaedia ↔ Persia, Anabasis ↔ the Persian world,
+Agesilaus ↔ Sparta, Memorabilia ↔ Socrates. The homepage gains a
+**Xenophon** band, and the footer an Eras-group link. No AI imagery; no
+uncertain ancient identifications.
+
 ### The visual archive
 
 The bust catalog at [`src/data/busts.ts`](src/data/busts.ts) handles

@@ -35,6 +35,8 @@ const staticPaths = [
   "/roman-republic",
   "/plutarch",
   "/plutarch/parallel-lives",
+  "/xenophon",
+  "/xenophon/works",
   "/privacy-policy",
   "/terms",
   "/cookie-policy",
