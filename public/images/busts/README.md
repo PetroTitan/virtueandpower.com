@@ -196,6 +196,34 @@ on Wikimedia's CDN and so the provenance is file-system-traceable.
 - **Local processing.** Same pipeline; ~118 KB at 1200 × 1600.
   Vendored Phase 15 for the Constantine figure entry.
 
+### `demosthenes-chiaramonti.webp`
+
+- **Subject.** Demosthenes, the Athenian orator. Roman marble copy after
+  the bronze statue by Polyeuktos (c. 280 BCE) — the securely identified
+  portrait type, fixed by an inscribed herm.
+- **Location.** Chiaramonti Museum, Vatican (Inv. 1555).
+- **Source.** Wikimedia Commons,
+  [`File:Demosthenes Chiaramonti Inv1555.jpg`](https://commons.wikimedia.org/wiki/File:Demosthenes_Chiaramonti_Inv1555.jpg).
+- **Licence.** **CC BY 2.5.** Attribution required.
+- **Source dimensions.** 2450 × 3550.
+- **Local processing.** WebP q80 e6; ~82 KB at 1104 × 1600. Vendored for
+  the Demosthenes figure and the Demosthenes-vs-Cicero comparison.
+
+### `plutarch-chaeronea.webp`
+
+- **Subject.** Plutarch. A **modern commemorative bust** set up in his
+  home town of Chaeronea, Boeotia. No ancient portrait of Plutarch is
+  securely identified; this is used and captioned explicitly as a modern
+  work, not presented as an ancient likeness.
+- **Location.** Chaeronea, Boeotia, Greece.
+- **Source.** Wikimedia Commons,
+  [`File:Plutarch of Chaeronea-03.jpg`](https://commons.wikimedia.org/wiki/File:Plutarch_of_Chaeronea-03.jpg).
+- **Photographer.** Odysses.
+- **Licence.** **CC BY-SA 3.0.** Attribution required.
+- **Source dimensions.** 930 × 1251 (small original; not enlarged).
+- **Local processing.** WebP q80 e6; ~66 KB at 930 × 1251. Vendored for
+  the Plutarch figure entry and the Plutarch hub.
+
 ## Adding new busts
 
 1. Find a public-domain (CC0 / PD-old) or attribution-friendly

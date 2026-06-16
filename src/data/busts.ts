@@ -310,6 +310,46 @@ export const busts: ReadonlyArray<Bust> = [
     notes:
       "The head is a fragment of a seated acrolithic colossus some twelve metres high that stood in the Basilica of Maxentius and Constantine in the Forum. The securely identified marble colossus of Constantine (distinct from the separately-held bronze head whose identification is debated). Licensed CC BY 2.5; attribution carried in the registry and on the page caption. Vendored for the Constantine figure entry (Phase 15).",
   },
+  {
+    slug: "demosthenes-chiaramonti",
+    figure: "Demosthenes",
+    culture: "greek",
+    era: "Roman copy of a bronze statue by Polyeuktos, c. 280 BCE",
+    museum: "Chiaramonti Museum, Vatican (Inv. 1555)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Demosthenes_Chiaramonti_Inv1555.jpg",
+    license: "cc-by",
+    photographer: "after Polyeuktos",
+    imagePath: "/images/busts/demosthenes-chiaramonti.webp",
+    width: 1104,
+    height: 1600,
+    alt: "Marble portrait head of Demosthenes, a Roman copy after the bronze statue by Polyeuktos, the orator's brow furrowed in the characteristic look of care.",
+    caption: "Demosthenes · Roman copy after Polyeuktos · Marble",
+    attribution: "Chiaramonti Museum, Vatican · Wikimedia Commons (CC BY 2.5)",
+    figureSlug: "demosthenes",
+    notes:
+      "The Polyeuktos portrait type is the securely identified likeness of Demosthenes, fixed by an inscribed herm; the brooding, careworn expression became the canonical image of the orator. Vendored for the Demosthenes figure and the Demosthenes-vs-Cicero comparison. Licensed CC BY 2.5; attribution on the page caption.",
+  },
+  {
+    slug: "plutarch-chaeronea",
+    figure: "Plutarch",
+    culture: "greek",
+    era: "modern commemorative bust (no ancient likeness of Plutarch survives)",
+    museum: "Chaeronea, Boeotia, Greece",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Plutarch_of_Chaeronea-03.jpg",
+    license: "cc-by-sa",
+    photographer: "Odysses",
+    imagePath: "/images/busts/plutarch-chaeronea.webp",
+    width: 930,
+    height: 1251,
+    alt: "A modern commemorative marble bust of Plutarch, set up in his home town of Chaeronea in Boeotia.",
+    caption: "Plutarch · modern commemorative bust · Chaeronea",
+    attribution: "Chaeronea, Boeotia · photo Odysses · Wikimedia Commons (CC BY-SA 3.0)",
+    figureSlug: "plutarch",
+    notes:
+      "No ancient portrait of Plutarch is securely identified; this is an explicitly MODERN commemorative bust standing in his native Chaeronea, used as such and captioned honestly rather than presented as an ancient likeness. Vendored for the Plutarch figure entry and the Plutarch hub. Licensed CC BY-SA 3.0.",
+  },
 ];
 
 /** Look up a bust by slug. */

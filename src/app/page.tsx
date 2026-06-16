@@ -450,6 +450,39 @@ export default async function HomePage() {
         </p>
       </PageSection>
 
+      {/* Plutarch & the Parallel Lives — the biographer who bridges
+          Greece, Rome and Persia through the study of character. */}
+      <PageSection label="Plutarch" variant="ruled">
+        <SectionIntro
+          eyebrow="Plutarch & the Parallel Lives"
+          title="Reading character, leadership and the fate of states"
+          description="Plutarch of Chaeronea taught Europe to read the past through the shape of a life. The Parallel Lives pair a Greek with a Roman — Alexander with Caesar, Demosthenes with Cicero, Lycurgus with Numa — to study how character governs the use of power and decides the fate of republics and empires."
+          href="/plutarch"
+          hrefLabel="Enter the Plutarch hub"
+        />
+        <div className="mt-12">
+          <EssayHero
+            eyebrow="Featured destination"
+            title="The Parallel Lives"
+            dek="The pairings as a comparative system, the individual Lives, and the long European afterlife of the most influential biographies ever written — from Shakespeare's Roman plays to the founders' idea of greatness."
+            href="/plutarch/parallel-lives"
+            meta="Authority hub · Plutarch"
+          />
+        </div>
+        <div className="mt-16">
+          <FiguresStrip
+            eyebrow="Read through the Lives"
+            heading="The men Plutarch chose, and what their lives were meant to teach"
+            items={[
+              { slug: "alexander", role: "King of Macedon · 356–323 BCE" },
+              { slug: "julius-caesar", role: "Dictator of Rome · 100–44 BCE" },
+              { slug: "pericles", role: "Statesman of Athens · c. 495–429 BCE" },
+              { slug: "demosthenes", role: "Orator of Athens · 384–322 BCE" },
+            ]}
+          />
+        </div>
+      </PageSection>
+
       {/* Comparisons */}
       {featuredComparison ? (
         <PageSection label="Comparisons">

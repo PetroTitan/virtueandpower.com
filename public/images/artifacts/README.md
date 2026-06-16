@@ -97,6 +97,20 @@ Dropping a file here is not enough — it must also be registered there.
   Vendored Phase 17 for the Confucius figure and the
   early-imperial-China hub. Used at small / portrait sizes only.
 
+### `lion-of-chaeronea.webp`
+
+- **Subject.** The restored Lion of Chaeronea, the funerary monument
+  marking the grave of the Theban Sacred Band who fell at the battle of
+  Chaeronea (338 BCE), in Plutarch's home district of Boeotia.
+- **Location.** Chaeronea, Boeotia, Greece.
+- **Source.** Wikimedia Commons,
+  [`File:The restored Lion of Chaeronea in Boeotia on 10 April 2019.jpg`](https://commons.wikimedia.org/wiki/File:The_restored_Lion_of_Chaeronea_in_Boeotia_on_10_April_2019.jpg).
+- **Photographer.** George E. Koronaios.
+- **Licence.** **CC BY-SA 4.0.** Attribution required.
+- **Source dimensions.** 5929 × 3987.
+- **Local processing.** WebP q80 e6; ~538 KB at 1600 × 1076. Vendored
+  for the Plutarch and Parallel Lives hubs.
+
 ## Adding new artifacts
 
 Same pipeline as the architecture directory. Verify a CC0 /
