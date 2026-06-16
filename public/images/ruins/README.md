@@ -99,6 +99,19 @@ registry at
 - **Local processing.** WebP q80 e6; ~406 KB at 1600 × 1064. Vendored
   for the Plutarch hub.
 
+### `valley-of-the-kings.webp`
+
+- **Subject.** Panoramic view of the Valley of the Kings at Thebes, the
+  rock-cut royal necropolis of the New Kingdom pharaohs.
+- **Location.** Thebes (Luxor), Egypt.
+- **Source.** Wikimedia Commons,
+  [`File:Thebes, Luxor, Egypt, Panoramic view of the Valley of the Kings.jpg`](https://commons.wikimedia.org/wiki/File:Thebes,_Luxor,_Egypt,_Panoramic_view_of_the_Valley_of_the_Kings.jpg).
+- **Photographer.** Vyacheslav Argenberg.
+- **Licence.** **CC BY 4.0.** Attribution required.
+- **Source dimensions.** 3072 × 2048.
+- **Local processing.** WebP q80 e6; ~248 KB at 1600 × 1067. Vendored
+  for the New Kingdom hub.
+
 ## Adding new ruins photography
 
 Same pipeline as the architecture directory. See

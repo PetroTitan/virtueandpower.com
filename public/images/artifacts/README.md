@@ -138,6 +138,21 @@ Dropping a file here is not enough — it must also be registered there.
 - **Local processing.** WebP q80 e6; ~312 KB at 1600 × 873. Vendored for
   the Anabasis and the Xenophon hub.
 
+### Egypt / Peloponnesian supercluster (`senusret-iii-statue`, `narmer-palette`, `trireme-olympias`)
+
+- **`senusret-iii-statue.webp`** — Statue of the Middle Kingdom pharaoh
+  Senusret III (c. 1850 BCE), British Museum. [`File:Statues of Senusret III, British Museum 01.jpg`](https://commons.wikimedia.org/wiki/File:Statues_of_Senusret_III,_British_Museum_01.jpg).
+  14GTR. **CC0.** 3900 × 3456 → 1600 × 1418. Middle Kingdom hub hero.
+- **`narmer-palette.webp`** — The Narmer Palette (Early Dynastic,
+  c. 3100 BCE), Egyptian Museum, Cairo. [`File:Narmer Palette.jpg`](https://commons.wikimedia.org/wiki/File:Narmer_Palette.jpg).
+  Anonymous. **Public domain** (by age). 2566 × 1808 → 1600 × 1127.
+- **`trireme-olympias.webp`** — The reconstructed Athenian trireme
+  *Olympias* (a **modern** full-scale reconstruction, captioned as such).
+  [`File:The trireme Olympias on 23 February 2019.jpg`](https://commons.wikimedia.org/wiki/File:The_trireme_Olympias_on_23_February_2019.jpg).
+  George E. Koronaios. **CC BY-SA 4.0.** 5981 × 3987 → 1600 × 1066.
+
+All resized to 1600 px longest edge, WebP q80 e6.
+
 ## Adding new artifacts
 
 Same pipeline as the architecture directory. Verify a CC0 /

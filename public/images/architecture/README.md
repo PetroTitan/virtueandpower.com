@@ -395,6 +395,30 @@ registered there.
 - **Local processing.** WebP q80 e6; ~312 KB at 1600 × 1143. Vendored
   for the Plutarch hub.
 
+### Egypt deepening (`saqqara-step-pyramid`, `great-sphinx-giza`, `hatshepsut-temple`, `luxor-temple`, `abu-simbel`, `karnak-obelisk-hatshepsut`)
+
+- **`saqqara-step-pyramid.webp`** — Step Pyramid of Djoser, Saqqara (Old
+  Kingdom, c. 2670 BCE). [`File:Saqqara, Pyramid of Djoser, Ancient Egypt.jpg`](https://commons.wikimedia.org/wiki/File:Saqqara,_Pyramid_of_Djoser,_Ancient_Egypt.jpg).
+  V. Argenberg. **CC BY 4.0.** 3072 × 2048 → 1600 × 1067.
+- **`great-sphinx-giza.webp`** — Great Sphinx of Giza (Old Kingdom,
+  c. 2500 BCE). [`File:Great Sphinx of Giza (2).jpg`](https://commons.wikimedia.org/wiki/File:Great_Sphinx_of_Giza_(2).jpg).
+  Hamerani. **CC BY-SA 4.0.** 6016 × 4016 → 1600 × 1068.
+- **`hatshepsut-temple.webp`** — Mortuary temple of Hatshepsut, Deir
+  el-Bahari (New Kingdom, c. 1470 BCE). [`File:Thebes, Luxor, Egypt, Temple of Hatshepsut, Deir el-Bahari.jpg`](https://commons.wikimedia.org/wiki/File:Thebes,_Luxor,_Egypt,_Temple_of_Hatshepsut,_Deir_el-Bahari.jpg).
+  V. Argenberg. **CC BY 4.0.** 3072 × 2048 → 1600 × 1067.
+- **`luxor-temple.webp`** — Luxor Temple pylon (New Kingdom).
+  [`File:Luxor Temple R04.jpg`](https://commons.wikimedia.org/wiki/File:Luxor_Temple_R04.jpg).
+  Marc Ryckaert. **CC BY 3.0.** 4288 × 2584 → 1600 × 964.
+- **`abu-simbel.webp`** — Great Temple of Abu Simbel (Ramesses II,
+  c. 1264 BCE). [`File:The great temple of Abu simbel..JPG`](https://commons.wikimedia.org/wiki/File:The_great_temple_of_Abu_simbel..JPG).
+  Abumalek ahmed mohamed. **CC BY-SA 4.0.** 2592 × 1944 → 1600 × 1200.
+- **`karnak-obelisk-hatshepsut.webp`** — Obelisk of Hatshepsut, Karnak
+  (New Kingdom, c. 1470 BCE). [`File:Karnak Temple Obelisk (9794685624).jpg`](https://commons.wikimedia.org/wiki/File:Karnak_Temple_Obelisk_(9794685624).jpg).
+  Gary Todd. **CC0.** 3655 × 2488 → 1600 × 1089.
+
+All resized to 1600 px longest edge, WebP q80 e6. Vendored for the
+Egypt deepening (Old / Middle / New Kingdom hubs and pharaoh figures).
+
 ## Adding new architecture images
 
 1. Find a CC0 / public-domain (or attribution-friendly) photograph

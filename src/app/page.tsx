@@ -530,6 +530,96 @@ export default async function HomePage() {
         </p>
       </PageSection>
 
+      {/* Peloponnesian War — the contest of Athens and Sparta, read
+          through Thucydides. */}
+      <PageSection label="Peloponnesian War" variant="ruled">
+        <SectionIntro
+          eyebrow="The Peloponnesian War"
+          title="Athens, Sparta, and the anatomy of a great war"
+          description="The twenty-seven-year war that broke the classical Greek world — a sea power against a land power, a democracy against an oligarchy — read through Thucydides, the founder of political realism, and the figures who won and lost it."
+          href="/books/history-of-the-peloponnesian-war"
+          hrefLabel="Read Thucydides' History"
+        />
+        <div className="mt-12">
+          <EssayHero
+            eyebrow="Featured essay"
+            title="Why Athens lost"
+            dek="The richer, more dynamic power defeated itself — abandoning a winning strategy for ambition and faction, from the Sicilian catastrophe to the Persian gold that finally gave Sparta the sea."
+            href="/essays/why-athens-lost"
+            meta="Peloponnesian War"
+          />
+        </div>
+        <p className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
+          <Link href="/essays/the-sicilian-expedition" className="vp-link text-sm uppercase tracking-eyebrow">
+            The Sicilian Expedition
+          </Link>
+          <Link href="/essays/the-melian-dialogue" className="vp-link text-sm uppercase tracking-eyebrow">
+            The Melian Dialogue
+          </Link>
+          <Link href="/essays/sparta-versus-athens" className="vp-link text-sm uppercase tracking-eyebrow">
+            Sparta versus Athens
+          </Link>
+        </p>
+      </PageSection>
+
+      {/* Alexander & the Hellenistic World — the three Successor hubs. */}
+      <PageSection label="Alexander & the Hellenistic World">
+        <SectionIntro
+          eyebrow="Alexander & the Hellenistic World"
+          title="Conquest, succession, and the kingdoms that followed"
+          description="Philip forged the army, Alexander conquered the Persian world, and his generals tore the empire into the kingdoms that carried Greek culture from Egypt to the Hindu Kush — Macedon, Ptolemaic Egypt and the Seleucid Empire."
+          href="/civilizations/hellenistic-world"
+          hrefLabel="Read the umbrella hub"
+        />
+        <div className="mt-12">
+          <EditorialGrid columns={3}>
+            {(["macedon", "ptolemaic-egypt", "seleucid-empire"] as const)
+              .map((slug) => civilizations.find((c) => c.slug === slug))
+              .filter((c): c is NonNullable<typeof c> => c !== undefined)
+              .map((c) => (
+                <CivilizationCard
+                  key={c.slug}
+                  slug={c.slug}
+                  title={c.frontmatter.title}
+                  subtitle={c.frontmatter.subtitle}
+                  period={c.frontmatter.period}
+                  description={c.frontmatter.description}
+                  heroImage={c.frontmatter.heroImage}
+                />
+              ))}
+          </EditorialGrid>
+        </div>
+      </PageSection>
+
+      {/* Egypt Through the Ages — the three kingdom hubs. */}
+      <PageSection label="Egypt Through the Ages" variant="ruled">
+        <SectionIntro
+          eyebrow="Egypt Through the Ages"
+          title="Three thousand years of sacred kingship"
+          description="The longest-lived civilization of the ancient world, read across its three great ages — the Old Kingdom of the pyramids, the Middle Kingdom of reunification and classical letters, and the imperial New Kingdom of Hatshepsut, Akhenaten and Ramesses the Great."
+          href="/civilizations/egypt"
+          hrefLabel="Read the umbrella hub"
+        />
+        <div className="mt-12">
+          <EditorialGrid columns={3}>
+            {(["old-kingdom", "middle-kingdom", "new-kingdom"] as const)
+              .map((slug) => civilizations.find((c) => c.slug === slug))
+              .filter((c): c is NonNullable<typeof c> => c !== undefined)
+              .map((c) => (
+                <CivilizationCard
+                  key={c.slug}
+                  slug={c.slug}
+                  title={c.frontmatter.title}
+                  subtitle={c.frontmatter.subtitle}
+                  period={c.frontmatter.period}
+                  description={c.frontmatter.description}
+                  heroImage={c.frontmatter.heroImage}
+                />
+              ))}
+          </EditorialGrid>
+        </div>
+      </PageSection>
+
       {/* Comparisons */}
       {featuredComparison ? (
         <PageSection label="Comparisons">

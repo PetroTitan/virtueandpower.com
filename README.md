@@ -1370,6 +1370,55 @@ Agesilaus ↔ Sparta, Memorabilia ↔ Socrates. The homepage gains a
 **Xenophon** band, and the footer an Eras-group link. No AI imagery; no
 uncertain ancient identifications.
 
+### Phase 20 — Persia / Egypt / Alexander supercluster
+
+Phase 20 is a major civilization-authority expansion combining three
+editorial clusters — the Peloponnesian War, the Alexander & Hellenistic
+world, and the deepening of Egypt — built to make the platform feel like a
+serious civilization archive across the Greece → Persia → Egypt →
+Alexander → Rome arc. Everything is `status: published` and passes every
+content-health check (0 errors, 0 warnings, 0 orphans).
+
+**Peloponnesian War layer.** Six themes (realism-and-power, naval-empire,
+democracy-at-war, civil-war-and-stasis, political-fragmentation,
+strategic-failure); the figures Thucydides, Brasidas, Cleon and Lysander
+(with Pericles, Alcibiades and Nicias wired in); Thucydides'
+[History of the Peloponnesian War](content/books/history-of-the-peloponnesian-war.mdx)
+as the primary text (distinct from Tacitus's Histories); and eight essays
+(why Athens lost, the Sicilian Expedition, Alcibiades and ambition,
+Pericles and grand strategy, Sparta versus Athens, the Melian Dialogue,
+Brasidas and leadership, and the existing Thucydides essay).
+
+**Alexander & Hellenistic world.** Seven figures (Philip II, Ptolemy I,
+Seleucus I, Antigonus, Demetrius, Epaminondas, Arrian); Arrian's
+[Anabasis of Alexander](content/books/anabasis-of-alexander.mdx); three
+civilization hubs ([Macedon](content/civilizations/macedon.mdx),
+[Ptolemaic Egypt](content/civilizations/ptolemaic-egypt.mdx), the
+[Seleucid Empire](content/civilizations/seleucid-empire.mdx)); six themes
+(empire-building, succession-crisis, military-innovation, hellenization,
+conquest-and-integration, royal-legitimacy); and seven essays.
+
+**Egypt deepening.** Three kingdom hubs
+([Old](content/civilizations/old-kingdom.mdx),
+[Middle](content/civilizations/middle-kingdom.mdx),
+[New](content/civilizations/new-kingdom.mdx)); six pharaohs (Khufu,
+Hatshepsut, Thutmose III, Akhenaten, Ramesses II, Cleopatra VII) plus the
+historian Herodotus; six themes (sacred-kingship-in-egypt, monumentality,
+afterlife-and-order, nile-and-civilization, pharaonic-legitimacy,
+continuity-and-memory); and seven essays.
+
+It vendors **ten verified images** — nine for Egypt (the Senusret III
+statue, the Step Pyramid, the Great Sphinx, the Narmer Palette, the
+temples of Hatshepsut, Luxor and Abu Simbel, Hatshepsut's Karnak obelisk,
+and the Valley of the Kings) and the reconstructed Athenian trireme
+*Olympias* — licence-verified by
+[`scripts/vendor-supercluster-images.mjs`](scripts/vendor-supercluster-images.mjs)
+and wired into the civilization-hub galleries, taking the platform archive
+well past 70 images. The homepage gains three restrained bands —
+Peloponnesian War, Alexander & the Hellenistic World, and Egypt Through
+the Ages. Vergina was deliberately not vendored (no clean CC image); no AI
+imagery; no uncertain ancient identifications.
+
 ### The visual archive
 
 The bust catalog at [`src/data/busts.ts`](src/data/busts.ts) handles
