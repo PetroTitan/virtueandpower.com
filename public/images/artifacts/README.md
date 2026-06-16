@@ -153,6 +153,14 @@ Dropping a file here is not enough — it must also be registered there.
 
 All resized to 1600 px longest edge, WebP q80 e6.
 
+### Plato / Aristotle (`school-of-athens`, `platos-academy-mosaic`)
+
+- **`school-of-athens.webp`** — Raphael's *School of Athens* (Vatican,
+  1509–1511), a **Renaissance fresco** depicting the ancient philosophers,
+  used and captioned as such. [`File:Raphael School of Athens.jpg`](https://commons.wikimedia.org/wiki/File:Raphael_School_of_Athens.jpg). **PD.** 1600×1045.
+- **`platos-academy-mosaic.webp`** — Roman mosaic of Plato's Academy from
+  Pompeii (Naples). [`File:Plato's Academy mosaic from Pompeii.jpg`](https://commons.wikimedia.org/wiki/File:Plato%27s_Academy_mosaic_from_Pompeii.jpg). **PD.** 1563×1600.
+
 ## Adding new artifacts
 
 Same pipeline as the architecture directory. Verify a CC0 /

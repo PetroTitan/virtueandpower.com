@@ -38,6 +38,16 @@ Dropping a file here is not enough — it must also be registered there.
 - **Local processing.** WebP q80 e6; ~142 KB at 1153 × 1600. Vendored for
   the Xenophon Works hub and the Anabasis.
 
+### `clarke-plato-manuscript.webp`
+
+- **Subject.** The Clarke Plato (Bodleian MS. E. D. Clarke 39, copied
+  895 CE) — the oldest manuscript for many of Plato's dialogues, opening
+  the Apology.
+- **Source.** [`File:Apologia beginning. Clarke Plato.jpg`](https://commons.wikimedia.org/wiki/File:Apologia_beginning._Clarke_Plato.jpg).
+- **Holder.** Bodleian Library, Oxford. **Licence.** Public domain (by age).
+- **Local processing.** WebP q80 e6; ~392 KB at 1063×1600. Vendored for
+  the Plato cluster.
+
 ## Adding new manuscript images
 
 Same pipeline as the architecture directory. Verify the rights status,

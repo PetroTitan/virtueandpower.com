@@ -620,13 +620,53 @@ export default async function HomePage() {
         </div>
       </PageSection>
 
-      {/* Comparisons */}
+      {/* Plato & Aristotle — the two minds that organised Western
+          philosophy, given their own destination beside the historians
+          and biographers. */}
+      <PageSection label="Plato & Aristotle">
+        <SectionIntro
+          eyebrow="Plato & Aristotle"
+          title="The two minds that organised Western thought"
+          description="The pupil of Socrates and the pupil of Plato set the terms philosophy still argues in — the ideal and the practical, the philosopher-king and the citizen, the Forms and the world. Read their dialogues and treatises, the themes they opened, and the long quarrel between them."
+          href="/philosophers/plato"
+          hrefLabel="Begin with Plato"
+        />
+        <div className="mt-12">
+          <FiguresStrip
+            eyebrow="The Academy and the Lyceum"
+            heading="Socrates, his greatest pupil, and the pupil who broke with him"
+            items={[
+              { slug: "socrates", role: "Athens · c. 470–399 BCE" },
+              { slug: "plato", role: "The Academy · c. 428–348 BCE" },
+              { slug: "aristotle", role: "The Lyceum · 384–322 BCE" },
+              { slug: "marcus-aurelius", role: "The philosophic afterlife" },
+            ]}
+          />
+        </div>
+        <p className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
+          <Link href="/philosophers/aristotle" className="vp-link text-sm uppercase tracking-eyebrow">
+            Aristotle
+          </Link>
+          <Link href="/books/republic" className="vp-link text-sm uppercase tracking-eyebrow">
+            The Republic
+          </Link>
+          <Link href="/books/nicomachean-ethics" className="vp-link text-sm uppercase tracking-eyebrow">
+            Nicomachean Ethics
+          </Link>
+          <Link href="/comparisons/plato-and-aristotle" className="vp-link text-sm uppercase tracking-eyebrow">
+            Plato versus Aristotle
+          </Link>
+        </p>
+      </PageSection>
+
+      {/* Comparisons — figures, civilizations and political forms read
+          against each other without declaring a winner. */}
       {featuredComparison ? (
-        <PageSection label="Comparisons">
+        <PageSection label="Comparisons" variant="ruled">
           <SectionIntro
             eyebrow="Comparisons"
             title="Thinkers and traditions, read against each other"
-            description="Side-by-side studies that resist the slogan and follow the argument."
+            description="Side-by-side studies that resist the slogan and follow the argument — figures, civilizations and forms of government weighed for what each did well and where each failed, never reduced to a winner."
             href="/comparisons"
             hrefLabel="All comparisons"
           />
@@ -639,8 +679,48 @@ export default async function HomePage() {
               meta={featuredComparison.frontmatter.domain ?? undefined}
             />
           </div>
+          <p className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
+            <Link href="/comparisons/greece-vs-persia" className="vp-link text-sm uppercase tracking-eyebrow">
+              Greece versus Persia
+            </Link>
+            <Link href="/comparisons/greece-vs-rome" className="vp-link text-sm uppercase tracking-eyebrow">
+              Greece versus Rome
+            </Link>
+            <Link href="/comparisons/democracy-vs-oligarchy" className="vp-link text-sm uppercase tracking-eyebrow">
+              Democracy versus oligarchy
+            </Link>
+            <Link href="/comparisons/republic-vs-monarchy" className="vp-link text-sm uppercase tracking-eyebrow">
+              Republic versus monarchy
+            </Link>
+          </p>
         </PageSection>
       ) : null}
+
+      {/* Maps & Timelines — the static reference layer that orients the
+          whole corpus in space and time. */}
+      <PageSection label="Maps & Timelines">
+        <SectionIntro
+          eyebrow="Maps & Timelines"
+          title="The ancient world in space and time"
+          description="A reference layer for the whole library — static maps of Greece, Persia, Alexander's conquests, Rome and Egypt, and chronological timelines from the Old Kingdom to the fall of the Republic, each cross-linked to the figures and texts behind every place and date."
+          href="/maps"
+          hrefLabel="Browse the maps"
+        />
+        <p className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
+          <Link href="/maps/alexander-empire" className="vp-link text-sm uppercase tracking-eyebrow">
+            Alexander&rsquo;s empire
+          </Link>
+          <Link href="/maps/roman-empire" className="vp-link text-sm uppercase tracking-eyebrow">
+            The Roman Empire
+          </Link>
+          <Link href="/timelines" className="vp-link text-sm uppercase tracking-eyebrow">
+            All timelines
+          </Link>
+          <Link href="/timelines/peloponnesian-war" className="vp-link text-sm uppercase tracking-eyebrow">
+            The Peloponnesian War
+          </Link>
+        </p>
+      </PageSection>
 
       <NewsletterCta />
     </>

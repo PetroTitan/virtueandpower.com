@@ -61,6 +61,8 @@ export const siteConfig = {
       { slug: "roman-republic", label: "Roman Republic" },
       { slug: "plutarch", label: "Plutarch" },
       { slug: "xenophon", label: "Xenophon" },
+      { slug: "maps", label: "Maps" },
+      { slug: "timelines", label: "Timelines" },
       { slug: "religion-and-wisdom", label: "Religion & Wisdom" },
       { slug: "war-and-peace", label: "War & Peace" },
     ],

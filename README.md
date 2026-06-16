@@ -1419,6 +1419,84 @@ Peloponnesian War, Alexander & the Hellenistic World, and Egypt Through
 the Ages. Vergina was deliberately not vendored (no clean CC image); no AI
 imagery; no uncertain ancient identifications.
 
+### Phase 22–25 — Plato, Aristotle, comparisons, maps & timelines
+
+Phase 22–25 is a four-cluster expansion on branch
+`feat/plato-aristotle-comparisons-maps` that builds out the two
+philosophers who organise Western thought, a comparative layer that reads
+figures, civilizations and forms of government against each other, and a
+static reference layer of maps and timelines. Everything is
+`status: published` and passes every content-health check (0 errors, 0
+warnings, 0 orphans).
+
+**Plato deepening.** Ten dialogues — the
+[Republic](content/books/republic.mdx), Laws, [Symposium](content/books/plato-symposium.mdx),
+[Phaedo](content/books/phaedo.mdx), [Gorgias](content/books/gorgias.mdx),
+[Apology](content/books/apology.mdx), [Timaeus](content/books/timaeus.mdx),
+[Statesman](content/books/statesman.mdx), [Meno](content/books/meno.mdx)
+and [Crito](content/books/crito.mdx) (Plato's Symposium and Apology take
+the slugs `plato-symposium` and `apology` to avoid collision with
+Xenophon's). Eight themes (philosopher-king, justice-in-plato,
+education-and-the-soul, virtue-and-knowledge, ideal-state,
+immortality-of-the-soul, rhetoric-and-truth, political-degeneration) and
+nine essays (why Plato still matters, Plato and political order, Plato
+versus democracy, the philosopher-king, the Republic misunderstood, Plato
+and education, Plato and civilization, the legacy of Socrates in Plato,
+Plato versus the sophists).
+
+**Aristotle deepening.** Ten texts — the
+[Politics](content/books/politics.mdx),
+[Nicomachean Ethics](content/books/nicomachean-ethics.mdx),
+[Eudemian Ethics](content/books/eudemian-ethics.mdx),
+[Constitution of the Athenians](content/books/constitution-of-the-athenians.mdx),
+[Rhetoric](content/books/rhetoric.mdx), [Poetics](content/books/poetics.mdx),
+[Metaphysics](content/books/metaphysics.mdx),
+[Categories](content/books/categories.mdx),
+[On the Soul](content/books/on-the-soul.mdx) and
+[Economics](content/books/aristotle-economics.mdx). Eight themes
+(practical-wisdom, virtue-ethics, human-flourishing, teleology,
+constitutional-government, mixed-government, citizenship-in-aristotle,
+friendship-and-politics) and eight essays (why Aristotle matters,
+Aristotle versus Plato, Aristotle and political reality, virtue ethics
+today, Aristotle on citizenship, practical wisdom and leadership, Aristotle
+and constitutional government, friendship as political force).
+
+**Comparisons.** Fifteen new side-by-side studies, each structured around
+similarities, differences, context, strengths, limitations and influence,
+and each written to resist a simple winner — six figure comparisons
+(Socrates vs Plato, Pericles vs Augustus, Caesar vs Pompey, Trajan vs
+Hadrian, Ramesses vs Cyrus, Philip vs Alexander), five civilization
+comparisons (Greece vs Persia, Greece vs Rome, Rome vs Egypt, Athens vs
+Rome, Achaemenid vs Roman Empire) and four political-form comparisons
+(democracy vs oligarchy, republic vs monarchy, kingship vs citizenship,
+empire vs city-state), plus a deepened
+[Plato and Aristotle](content/comparisons/plato-and-aristotle.mdx).
+
+**Maps & timelines.** A static, SEO-first reference layer implemented as
+typed data modules ([`src/data/maps.ts`](src/data/maps.ts),
+[`src/data/timelines.ts`](src/data/timelines.ts)) feeding
+`generateStaticParams` routes at `/maps`, `/maps/[slug]`, `/timelines` and
+`/timelines/[slug]` — deliberately **not** an MDX content kind, and with no
+map framework or client JavaScript. Nine maps (ancient Greece, Athens,
+Sparta, the Persian Empire, Alexander's empire, the Roman Republic, the
+Roman Empire, Egypt, the Mediterranean) and ten timelines (ancient Egypt,
+ancient Greece, classical Athens, Sparta, Achaemenid Persia, Alexander, the
+Roman Republic, the Roman Empire, the Peloponnesian War, and the long arc
+of civilization), each page carrying full metadata, breadcrumb and article
+JSON-LD, key locations or dated events, and related figures, texts and
+essays. Each map and timeline slug is registered in the sitemap; both are
+linked from the footer's Eras group.
+
+It vendors **fourteen verified images** — five for the philosophers
+(Raphael's *School of Athens*, the Roman *Plato's Academy* mosaic, the
+archaeological sites of the Academy and the Lyceum, and the Clarke Plato
+manuscript) and nine modern reference maps — licence-verified by
+[`scripts/vendor-paam-images.mjs`](scripts/vendor-paam-images.mjs). The map
+images are captioned explicitly as modern cartography, not ancient
+artefacts. The homepage gains three restrained bands — Plato & Aristotle,
+Comparisons, and Maps & Timelines. No AI imagery; no uncertain ancient
+identifications.
+
 ### The visual archive
 
 The bust catalog at [`src/data/busts.ts`](src/data/busts.ts) handles

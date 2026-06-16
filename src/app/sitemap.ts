@@ -11,6 +11,8 @@ import {
   getThemes,
   hrefFor,
 } from "@/content/loader";
+import { maps } from "@/data/maps";
+import { timelines } from "@/data/timelines";
 
 const staticPaths = [
   "/",
@@ -37,6 +39,10 @@ const staticPaths = [
   "/plutarch/parallel-lives",
   "/xenophon",
   "/xenophon/works",
+  "/maps",
+  "/timelines",
+  ...maps.map((m) => `/maps/${m.slug}`),
+  ...timelines.map((t) => `/timelines/${t.slug}`),
   "/privacy-policy",
   "/terms",
   "/cookie-policy",
