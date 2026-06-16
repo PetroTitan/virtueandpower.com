@@ -111,6 +111,33 @@ Dropping a file here is not enough — it must also be registered there.
 - **Local processing.** WebP q80 e6; ~538 KB at 1600 × 1076. Vendored
   for the Plutarch and Parallel Lives hubs.
 
+### `dexileos-stele.webp`
+
+- **Subject.** The grave stele of Dexileos, a young Athenian cavalryman
+  killed in 394 BCE — securely identified (inscribed), of the cavalry
+  class Xenophon's *Hipparchicus* addresses.
+- **Location.** Archaeological Museum of Kerameikos, Athens.
+- **Source.** Wikimedia Commons,
+  [`File:The Grave Stele of Dexileos (4th cent. B.C.) at the Archaeological Museum of Kerameikos on 27 June 2018.jpg`](https://commons.wikimedia.org/wiki/File:The_Grave_Stele_of_Dexileos_(4th_cent._B.C.)_at_the_Archaeological_Museum_of_Kerameikos_on_27_June_2018.jpg).
+- **Photographer.** George E. Koronaios.
+- **Licence.** **CC BY-SA 4.0.** Attribution required.
+- **Source dimensions.** 4000 × 5999.
+- **Local processing.** WebP q80 e6; ~311 KB at 1067 × 1600. Vendored for
+  the Xenophon hub, the Hipparchicus and the military-command theme.
+
+### `retreat-of-the-ten-thousand.webp`
+
+- **Subject.** The Retreat of the Ten Thousand — a **19th-century history
+  painting** by Adrien Guignet, used and captioned explicitly as a later
+  imagining of the ancient event, not as an ancient image.
+- **Source.** Wikimedia Commons,
+  [`File:Adrien Guignet - Retreat of the ten thousand.jpg`](https://commons.wikimedia.org/wiki/File:Adrien_Guignet_-_Retreat_of_the_ten_thousand.jpg).
+- **Artist.** Adrien Guignet (1816–1854).
+- **Licence.** **Public domain** (by age).
+- **Source dimensions.** 1916 × 1045.
+- **Local processing.** WebP q80 e6; ~312 KB at 1600 × 873. Vendored for
+  the Anabasis and the Xenophon hub.
+
 ## Adding new artifacts
 
 Same pipeline as the architecture directory. Verify a CC0 /
