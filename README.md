@@ -1264,6 +1264,57 @@ Every new page connects through the typed graph to the Roman, Greek,
 Persian and Egyptian pillars; the backlink engine surfaces each new hub
 on the existing civilization pages it references.
 
+### Phase 18 — Plutarch deepening
+
+Phase 18 makes Plutarch and the Parallel Lives a defining intellectual
+pillar of the platform, beside Greece, Rome and Persia. It reads its
+figures not as biographies but as studies in character, leadership and
+the fate of states, and treats the comparative method of the Lives as a
+tool of knowledge. Everything is `status: published` and passes every
+content-health check (0 errors, 0 warnings, no orphans).
+
+It adds:
+
+- **Two authority routes** — [`/plutarch`](src/app/plutarch/page.tsx)
+  (who Plutarch was, the Greek under Rome, the purpose of the Lives,
+  moral biography, character and history, the European and founder-era
+  afterlife) and
+  [`/plutarch/parallel-lives`](src/app/plutarch/parallel-lives/page.tsx)
+  (the pairings as a comparative system, the individual Lives, the
+  reading discipline) — long-form SSR pages on `StudyLanding` with
+  Article + breadcrumb JSON-LD and vendored hero imagery.
+- **Eight Plutarchan figures** — Alcibiades, Demosthenes, Crassus,
+  Agesilaus, Fabius Maximus, Publicola, Coriolanus and Nicias — the
+  Greek and Roman subjects the pairings require, each read through his
+  Life; with the Plutarch figure expanded.
+- **Eight themes** — `character-and-power`, `moral-biography`,
+  `great-men-and-history`, `virtue-in-public-life`,
+  `ambition-and-downfall`, `leadership-and-character`,
+  `historical-examples`, `education-through-history`.
+- **A primary-text layer** — the [Moralia](content/books/moralia.mdx)
+  and seven individual Lives (Alexander, Caesar, Pericles, Lycurgus,
+  Solon, Cicero, Cato the Younger), each wired figure-to-Life, with the
+  Parallel Lives hub book expanded.
+- **Eight comparisons** — Plutarch's actual *synkriseis*: Alexander vs
+  Caesar, Pericles vs Fabius, Lycurgus vs Numa, Solon vs Publicola,
+  Demosthenes vs Cicero, Alcibiades vs Coriolanus, Pompey vs Agesilaus,
+  Crassus vs Nicias.
+- **Ten essays** — why Plutarch still matters; history as moral
+  instruction; character versus institutions; the education of
+  statesmen; Alexander through Plutarch; Caesar through Plutarch; why
+  Plutarch compares lives; virtue and ambition; the uses of history; the
+  decline of republics through character.
+
+It also vendors **six verified images** — the secure Polyeuktos-type
+portrait of Demosthenes, an honestly-labelled modern commemorative bust
+of Plutarch at Chaeronea, the Lion of Chaeronea, the Tholos and the
+sanctuary at Delphi, and a Byzantine Greek manuscript of the Parallel
+Lives — licence-verified through the Wikimedia API by
+[`scripts/vendor-plutarch-images.mjs`](scripts/vendor-plutarch-images.mjs),
+with the first entries in the new `manuscripts` image catalog. The
+homepage gains a **Plutarch** band, and the footer an Eras-group link.
+No AI imagery; no uncertain ancient identifications.
+
 ### The visual archive
 
 The bust catalog at [`src/data/busts.ts`](src/data/busts.ts) handles
