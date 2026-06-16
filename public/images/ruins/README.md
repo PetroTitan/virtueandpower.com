@@ -112,6 +112,13 @@ registry at
 - **Local processing.** WebP q80 e6; ~248 KB at 1600 × 1067. Vendored
   for the New Kingdom hub.
 
+### Plato / Aristotle sites (`plato-academy-site`, `aristotle-lyceum-site`)
+
+- **`plato-academy-site.webp`** — the archaeological site of Plato's
+  Academy, Athens. Tomisti. **CC BY-SA 3.0.** [`File:Athens Plato Academy Archaeological Site 1.jpg`](https://commons.wikimedia.org/wiki/File:Athens_Plato_Academy_Archaeological_Site_1.jpg). 1600×1200.
+- **`aristotle-lyceum-site.webp`** — the ruins of Aristotle's Lyceum,
+  Athens. G. E. Koronaios. **CC BY-SA 4.0.** [`File:The ruins of the Lyceum of Aristotle on February 3, 2021.jpg`](https://commons.wikimedia.org/wiki/File:The_ruins_of_the_Lyceum_of_Aristotle_on_February_3,_2021.jpg). 1600×1067.
+
 ## Adding new ruins photography
 
 Same pipeline as the architecture directory. See
