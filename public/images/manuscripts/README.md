@@ -24,6 +24,20 @@ Dropping a file here is not enough — it must also be registered there.
 - **Local processing.** Resized to 1600 px longest edge, WebP q80 e6;
   ~227 KB at 1600 × 1244. Vendored for the Parallel Lives hub.
 
+### `xenophon-anabasis-manuscript.webp`
+
+- **Subject.** A page of a Byzantine Greek manuscript of Xenophon's
+  Anabasis — one of the medieval copies through which the text survived.
+- **Location.** Biblioteca Ambrosiana, Milan (A 78 inf.).
+- **Source.** Wikimedia Commons,
+  [`File:Xenophon, Anabasis, Milan, A 78 inf.jpg`](https://commons.wikimedia.org/wiki/File:Xenophon,_Anabasis,_Milan,_A_78_inf.jpg).
+- **Holder.** Biblioteca Ambrosiana.
+- **Licence.** **Public domain** (faithful reproduction of a manuscript
+  out of copyright by age).
+- **Source dimensions.** 2270 × 3149.
+- **Local processing.** WebP q80 e6; ~142 KB at 1153 × 1600. Vendored for
+  the Xenophon Works hub and the Anabasis.
+
 ## Adding new manuscript images
 
 Same pipeline as the architecture directory. Verify the rights status,

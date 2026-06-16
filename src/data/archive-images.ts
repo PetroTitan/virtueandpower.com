@@ -974,6 +974,88 @@ export const archiveImages: ReadonlyArray<ArchiveImage> = [
     notes:
       "Vendored for the Parallel Lives hub. A medieval Greek manuscript through which the text was transmitted; the survival of the Lives depended on exactly such Byzantine copying. Public domain (faithful reproduction of a manuscript out of copyright by age).",
   },
+
+  // ─── Xenophon deepening ──────────────────────────────────────────────
+  {
+    slug: "anabasis-route-map",
+    kind: "maps",
+    subject: "The route of the Retreat of the Ten Thousand",
+    culture: "modern",
+    era: "18th-century map of the events of 401–399 BCE",
+    location: "engraved for Rollin's Ancient History",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Jean_Baptiste_Bourguignon_d%27Anville,_Retreat_of_the_ten_thousand.Drawn_for_Rollin%27s_Antient_History_(FL37124102_3899300).jpg",
+    license: "public-domain",
+    photographer: "Jean Baptiste Bourguignon d'Anville",
+    imagePath: "/images/maps/anabasis-route-map.webp",
+    width: 1600,
+    height: 1439,
+    alt: "An eighteenth-century map by the cartographer d'Anville tracing the route of the Ten Thousand from Cunaxa near Babylon north through the Persian interior to the Black Sea.",
+    caption: "Route of the Ten Thousand · map by d'Anville · 18th century",
+    attribution: "J. B. B. d'Anville · Wikimedia Commons (public domain)",
+    notes:
+      "Vendored for the Anabasis and the Xenophon hub. A classic map by the great eighteenth-century cartographer d'Anville charting the march and retreat; a modern scholarly reconstruction, not an ancient artefact, and captioned as such. Public domain by age.",
+  },
+  {
+    slug: "xenophon-anabasis-manuscript",
+    kind: "manuscripts",
+    subject: "A Greek manuscript of Xenophon's Anabasis",
+    culture: "byzantine",
+    era: "Byzantine manuscript of a text composed c. 370 BCE",
+    location: "Biblioteca Ambrosiana, Milan (A 78 inf.)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Xenophon,_Anabasis,_Milan,_A_78_inf.jpg",
+    license: "public-domain",
+    photographer: "Biblioteca Ambrosiana",
+    imagePath: "/images/manuscripts/xenophon-anabasis-manuscript.webp",
+    width: 1153,
+    height: 1600,
+    alt: "A page of a Byzantine Greek manuscript of Xenophon's Anabasis, written in minuscule on parchment with marginal annotation.",
+    caption: "Xenophon, Anabasis · Byzantine Greek manuscript · Ambrosiana A 78 inf.",
+    attribution: "Biblioteca Ambrosiana, Milan · Wikimedia Commons (public domain)",
+    notes:
+      "Vendored for the Xenophon Works hub and the Anabasis. One of the medieval Greek manuscripts through which Xenophon's text survived; the transmission depended on exactly such copying. Public domain by age.",
+  },
+  {
+    slug: "dexileos-stele",
+    kind: "relief",
+    subject: "The grave stele of Dexileos, an Athenian cavalryman",
+    culture: "greek",
+    era: "Classical Athens, c. 394 BCE",
+    location: "Archaeological Museum of Kerameikos, Athens",
+    source:
+      "https://commons.wikimedia.org/wiki/File:The_Grave_Stele_of_Dexileos_(4th_cent._B.C.)_at_the_Archaeological_Museum_of_Kerameikos_on_27_June_2018.jpg",
+    license: "cc-by-sa",
+    photographer: "George E. Koronaios",
+    imagePath: "/images/artifacts/dexileos-stele.webp",
+    width: 1067,
+    height: 1600,
+    alt: "The carved marble grave stele of Dexileos, a young Athenian cavalryman, shown rearing on horseback and spearing a fallen naked enemy beneath him.",
+    caption: "Grave stele of Dexileos · Athens, c. 394 BCE · Marble",
+    attribution: "Kerameikos Museum, Athens · photo G. E. Koronaios · Wikimedia Commons (CC BY-SA 4.0)",
+    notes:
+      "Vendored for the Xenophon hub, the Hipparchicus and the military-command theme. Dexileos was a young Athenian horseman killed in 394 BCE, of exactly the cavalry class Xenophon's Cavalry Commander addresses; the securely identified (inscribed) stele is the finest image of the classical Athenian cavalryman. Licensed CC BY-SA 4.0.",
+  },
+  {
+    slug: "retreat-of-the-ten-thousand",
+    kind: "painting",
+    subject: "The Retreat of the Ten Thousand reaching the sea",
+    culture: "modern",
+    era: "19th-century history painting of an event of 400 BCE",
+    location: "after Adrien Guignet (1816–1854)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Adrien_Guignet_-_Retreat_of_the_ten_thousand.jpg",
+    license: "public-domain",
+    photographer: "Adrien Guignet",
+    imagePath: "/images/artifacts/retreat-of-the-ten-thousand.webp",
+    width: 1600,
+    height: 873,
+    alt: "A nineteenth-century history painting by Adrien Guignet depicting Xenophon's Ten Thousand on the march through a rugged landscape during their retreat.",
+    caption: "The Retreat of the Ten Thousand · Adrien Guignet · 19th century",
+    attribution: "Adrien Guignet · Wikimedia Commons (public domain)",
+    notes:
+      "Vendored for the Anabasis and the Xenophon hub. A nineteenth-century French history painting, not an ancient image — used and captioned explicitly as a later imagining of the retreat, to give the narrative an editorial anchor. Public domain by age.",
+  },
 ];
 
 

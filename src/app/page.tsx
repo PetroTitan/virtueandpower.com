@@ -483,6 +483,53 @@ export default async function HomePage() {
         </div>
       </PageSection>
 
+      {/* Xenophon — the soldier-philosopher who bridges Greece, Persia
+          and Sparta through leadership and character. */}
+      <PageSection label="Xenophon">
+        <SectionIntro
+          eyebrow="Xenophon & his works"
+          title="The soldier-philosopher of leadership and character"
+          description="Xenophon knew Socrates, led an army out of the Persian interior, and wrote the first sustained study of how a ruler is formed. He bridges Greece, Persia and Sparta — and his Cyropaedia, Anabasis and Socratic works were read as practical wisdom for two thousand years."
+          href="/xenophon"
+          hrefLabel="Enter the Xenophon hub"
+        />
+        <div className="mt-12">
+          <EssayHero
+            eyebrow="Featured destination"
+            title="The Works of Xenophon"
+            dek="The historical Anabasis and Hellenica, the Socratic Memorabilia and Oeconomicus, the political Cyropaedia and Agesilaus — a whole corpus unified by one conviction, that good order flows from the character of the one who governs."
+            href="/xenophon/works"
+            meta="Authority hub · Xenophon"
+          />
+        </div>
+        <p className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
+          <Link
+            href="/books/cyropaedia"
+            className="vp-link text-sm uppercase tracking-eyebrow"
+          >
+            Cyropaedia
+          </Link>
+          <Link
+            href="/books/anabasis"
+            className="vp-link text-sm uppercase tracking-eyebrow"
+          >
+            Anabasis
+          </Link>
+          <Link
+            href="/books/memorabilia"
+            className="vp-link text-sm uppercase tracking-eyebrow"
+          >
+            Memorabilia
+          </Link>
+          <Link
+            href="/books/xenophon-agesilaus"
+            className="vp-link text-sm uppercase tracking-eyebrow"
+          >
+            Agesilaus
+          </Link>
+        </p>
+      </PageSection>
+
       {/* Comparisons */}
       {featuredComparison ? (
         <PageSection label="Comparisons">
