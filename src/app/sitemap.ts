@@ -33,6 +33,8 @@ const staticPaths = [
   "/religion-and-wisdom",
   "/ancient-world",
   "/roman-republic",
+  "/plutarch",
+  "/plutarch/parallel-lives",
   "/privacy-policy",
   "/terms",
   "/cookie-policy",
