@@ -381,6 +381,20 @@ registered there.
 - **Local processing.** Same pipeline; ~266 KB at 1600 × 1063.
   Vendored Phase 17 for the early-imperial-China hub.
 
+### `delphi-tholos.webp`
+
+- **Subject.** The Tholos in the sanctuary of Athena Pronaia at Delphi
+  (c. 380 BCE), three Doric columns and entablature restored. Delphi is
+  where Plutarch served for years as a priest of Apollo.
+- **Location.** Delphi, Greece.
+- **Source.** Wikimedia Commons,
+  [`File:Tholos of Delphi 02.jpg`](https://commons.wikimedia.org/wiki/File:Tholos_of_Delphi_02.jpg).
+- **Photographer.** Bernard Gagnon.
+- **Licence.** **CC BY-SA 4.0.** Attribution required.
+- **Source dimensions.** 3133 × 2238.
+- **Local processing.** WebP q80 e6; ~312 KB at 1600 × 1143. Vendored
+  for the Plutarch hub.
+
 ## Adding new architecture images
 
 1. Find a CC0 / public-domain (or attribution-friendly) photograph

@@ -892,6 +892,88 @@ export const archiveImages: ReadonlyArray<ArchiveImage> = [
     notes:
       "Vendored for the Athenian-reforms hub and the invention-of-citizenship essay. The Pnyx is where the reforms of Solon and Cleisthenes were finally exercised — the physical site of Athenian self-government. CC0 (public-domain dedication).",
   },
+
+  // ─── Plutarch deepening ──────────────────────────────────────────────
+  {
+    slug: "lion-of-chaeronea",
+    kind: "artifact",
+    subject: "The Lion of Chaeronea, funerary monument of the Theban Sacred Band",
+    culture: "greek",
+    era: "erected after the battle of Chaeronea, 338 BCE; restored 20th century",
+    location: "Chaeronea, Boeotia, Greece",
+    source:
+      "https://commons.wikimedia.org/wiki/File:The_restored_Lion_of_Chaeronea_in_Boeotia_on_10_April_2019.jpg",
+    license: "cc-by-sa",
+    photographer: "George E. Koronaios",
+    imagePath: "/images/artifacts/lion-of-chaeronea.webp",
+    width: 1600,
+    height: 1076,
+    alt: "The restored marble Lion of Chaeronea seated on a high plinth in the Boeotian countryside, the funerary monument marking the grave of the Theban Sacred Band who fell at the battle of 338 BCE.",
+    caption: "Lion of Chaeronea · after 338 BCE · Marble (restored)",
+    attribution: "Chaeronea, Boeotia · photo G. E. Koronaios · Wikimedia Commons (CC BY-SA 4.0)",
+    notes:
+      "Vendored for the Plutarch and Parallel Lives hubs. The monument stands at Chaeronea, Plutarch's home town; it marks the grave of the Theban Sacred Band killed at the battle where Philip of Macedon broke Greek liberty — the cause Demosthenes had defended. Licensed CC BY-SA 4.0.",
+  },
+  {
+    slug: "delphi-tholos",
+    kind: "architecture",
+    subject: "The Tholos of the sanctuary of Athena Pronaia, Delphi",
+    culture: "greek",
+    era: "c. 380 BCE",
+    location: "Delphi, Greece",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Tholos_of_Delphi_02.jpg",
+    license: "cc-by-sa",
+    photographer: "Bernard Gagnon",
+    imagePath: "/images/architecture/delphi-tholos.webp",
+    width: 1600,
+    height: 1143,
+    alt: "The partly-reconstructed circular Tholos in the sanctuary of Athena Pronaia at Delphi, three Doric columns and a section of entablature standing against the mountains.",
+    caption: "Tholos of Athena Pronaia, Delphi · c. 380 BCE · Marble and limestone",
+    attribution: "Delphi · photo Bernard Gagnon · Wikimedia Commons (CC BY-SA 4.0)",
+    notes:
+      "Vendored for the Plutarch hub and the Delphi material. Plutarch served for many years as one of the two priests of Apollo at Delphi; the sanctuary is central to his biography and to several Moralia dialogues. Licensed CC BY-SA 4.0.",
+  },
+  {
+    slug: "delphi-sanctuary",
+    kind: "ruins",
+    subject: "The sanctuary of Apollo at Delphi, hillside view",
+    culture: "greek",
+    era: "the sanctuary in use from the 8th century BCE; visible remains classical and later",
+    location: "Delphi, Greece",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Delphi_BW_2017-10-08_11-44-50.jpg",
+    license: "cc-by-sa",
+    photographer: "Berthold Werner",
+    imagePath: "/images/ruins/delphi-sanctuary.webp",
+    width: 1600,
+    height: 1064,
+    alt: "The archaeological site of the sanctuary of Apollo at Delphi stepping up the slope of Mount Parnassus, the foundations and standing columns of the temple terrace among the rocks.",
+    caption: "Sanctuary of Apollo, Delphi · on the slope of Parnassus",
+    attribution: "Delphi · photo Berthold Werner · Wikimedia Commons (CC BY-SA 3.0)",
+    notes:
+      "Vendored for the Plutarch hub. The oracle of Apollo at Delphi, where Plutarch was a priest, was the religious centre of the Greek world; the setting anchors the platform's reading of Plutarch as a Greek of the Roman imperial period rooted in the old sanctuaries. Licensed CC BY-SA 3.0.",
+  },
+  {
+    slug: "plutarch-lives-manuscript",
+    kind: "manuscripts",
+    subject: "A Byzantine Greek manuscript of Plutarch's Parallel Lives",
+    culture: "byzantine",
+    era: "Byzantine manuscript of a text composed c. 100 CE",
+    location: "Bodleian Library, Oxford (MS. Canonici Greek 93)",
+    source:
+      "https://commons.wikimedia.org/wiki/File:Plutarch,_Parallel_Lives,_Oxford,_MS._Canonici_Greek_93_(cropped).jpg",
+    license: "public-domain",
+    photographer: "Bodleian Library",
+    imagePath: "/images/manuscripts/plutarch-lives-manuscript.webp",
+    width: 1600,
+    height: 1244,
+    alt: "A two-column page of a Byzantine Greek manuscript of Plutarch's Parallel Lives, written in a neat minuscule hand on parchment.",
+    caption: "Plutarch, Parallel Lives · Byzantine Greek manuscript · Bodleian MS. Canonici Gr. 93",
+    attribution: "Bodleian Library, Oxford · Wikimedia Commons (public domain)",
+    notes:
+      "Vendored for the Parallel Lives hub. A medieval Greek manuscript through which the text was transmitted; the survival of the Lives depended on exactly such Byzantine copying. Public domain (faithful reproduction of a manuscript out of copyright by age).",
+  },
 ];
 
 

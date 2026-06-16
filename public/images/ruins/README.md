@@ -85,6 +85,20 @@ registry at
   Vendored Phase 17 for the Athenian-reforms hub and the
   invention-of-citizenship essay.
 
+### `delphi-sanctuary.webp`
+
+- **Subject.** The sanctuary of Apollo at Delphi on the slope of Mount
+  Parnassus — the oracle and religious centre of the Greek world, and the
+  sanctuary at which Plutarch was a priest.
+- **Location.** Delphi, Greece.
+- **Source.** Wikimedia Commons,
+  [`File:Delphi BW 2017-10-08 11-44-50.jpg`](https://commons.wikimedia.org/wiki/File:Delphi_BW_2017-10-08_11-44-50.jpg).
+- **Photographer.** Berthold Werner.
+- **Licence.** **CC BY-SA 3.0.** Attribution required.
+- **Source dimensions.** 6016 × 4000.
+- **Local processing.** WebP q80 e6; ~406 KB at 1600 × 1064. Vendored
+  for the Plutarch hub.
+
 ## Adding new ruins photography
 
 Same pipeline as the architecture directory. See
