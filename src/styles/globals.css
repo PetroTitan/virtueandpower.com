@@ -7,6 +7,43 @@
     color-scheme: light;
     /* Slightly looser default rhythm for the new typography. */
     --vp-rhythm: 1.35rem;
+
+    /* ── HELPERG ecosystem sticky stack ─────────────────────────────────
+       The ecosystem bar is the top layer of a two-layer sticky stack and
+       the site header offsets itself by exactly `--ecosystem-bar-height`,
+       so the two can never overlap. The height is a constant reserved from
+       the first paint, so the bar contributes no layout shift.
+
+       `--site-header-height` is the measured height of SiteHeader at each
+       breakpoint (vertical padding + wordmark block + hairline border). It
+       exists so in-page anchors and the one sticky sidebar on the site can
+       clear the whole stack rather than the header alone.
+
+       Values are measured in-browser, not estimated:
+         <768px   93px   compact wordmark, no classification line
+         768px    125px  classification line appears and the primary nav
+                         labels wrap to two lines until ~920px
+         >=1024px 108px  nav settles onto one line
+       Between 920px and 1024px the declared value over-clears by 17px. That
+       direction is deliberate: over-clearing only adds space above an anchor
+       target, whereas under-clearing would hide it behind the header. */
+    --ecosystem-bar-height: 48px;
+    --site-header-height: 93px;
+    --sticky-stack-height: calc(
+      var(--ecosystem-bar-height) + var(--site-header-height)
+    );
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --site-header-height: 125px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --site-header-height: 108px;
+    }
   }
 
   html {
@@ -14,6 +51,10 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     text-size-adjust: 100%;
+    /* Anchor targets land below the sticky stack rather than beneath it.
+       This replaces the per-element `scroll-mt-24` offsets, which only
+       accounted for the header. */
+    scroll-padding-top: calc(var(--sticky-stack-height) + 1rem);
   }
 
   html,
@@ -240,5 +281,18 @@
   .vp-tap {
     min-height: 44px;
     min-width: 44px;
+  }
+
+  /* Horizontal scroller with no visible scrollbar — used by the ecosystem
+     timeline, which has to stay a single quiet hairline row inside a 48px
+     bar. Only the scrollbar's rendering is suppressed: wheel, trackpad,
+     touch and keyboard scrolling all behave normally. */
+  .eco-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .eco-scroll::-webkit-scrollbar {
+    display: none;
   }
 }

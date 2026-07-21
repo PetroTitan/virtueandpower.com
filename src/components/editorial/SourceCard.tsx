@@ -13,7 +13,7 @@ export function SourceCard({ source }: SourceCardProps) {
   return (
     <article
       id={source.id}
-      className="scroll-mt-24 border-t border-rule pt-6"
+      className="border-t border-rule pt-6"
     >
       <h3 className="font-serif text-heading-2 text-charcoal">
         {source.url ? (

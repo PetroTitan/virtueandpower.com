@@ -15,10 +15,16 @@ import { MobileNav, PrimaryNav } from "./PrimaryNav";
  * The wordmark sits at text-2xl with a small uppercase classification
  * line beneath ("An intellectual platform") on desktop so the brand
  * presence holds even without the body content scrolled in.
+ *
+ * The header is the second layer of the sticky stack: it sticks to the
+ * bottom edge of the HELPERG ecosystem bar by offsetting itself by
+ * exactly `--ecosystem-bar-height`, so the two never overlap. Its own
+ * measured height is mirrored in `--site-header-height` (globals.css) —
+ * keep the two in step if this block's padding or type sizes change.
  */
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-rule bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/75">
+    <header className="sticky top-[var(--ecosystem-bar-height)] z-40 border-b border-rule bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/75 print:top-0">
       <div className="relative">
         <Container
           width="wide"

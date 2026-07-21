@@ -70,7 +70,12 @@ export default function SourcesPage() {
         </Prose>
 
         <div className="mt-16 grid gap-x-10 gap-y-12 md:grid-cols-[14rem_minmax(0,1fr)]">
-          <nav aria-label="Source categories" className="md:sticky md:top-24 md:self-start">
+          {/* Clears the full sticky stack (ecosystem bar + site header), not
+              the header alone — see --sticky-stack-height in globals.css. */}
+          <nav
+            aria-label="Source categories"
+            className="md:sticky md:top-[calc(var(--sticky-stack-height)+1rem)] md:self-start"
+          >
             <p className="vp-eyebrow">Catalog</p>
             <ul className="mt-4 space-y-2 text-sm">
               {groups.map((group) => (
@@ -95,7 +100,6 @@ export default function SourcesPage() {
                 key={group.type}
                 id={group.type}
                 aria-labelledby={`${group.type}-heading`}
-                className="scroll-mt-24"
               >
                 <header className="border-b border-rule pb-3">
                   <h2
