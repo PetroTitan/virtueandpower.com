@@ -3,6 +3,7 @@ import { EB_Garamond, Inter } from "next/font/google";
 import { siteConfig } from "@/lib/site";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { EcosystemBar } from "@/components/ecosystem/EcosystemBar";
 import { WebmasterID } from "@/components/analytics/WebmasterID";
 import "@/styles/globals.css";
 
@@ -85,11 +86,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen bg-ivory text-charcoal antialiased">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-charcoal focus:px-3 focus:py-2 focus:text-ivory"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[90] focus:rounded focus:bg-charcoal focus:px-3 focus:py-2 focus:text-ivory"
         >
           Skip to content
         </a>
         <div className="flex min-h-screen flex-col">
+          {/* Top layer of the sticky stack — see --ecosystem-bar-height. */}
+          <EcosystemBar />
           <SiteHeader />
           <main id="main" className="flex-1">
             {children}

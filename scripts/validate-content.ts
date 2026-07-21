@@ -28,6 +28,11 @@ import {
 } from "@/content/loader";
 import type { AnyFrontmatter, ContentEntry } from "@/content/types";
 import { sources } from "@/data/sources";
+import { CURRENT_PRODUCT_ID } from "@/lib/ecosystem/config";
+import {
+  getProductById,
+  validateEcosystemRegistry,
+} from "@/lib/ecosystem/products";
 import { runAllChecks } from "@/lib/content-health/checks";
 import {
   aggregate,
@@ -87,6 +92,25 @@ async function main(): Promise<number> {
   const report = aggregate(results, stats);
   const errors = report.issues.filter((i) => i.severity === "error");
 
+  // HELPERG ecosystem registry — unique ids/orders, HTTPS-only, no placeholder
+  // or duplicated urls, and a `CURRENT_PRODUCT_ID` that actually resolves (if
+  // it did not, no product would be highlighted as the current site).
+  const registryIssues = validateEcosystemRegistry();
+  if (!getProductById(CURRENT_PRODUCT_ID)) {
+    registryIssues.push({
+      productId: CURRENT_PRODUCT_ID,
+      issue: "CURRENT_PRODUCT_ID does not match any product in the registry",
+    });
+  }
+  if (registryIssues.length > 0) {
+    process.stdout.write("\necosystem-registry: FAILED\n");
+    for (const issue of registryIssues) {
+      process.stdout.write(`  ✗ ${issue.productId}: ${issue.issue}\n`);
+    }
+  } else if (!quiet) {
+    process.stdout.write("\necosystem-registry: OK\n");
+  }
+
   if (write) {
     const reportsDir = path.join(process.cwd(), "reports");
     await mkdir(reportsDir, { recursive: true });
@@ -104,9 +128,12 @@ async function main(): Promise<number> {
     process.stdout.write(
       `content-health: ${errors.length} error(s), ${warnings} warning(s)\n`,
     );
+    process.stdout.write(
+      `ecosystem-registry: ${registryIssues.length} error(s)\n`,
+    );
   }
 
-  return errors.length > 0 ? 1 : 0;
+  return errors.length > 0 || registryIssues.length > 0 ? 1 : 0;
 }
 
 main()
