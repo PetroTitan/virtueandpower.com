@@ -6,6 +6,7 @@ import type {
   ContentRef,
 } from "@/content/types";
 import { sources, type Source } from "@/data/sources";
+import { runEditorialGate } from "./editorial-gate";
 import type { Issue } from "./types";
 
 /**
@@ -714,5 +715,9 @@ export function runAllChecks(
     { name: "quote-safety", issues: checkQuoteSafety(entries) },
     { name: "production-urls", issues: checkProductionUrls(entries) },
     { name: "orphans", issues: checkOrphans(entries) },
+    // The editorial safety gate. Its purpose is not to suppress
+    // criticism but to force criticism to be evidenced, specific,
+    // consistent and professionally written.
+    ...runEditorialGate(entries),
   ];
 }

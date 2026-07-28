@@ -373,7 +373,7 @@ export const ADAPTATION_CLAIMS: ReadonlyArray<AccuracyClaim> = [
     homericEvidence: [
       OD(
         "11.298-304",
-        "The poem's genealogy of the family of Leda is given in the catalogue of heroines and is not straightforward.",
+        "The catalogue of heroines names Leda and her sons Castor and Polydeuces. It does not pair Helen with Clytemnestra, and neither Homeric poem presents them as twins.",
       ),
       {
         work: "Later mythographic tradition",
@@ -454,7 +454,7 @@ export const ADAPTATION_CLAIMS: ReadonlyArray<AccuracyClaim> = [
     id: "no-greek-principals",
     category: "casting",
     filmClaim:
-      "No Greek performer appears in the principal cast of a film adapting the foundational work of Greek literature, shot in part on location in Greece.",
+      "No Greek performer appears in the principal cast of a film adapting the foundational work of Greek literature, shot in part on location in Greece. The absence was reported and objected to publicly, including in Greece.",
     homericEvidence: [
       {
         work: "Not a source-fidelity question",
@@ -463,7 +463,7 @@ export const ADAPTATION_CLAIMS: ReadonlyArray<AccuracyClaim> = [
       },
     ],
     classification: "disputed",
-    confidence: "high",
+    confidence: "medium",
     competingReading:
       "Casting an international ensemble in an English-language production is standard industry practice and implies nothing about the material. The counter-position is that a production drawing on a specific living culture's foundational text, and filming in that country, has a discretionary reason to include its performers, and that consistent absence across such productions is a pattern worth naming.",
     probableRationale:

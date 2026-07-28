@@ -316,7 +316,7 @@ export const COMPARISON_ROWS: ReadonlyArray<ComparisonRow> = [
     id: "violence",
     element: "Violence",
     homericSource:
-      "A hundred and eight men killed in a barred hall; terms and full restitution refused; a suppliant killed; Melanthius mutilated; twelve enslaved women hanged (22.1-477).",
+      "A hundred and eight men killed in a barred hall; terms and full restitution refused; a suppliant killed; Melanthius mutilated; twelve enslaved women hanged (22.1-501).",
     adaptation:
       "The killing of the suitors is the climax. The mass hanging of the women is not staged; reported accounts indicate a single enslaved woman dies, off screen. The Laestrygonian cannibalism is reported as omitted.",
     changeType: "source-contradiction",

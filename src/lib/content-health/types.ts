@@ -24,10 +24,22 @@ export type IssueCode =
   | "QUOTE_INCOMPLETE"
   | "PLACEHOLDER_MARKER"
   | "NON_PROD_URL"
+  // editorial safety gate (Homer / Odyssey cluster)
+  | "INFLAMMATORY_TERMINOLOGY"
+  | "GROUP_GENERALISATION"
+  | "ANCESTRY_CLAIM"
+  | "RACIAL_RETROJECTION"
+  | "MYTH_AS_HISTORY"
+  | "UNSOURCED_ACCURACY_CLAIM"
+  | "TRAILER_SOURCED_CLAIM"
+  | "CONTRADICTORY_CASTING"
+  | "MISSING_UNCERTAINTY_LABEL"
   // warnings
   | "ORPHANED_ENTRY"
   | "STALE_UPDATED"
-  | "WEAK_DESCRIPTION";
+  | "WEAK_DESCRIPTION"
+  | "HOMER_CONFLATION"
+  | "UNCITED_QUOTATION";
 
 export interface Issue {
   severity: Severity;
