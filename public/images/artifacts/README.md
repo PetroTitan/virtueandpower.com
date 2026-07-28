@@ -186,3 +186,7 @@ an entry here. No AI-generated imagery, ever.
 - `athlit-ram.webp` — Bronze warship ram recovered off Athlit, Hellenistic. National Maritime Museum, Haifa. Photo Hanay, CC BY-SA 3.0. https://commons.wikimedia.org/wiki/File:Israeli_National_Maritime_Museum-_Naval_ram-1.jpg
 - `dura-europos-scutum.webp` — Painted Roman scutum from Dura-Europos, 3rd century CE. Yale University Art Gallery, CC0. https://commons.wikimedia.org/wiki/File:Scutum_(Shield)_-_YDEA_-_5959.jpg
 
+## Ancient cities batch (2026-07-28)
+
+- `susa-archer-frieze.webp` — Glazed brick archer from the palace of Darius I at Susa, c. 510 BCE, Louvre. Photo Jebulon, public domain. The identification as an Immortal is an inference, not a label.
+

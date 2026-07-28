@@ -20,6 +20,7 @@ export const siteConfig = {
     { slug: "quotes", label: "Quotes" },
     { slug: "comparisons", label: "Comparisons" },
     { slug: "civilizations", label: "Civilizations" },
+    { slug: "cities", label: "Cities" },
     { slug: "figures", label: "Figures" },
     { slug: "warfare", label: "Warfare" },
     { slug: "homer", label: "Homer" },
@@ -64,6 +65,7 @@ export const siteConfig = {
     ],
     Eras: [
       { slug: "civilizations", label: "Civilizations" },
+      { slug: "cities", label: "Cities" },
       { slug: "warfare", label: "Warfare" },
       { slug: "homer", label: "Homer" },
       { slug: "ancient-world", label: "Ancient World" },

@@ -230,6 +230,48 @@ export function movieJsonLd({
   };
 }
 
+type PlaceJsonLdInput = {
+  name: string;
+  url: string;
+  description: string;
+  alternateName?: string;
+  addressCountry?: string;
+};
+
+/**
+ * Place schema for the ancient-cities layer.
+ *
+ * Deliberately emits no geo coordinates. Several of these sites are not
+ * securely located — Zama is unlocated, the extent of Memphis is not
+ * established — and a coordinate pair is a precision claim. Where the
+ * modern location is known it is expressed as a country rather than as
+ * a point.
+ */
+export function placeJsonLd({
+  name,
+  url,
+  description,
+  alternateName,
+  addressCountry,
+}: PlaceJsonLdInput) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    name,
+    url: absoluteUrl(url),
+    description,
+    ...(alternateName ? { alternateName } : {}),
+    ...(addressCountry
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            addressCountry,
+          },
+        }
+      : {}),
+  };
+}
+
 type BookJsonLdInput = {
   name: string;
   url: string;

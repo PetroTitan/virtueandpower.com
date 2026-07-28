@@ -19,6 +19,7 @@ import { HOMER_CLUSTER } from "@/data/homer-cluster";
 import { FILM_PAGES } from "@/data/films";
 import { WARFARE_TOPICS } from "@/data/warfare";
 import { BATTLES } from "@/data/battles";
+import { CITIES } from "@/data/cities";
 
 const staticPaths = [
   "/",
@@ -59,6 +60,8 @@ const staticPaths = [
   "/warfare/battles",
   ...WARFARE_TOPICS.map((t) => `/warfare/${t.slug}`),
   ...BATTLES.map((b) => `/warfare/battles/${b.slug}`),
+  "/cities",
+  ...CITIES.map((c) => `/cities/${c.slug}`),
   ...maps.map((m) => `/maps/${m.slug}`),
   ...timelines.map((t) => `/timelines/${t.slug}`),
   "/privacy-policy",

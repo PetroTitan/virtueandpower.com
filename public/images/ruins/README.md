@@ -135,3 +135,11 @@ Same pipeline as the architecture directory. See
 - `housesteads-fort.webp` — Housesteads Roman fort, 2nd century CE, Hadrian's Wall. Photo Mike Peel, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Housesteads_Roman_Fort_2014_16.jpg
 - `masada-siege-ramp.webp` — The Roman assault ramp at Masada, 73 or 74 CE. Photo Oren Rozen, CC BY-SA 3.0. https://commons.wikimedia.org/wiki/File:Masada_051013_Ramp_01.jpg
 
+## Ancient cities batch (2026-07-28)
+
+- `delphi-athenian-treasury.webp` — Treasury of the Athenians, Delphi, early 5th c BCE, re-erected 20th c. Photo George E. Koronaios, CC BY-SA 4.0.
+- `olympia-temple-of-zeus.webp` — Fallen columns of the Temple of Zeus, Olympia, c. 470-456 BCE. Photo Wknight94, CC BY-SA 3.0.
+- `corinth-temple-of-apollo.webp` — Temple of Apollo, Ancient Corinth, c. 560 BCE. Photo Berthold Werner, CC BY-SA 3.0.
+- `ostia-street.webp` — Street at Ostia Antica, principally 2nd c CE. Photo FrDr, CC BY-SA 4.0.
+- `troy-walls-hisarlik.webp` — Troy VI fortification wall, Hisarlik, c. 1700-1300 BCE. Photo Jorge Lascar, CC BY 2.0.
+

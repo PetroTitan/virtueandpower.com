@@ -8,6 +8,7 @@ import type {
 import { sources, type Source } from "@/data/sources";
 import { runEditorialGate } from "./editorial-gate";
 import { runWarfareGate } from "./warfare-gate";
+import { runCitiesGate } from "./cities-gate";
 import type { Issue } from "./types";
 
 /**
@@ -724,5 +725,10 @@ export function runAllChecks(
     // numbers discipline that keeps ancient troop figures from being
     // repeated as though they were counts.
     ...runWarfareGate(entries),
+    // Ancient cities: referential integrity, the population apparatus,
+    // and mechanical enforcement of the place/polity division that keeps
+    // /cities/athens and /civilizations/athens from cannibalising each
+    // other.
+    ...runCitiesGate(entries),
   ];
 }

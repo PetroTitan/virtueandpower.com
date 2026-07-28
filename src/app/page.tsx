@@ -138,6 +138,62 @@ const WARFARE_BAND: ReadonlyArray<{
   },
 ];
 
+/**
+ * The homepage's cities band. Weighted toward the sites whose
+ * archaeology says something the texts do not — Ostia for ordinary
+ * Roman housing, Alexandria for a city that cannot be dug, Troy for the
+ * limits of what excavation can settle.
+ */
+const CITIES_BAND: ReadonlyArray<{
+  href: string;
+  kind: string;
+  title: string;
+  blurb: string;
+}> = [
+  {
+    href: "/cities/athens",
+    kind: "City-state",
+    title: "Athens",
+    blurb:
+      "The Acropolis, the Agora and the Long Walls — the best-excavated classical city, readable against its own inscriptions.",
+  },
+  {
+    href: "/cities/rome",
+    kind: "Imperial capital",
+    title: "Rome",
+    blurb:
+      "A city whose archaeology is hardest to read because it never stopped being lived in, and whose population is still argued over.",
+  },
+  {
+    href: "/cities/ostia",
+    kind: "Port",
+    title: "Ostia",
+    blurb:
+      "Abandoned rather than destroyed, and therefore the best evidence anywhere for how ordinary Romans actually lived.",
+  },
+  {
+    href: "/cities/alexandria",
+    kind: "Imperial capital",
+    title: "Alexandria",
+    blurb:
+      "The clearest case of a city whose importance is inversely proportional to what can be excavated — most of it lies under a living city and under water.",
+  },
+  {
+    href: "/cities/persepolis",
+    kind: "Royal centre",
+    title: "Persepolis",
+    blurb:
+      "Burned by Alexander in 330 BCE, and preserved by the fire: the blaze baked the administrative archive that survives.",
+  },
+  {
+    href: "/cities/troy",
+    kind: "City-state",
+    title: "Troy",
+    blurb:
+      "Nine cities in one mound, and the site where the limits of what archaeology can settle are clearest.",
+  },
+];
+
 export const revalidate = 3600;
 
 export default async function HomePage() {
@@ -453,6 +509,37 @@ export default async function HomePage() {
                 />
               ))}
           </EditorialGrid>
+        </div>
+      </PageSection>
+
+      {/* Ancient cities — the settlement layer beneath warfare,
+          architecture and religion. Deliberately placed before the
+          warfare band, because the cities are the spine everything else
+          attaches to. */}
+      <PageSection label="Ancient cities" variant="ruled">
+        <SectionIntro
+          eyebrow="Ancient cities"
+          title="The places, not only the polities"
+          description="Where these cities stood and why, how they were laid out, what was built in them, what has been excavated and where the finds are now. Population figures carry what they rest on: there is no ancient census of any of them."
+          href="/cities"
+          hrefLabel="Enter the cities layer"
+        />
+        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {CITIES_BAND.map((item) => (
+            <article key={item.href} className="border-l border-rule pl-5">
+              <p className="text-xs uppercase tracking-eyebrow text-stone">
+                {item.kind}
+              </p>
+              <h3 className="mt-2 font-serif text-xl text-charcoal">
+                <Link href={item.href} className="hover:text-bronze">
+                  {item.title}
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-100">
+                {item.blurb}
+              </p>
+            </article>
+          ))}
         </div>
       </PageSection>
 
