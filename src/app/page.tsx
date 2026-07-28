@@ -248,6 +248,61 @@ const ARCHITECTURE_BAND: ReadonlyArray<{
   },
 ];
 
+/**
+ * The homepage's institutions band. Weighted toward the pages that
+ * correct an assumption about how ancient government worked rather than
+ * toward the famous offices.
+ */
+const INSTITUTIONS_BAND: ReadonlyArray<{
+  href: string;
+  kind: string;
+  title: string;
+  blurb: string;
+}> = [
+  {
+    href: "/institutions/roman-senate",
+    kind: "Roman body",
+    title: "The Senate",
+    blurb:
+      "It could not legislate and could not command an army. Its resolutions were advice. It governed Rome for four centuries anyway.",
+  },
+  {
+    href: "/institutions/dikasteria",
+    kind: "Athenian court",
+    title: "The people's courts",
+    blurb:
+      "Juries of hundreds, chosen by lot on the morning of the trial, deciding without a judge. The allotment machines have been excavated.",
+  },
+  {
+    href: "/institutions/roman-assemblies",
+    kind: "Roman body",
+    title: "The assemblies",
+    blurb:
+      "Voting was by block, weighted by property, and counted from the top down — so the poorest centuries were often never reached.",
+  },
+  {
+    href: "/institutions/tribune-of-the-plebs",
+    kind: "Roman magistracy",
+    title: "Tribune of the plebs",
+    blurb:
+      "An office whose central power was to stop things, protected by an oath rather than by law.",
+  },
+  {
+    href: "/institutions/ostracism",
+    kind: "Athenian procedure",
+    title: "Ostracism",
+    blurb:
+      "Ten years' exile with no charge, no trial and no defence. A deposit of pre-inscribed sherds shows the vote being organised.",
+  },
+  {
+    href: "/institutions/satrap",
+    kind: "Persian office",
+    title: "The satrap",
+    blurb:
+      "A governor with his own court, army and treasury — what made an empire that size governable, and what made revolt possible.",
+  },
+];
+
 export const revalidate = 3600;
 
 export default async function HomePage() {
@@ -609,6 +664,36 @@ export default async function HomePage() {
         />
         <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {ARCHITECTURE_BAND.map((item) => (
+            <article key={item.href} className="border-l border-rule pl-5">
+              <p className="text-xs uppercase tracking-eyebrow text-stone">
+                {item.kind}
+              </p>
+              <h3 className="mt-2 font-serif text-xl text-charcoal">
+                <Link href={item.href} className="hover:text-bronze">
+                  {item.title}
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-100">
+                {item.blurb}
+              </p>
+            </article>
+          ))}
+        </div>
+      </PageSection>
+
+      {/* Institutions and government — the offices layer. Placed after
+          architecture because a body needs a building to meet in, and
+          before warfare because command is treated there. */}
+      <PageSection label="Institutions and government">
+        <SectionIntro
+          eyebrow="Institutions and government"
+          title="Who actually decided, and how far the power reached"
+          description="Assemblies, councils, magistracies and the machinery of empire — each page separating what an office was from how it worked and what it could not do, and marking where the constitution we describe is a later reconstruction rather than a record."
+          href="/institutions"
+          hrefLabel="Enter the institutions layer"
+        />
+        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {INSTITUTIONS_BAND.map((item) => (
             <article key={item.href} className="border-l border-rule pl-5">
               <p className="text-xs uppercase tracking-eyebrow text-stone">
                 {item.kind}
