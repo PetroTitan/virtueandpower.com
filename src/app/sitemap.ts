@@ -14,6 +14,9 @@ import {
 } from "@/content/loader";
 import { maps } from "@/data/maps";
 import { timelines } from "@/data/timelines";
+import { ODYSSEY_BOOKS } from "@/data/odyssey-books";
+import { HOMER_CLUSTER } from "@/data/homer-cluster";
+import { FILM_PAGES } from "@/data/films";
 
 const staticPaths = [
   "/",
@@ -42,6 +45,14 @@ const staticPaths = [
   "/xenophon/works",
   "/maps",
   "/timelines",
+  "/figures",
+  "/films",
+  // The Homer authority cluster and the Odyssey's twenty-four book
+  // divisions are registry-driven rather than MDX entries, so they are
+  // advertised from the same registries the routes are generated from.
+  ...HOMER_CLUSTER.map((p) => p.path),
+  ...ODYSSEY_BOOKS.map((b) => `/books/odyssey/${b.slug}`),
+  ...FILM_PAGES.map((p) => p.path),
   ...maps.map((m) => `/maps/${m.slug}`),
   ...timelines.map((t) => `/timelines/${t.slug}`),
   "/privacy-policy",

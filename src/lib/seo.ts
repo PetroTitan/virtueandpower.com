@@ -184,6 +184,52 @@ export function personJsonLd({
   };
 }
 
+type MovieJsonLdInput = {
+  name: string;
+  url: string;
+  description: string;
+  directorName: string;
+  datePublished: string;
+  productionCompany?: string[];
+};
+
+/**
+ * Movie schema for the film cluster.
+ *
+ * Deliberately emits no aggregateRating. We do not operate a rating
+ * scale, and republishing another aggregator's score as our own
+ * structured data would be an unsupported claim of the exact kind this
+ * cluster exists to avoid. Reception figures are attributed in prose to
+ * the aggregator that published them.
+ */
+export function movieJsonLd({
+  name,
+  url,
+  description,
+  directorName,
+  datePublished,
+  productionCompany,
+}: MovieJsonLdInput) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Movie",
+    name,
+    url: absoluteUrl(url),
+    description,
+    datePublished,
+    inLanguage: siteConfig.language,
+    director: { "@type": "Person", name: directorName },
+    ...(productionCompany?.length
+      ? {
+          productionCompany: productionCompany.map((n) => ({
+            "@type": "Organization",
+            name: n,
+          })),
+        }
+      : {}),
+  };
+}
+
 type BookJsonLdInput = {
   name: string;
   url: string;
