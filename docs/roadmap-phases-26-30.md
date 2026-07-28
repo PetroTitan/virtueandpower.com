@@ -1,5 +1,10 @@
 # Roadmap: Phases 26–30
 
+> **Revised 2026-07-28 on the owner's direction.** Two changes, both adopted:
+> a new **Phase 27.5 — Archaeology & Museums** inserted between Cities and
+> Architecture, and **Phase 29 changed from Biographies to Institutions &
+> Government**. Reasoning recorded in §10 below.
+
 Classical Civilization expansion — warfare, cities, architecture,
 biographies, religion.
 
@@ -318,3 +323,55 @@ Identical to the Homer cluster's standard:
 - Adversarial review of the phase's own claims, with corrections applied
 - Full report in `docs/`, separate branch, separate PR, no merge without
   approval
+
+---
+
+## 10. Revised roadmap (owner direction, 2026-07-28)
+
+**Approved order:**
+
+`26 Warfare` ✅ → `27 Cities` → `27.5 Archaeology & Museums` →
+`28 Architecture` → `29 Institutions & Government` → `30 Religion`
+
+### 10.1 Phase 27.5 — Archaeology & Museums (new)
+
+The gap this closes is real and is the largest remaining E-E-A-T deficit
+on the platform. There are 14 busts and 91 archive images in the
+registries, each with a licence and a photographer, and almost none with
+an object provenance: findspot, excavation date, excavator, holding
+institution, inventory number, material, condition, restoration history,
+attribution debate, bibliography.
+
+The worked example is exact. The Julius Caesar figure page shows a
+portrait; what it does not say is that the Tusculum portrait was found at
+Tusculum in 1825 by Lucien Bonaparte, is in the Museo di Antichità in
+Turin, is one of only two portrait types with a serious claim to be
+made in Caesar's lifetime, and that its identification is argued.
+
+**Architecture.** A new `ObjectProvenance` registry keyed to the existing
+bust and archive-image slugs, so nothing is replaced — the provenance
+layer attaches to what already ships. New routes at `/museums` and
+`/museums/[slug]`, and an object detail view. Estimated 40–60 provenanced
+objects, 12–20 museum pages.
+
+**Dependency.** It runs after Cities because a museum page is
+substantially improved by being able to say which city its holdings came
+out of, and city pages are written in Phase 27 with a `museums` field
+already in the schema for 27.5 to consume.
+
+### 10.2 Phase 29 — Institutions & Government (replaces Biographies)
+
+Correct call: the corpus already holds 74 figures, so a biography phase
+would have been marginal, whereas the institutional layer is absent
+almost entirely.
+
+Scope: Roman Senate, Ecclesia, Gerousia, Areopagus, Boule, consul,
+praetor, tribune, censor, dictator, aedile, quaestor, satrap, strategos,
+archon, ephor, Roman citizenship, Roman provinces, Roman taxation, Roman
+law, imperial administration, the assemblies and councils. Roughly 24–30
+pages.
+
+**Dependency.** It runs after Architecture because several institutions
+are inseparable from their buildings — the Senate from the Curia, the
+Ecclesia from the Pnyx, the Areopagus from its hill — and those are
+Phase 28 pages.
