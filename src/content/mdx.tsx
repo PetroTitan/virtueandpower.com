@@ -4,6 +4,11 @@ import { ReadingList } from "@/components/editorial/ReadingList";
 import { TimelineBlock } from "@/components/editorial/TimelineBlock";
 import { RelatedReading } from "@/components/editorial/RelatedReading";
 import { InlineArchiveFragment } from "@/components/editorial/InlineArchiveFragment";
+import {
+  EvidenceBadge,
+  EvidenceClaim,
+  EvidenceKey,
+} from "@/components/editorial/EvidenceBadge";
 import { Prose } from "@/components/editorial/Typography";
 
 const baseComponents: MDXRemoteProps["components"] = {
@@ -12,6 +17,12 @@ const baseComponents: MDXRemoteProps["components"] = {
   TimelineBlock,
   RelatedReading,
   InlineArchiveFragment,
+  // The evidence taxonomy, available to any MDX body that makes claims
+  // about myth, history or material culture. Guides in the Homer cluster
+  // are required to label such claims rather than assert them flat.
+  EvidenceBadge,
+  EvidenceClaim,
+  EvidenceKey,
 };
 
 type MdxContentProps = {
