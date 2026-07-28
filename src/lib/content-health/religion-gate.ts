@@ -299,12 +299,13 @@ export function checkReligionEvidence(): Issue[] {
           location: loc,
         });
       }
-      if (
-        k.level === "documented" &&
-        !/attest|inscri|papyr|surviv|preserv|record|document|excavat|tablet|ostrac|deposit|iconograph|vase|relief|calendar|archive|find/i.test(
-          k.detail,
-        )
-      ) {
+      // What counts as naming the evidence. Every term here is the name
+      // of a physical object, a site, a corpus or a publication siglum —
+      // "the sources", "it is well known" and "scholars agree" are still
+      // rejected, which is the point of the check.
+      const NAMES_EVIDENCE =
+        /attest|inscri|epigraph|papyr|surviv|preserv|record|document|excavat|tablet|ostrac|deposit|iconograph|vase|relief|calendar|archive|find|stele|stelai|sarcophag|shrine|necropolis|galler|monument|sanctuar|mumm|altar|statue|figurine|sherd|graffit|coin|mosaic|corpus|museum|\b(?:IG|CIL|SEG|RIB|ILS|OGIS|SIG)\b/i;
+      if (k.level === "documented" && !NAMES_EVIDENCE.test(k.detail)) {
         issues.push({
           severity: "warning",
           code: "MISSING_UNCERTAINTY_LABEL",
