@@ -123,3 +123,9 @@ registry at
 
 Same pipeline as the architecture directory. See
 `public/images/architecture/README.md` for the procedure.
+
+## Homer and the Odyssey batch (2026-07-28)
+
+- `lion-gate-mycenae.webp` — The Lion Gate, Mycenae, c. 1250 BCE. Photo Zde, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Lion_Gate,_Mycenae,_201510.jpg
+- `mycenae-citadel.webp` — The citadel of Mycenae, general view, Late Bronze Age. Photo Berthold Werner, CC BY-SA 3.0. https://commons.wikimedia.org/wiki/File:Mykene_BW_2017-10-10_13-23-40.jpg
+

@@ -242,3 +242,8 @@ on Wikimedia's CDN and so the provenance is file-system-traceable.
 The platform's editorial policy applies here as much as it applies
 to text: no fabricated provenance, no uncertain attributions, no
 images whose rights status we have not verified.
+
+## Homer and the Odyssey batch (2026-07-28)
+
+- `homer-bust-british-museum.webp` — Portrait bust of Homer, Hellenistic type, Roman copy. British Museum. An imagined portrait rather than a likeness. Photo Joyofmuseums, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Portrait_Bust_of_Homer_-_British_Museum_-_Joy_of_Museums.jpg
+

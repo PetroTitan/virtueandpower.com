@@ -168,3 +168,14 @@ public-domain / CC BY / CC BY-SA licence and an unambiguous
 identification via the Commons API, resize to 1600 px longest edge,
 encode WebP q80 e6, register in `src/data/archive-images.ts`, and add
 an entry here. No AI-generated imagery, ever.
+
+## Homer and the Odyssey batch (2026-07-28)
+
+- `polyphemus-amphora-eleusis.webp` — The blinding of Polyphemus, detail of the Proto-Attic Eleusis amphora, c. 660 BCE. Archaeological Museum of Eleusis. Photo Davide Mauro, CC BY 3.0. https://commons.wikimedia.org/wiki/File:Polyphemus_amphora_(detail).jpg
+- `odysseus-sirens-stamnos.webp` — Odysseus and the Sirens, Attic red-figure stamnos by the Siren Painter, c. 480-470 BCE. British Museum E 440. Photo Jastrow, public domain. https://commons.wikimedia.org/wiki/File:Odysseus_Sirens_BM_E440_n2.jpg
+- `odysseus-under-the-ram.webp` — Odysseus escaping beneath the ram, Attic black-figure pelike. Kerameikos Museum, Athens T HW 195. Photo ArchaiOptix, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Attic_black-figure_pelike_-_ABV_extra_-_Odysseus_under_the_ram_-_Athens_KM_T_HW_195_-_01.jpg
+- `circe-antidote-kylix.webp` — Circe and the companions of Odysseus, Attic black-figure kylix attributed to the Painter of the Boston Polyphemos, 6th century BCE. Museum of Fine Arts, Boston. Photo Lucas Livingston (Ancient Art Podcast), CC BY 2.0. https://commons.wikimedia.org/wiki/File:Odysseus_men_turned_into_animals_by_Circe_receive_antidote_photo_by_Lucas_ancientartpodcast_flickr_cca2.0_8706785112_f6a311cafa_o.jpg
+- `boars-tusk-helmet-athens.webp` — Mycenaean boar's-tusk helmet, Late Bronze Age. National Archaeological Museum, Athens, NAMA 6568. Photo Jebulon, CC0. https://commons.wikimedia.org/wiki/File:Boars%27s_tusk_helmet_NAMA6568_Athens_Greece1.jpg
+- `linear-b-tablet-pylos.webp` — Linear B clay tablet from Pylos, end of the 13th century BCE. National Archaeological Museum, Athens. Photo Mary Harrsch, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Linear_B_tablet_Clay_from_Pylos_end_of_13th_century_BCE_NAM_Athens_01.jpg
+- `mask-of-agamemnon.webp` — Gold funerary mask from Grave Circle A, Mycenae, c. 1550-1500 BCE, conventionally called the Mask of Agamemnon. The name is Schliemann's and is not an identification. National Archaeological Museum, Athens. Photo Jebulon, CC0. https://commons.wikimedia.org/wiki/File:Agamemnon_mask_NAMA_Athens_Greece.jpg
+
