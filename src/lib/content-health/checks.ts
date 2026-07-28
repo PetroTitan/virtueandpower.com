@@ -11,6 +11,7 @@ import { runWarfareGate } from "./warfare-gate";
 import { runCitiesGate } from "./cities-gate";
 import { runProvenanceGate } from "./provenance-gate";
 import { runArchitectureGate } from "./architecture-gate";
+import { runInstitutionsGate } from "./institutions-gate";
 import type { Issue } from "./types";
 
 /**
@@ -739,5 +740,6 @@ export function runAllChecks(
     // Architecture: referential integrity, evidence discipline on named
     // buildings, and the boundary with the warfare encyclopedia.
     ...runArchitectureGate(entries),
+    ...runInstitutionsGate(entries),
   ];
 }
