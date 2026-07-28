@@ -10,6 +10,7 @@ import { runEditorialGate } from "./editorial-gate";
 import { runWarfareGate } from "./warfare-gate";
 import { runCitiesGate } from "./cities-gate";
 import { runProvenanceGate } from "./provenance-gate";
+import { runArchitectureGate } from "./architecture-gate";
 import type { Issue } from "./types";
 
 /**
@@ -735,5 +736,8 @@ export function runAllChecks(
     // appearance of it. A plausible catalogue entry closes off a question
     // that a blank one leaves open.
     ...runProvenanceGate(entries),
+    // Architecture: referential integrity, evidence discipline on named
+    // buildings, and the boundary with the warfare encyclopedia.
+    ...runArchitectureGate(entries),
   ];
 }

@@ -22,6 +22,7 @@ import { BATTLES } from "@/data/battles";
 import { CITIES } from "@/data/cities";
 import { MUSEUMS } from "@/data/museums";
 import { OBJECT_PROVENANCE } from "@/data/object-provenance";
+import { ARCHITECTURE_TOPICS } from "@/data/architecture";
 
 const staticPaths = [
   "/",
@@ -67,6 +68,8 @@ const staticPaths = [
   "/museums",
   ...MUSEUMS.map((m) => `/museums/${m.slug}`),
   ...OBJECT_PROVENANCE.map((o) => `/objects/${o.slug}`),
+  "/architecture",
+  ...ARCHITECTURE_TOPICS.map((t) => `/architecture/${t.slug}`),
   ...maps.map((m) => `/maps/${m.slug}`),
   ...timelines.map((t) => `/timelines/${t.slug}`),
   "/privacy-policy",

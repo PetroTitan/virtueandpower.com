@@ -194,6 +194,60 @@ const CITIES_BAND: ReadonlyArray<{
   },
 ];
 
+/**
+ * The homepage's architecture band. Weighted toward the pages that
+ * correct a common assumption rather than toward the famous buildings.
+ */
+const ARCHITECTURE_BAND: ReadonlyArray<{
+  href: string;
+  kind: string;
+  title: string;
+  blurb: string;
+}> = [
+  {
+    href: "/architecture/temple",
+    kind: "Sacred building",
+    title: "The temple",
+    blurb:
+      "A house for a god, not a hall for worshippers — which is why the important architecture is on the outside.",
+  },
+  {
+    href: "/architecture/roman-concrete",
+    kind: "Technique",
+    title: "Roman concrete",
+    blurb:
+      "Not modern concrete: lime and volcanic ash packed around rubble, and it sets underwater.",
+  },
+  {
+    href: "/architecture/house-and-insula",
+    kind: "Domestic building",
+    title: "House and apartment block",
+    blurb:
+      "The atrium house everyone pictures was a minority dwelling. Most urban Romans lived in flats above shops.",
+  },
+  {
+    href: "/architecture/building-materials",
+    kind: "Technique",
+    title: "Building materials",
+    blurb:
+      "Most ancient building was mudbrick and timber, and almost none of it survives. What you see in ruins is the exception.",
+  },
+  {
+    href: "/architecture/pyramid",
+    kind: "Funerary",
+    title: "The pyramid",
+    blurb:
+      "The workers' settlement at Giza has been excavated. They were fed, housed and buried honourably — not enslaved foreigners.",
+  },
+  {
+    href: "/architecture/basilica",
+    kind: "Civic building",
+    title: "The basilica",
+    blurb:
+      "A Roman law court, and the plan Christianity took over wholesale — the European church begins in a secular hall.",
+  },
+];
+
 export const revalidate = 3600;
 
 export default async function HomePage() {
@@ -526,6 +580,35 @@ export default async function HomePage() {
         />
         <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {CITIES_BAND.map((item) => (
+            <article key={item.href} className="border-l border-rule pl-5">
+              <p className="text-xs uppercase tracking-eyebrow text-stone">
+                {item.kind}
+              </p>
+              <h3 className="mt-2 font-serif text-xl text-charcoal">
+                <Link href={item.href} className="hover:text-bronze">
+                  {item.title}
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-100">
+                {item.blurb}
+              </p>
+            </article>
+          ))}
+        </div>
+      </PageSection>
+
+      {/* Ancient architecture — the building layer, placed after cities
+          because a building needs a place to stand in. */}
+      <PageSection label="Ancient architecture">
+        <SectionIntro
+          eyebrow="Ancient architecture"
+          title="How it was built, and how we know"
+          description="Temples, forums, baths, aqueducts, vaults and tombs — with an evidence level on every named building that answers a specific question: how do we know what this looked like? The Parthenon stands. The Pharos is known only from descriptions written centuries later."
+          href="/architecture"
+          hrefLabel="Enter the architecture layer"
+        />
+        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {ARCHITECTURE_BAND.map((item) => (
             <article key={item.href} className="border-l border-rule pl-5">
               <p className="text-xs uppercase tracking-eyebrow text-stone">
                 {item.kind}
