@@ -9,6 +9,7 @@ import { sources, type Source } from "@/data/sources";
 import { runEditorialGate } from "./editorial-gate";
 import { runWarfareGate } from "./warfare-gate";
 import { runCitiesGate } from "./cities-gate";
+import { runProvenanceGate } from "./provenance-gate";
 import type { Issue } from "./types";
 
 /**
@@ -730,5 +731,9 @@ export function runAllChecks(
     // /cities/athens and /civilizations/athens from cannibalising each
     // other.
     ...runCitiesGate(entries),
+    // Object provenance: honesty about completeness rather than the
+    // appearance of it. A plausible catalogue entry closes off a question
+    // that a blank one leaves open.
+    ...runProvenanceGate(entries),
   ];
 }

@@ -20,6 +20,8 @@ import { FILM_PAGES } from "@/data/films";
 import { WARFARE_TOPICS } from "@/data/warfare";
 import { BATTLES } from "@/data/battles";
 import { CITIES } from "@/data/cities";
+import { MUSEUMS } from "@/data/museums";
+import { OBJECT_PROVENANCE } from "@/data/object-provenance";
 
 const staticPaths = [
   "/",
@@ -62,6 +64,9 @@ const staticPaths = [
   ...BATTLES.map((b) => `/warfare/battles/${b.slug}`),
   "/cities",
   ...CITIES.map((c) => `/cities/${c.slug}`),
+  "/museums",
+  ...MUSEUMS.map((m) => `/museums/${m.slug}`),
+  ...OBJECT_PROVENANCE.map((o) => `/objects/${o.slug}`),
   ...maps.map((m) => `/maps/${m.slug}`),
   ...timelines.map((t) => `/timelines/${t.slug}`),
   "/privacy-policy",
