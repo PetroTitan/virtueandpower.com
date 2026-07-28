@@ -7,6 +7,7 @@ import type {
 } from "@/content/types";
 import { sources, type Source } from "@/data/sources";
 import { runEditorialGate } from "./editorial-gate";
+import { runWarfareGate } from "./warfare-gate";
 import type { Issue } from "./types";
 
 /**
@@ -719,5 +720,9 @@ export function runAllChecks(
     // criticism but to force criticism to be evidenced, specific,
     // consistent and professionally written.
     ...runEditorialGate(entries),
+    // Warfare encyclopedia: registry referential integrity, and the
+    // numbers discipline that keeps ancient troop figures from being
+    // repeated as though they were counts.
+    ...runWarfareGate(entries),
   ];
 }

@@ -33,6 +33,7 @@ export type EvidenceLevel =
   | "probable"
   | "disputed"
   | "literary"
+  | "mythological"
   | "unknown";
 
 export interface EvidenceLevelDefinition {
@@ -76,6 +77,14 @@ export const EVIDENCE_LEVELS: ReadonlyArray<EvidenceLevelDefinition> = [
       "Belongs to poetic or mythological construction rather than to history.",
     gloss:
       "The correct level for most of the Odyssey's content: Circe, the bag of winds, the descent to the dead, the bow that only Odysseus can string. These are things the poem does, and describing them as literary is a statement about genre, not a complaint about the poem.",
+  },
+  {
+    level: "mythological",
+    label: "Mythological",
+    definition:
+      "Belongs to shared religious or mythic tradition rather than to any single text.",
+    gloss:
+      "Distinct from Literary, and the distinction matters. Circe is literary: she is a character in a particular poem, and what she does can be checked by opening it. Romulus founding Rome is mythological: no single text owns the story, it existed as shared tradition before and after any surviving account of it, and it did religious and civic work. Marking a claim mythological says what kind of thing it is, not that it is false — and a mythological claim can sit alongside documented cult practice, which is exactly the case for most Greek and Roman gods.",
   },
   {
     level: "unknown",

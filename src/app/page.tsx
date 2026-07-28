@@ -83,6 +83,61 @@ const HOMER_BAND: ReadonlyArray<{
   },
 ];
 
+/**
+ * The homepage's warfare band. Weighted toward the conceptual pages
+ * rather than the battle list, so the section reads as an encyclopedia
+ * of how armies worked rather than as a catalogue of engagements.
+ */
+const WARFARE_BAND: ReadonlyArray<{
+  href: string;
+  kind: string;
+  title: string;
+  blurb: string;
+}> = [
+  {
+    href: "/warfare/greek-warfare",
+    kind: "Civilization",
+    title: "Greek warfare",
+    blurb:
+      "Citizen infantry and the phalanx, and a way of fighting bound to the political community that produced it.",
+  },
+  {
+    href: "/warfare/roman-warfare",
+    kind: "Civilization",
+    title: "Roman warfare",
+    blurb:
+      "Four distinct institutions under one name, winning by organisation and engineering rather than by tactics.",
+  },
+  {
+    href: "/warfare/persian-warfare",
+    kind: "Civilization",
+    title: "Persian warfare",
+    blurb:
+      "An imperial system known almost entirely through the writings of the people it was fighting.",
+  },
+  {
+    href: "/warfare/logistics",
+    kind: "Operations",
+    title: "Logistics",
+    blurb:
+      "Food, water and fodder — the constraint that set how large an ancient army could be and how far it could go.",
+  },
+  {
+    href: "/warfare/battles/cannae",
+    kind: "Battle · 216 BCE",
+    title: "Cannae",
+    blurb:
+      "The double envelopment, and two of the best ancient sources disagreeing by twenty thousand dead.",
+  },
+  {
+    href: "/warfare/battles",
+    kind: "Index",
+    title: "Battles of the ancient world",
+    blurb:
+      "Eighteen engagements from Marathon to Adrianople, each with its forces, sources, archaeology and open questions.",
+  },
+];
+
 export const revalidate = 3600;
 
 export default async function HomePage() {
@@ -398,6 +453,36 @@ export default async function HomePage() {
                 />
               ))}
           </EditorialGrid>
+        </div>
+      </PageSection>
+
+      {/* Ancient warfare — the encyclopedia layer. Six entries weighted
+          toward the conceptual pages rather than the battles, so the
+          section reads as an encyclopedia rather than a battle list. */}
+      <PageSection label="Ancient warfare">
+        <SectionIntro
+          eyebrow="Ancient warfare"
+          title="How the ancient world actually fought"
+          description="Formations, armies, ships, siege engineering, logistics and command across the Greek, Roman, Persian and Egyptian worlds — with an evidence level attached to every substantive claim, and no troop figure given without the source that supplies it and an assessment of what it is worth."
+          href="/warfare"
+          hrefLabel="Enter the encyclopedia"
+        />
+        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {WARFARE_BAND.map((item) => (
+            <article key={item.href} className="border-l border-rule pl-5">
+              <p className="text-xs uppercase tracking-eyebrow text-stone">
+                {item.kind}
+              </p>
+              <h3 className="mt-2 font-serif text-xl text-charcoal">
+                <Link href={item.href} className="hover:text-bronze">
+                  {item.title}
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-100">
+                {item.blurb}
+              </p>
+            </article>
+          ))}
         </div>
       </PageSection>
 

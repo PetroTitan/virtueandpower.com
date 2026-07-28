@@ -17,6 +17,8 @@ import { timelines } from "@/data/timelines";
 import { ODYSSEY_BOOKS } from "@/data/odyssey-books";
 import { HOMER_CLUSTER } from "@/data/homer-cluster";
 import { FILM_PAGES } from "@/data/films";
+import { WARFARE_TOPICS } from "@/data/warfare";
+import { BATTLES } from "@/data/battles";
 
 const staticPaths = [
   "/",
@@ -53,6 +55,10 @@ const staticPaths = [
   ...HOMER_CLUSTER.map((p) => p.path),
   ...ODYSSEY_BOOKS.map((b) => `/books/odyssey/${b.slug}`),
   ...FILM_PAGES.map((p) => p.path),
+  "/warfare",
+  "/warfare/battles",
+  ...WARFARE_TOPICS.map((t) => `/warfare/${t.slug}`),
+  ...BATTLES.map((b) => `/warfare/battles/${b.slug}`),
   ...maps.map((m) => `/maps/${m.slug}`),
   ...timelines.map((t) => `/timelines/${t.slug}`),
   "/privacy-policy",

@@ -179,3 +179,10 @@ an entry here. No AI-generated imagery, ever.
 - `linear-b-tablet-pylos.webp` — Linear B clay tablet from Pylos, end of the 13th century BCE. National Archaeological Museum, Athens. Photo Mary Harrsch, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Linear_B_tablet_Clay_from_Pylos_end_of_13th_century_BCE_NAM_Athens_01.jpg
 - `mask-of-agamemnon.webp` — Gold funerary mask from Grave Circle A, Mycenae, c. 1550-1500 BCE, conventionally called the Mask of Agamemnon. The name is Schliemann's and is not an identification. National Archaeological Museum, Athens. Photo Jebulon, CC0. https://commons.wikimedia.org/wiki/File:Agamemnon_mask_NAMA_Athens_Greece.jpg
 
+## Ancient warfare batch (2026-07-28)
+
+- `chigi-vase-hoplites.webp` — Hoplites in formation, detail of the Chigi vase, Proto-Corinthian c. 640 BCE. Villa Giulia, Rome. Plate from K. F. Johansen, Les Vases Sicyoniens (1923), public domain. https://commons.wikimedia.org/wiki/File:Hoplites_Chigi_Vase.PNG
+- `corinthian-helmet-olympia.webp` — Bronze Corinthian helmet, Archaic. Archaeological Museum of Olympia. Photo AlMare, CC BY-SA 3.0. https://commons.wikimedia.org/wiki/File:Corinthian_Helmet_Olympia.jpg
+- `athlit-ram.webp` — Bronze warship ram recovered off Athlit, Hellenistic. National Maritime Museum, Haifa. Photo Hanay, CC BY-SA 3.0. https://commons.wikimedia.org/wiki/File:Israeli_National_Maritime_Museum-_Naval_ram-1.jpg
+- `dura-europos-scutum.webp` — Painted Roman scutum from Dura-Europos, 3rd century CE. Yale University Art Gallery, CC0. https://commons.wikimedia.org/wiki/File:Scutum_(Shield)_-_YDEA_-_5959.jpg
+
