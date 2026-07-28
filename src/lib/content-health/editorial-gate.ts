@@ -287,7 +287,7 @@ export function checkMythAsHistory(files: ProseFile[]): Issue[] {
 // ──────────────────────────────────────────────────────────────────────
 
 const EVIDENCE_MARKERS =
-  /EvidenceClaim|EvidenceBadge|EvidenceKey|documented|probable|disputed|literary|unknown|Odyssey \d|Iliad \d|Linear B/i;
+  /EvidenceClaim|EvidenceBadge|EvidenceKey|documented|probable|disputed|literary|mythological|unknown|Odyssey \d|Iliad \d|Linear B/i;
 
 const ACCURACY_LANGUAGE: ReadonlyArray<{ regex: RegExp; label: string }> = [
   { regex: /\bhistorically accurate\b/i, label: "historically accurate" },
