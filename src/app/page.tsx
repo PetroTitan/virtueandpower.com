@@ -26,6 +26,63 @@ import {
 } from "@/content/reading-time";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
+/**
+ * The homepage's Homer band. Six entries, deliberately weighted toward
+ * the poem: Homer, the Odyssey, two figures, the myth-and-history guide,
+ * and the film comparison last. The film analysis is a single entry
+ * rather than the band's subject, so a current release does not come to
+ * dominate a platform whose authority layer is the poem.
+ */
+const HOMER_BAND: ReadonlyArray<{
+  href: string;
+  kind: string;
+  title: string;
+  blurb: string;
+}> = [
+  {
+    href: "/homer",
+    kind: "Authority hub",
+    title: "Homer",
+    blurb:
+      "What ancient tradition claimed, what modern scholarship has argued for two centuries, and what remains genuinely unknown.",
+  },
+  {
+    href: "/books/odyssey",
+    kind: "Primary text",
+    title: "The Odyssey",
+    blurb:
+      "The poem in full — structure, the four movements, the politics of Ithaca, and a guide to all twenty-four books.",
+  },
+  {
+    href: "/figures/odysseus",
+    kind: "Figure of the tradition",
+    title: "Odysseus",
+    blurb:
+      "The man of many turns, in Homer and in the tragedians and Latin poets who disliked him — traditions kept separate.",
+  },
+  {
+    href: "/figures/penelope",
+    kind: "Figure of the tradition",
+    title: "Penelope",
+    blurb:
+      "The shroud, the contest of the bow, and the test of the bed — the one occasion anyone outmanoeuvres her husband.",
+  },
+  {
+    href: "/guides/odyssey-myth-and-history",
+    kind: "Guide",
+    title: "Odyssey: myth and history",
+    blurb:
+      "What in the poem can be treated as evidence, at what level of confidence, and why the question is usually asked badly.",
+  },
+  {
+    href: "/films/christopher-nolan-the-odyssey/homer-vs-film",
+    kind: "Film analysis",
+    title: "Homer versus Nolan",
+    blurb:
+      "The 2026 film compared with the poem across twenty-two elements, each with its evidence level and editorial assessment.",
+  },
+];
+
 export const revalidate = 3600;
 
 export default async function HomePage() {
@@ -341,6 +398,37 @@ export default async function HomePage() {
                 />
               ))}
           </EditorialGrid>
+        </div>
+      </PageSection>
+
+      {/* Homer and the Odyssey — the epic layer beneath the philosophical
+          tradition. Restrained by design: the poem is the authority here,
+          and the film analysis is one entry among six rather than the
+          band's subject. */}
+      <PageSection label="Homer and the Odyssey" variant="ruled">
+        <SectionIntro
+          eyebrow="Homer and the Odyssey"
+          title="The poem the philosophers were arguing with"
+          description="The classical inquiry into courage, hospitality, kingship and the shape of a good life begins with Homer and proceeds by arguing with him. The Odyssey is read here as a political, domestic and religious work — with the mythological tradition kept carefully apart from the historical record."
+          href="/homer"
+          hrefLabel="Enter the Homer hub"
+        />
+        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {HOMER_BAND.map((item) => (
+            <article key={item.href} className="border-l border-rule pl-5">
+              <p className="text-xs uppercase tracking-eyebrow text-stone">
+                {item.kind}
+              </p>
+              <h3 className="mt-2 font-serif text-xl text-charcoal">
+                <Link href={item.href} className="hover:text-bronze">
+                  {item.title}
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-100">
+                {item.blurb}
+              </p>
+            </article>
+          ))}
         </div>
       </PageSection>
 

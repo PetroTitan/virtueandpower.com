@@ -21,6 +21,7 @@ import {
   getCivilizations,
   getComparisons,
   getEssays,
+  getFigures,
   getGuides,
   getPhilosophers,
   getQuotes,
@@ -54,6 +55,7 @@ async function main(): Promise<number> {
     essays,
     guides,
     civilizations,
+    figures,
   ] = await Promise.all([
     getPhilosophers(),
     getBooks(),
@@ -63,6 +65,7 @@ async function main(): Promise<number> {
     getEssays(),
     getGuides(),
     getCivilizations(),
+    getFigures(),
   ]);
   const entries: ContentEntry<AnyFrontmatter>[] = [
     ...philosophers,
@@ -73,6 +76,7 @@ async function main(): Promise<number> {
     ...essays,
     ...guides,
     ...civilizations,
+    ...figures,
   ];
 
   const results = runAllChecks(entries);

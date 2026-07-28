@@ -9,6 +9,8 @@
  * page, Bekker number, book/chapter/section) so future research can verify it.
  */
 
+import type { EvidenceLevel } from "@/data/evidence";
+
 export type ContentStatus = "stub" | "published";
 
 export type ContentKind =
@@ -19,7 +21,8 @@ export type ContentKind =
   | "comparison"
   | "essay"
   | "guide"
-  | "civilization";
+  | "civilization"
+  | "figure";
 
 interface BaseFrontmatter {
   slug: string;
@@ -157,6 +160,53 @@ export interface CivilizationFrontmatter extends BaseFrontmatter {
   relatedEssays?: ContentRef[];
 }
 
+/**
+ * Figures of the literary and mythological tradition.
+ *
+ * This kind exists so that Odysseus and Penelope are not filed alongside
+ * Aristotle and Cicero. The /philosophers layer holds people the
+ * historical record attests; this layer holds characters a tradition
+ * preserves. Keeping them apart is the structural form of the editorial
+ * rule that mythology is not presented as verified history — the schema
+ * enforces it rather than leaving it to each page's prose.
+ *
+ * Two fields carry the discipline:
+ *
+ *   `historicity` records, on the shared evidence taxonomy, what can
+ *   actually be said about whether the figure corresponds to anyone who
+ *   lived. For nearly every figure in the Odyssey the honest answer is
+ *   "literary" or "unknown", and the page must say so.
+ *
+ *   `attestedIn` names which ancient sources preserve which tradition.
+ *   Traditions about these figures contradict each other — Homer's
+ *   Penelope and the later tradition that makes her the mother of Pan
+ *   are not reconcilable, and should not be reconciled. Listing sources
+ *   separately is what stops a page from silently merging them into one
+ *   invented biography.
+ */
+export interface FigureFrontmatter extends BaseFrontmatter {
+  kind: "figure";
+  /** Standfirst rendered under the title. */
+  subtitle?: string;
+  /** How the tradition presents the figure. Mortal characters, divine
+   *  powers and monstrous figures are read differently and are labelled
+   *  differently. */
+  figureType: "mortal" | "divine" | "monstrous" | "composite";
+  /** The narrative tradition the figure belongs to (e.g. "Homeric epic;
+   *  the Trojan cycle"). */
+  cycle: string;
+  /** What can be said about the figure's historicity, on the shared
+   *  evidence taxonomy. Nearly always "literary" or "unknown". */
+  historicity: EvidenceLevel;
+  /** Which ancient sources preserve which tradition about this figure.
+   *  Each entry names a work and what that work specifically carries. */
+  attestedIn: Array<{ source: string; tradition: string }>;
+  /** The texts the figure principally appears in. */
+  primaryTexts?: ContentRef[];
+  relatedFigures?: ContentRef[];
+  relatedThemes?: ContentRef[];
+}
+
 export type AnyFrontmatter =
   | PhilosopherFrontmatter
   | BookFrontmatter
@@ -165,7 +215,8 @@ export type AnyFrontmatter =
   | ComparisonFrontmatter
   | EssayFrontmatter
   | GuideFrontmatter
-  | CivilizationFrontmatter;
+  | CivilizationFrontmatter
+  | FigureFrontmatter;
 
 export interface ContentEntry<F extends AnyFrontmatter = AnyFrontmatter> {
   kind: F["kind"];
