@@ -20,6 +20,9 @@ export const siteConfig = {
     { slug: "quotes", label: "Quotes" },
     { slug: "comparisons", label: "Comparisons" },
     { slug: "civilizations", label: "Civilizations" },
+    { slug: "figures", label: "Figures" },
+    { slug: "homer", label: "Homer" },
+    { slug: "films", label: "Films" },
     { slug: "leadership", label: "Leadership" },
     { slug: "power", label: "Power" },
     { slug: "virtue", label: "Virtue" },
@@ -34,12 +37,14 @@ export const siteConfig = {
     { slug: "philosophers", label: "Philosophers" },
     { slug: "books", label: "Books" },
     { slug: "themes", label: "Themes" },
+    { slug: "homer", label: "Homer" },
     { slug: "guides", label: "Guides" },
     { slug: "about", label: "About" },
   ] as const,
   footerNav: {
     Library: [
       { slug: "philosophers", label: "Philosophers" },
+      { slug: "figures", label: "Figures" },
       { slug: "books", label: "Books" },
       { slug: "themes", label: "Themes" },
       { slug: "quotes", label: "Quotes" },
@@ -48,6 +53,7 @@ export const siteConfig = {
       { slug: "essays", label: "Essays" },
       { slug: "guides", label: "Guides" },
       { slug: "comparisons", label: "Comparisons" },
+      { slug: "films", label: "Films" },
     ],
     Studies: [
       { slug: "leadership", label: "Leadership" },
@@ -57,6 +63,7 @@ export const siteConfig = {
     ],
     Eras: [
       { slug: "civilizations", label: "Civilizations" },
+      { slug: "homer", label: "Homer" },
       { slug: "ancient-world", label: "Ancient World" },
       { slug: "roman-republic", label: "Roman Republic" },
       { slug: "plutarch", label: "Plutarch" },

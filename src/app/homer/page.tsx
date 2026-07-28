@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StudyLanding } from "@/components/site/StudyLanding";
+import { ArchiveImage } from "@/components/site/ArchiveImage";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { articleJsonLd, buildMetadata } from "@/lib/seo";
 import {
@@ -38,6 +39,13 @@ export default function HomerHubPage() {
         eyebrow="Authority hub"
         title={TITLE}
         description={DESCRIPTION}
+        hero={
+          <ArchiveImage
+            slug="homer-bust-british-museum"
+            priority
+            sizes="(min-width: 1280px) 1100px, (min-width: 768px) 90vw, 100vw"
+          />
+        }
         related={[
           ...otherHomerPages(PATH).map((p) => ({
             href: p.path,
