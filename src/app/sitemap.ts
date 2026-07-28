@@ -5,6 +5,7 @@ import {
   getCivilizations,
   getComparisons,
   getEssays,
+  getFigures,
   getGuides,
   getPhilosophers,
   getQuotes,
@@ -58,6 +59,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     essays,
     guides,
     civilizations,
+    figures,
   ] = await Promise.all([
     getPhilosophers(),
     getBooks(),
@@ -67,6 +69,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getEssays(),
     getGuides(),
     getCivilizations(),
+    getFigures(),
   ]);
 
   const now = new Date();
@@ -90,6 +93,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...essays,
     ...guides,
     ...civilizations,
+    ...figures,
   ].filter((e) => e.frontmatter.status === "published");
 
   const contentEntries: MetadataRoute.Sitemap = publishedEntries.map((e) => ({

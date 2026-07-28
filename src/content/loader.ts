@@ -10,6 +10,7 @@ import type {
   ContentKind,
   ContentRef,
   EssayFrontmatter,
+  FigureFrontmatter,
   GuideFrontmatter,
   PhilosopherFrontmatter,
   QuoteFrontmatter,
@@ -27,6 +28,7 @@ const dirByKind: Record<ContentKind, string> = {
   essay: "essays",
   guide: "guides",
   civilization: "civilizations",
+  figure: "figures",
 };
 
 type FrontmatterFor<K extends ContentKind> = K extends "philosopher"
@@ -45,7 +47,9 @@ type FrontmatterFor<K extends ContentKind> = K extends "philosopher"
               ? GuideFrontmatter
               : K extends "civilization"
                 ? CivilizationFrontmatter
-                : never;
+                : K extends "figure"
+                  ? FigureFrontmatter
+                  : never;
 
 const cache = new Map<ContentKind, ContentEntry<AnyFrontmatter>[]>();
 
@@ -120,6 +124,9 @@ export function getGuides() {
 export function getCivilizations() {
   return loadKind("civilization");
 }
+export function getFigures() {
+  return loadKind("figure");
+}
 
 export async function getEntryBySlug<K extends ContentKind>(
   kind: K,
@@ -187,6 +194,11 @@ function collectOutgoingRefs(entry: ContentEntry<AnyFrontmatter>): ContentRef[] 
       push(fm.relatedBooks);
       push(fm.relatedEssays);
       break;
+    case "figure":
+      push(fm.primaryTexts);
+      push(fm.relatedFigures);
+      push(fm.relatedThemes);
+      break;
   }
   return refs;
 }
@@ -210,6 +222,7 @@ export async function getBacklinksFor(
     essays,
     guides,
     civilizations,
+    figures,
   ] = await Promise.all([
     getPhilosophers(),
     getBooks(),
@@ -219,6 +232,7 @@ export async function getBacklinksFor(
     getEssays(),
     getGuides(),
     getCivilizations(),
+    getFigures(),
   ]);
   const all: ContentEntry<AnyFrontmatter>[] = [
     ...philosophers,
@@ -229,6 +243,7 @@ export async function getBacklinksFor(
     ...essays,
     ...guides,
     ...civilizations,
+    ...figures,
   ];
   const inEdges: Array<{ ref: ContentRef; entry: ContentEntry<AnyFrontmatter> }> = [];
   for (const entry of all) {
@@ -245,12 +260,13 @@ export async function getBacklinksFor(
   const kindOrder: Record<ContentKind, number> = {
     civilization: 0,
     philosopher: 1,
-    book: 2,
-    theme: 3,
-    comparison: 4,
-    essay: 5,
-    guide: 6,
-    quote: 7,
+    figure: 2,
+    book: 3,
+    theme: 4,
+    comparison: 5,
+    essay: 6,
+    guide: 7,
+    quote: 8,
   };
   inEdges.sort((a, b) => {
     const k = kindOrder[a.entry.kind] - kindOrder[b.entry.kind];
@@ -305,6 +321,7 @@ export async function getAllContentRefs(): Promise<
     essays,
     guides,
     civilizations,
+    figures,
   ] = await Promise.all([
     getPhilosophers(),
     getBooks(),
@@ -314,6 +331,7 @@ export async function getAllContentRefs(): Promise<
     getEssays(),
     getGuides(),
     getCivilizations(),
+    getFigures(),
   ]);
   return [
     ...philosophers.map((e) => ({
@@ -353,6 +371,11 @@ export async function getAllContentRefs(): Promise<
     })),
     ...civilizations.map((e) => ({
       kind: "civilization" as const,
+      slug: e.slug,
+      updated: e.frontmatter.updated,
+    })),
+    ...figures.map((e) => ({
+      kind: "figure" as const,
       slug: e.slug,
       updated: e.frontmatter.updated,
     })),

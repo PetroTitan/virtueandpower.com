@@ -3,6 +3,7 @@ import {
   getBooks,
   getComparisons,
   getEssays,
+  getFigures,
   getGuides,
   getPhilosophers,
   getQuotes,
@@ -28,22 +29,33 @@ const kindLabel: Record<string, string> = {
   comparison: "Comparison",
   essay: "Essay",
   guide: "Guide",
+  civilization: "Civilization",
+  figure: "Figure",
 };
 
 export const dynamic = "force-static";
 export const revalidate = 3600;
 
 export async function GET() {
-  const [philosophers, books, themes, quotes, comparisons, essays, guides] =
-    await Promise.all([
-      getPhilosophers(),
-      getBooks(),
-      getThemes(),
-      getQuotes(),
-      getComparisons(),
-      getEssays(),
-      getGuides(),
-    ]);
+  const [
+    philosophers,
+    books,
+    themes,
+    quotes,
+    comparisons,
+    essays,
+    guides,
+    figures,
+  ] = await Promise.all([
+    getPhilosophers(),
+    getBooks(),
+    getThemes(),
+    getQuotes(),
+    getComparisons(),
+    getEssays(),
+    getGuides(),
+    getFigures(),
+  ]);
 
   // Only authoritative entries appear in the feed. Stubs are noindex and
   // are not yet meant for discovery.
@@ -55,6 +67,7 @@ export async function GET() {
     ...comparisons,
     ...essays,
     ...guides,
+    ...figures,
   ].filter((e) => e.frontmatter.status === "published");
 
   const sorted = published.sort(

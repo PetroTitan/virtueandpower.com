@@ -21,6 +21,7 @@ const KNOWN_KINDS: ReadonlySet<ContentKind> = new Set([
   "essay",
   "guide",
   "civilization",
+  "figure",
 ]);
 
 const VALID_STATUS = new Set(["stub", "published"]);
@@ -59,6 +60,20 @@ const KIND_REQUIRED_FIELDS: Record<ContentKind, ReadonlyArray<string>> = {
     "subtitle",
     "period",
     "civilizationType",
+  ],
+  // A figure page is invalid without the two fields that keep the
+  // mythological layer honest: what the tradition is, and what can
+  // actually be said about the figure's historicity.
+  figure: [
+    "slug",
+    "title",
+    "description",
+    "status",
+    "updated",
+    "figureType",
+    "cycle",
+    "historicity",
+    "attestedIn",
   ],
 };
 
@@ -120,6 +135,11 @@ function collectOutgoingRefs(entry: ContentEntry<AnyFrontmatter>): ContentRef[] 
       push(fm.relatedThemes);
       push(fm.relatedBooks);
       push(fm.relatedEssays);
+      break;
+    case "figure":
+      push(fm.primaryTexts);
+      push(fm.relatedFigures);
+      push(fm.relatedThemes);
       break;
   }
   return out;
