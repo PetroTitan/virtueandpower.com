@@ -303,6 +303,61 @@ const INSTITUTIONS_BAND: ReadonlyArray<{
   },
 ];
 
+/**
+ * The homepage's ancient-religion band. Weighted toward the pages that
+ * correct an assumption about what ancient religion was, rather than
+ * toward the famous gods — who are covered on the figures pages.
+ */
+const RELIGION_BAND: ReadonlyArray<{
+  href: string;
+  kind: string;
+  title: string;
+  blurb: string;
+}> = [
+  {
+    href: "/ancient-religion/animal-sacrifice",
+    kind: "Rite",
+    title: "Animal sacrifice",
+    blurb:
+      "The central act of Greek religion, and the best-documented thing about it is what it cost. The calendars are budgets.",
+  },
+  {
+    href: "/ancient-religion/mystery-initiation",
+    kind: "Greek cult",
+    title: "Mystery initiation",
+    blurb:
+      "The procession and the penalty for divulging are documented. What was shown inside is not, because the ban worked.",
+  },
+  {
+    href: "/ancient-religion/roman-augury",
+    kind: "Divination",
+    title: "Augury and the auspices",
+    blurb:
+      "It asked whether the gods permitted an act today. It was not prediction, and calling it prediction is a factual error.",
+  },
+  {
+    href: "/ancient-religion/curse-tablets-and-binding",
+    kind: "Rite",
+    title: "Curse tablets",
+    blurb:
+      "Folded lead sheets pushed into graves, naming a target. They record what somebody wanted, and nothing about what followed.",
+  },
+  {
+    href: "/ancient-religion/mithraism",
+    kind: "Roman religion",
+    title: "Mithraism",
+    blurb:
+      "Hundreds of rooms, one image repeated everywhere, and not a line of its own scripture. A religion known from its architecture.",
+  },
+  {
+    href: "/ancient-religion/what-ancient-religion-was-not",
+    kind: "Reading it",
+    title: "What ancient religion was not",
+    blurb:
+      "No word for religion, no scripture, no congregation, no conversion — and all the same, people who plainly believed things.",
+  },
+];
+
 export const revalidate = 3600;
 
 export default async function HomePage() {
@@ -694,6 +749,37 @@ export default async function HomePage() {
         />
         <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {INSTITUTIONS_BAND.map((item) => (
+            <article key={item.href} className="border-l border-rule pl-5">
+              <p className="text-xs uppercase tracking-eyebrow text-stone">
+                {item.kind}
+              </p>
+              <h3 className="mt-2 font-serif text-xl text-charcoal">
+                <Link href={item.href} className="hover:text-bronze">
+                  {item.title}
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-100">
+                {item.blurb}
+              </p>
+            </article>
+          ))}
+        </div>
+      </PageSection>
+
+      {/* Ancient religion — the cult layer. Placed after institutions
+          because both are about what people actually did, and kept
+          visibly distinct from the Religion & Wisdom section, which is
+          about scripture and doctrine. */}
+      <PageSection label="Ancient religion">
+        <SectionIntro
+          eyebrow="Ancient religion"
+          title="Cult, rite and sanctuary"
+          description="What people actually did — sacrifice, dedication, purification, initiation, divination and the care of the dead. Every page separates what the evidence attests from what the sources do not record, and gives the stories the tradition told about a rite with the author who tells them and the distance between the two."
+          href="/ancient-religion"
+          hrefLabel="Enter the cult layer"
+        />
+        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {RELIGION_BAND.map((item) => (
             <article key={item.href} className="border-l border-rule pl-5">
               <p className="text-xs uppercase tracking-eyebrow text-stone">
                 {item.kind}

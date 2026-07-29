@@ -24,6 +24,7 @@ import { MUSEUMS } from "@/data/museums";
 import { OBJECT_PROVENANCE } from "@/data/object-provenance";
 import { ARCHITECTURE_TOPICS } from "@/data/architecture";
 import { INSTITUTIONS } from "@/data/institutions";
+import { CULT_PRACTICES } from "@/data/religion";
 
 const staticPaths = [
   "/",
@@ -73,6 +74,8 @@ const staticPaths = [
   ...ARCHITECTURE_TOPICS.map((t) => `/architecture/${t.slug}`),
   "/institutions",
   ...INSTITUTIONS.map((i) => `/institutions/${i.slug}`),
+  "/ancient-religion",
+  ...CULT_PRACTICES.map((c) => `/ancient-religion/${c.slug}`),
   ...maps.map((m) => `/maps/${m.slug}`),
   ...timelines.map((t) => `/timelines/${t.slug}`),
   "/privacy-policy",
