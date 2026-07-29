@@ -1532,7 +1532,7 @@ export const ARCHITECTURE_TOPICS: ReadonlyArray<ArchitectureTopic> = [
       },
     ],
     primarySources: [
-      S("The Jewish War", "7.123-157", "The triumph of 71 CE and the spoils carried in it, by an eyewitness on the defeated side.", "Josephus"),
+      S("The Jewish War", "7.123-157", "The triumph of 71 CE and the spoils carried in it, described by a writer from the defeated side who was in Rome at the time, though he does not say he watched the procession.", "Josephus"),
     ],
     relatedTopics: ["honorific-column", "forum", "vaults-and-domes"],
     citySlugs: ["rome"],
