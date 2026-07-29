@@ -23,6 +23,7 @@ const LEVEL_RULE: Record<EvidenceLevel, string> = {
   probable: "border-l-bronze-50 text-bronze-100",
   disputed: "border-l-stone-300 text-stone-400",
   literary: "border-l-charcoal-50 text-charcoal-100",
+  mythological: "border-l-stone-100 text-stone-400",
   unknown: "border-l-stone-50 text-stone-300",
 };
 

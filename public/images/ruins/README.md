@@ -129,3 +129,17 @@ Same pipeline as the architecture directory. See
 - `lion-gate-mycenae.webp` — The Lion Gate, Mycenae, c. 1250 BCE. Photo Zde, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Lion_Gate,_Mycenae,_201510.jpg
 - `mycenae-citadel.webp` — The citadel of Mycenae, general view, Late Bronze Age. Photo Berthold Werner, CC BY-SA 3.0. https://commons.wikimedia.org/wiki/File:Mykene_BW_2017-10-10_13-23-40.jpg
 
+## Ancient warfare batch (2026-07-28)
+
+- `hadrians-wall-housesteads.webp` — Hadrian's Wall west of Housesteads, begun 122 CE, Northumberland. Photo Steven Fruitsmaak, public domain. https://commons.wikimedia.org/wiki/File:Hadrian%27s_Wall_west_of_Housesteads_3.jpg
+- `housesteads-fort.webp` — Housesteads Roman fort, 2nd century CE, Hadrian's Wall. Photo Mike Peel, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Housesteads_Roman_Fort_2014_16.jpg
+- `masada-siege-ramp.webp` — The Roman assault ramp at Masada, 73 or 74 CE. Photo Oren Rozen, CC BY-SA 3.0. https://commons.wikimedia.org/wiki/File:Masada_051013_Ramp_01.jpg
+
+## Ancient cities batch (2026-07-28)
+
+- `delphi-athenian-treasury.webp` — Treasury of the Athenians, Delphi, early 5th c BCE, re-erected 20th c. Photo George E. Koronaios, CC BY-SA 4.0.
+- `olympia-temple-of-zeus.webp` — Fallen columns of the Temple of Zeus, Olympia, c. 470-456 BCE. Photo Wknight94, CC BY-SA 3.0.
+- `corinth-temple-of-apollo.webp` — Temple of Apollo, Ancient Corinth, c. 560 BCE. Photo Berthold Werner, CC BY-SA 3.0.
+- `ostia-street.webp` — Street at Ostia Antica, principally 2nd c CE. Photo FrDr, CC BY-SA 4.0.
+- `troy-walls-hisarlik.webp` — Troy VI fortification wall, Hisarlik, c. 1700-1300 BCE. Photo Jorge Lascar, CC BY 2.0.
+

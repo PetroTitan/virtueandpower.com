@@ -83,6 +83,226 @@ const HOMER_BAND: ReadonlyArray<{
   },
 ];
 
+/**
+ * The homepage's warfare band. Weighted toward the conceptual pages
+ * rather than the battle list, so the section reads as an encyclopedia
+ * of how armies worked rather than as a catalogue of engagements.
+ */
+const WARFARE_BAND: ReadonlyArray<{
+  href: string;
+  kind: string;
+  title: string;
+  blurb: string;
+}> = [
+  {
+    href: "/warfare/greek-warfare",
+    kind: "Civilization",
+    title: "Greek warfare",
+    blurb:
+      "Citizen infantry and the phalanx, and a way of fighting bound to the political community that produced it.",
+  },
+  {
+    href: "/warfare/roman-warfare",
+    kind: "Civilization",
+    title: "Roman warfare",
+    blurb:
+      "Four distinct institutions under one name, winning by organisation and engineering rather than by tactics.",
+  },
+  {
+    href: "/warfare/persian-warfare",
+    kind: "Civilization",
+    title: "Persian warfare",
+    blurb:
+      "An imperial system known almost entirely through the writings of the people it was fighting.",
+  },
+  {
+    href: "/warfare/logistics",
+    kind: "Operations",
+    title: "Logistics",
+    blurb:
+      "Food, water and fodder — the constraint that set how large an ancient army could be and how far it could go.",
+  },
+  {
+    href: "/warfare/battles/cannae",
+    kind: "Battle · 216 BCE",
+    title: "Cannae",
+    blurb:
+      "The double envelopment, and two of the best ancient sources disagreeing by twenty thousand dead.",
+  },
+  {
+    href: "/warfare/battles",
+    kind: "Index",
+    title: "Battles of the ancient world",
+    blurb:
+      "Eighteen engagements from Marathon to Adrianople, each with its forces, sources, archaeology and open questions.",
+  },
+];
+
+/**
+ * The homepage's cities band. Weighted toward the sites whose
+ * archaeology says something the texts do not — Ostia for ordinary
+ * Roman housing, Alexandria for a city that cannot be dug, Troy for the
+ * limits of what excavation can settle.
+ */
+const CITIES_BAND: ReadonlyArray<{
+  href: string;
+  kind: string;
+  title: string;
+  blurb: string;
+}> = [
+  {
+    href: "/cities/athens",
+    kind: "City-state",
+    title: "Athens",
+    blurb:
+      "The Acropolis, the Agora and the Long Walls — the best-excavated classical city, readable against its own inscriptions.",
+  },
+  {
+    href: "/cities/rome",
+    kind: "Imperial capital",
+    title: "Rome",
+    blurb:
+      "A city whose archaeology is hardest to read because it never stopped being lived in, and whose population is still argued over.",
+  },
+  {
+    href: "/cities/ostia",
+    kind: "Port",
+    title: "Ostia",
+    blurb:
+      "Abandoned rather than destroyed, and therefore the best evidence anywhere for how ordinary Romans actually lived.",
+  },
+  {
+    href: "/cities/alexandria",
+    kind: "Imperial capital",
+    title: "Alexandria",
+    blurb:
+      "The clearest case of a city whose importance is inversely proportional to what can be excavated — most of it lies under a living city and under water.",
+  },
+  {
+    href: "/cities/persepolis",
+    kind: "Royal centre",
+    title: "Persepolis",
+    blurb:
+      "Burned by Alexander in 330 BCE, and preserved by the fire: the blaze baked the administrative archive that survives.",
+  },
+  {
+    href: "/cities/troy",
+    kind: "City-state",
+    title: "Troy",
+    blurb:
+      "Nine cities in one mound, and the site where the limits of what archaeology can settle are clearest.",
+  },
+];
+
+/**
+ * The homepage's architecture band. Weighted toward the pages that
+ * correct a common assumption rather than toward the famous buildings.
+ */
+const ARCHITECTURE_BAND: ReadonlyArray<{
+  href: string;
+  kind: string;
+  title: string;
+  blurb: string;
+}> = [
+  {
+    href: "/architecture/temple",
+    kind: "Sacred building",
+    title: "The temple",
+    blurb:
+      "A house for a god, not a hall for worshippers — which is why the important architecture is on the outside.",
+  },
+  {
+    href: "/architecture/roman-concrete",
+    kind: "Technique",
+    title: "Roman concrete",
+    blurb:
+      "Not modern concrete: lime and volcanic ash packed around rubble, and it sets underwater.",
+  },
+  {
+    href: "/architecture/house-and-insula",
+    kind: "Domestic building",
+    title: "House and apartment block",
+    blurb:
+      "The atrium house everyone pictures was a minority dwelling. Most urban Romans lived in flats above shops.",
+  },
+  {
+    href: "/architecture/building-materials",
+    kind: "Technique",
+    title: "Building materials",
+    blurb:
+      "Most ancient building was mudbrick and timber, and almost none of it survives. What you see in ruins is the exception.",
+  },
+  {
+    href: "/architecture/pyramid",
+    kind: "Funerary",
+    title: "The pyramid",
+    blurb:
+      "The workers' settlement at Giza has been excavated. They were fed, housed and buried honourably — not enslaved foreigners.",
+  },
+  {
+    href: "/architecture/basilica",
+    kind: "Civic building",
+    title: "The basilica",
+    blurb:
+      "A Roman law court, and the plan Christianity took over wholesale — the European church begins in a secular hall.",
+  },
+];
+
+/**
+ * The homepage's institutions band. Weighted toward the pages that
+ * correct an assumption about how ancient government worked rather than
+ * toward the famous offices.
+ */
+const INSTITUTIONS_BAND: ReadonlyArray<{
+  href: string;
+  kind: string;
+  title: string;
+  blurb: string;
+}> = [
+  {
+    href: "/institutions/roman-senate",
+    kind: "Roman body",
+    title: "The Senate",
+    blurb:
+      "It could not legislate and could not command an army. Its resolutions were advice. It governed Rome for four centuries anyway.",
+  },
+  {
+    href: "/institutions/dikasteria",
+    kind: "Athenian court",
+    title: "The people's courts",
+    blurb:
+      "Juries of hundreds, chosen by lot on the morning of the trial, deciding without a judge. The allotment machines have been excavated.",
+  },
+  {
+    href: "/institutions/roman-assemblies",
+    kind: "Roman body",
+    title: "The assemblies",
+    blurb:
+      "Voting was by block, weighted by property, and counted from the top down — so the poorest centuries were often never reached.",
+  },
+  {
+    href: "/institutions/tribune-of-the-plebs",
+    kind: "Roman magistracy",
+    title: "Tribune of the plebs",
+    blurb:
+      "An office whose central power was to stop things, protected by an oath rather than by law.",
+  },
+  {
+    href: "/institutions/ostracism",
+    kind: "Athenian procedure",
+    title: "Ostracism",
+    blurb:
+      "Ten years' exile with no charge, no trial and no defence. A deposit of pre-inscribed sherds shows the vote being organised.",
+  },
+  {
+    href: "/institutions/satrap",
+    kind: "Persian office",
+    title: "The satrap",
+    blurb:
+      "A governor with his own court, army and treasury — what made an empire that size governable, and what made revolt possible.",
+  },
+];
+
 export const revalidate = 3600;
 
 export default async function HomePage() {
@@ -398,6 +618,126 @@ export default async function HomePage() {
                 />
               ))}
           </EditorialGrid>
+        </div>
+      </PageSection>
+
+      {/* Ancient cities — the settlement layer beneath warfare,
+          architecture and religion. Deliberately placed before the
+          warfare band, because the cities are the spine everything else
+          attaches to. */}
+      <PageSection label="Ancient cities" variant="ruled">
+        <SectionIntro
+          eyebrow="Ancient cities"
+          title="The places, not only the polities"
+          description="Where these cities stood and why, how they were laid out, what was built in them, what has been excavated and where the finds are now. Population figures carry what they rest on: there is no ancient census of any of them."
+          href="/cities"
+          hrefLabel="Enter the cities layer"
+        />
+        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {CITIES_BAND.map((item) => (
+            <article key={item.href} className="border-l border-rule pl-5">
+              <p className="text-xs uppercase tracking-eyebrow text-stone">
+                {item.kind}
+              </p>
+              <h3 className="mt-2 font-serif text-xl text-charcoal">
+                <Link href={item.href} className="hover:text-bronze">
+                  {item.title}
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-100">
+                {item.blurb}
+              </p>
+            </article>
+          ))}
+        </div>
+      </PageSection>
+
+      {/* Ancient architecture — the building layer, placed after cities
+          because a building needs a place to stand in. */}
+      <PageSection label="Ancient architecture">
+        <SectionIntro
+          eyebrow="Ancient architecture"
+          title="How it was built, and how we know"
+          description="Temples, forums, baths, aqueducts, vaults and tombs — with an evidence level on every named building that answers a specific question: how do we know what this looked like? The Parthenon stands. The Pharos is known only from descriptions written centuries later."
+          href="/architecture"
+          hrefLabel="Enter the architecture layer"
+        />
+        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {ARCHITECTURE_BAND.map((item) => (
+            <article key={item.href} className="border-l border-rule pl-5">
+              <p className="text-xs uppercase tracking-eyebrow text-stone">
+                {item.kind}
+              </p>
+              <h3 className="mt-2 font-serif text-xl text-charcoal">
+                <Link href={item.href} className="hover:text-bronze">
+                  {item.title}
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-100">
+                {item.blurb}
+              </p>
+            </article>
+          ))}
+        </div>
+      </PageSection>
+
+      {/* Institutions and government — the offices layer. Placed after
+          architecture because a body needs a building to meet in, and
+          before warfare because command is treated there. */}
+      <PageSection label="Institutions and government">
+        <SectionIntro
+          eyebrow="Institutions and government"
+          title="Who actually decided, and how far the power reached"
+          description="Assemblies, councils, magistracies and the machinery of empire — each page separating what an office was from how it worked and what it could not do, and marking where the constitution we describe is a later reconstruction rather than a record."
+          href="/institutions"
+          hrefLabel="Enter the institutions layer"
+        />
+        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {INSTITUTIONS_BAND.map((item) => (
+            <article key={item.href} className="border-l border-rule pl-5">
+              <p className="text-xs uppercase tracking-eyebrow text-stone">
+                {item.kind}
+              </p>
+              <h3 className="mt-2 font-serif text-xl text-charcoal">
+                <Link href={item.href} className="hover:text-bronze">
+                  {item.title}
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-100">
+                {item.blurb}
+              </p>
+            </article>
+          ))}
+        </div>
+      </PageSection>
+
+      {/* Ancient warfare — the encyclopedia layer. Six entries weighted
+          toward the conceptual pages rather than the battles, so the
+          section reads as an encyclopedia rather than a battle list. */}
+      <PageSection label="Ancient warfare">
+        <SectionIntro
+          eyebrow="Ancient warfare"
+          title="How the ancient world actually fought"
+          description="Formations, armies, ships, siege engineering, logistics and command across the Greek, Roman, Persian and Egyptian worlds — with an evidence level attached to every substantive claim, and no troop figure given without the source that supplies it and an assessment of what it is worth."
+          href="/warfare"
+          hrefLabel="Enter the encyclopedia"
+        />
+        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {WARFARE_BAND.map((item) => (
+            <article key={item.href} className="border-l border-rule pl-5">
+              <p className="text-xs uppercase tracking-eyebrow text-stone">
+                {item.kind}
+              </p>
+              <h3 className="mt-2 font-serif text-xl text-charcoal">
+                <Link href={item.href} className="hover:text-bronze">
+                  {item.title}
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-100">
+                {item.blurb}
+              </p>
+            </article>
+          ))}
         </div>
       </PageSection>
 

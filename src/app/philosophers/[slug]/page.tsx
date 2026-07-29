@@ -9,6 +9,8 @@ import { AtmosphereStrip } from "@/components/site/AtmosphereStrip";
 import { BustImage } from "@/components/site/BustImage";
 import { MdxContent } from "@/content/mdx";
 import { busts } from "@/data/busts";
+import { provenanceForBust } from "@/data/object-provenance";
+import { ProvenancePanel } from "@/components/editorial/ProvenancePanel";
 import {
   getEntryBySlug,
   getPhilosophers,
@@ -241,6 +243,9 @@ export default async function PhilosopherPage({
   const related = await getRelatedAndBacklinks("philosopher", slug, fm.related);
   const lifespan = parseLifespan(fm.lifespan);
   const bust = busts.find((b) => b.figureSlug === slug);
+  // Phase 27.5: where the bust has a provenance record, the figure page
+  // now says where the object came from rather than only who photographed it.
+  const bustProvenance = bust ? provenanceForBust(bust.slug) : undefined;
 
   return (
     <>
@@ -291,6 +296,9 @@ export default async function PhilosopherPage({
                 className="mb-10"
                 sizes="(min-width: 1024px) 25vw, (min-width: 768px) 30vw, 100vw"
               />
+            ) : null}
+            {bustProvenance ? (
+              <ProvenancePanel object={bustProvenance} />
             ) : null}
             <p className="vp-eyebrow">Quick facts</p>
             <dl className="mt-4 space-y-3 text-sm text-charcoal-100">

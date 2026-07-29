@@ -7,6 +7,11 @@ import type {
 } from "@/content/types";
 import { sources, type Source } from "@/data/sources";
 import { runEditorialGate } from "./editorial-gate";
+import { runWarfareGate } from "./warfare-gate";
+import { runCitiesGate } from "./cities-gate";
+import { runProvenanceGate } from "./provenance-gate";
+import { runArchitectureGate } from "./architecture-gate";
+import { runInstitutionsGate } from "./institutions-gate";
 import type { Issue } from "./types";
 
 /**
@@ -719,5 +724,22 @@ export function runAllChecks(
     // criticism but to force criticism to be evidenced, specific,
     // consistent and professionally written.
     ...runEditorialGate(entries),
+    // Warfare encyclopedia: registry referential integrity, and the
+    // numbers discipline that keeps ancient troop figures from being
+    // repeated as though they were counts.
+    ...runWarfareGate(entries),
+    // Ancient cities: referential integrity, the population apparatus,
+    // and mechanical enforcement of the place/polity division that keeps
+    // /cities/athens and /civilizations/athens from cannibalising each
+    // other.
+    ...runCitiesGate(entries),
+    // Object provenance: honesty about completeness rather than the
+    // appearance of it. A plausible catalogue entry closes off a question
+    // that a blank one leaves open.
+    ...runProvenanceGate(entries),
+    // Architecture: referential integrity, evidence discipline on named
+    // buildings, and the boundary with the warfare encyclopedia.
+    ...runArchitectureGate(entries),
+    ...runInstitutionsGate(entries),
   ];
 }

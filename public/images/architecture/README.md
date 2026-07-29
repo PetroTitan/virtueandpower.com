@@ -430,3 +430,9 @@ Egypt deepening (Old / Middle / New Kingdom hubs and pharaoh figures).
 5. Add an entry to this README with subject, location, source URL,
    photographer, licence, and source dimensions.
 6. Register it in `src/data/archive-images.ts`.
+
+## Ancient cities batch (2026-07-28)
+
+- `ishtar-gate-berlin.webp` — Reconstructed Ishtar Gate of Babylon, original c. 575 BCE, Pergamon Museum Berlin. Photo Sinoulpgc, CC0. Reconstruction from excavated bricks with modern infill; inner gate only.
+- `step-pyramid-djoser.webp` — Step Pyramid of Djoser, Saqqara, c. 2670 BCE. Photo Wknight94, CC BY-SA 3.0.
+
