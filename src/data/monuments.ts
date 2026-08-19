@@ -500,7 +500,7 @@ export const MONUMENTS: ReadonlyArray<Monument> = [
       "Consolidation and cleaning have continued since; the hypogeum was fully excavated in the twentieth century, and a reconstructed section of arena floor was added in recent decades.",
     ],
     archaeology: [
-      "Excavation of the hypogeum established the machinery: thirty-two animal cages on capstan-driven lifts around the perimeter, with shafts and ramps to the arena. The lift system is documented by its own cuttings, which is why it can be described at all.",
+      "Excavation of the hypogeum established the machinery: animal cages on capstan-driven lifts around the perimeter, with shafts and ramps to the arena. Reconstructions differ on how many lifts there were. The lift system is documented by its own cuttings, which is why it can be described at all.",
       "The foundation ring and the drainage system beneath it show the scale of the preparatory work on a lakebed, and confirm the literary account of what the site had previously been.",
     ],
     fragments: [
@@ -1285,7 +1285,7 @@ export const MONUMENTS: ReadonlyArray<Monument> = [
       "The Senate met in it from time to time, as it could in any inaugurated temple.",
     ],
     materials: [
-      { material: "Marble", use: "The Tiberian columns, capitals and entablature — Corinthian, and among the finest carved work on the Forum", level: "documented" },
+      { material: "Marble", use: "The Tiberian columns, capitals and entablature — Corinthian, and among the finest carved work surviving on the Forum", level: "documented" },
       { material: "Concrete faced with tufa and travertine", use: "The podium of the 117 BCE rebuilding, which the Tiberian temple reused", level: "documented" },
     ],
     measurements: [
@@ -1716,7 +1716,7 @@ export const MONUMENTS: ReadonlyArray<Monument> = [
           label: "The burial",
           display: "117 CE",
           level: "documented",
-          note: "Trajan died in Cilicia and his ashes were placed in a chamber in the base — the only burial permitted inside the sacred boundary of the city, granted by special decree.",
+          note: "Trajan died in Cilicia and his ashes were placed in a chamber in the base. Burial inside the sacred boundary of the city was forbidden, and the exception had to be voted.",
         },
         {
           label: "St Peter on the summit",
@@ -1752,7 +1752,7 @@ export const MONUMENTS: ReadonlyArray<Monument> = [
     ],
     originalFunction: [
       "A commemorative column carrying a continuous relief of the two Dacian wars, surmounted by a statue of the emperor, standing in the courtyard between the two libraries of his forum.",
-      "It became a tomb four years later, when Trajan's ashes were placed in the pedestal chamber. Burial within the pomerium was forbidden; the exception had to be voted.",
+      "It became a tomb four years later, when Trajan's ashes were placed in the pedestal chamber. Burial within the pomerium was forbidden, and the exception had to be voted.",
       "The inscription states a third purpose that is easy to miss: to show how high a hill and how much ground were cleared away for these works. The column is, on its own account, a measuring stick.",
     ],
     materials: [
@@ -2272,7 +2272,7 @@ export const MONUMENTS: ReadonlyArray<Monument> = [
     ],
     construction: [
       "A rectangular marble screen wall on a low podium, with openings east and west, enclosing a stepped altar. The whole thing is a frame for relief carving, and the carving is among the finest to survive from the ancient world.",
-      "The procession friezes are carved in two planes, with figures at the front in high relief and a crowd behind them in low relief, which gives depth to a slab less than a hand's breadth thick. Children appear in the procession, tugging at adults' clothing — the first Roman state relief to show them.",
+      "The procession friezes are carved in two planes, with figures at the front in high relief and a crowd behind them in low relief, which gives depth to a slab less than a hand's breadth thick. Children appear in the procession, tugging at adults' clothing, which is generally said to be their first appearance on a Roman state relief.",
     ],
     politicalMeaning: [
       "Peace here is a specific claim: peace secured by victory, granted by a returning commander, and celebrated by a Senate that had voted it. The Res Gestae puts the altar immediately after the closing of the doors of Janus, and the two are the same argument.",
@@ -2840,7 +2840,7 @@ export const MONUMENTS: ReadonlyArray<Monument> = [
     ],
     construction: [
       "The plan is irregular because the cults are fixed in place. There is an east porch at one level, a large north porch at a level about three metres lower, and the small south porch of the caryatids between them; the interior is divided into rooms serving different deities, and the whole thing works as several buildings sharing walls.",
-      "The carving is the finest surviving Ionic work: the north door frame, the capitals with their double volutes and inlaid palmettes, and the wall crown moulding are the reference examples of the order, and were copied directly in the Roman period and again in the eighteenth century.",
+      "The carving is among the finest surviving Ionic work anywhere: the north door frame, the capitals with their double volutes and inlaid palmettes, and the wall crown moulding are the reference examples of the order, and were copied directly in the Roman period and again in the eighteenth century.",
       "The caryatid porch stands over the supposed tomb of Kekrops. Its six figures carry the entablature on their heads, with the weight taken through the straight supporting leg — an engineering solution disguised as drapery.",
     ],
     politicalMeaning: [
@@ -5393,7 +5393,7 @@ export const MONUMENTS: ReadonlyArray<Monument> = [
       {
         label: "The standing obelisk",
         value: "about 25 m",
-        basis: "Modern survey. Its taller twin, about 23 m, has stood in the Place de la Concorde since 1836.",
+        basis: "Modern survey. Its twin, about 23 m and the shorter of the pair, has stood in the Place de la Concorde since 1836.",
         level: "documented",
       },
     ],
@@ -6174,9 +6174,15 @@ export function monumentsForSite(siteSlug: string): Monument[] {
 }
 
 /**
- * Monuments in a given city. Strictly `citySlug`; a monument sitting on
- * a site that itself sits in the city is reached through the site, and
- * conflating the two would list the Parthenon twice on the Athens page.
+ * Monuments in a given city, by `citySlug`.
+ *
+ * A monument that also sits on an excavated site carries both refs — the
+ * Curia Julia is on the Roman Forum and in Rome — so it appears in the
+ * Forum site page's list and in the Rome city page's list. That is
+ * intended: the two lists answer different questions and are on
+ * different pages. What is not permitted, and what
+ * `monuments:boundaries` rejects, is a monument naming a city that
+ * disagrees with its site's parent city.
  */
 export function monumentsForCity(citySlug: string): Monument[] {
   return MONUMENTS.filter((m) => m.citySlug === citySlug);
