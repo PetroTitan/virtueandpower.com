@@ -469,3 +469,61 @@ quality 80, effort 6.
   Omar Siddeeq Yousif, CC BY-SA 4.0. Source 5405 × 3696 → 1600 × 1094,
   ~167 KB.
   https://commons.wikimedia.org/wiki/File:Nineveh_-_Mashki_Gate.jpg
+
+## Named monuments batch (2026-08-19)
+
+Vendored for the `/monuments` layer, verified through the Commons API
+before download and resized to 1600 px on the longest edge at WebP
+quality 80, effort 6.
+
+This batch exists because of a validator rule rather than a wish list.
+`monuments:images` refuses to let one image be the hero of two entities,
+and it found ten collisions — the Parthenon photograph was serving the
+Athens city page, the Acropolis site page and the Parthenon monument at
+once. The rule's principle is that the most specific entity keeps the
+specific image, so the monuments take the photographs of themselves and
+the cities and sites were given general views.
+
+- `curia-julia.webp` — The Curia Julia, Roman Forum. Diocletianic
+  rebuilding c. 283–303 CE on Caesar's plan; **the roof and upper façade
+  are Bartoli's 1930s restoration**, executed by removing the church of
+  Sant'Adriano. Photo Sonse, CC BY 2.0. Source 4837 × 2817 → 1600 × 932.
+  https://commons.wikimedia.org/wiki/File:Curia_Julia,_Roman_Forum_(31458139307).jpg
+- `arch-of-titus.webp` — The Arch of Titus, after 81 CE. The paler,
+  plainer stone is **Valadier's 1821 restoration**, deliberately
+  simplified so the repair reads as a repair. Photo Jebulon, CC0. Source
+  3840 × 2952 → 1600 × 1230.
+  https://commons.wikimedia.org/wiki/File:Arc_Titus_Forum_romanum_Rome_Italy.jpg
+- `ara-pacis.webp` — The Ara Pacis Augustae, dedicated 9 BCE. **Assembled
+  from original blocks with plaster casts filling the losses, on a site
+  several hundred metres from the original**; the hall around it dates
+  from 2006. Photo Joel Bellviure, CC BY-SA 4.0. Source 6000 × 4000 →
+  1600 × 1067.
+  https://commons.wikimedia.org/wiki/File:Ara_Pacis,_general.jpg
+- `treasury-of-atreus.webp` — The dromos and doorway of the Treasury of
+  Atreus, Mycenae, c. 1250 BCE. Both traditional names come from
+  Pausanias reporting local identifications a thousand years later, and
+  nothing found in the tomb names anybody. Photo LBM1948, CC BY-SA 4.0.
+  Source 4288 × 2640 → 1600 × 985.
+  https://commons.wikimedia.org/wiki/File:Micenas,_Tesoro_de_Atreo.jpg
+- `tachara-persepolis.webp` — The Tachara, Darius I's palace at
+  Persepolis. The building reads as freestanding stone frames because
+  its mudbrick walls and timber roof burned in 330 BCE. Photo Bernard
+  Gagnon, CC BY-SA 4.0. Source 4131 × 2754 → 1600 × 1067.
+  https://commons.wikimedia.org/wiki/File:Persepolis_-_Tachara_01.jpg
+- `tomb-of-darius-naqsh-e-rustam.webp` — The tomb of Darius I, before
+  486 BCE, with a third-century-CE Sasanian relief cut below it. Photo
+  anmede, CC BY-SA 2.0. Source 4134 × 3099 → 1600 × 1199.
+  https://commons.wikimedia.org/wiki/File:Tomb_of_Darius_the_Great_and_relief_of_Shapur_I_at_Naqsh-e_Rostam,_Iran_(16279256871).jpg
+- `great-pyramid-khufu.webp` — The Great Pyramid of Khufu, c. 2560 BCE.
+  The stepped appearance is not original; the Tura limestone casing was
+  taken for building in Cairo. Photo Jorge Láscar, CC BY 2.0. Source
+  4288 × 2848 → 1600 × 1063.
+  https://commons.wikimedia.org/wiki/File:The_Great_Pyramid_of_Giza_(Pyramid_of_Cheops_or_Khufu)_(14793442184).jpg
+- `stoa-of-attalos.webp` — The Stoa of Attalos, Athenian Agora. **A
+  complete 1953–1956 reconstruction on the ancient foundations**, serving
+  as the excavation museum; it is not an ancient standing building.
+  Vendored so that the Temple of Hephaestus photograph could serve the
+  temple's own page. Photo Tilemahos Efthimiadis, CC BY-SA 2.0. Source
+  2482 × 1861 → 1600 × 1200.
+  https://commons.wikimedia.org/wiki/File:Stoa_of_Attalos,_Athenian_Agora_(5041933471).jpg

@@ -190,3 +190,15 @@ an entry here. No AI-generated imagery, ever.
 
 - `susa-archer-frieze.webp` — Glazed brick archer from the palace of Darius I at Susa, c. 510 BCE, Louvre. Photo Jebulon, public domain. The identification as an Immortal is an inference, not a label.
 
+
+## Named monuments batch (2026-08-19)
+
+- `memphis-ramesses-colossus.webp` — Colossal limestone Ramesses II at
+  the Mit Rahina open-air museum, Memphis. Nineteenth Dynasty,
+  c. 1279–1213 BCE; displayed lying down because its legs are lost.
+  Vendored for the Memphis city page, which previously used a photograph
+  of the Step Pyramid at Saqqara — a different place, and one that now
+  has its own monument page. Photo Marie Thérèse Hébert & Jean Robert
+  Thibault, CC BY-SA 2.0. Source 3024 × 4032 → 1200 × 1600, ~
+  verified through the Commons API before download.
+  https://commons.wikimedia.org/wiki/File:%C3%89gypte,_Memphis_(Mit_Rahina),_Mus%C3%A9e_en_plein_air,_Statue_de_Rams%C3%A8s_II,_c.1279-1213_(XIXe_dynastie)_(49639403488).jpg
