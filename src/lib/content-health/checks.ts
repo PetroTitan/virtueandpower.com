@@ -13,6 +13,7 @@ import { runProvenanceGate } from "./provenance-gate";
 import { runArchitectureGate } from "./architecture-gate";
 import { runInstitutionsGate } from "./institutions-gate";
 import { runReligionGate } from "./religion-gate";
+import { runSitesGate } from "./sites-gate";
 import type { Issue } from "./types";
 
 /**
@@ -743,5 +744,10 @@ export function runAllChecks(
     ...runArchitectureGate(entries),
     ...runInstitutionsGate(entries),
     ...runReligionGate(entries),
+    // Archaeological sites: referential integrity across six registries,
+    // the geography and chronology models introduced with this layer, the
+    // evidence discipline an excavation page needs, and the boundary with
+    // the cities layer.
+    ...runSitesGate(entries),
   ];
 }

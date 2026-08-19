@@ -436,3 +436,36 @@ Egypt deepening (Old / Middle / New Kingdom hubs and pharaoh figures).
 - `ishtar-gate-berlin.webp` — Reconstructed Ishtar Gate of Babylon, original c. 575 BCE, Pergamon Museum Berlin. Photo Sinoulpgc, CC0. Reconstruction from excavated bricks with modern infill; inner gate only.
 - `step-pyramid-djoser.webp` — Step Pyramid of Djoser, Saqqara, c. 2670 BCE. Photo Wknight94, CC BY-SA 3.0.
 
+
+## Archaeological sites batch (2026-08-19)
+
+Vendored for the `/archaeology` layer, verified through the Commons API
+before download and resized to 1600 px on the longest edge at WebP
+quality 80, effort 6.
+
+- `vergina-tomb-facade.webp` — The painted Doric façade and hunting
+  frieze of **Tomb II** at Vergina (Aigai), later 4th century BCE. Photo
+  Sarah Murray, public domain. Source 3872 × 2592 → 1600 × 1071,
+  ~266 KB. **Note on naming:** the Commons file is titled "Facade of
+  Philip II tomb". The registry caption calls it Tomb II, because the
+  identification of the occupant — Philip II or Philip III Arrhidaeus —
+  has been argued since Andronikos opened it in 1977.
+  https://commons.wikimedia.org/wiki/File:Facade_of_Philip_II_tomb_Vergina_Greece.jpg
+- `hadrians-villa-canopus.webp` — The Canopus at Hadrian's Villa,
+  Tivoli, c. 125–138 CE. The colonnade was re-erected in the twentieth
+  century and the statues in place are casts. Photo Carole Raddato,
+  CC BY-SA 2.0. Source 4928 × 3264 → 1600 × 1060, ~243 KB.
+  https://commons.wikimedia.org/wiki/File:The_Canopus,_Hadrian%27s_Villa,_Tivoli_(14759138548).jpg
+- `ur-ziggurat.webp` — The ziggurat of Ur-Nammu at Ur, c. 2100 BCE. The
+  lowest stage and stair cores are largely ancient; what stands above
+  the first terrace is Iraqi reconstruction of the 1980s. Photo Alli
+  Khalil, CC BY-SA 4.0. Source 7728 × 5152 → 1600 × 1067, ~185 KB.
+  https://commons.wikimedia.org/wiki/File:Ziggurat_of_Ur_Site_in_Nasiriyah_03.jpg
+- `nineveh-mashki-gate.webp` — The Mashki Gate at Nineveh. **A
+  twentieth-century reconstruction** on the line of Sennacherib's
+  circuit, not an Assyrian survival; it was bulldozed in 2016 and has
+  since been the subject of a restoration project, and neither the
+  caption nor this entry asserts when the photograph was taken. Photo
+  Omar Siddeeq Yousif, CC BY-SA 4.0. Source 5405 × 3696 → 1600 × 1094,
+  ~167 KB.
+  https://commons.wikimedia.org/wiki/File:Nineveh_-_Mashki_Gate.jpg
