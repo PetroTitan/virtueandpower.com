@@ -97,6 +97,11 @@ export default function MuseumsIndexPage() {
             <p className="vp-eyebrow mt-8">Read across</p>
             <ul className="mt-3 space-y-2 text-sm">
               <li>
+                <Link href="/archaeology" className="vp-link text-charcoal-100">
+                  Archaeological sites
+                </Link>
+              </li>
+              <li>
                 <Link href="/cities" className="vp-link text-charcoal-100">
                   Ancient cities
                 </Link>

@@ -144,6 +144,56 @@ const WARFARE_BAND: ReadonlyArray<{
  * Roman housing, Alexandria for a city that cannot be dug, Troy for the
  * limits of what excavation can settle.
  */
+const MATERIAL_EVIDENCE_BAND: ReadonlyArray<{
+  href: string;
+  kind: string;
+  title: string;
+  blurb: string;
+}> = [
+  {
+    href: "/archaeology/mycenae",
+    kind: "Citadel",
+    title: "Mycenae",
+    blurb:
+      "Schliemann's shaft graves, and a gold mask dated three centuries before any traditional date for the war it was named after.",
+  },
+  {
+    href: "/archaeology/athenian-agora",
+    kind: "Civic centre",
+    title: "The Athenian Agora",
+    blurb:
+      "The allotment machine, the water clock, the jurors' tickets and thousands of ostraka — Athenian democracy recovered as hardware.",
+  },
+  {
+    href: "/archaeology/herculaneum",
+    kind: "Buried town",
+    title: "Herculaneum",
+    blurb:
+      "Carbonised doors, food and a library of Epicurean scrolls, and three hundred people in the boat sheds who did not get out.",
+  },
+  {
+    href: "/archaeology/giza",
+    kind: "Necropolis",
+    title: "Giza",
+    blurb:
+      "The bakeries, barracks and workers' cemetery excavated since the 1980s, and the boat-crew logbook that records the stone arriving.",
+  },
+  {
+    href: "/archaeology/behistun",
+    kind: "Rock monument",
+    title: "Behistun",
+    blurb:
+      "The trilingual cliff that unlocked cuneiform, and the winner's account of a succession many historians think was a usurpation.",
+  },
+  {
+    href: "/museums",
+    kind: "Provenance",
+    title: "Museums and objects",
+    blurb:
+      "Where the finds went — findspot, excavation, inventory and the arguments over identification, with our own gaps stated rather than filled.",
+  },
+];
+
 const CITIES_BAND: ReadonlyArray<{
   href: string;
   kind: string;
@@ -780,6 +830,37 @@ export default async function HomePage() {
         />
         <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {RELIGION_BAND.map((item) => (
+            <article key={item.href} className="border-l border-rule pl-5">
+              <p className="text-xs uppercase tracking-eyebrow text-stone">
+                {item.kind}
+              </p>
+              <h3 className="mt-2 font-serif text-xl text-charcoal">
+                <Link href={item.href} className="hover:text-bronze">
+                  {item.title}
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-100">
+                {item.blurb}
+              </p>
+            </article>
+          ))}
+        </div>
+      </PageSection>
+
+      {/* Material evidence — the archaeology, object and museum layers,
+          given one gateway band rather than three. It is placed after the
+          city, building, institution and cult layers because it is the
+          answer to the question those four raise: how do we know? */}
+      <PageSection label="Material evidence" variant="ruled">
+        <SectionIntro
+          eyebrow="Material evidence"
+          title="How we know: excavation, object, museum"
+          description="Twenty-six excavated sites with their excavation histories, the objects that came out of them, and the institutions that hold those objects now — including what the excavators got wrong, and what is still argued about."
+          href="/archaeology"
+          hrefLabel="Enter the evidence layer"
+        />
+        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {MATERIAL_EVIDENCE_BAND.map((item) => (
             <article key={item.href} className="border-l border-rule pl-5">
               <p className="text-xs uppercase tracking-eyebrow text-stone">
                 {item.kind}
