@@ -319,7 +319,7 @@ export const CITIES: ReadonlyArray<City> = [
     battleRefs: ["marathon", "salamis", "plataea", "chaeronea"],
     warfareRefs: ["hoplite", "trireme", "naval-warfare", "fortifications", "greek-warfare"],
     relatedCities: ["sparta", "corinth", "delphi", "olympia"],
-    imageSlug: "parthenon-east",
+    imageSlug: "pnyx-athens",
   },
   {
     slug: "sparta",
@@ -712,7 +712,7 @@ export const CITIES: ReadonlyArray<City> = [
     battleRefs: ["plataea"],
     warfareRefs: ["greek-warfare"],
     relatedCities: ["olympia", "athens", "corinth"],
-    imageSlug: "delphi-athenian-treasury",
+    imageSlug: "delphi-sanctuary",
   },
   {
     slug: "olympia",
@@ -855,7 +855,7 @@ export const CITIES: ReadonlyArray<City> = [
     battleRefs: ["chaeronea"],
     warfareRefs: ["armour", "helmets", "shields", "greek-warfare"],
     relatedCities: ["delphi", "athens", "sparta", "corinth"],
-    imageSlug: "olympia-temple-of-zeus",
+    imageSlug: "olympia-sanctuary",
   },
 
   {
@@ -1012,7 +1012,7 @@ export const CITIES: ReadonlyArray<City> = [
     battleRefs: [],
     warfareRefs: ["roman-engineering", "roman-roads", "fortifications", "roman-warfare"],
     relatedCities: ["ostia", "pompeii", "corinth", "alexandria"],
-    imageSlug: "roman-forum-view",
+    imageSlug: "aurelian-walls",
   },
   {
     slug: "ostia",
@@ -1554,7 +1554,7 @@ export const CITIES: ReadonlyArray<City> = [
     battleRefs: [],
     warfareRefs: ["egyptian-army", "fortifications"],
     relatedCities: ["alexandria", "babylon", "susa"],
-    imageSlug: "step-pyramid-djoser",
+    imageSlug: "memphis-ramesses-colossus",
   },
   {
     slug: "persepolis",
@@ -1696,7 +1696,7 @@ export const CITIES: ReadonlyArray<City> = [
     battleRefs: ["gaugamela"],
     warfareRefs: ["persian-army", "persian-immortals", "persian-warfare"],
     relatedCities: ["susa", "babylon", "memphis"],
-    imageSlug: "persepolis-apadana",
+    imageSlug: "persepolis-columns",
   },
   {
     slug: "susa",

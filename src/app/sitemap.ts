@@ -26,6 +26,7 @@ import { ARCHITECTURE_TOPICS } from "@/data/architecture";
 import { INSTITUTIONS } from "@/data/institutions";
 import { CULT_PRACTICES } from "@/data/religion";
 import { ARCHAEOLOGICAL_SITES } from "@/data/archaeological-sites";
+import { MONUMENTS } from "@/data/monuments";
 
 const staticPaths = [
   "/",
@@ -79,6 +80,8 @@ const staticPaths = [
   ...CULT_PRACTICES.map((c) => `/ancient-religion/${c.slug}`),
   "/archaeology",
   ...ARCHAEOLOGICAL_SITES.map((s) => `/archaeology/${s.slug}`),
+  "/monuments",
+  ...MONUMENTS.map((m) => `/monuments/${m.slug}`),
   ...maps.map((m) => `/maps/${m.slug}`),
   ...timelines.map((t) => `/timelines/${t.slug}`),
   "/privacy-policy",

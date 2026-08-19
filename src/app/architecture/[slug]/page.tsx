@@ -14,6 +14,7 @@ import {
   getArchitectureTopic,
 } from "@/data/architecture";
 import { getCity } from "@/data/cities";
+import { monumentsForArchitecture } from "@/data/monuments";
 import { getWarfareTopic } from "@/data/warfare";
 import { getPhilosophers, getThemes, hrefFor } from "@/content/loader";
 import { articleJsonLd, breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
@@ -64,6 +65,7 @@ export default async function ArchitectureTopicPage({
     .map((s) => allThemes.find((x) => x.slug === s))
     .filter((x): x is NonNullable<typeof x> => Boolean(x));
   const cities = t.citySlugs.map(getCity).filter(Boolean);
+  const monuments = monumentsForArchitecture(t.slug);
   const warfare = t.warfareRefs.map(getWarfareTopic).filter(Boolean);
   const siblings = t.relatedTopics.map(getArchitectureTopic).filter(Boolean);
   const hero = t.imageSlug ? getArchiveImage(t.imageSlug) : undefined;
@@ -246,9 +248,28 @@ export default async function ArchitectureTopicPage({
           </article>
 
           <aside className="md:col-span-4 md:border-l md:border-rule md:pl-10">
+            {monuments.length ? (
+              <>
+                <p className="vp-eyebrow">Monuments of this type</p>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {monuments.map((mo) => (
+                    <li key={mo.slug}>
+                      <Link
+                        href={`/monuments/${mo.slug}`}
+                        className="vp-link text-charcoal-100"
+                      >
+                        {mo.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
             {cities.length ? (
               <>
-                <p className="vp-eyebrow">Cities</p>
+                <p className={`vp-eyebrow${monuments.length ? " mt-8" : ""}`}>
+                  Cities
+                </p>
                 <ul className="mt-3 space-y-2 text-sm">
                   {cities.map((c) => (
                     <li key={c!.slug}>

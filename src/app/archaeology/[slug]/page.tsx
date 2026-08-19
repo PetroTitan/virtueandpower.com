@@ -20,6 +20,7 @@ import {
   getSite,
 } from "@/data/archaeological-sites";
 import { getCity } from "@/data/cities";
+import { monumentsForSite } from "@/data/monuments";
 import { getMuseum } from "@/data/museums";
 import { getObject } from "@/data/object-provenance";
 import { getArchitectureTopic } from "@/data/architecture";
@@ -108,6 +109,7 @@ export default async function SitePage({
   const battles = s.battleRefs.map(getBattle).filter(Boolean);
   const siteMaps = s.mapSlugs.map(getMap).filter(Boolean);
   const others = s.relatedSites.map(getSite).filter(Boolean);
+  const monuments = monumentsForSite(s.slug);
 
   const hero = s.imageSlug ? getArchiveImage(s.imageSlug) : undefined;
   const gallery = (s.gallerySlugs ?? [])
@@ -731,11 +733,34 @@ export default async function SitePage({
               </>
             ) : null}
 
+            {monuments.length ? (
+              <>
+                <p className="vp-eyebrow mt-8">Monuments on this site</p>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {monuments.map((mo) => (
+                    <li key={mo.slug}>
+                      <Link
+                        href={`/monuments/${mo.slug}`}
+                        className="vp-link text-charcoal-100"
+                      >
+                        {mo.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+
             <p className="vp-eyebrow mt-8">More</p>
             <ul className="mt-3 space-y-2 text-sm">
               <li>
                 <Link href="/archaeology" className="vp-link text-charcoal-100">
                   All archaeological sites
+                </Link>
+              </li>
+              <li>
+                <Link href="/monuments" className="vp-link text-charcoal-100">
+                  Named monuments
                 </Link>
               </li>
               <li>

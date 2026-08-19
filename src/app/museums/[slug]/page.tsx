@@ -8,6 +8,7 @@ import { MUSEUMS, getMuseum } from "@/data/museums";
 import { objectsForMuseum } from "@/data/object-provenance";
 import { getCity } from "@/data/cities";
 import { sitesForMuseum } from "@/data/archaeological-sites";
+import { monumentsForMuseum } from "@/data/monuments";
 import { articleJsonLd, breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
@@ -48,6 +49,7 @@ export default async function MuseumPage({
   const objects = objectsForMuseum(m.slug);
   const cities = m.citySlugs.map(getCity).filter(Boolean);
   const digs = sitesForMuseum(m.slug);
+  const monuments = monumentsForMuseum(m.slug);
 
   return (
     <>
@@ -153,9 +155,28 @@ export default async function MuseumPage({
           </article>
 
           <aside className="md:col-span-4 md:border-l md:border-rule md:pl-10">
+            {monuments.length ? (
+              <>
+                <p className="vp-eyebrow">Monuments it holds fragments of</p>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {monuments.map((mo) => (
+                    <li key={mo.slug}>
+                      <Link
+                        href={`/monuments/${mo.slug}`}
+                        className="vp-link text-charcoal-100"
+                      >
+                        {mo.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
             {digs.length ? (
               <>
-                <p className="vp-eyebrow">Excavations it holds material from</p>
+                <p className={`vp-eyebrow${monuments.length ? " mt-8" : ""}`}>
+                  Excavations it holds material from
+                </p>
                 <ul className="mt-3 space-y-2 text-sm">
                   {digs.map((d) => (
                     <li key={d.slug}>
@@ -206,6 +227,11 @@ export default async function MuseumPage({
               <li>
                 <Link href="/archaeology" className="vp-link text-charcoal-100">
                   Archaeological sites
+                </Link>
+              </li>
+              <li>
+                <Link href="/monuments" className="vp-link text-charcoal-100">
+                  Named monuments
                 </Link>
               </li>
               <li>

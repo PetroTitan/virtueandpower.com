@@ -551,8 +551,8 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: ["troy"],
     mapSlugs: ["ancient-greece"],
     relatedSites: ["pylos", "knossos", "akrotiri"],
-    imageSlug: "lion-gate-mycenae",
-    gallerySlugs: ["mycenae-citadel", "mask-of-agamemnon"],
+    imageSlug: "mycenae-citadel",
+    gallerySlugs: ["lion-gate-mycenae", "mask-of-agamemnon"],
   },
   {
     slug: "knossos",
@@ -1302,7 +1302,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: ["delphi"],
     mapSlugs: ["athens"],
     relatedSites: ["athenian-agora", "eleusis", "delos"],
-    imageSlug: "parthenon-east",
+    imageSlug: "acropolis-from-philopappos",
     gallerySlugs: ["erechtheum-acropolis"],
   },
   {
@@ -1498,7 +1498,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: [],
     mapSlugs: ["athens"],
     relatedSites: ["acropolis-of-athens", "roman-forum"],
-    imageSlug: "hephaestus-agora",
+    imageSlug: "stoa-of-attalos",
     gallerySlugs: ["pnyx-athens"],
   },
   {
@@ -3833,7 +3833,6 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
         date: "c. 1470 BCE",
         level: "documented",
         note: "Standing. Its lower part was walled in by Thutmose III, which preserved the inscriptions there in near-perfect condition while the exposed upper part weathered.",
-        imageSlug: "karnak-obelisk-hatshepsut",
       },
       {
         name: "The White Chapel of Senusret I",
@@ -3925,8 +3924,8 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: ["memphis", "alexandria"],
     mapSlugs: ["egypt"],
     relatedSites: ["valley-of-the-kings", "amarna", "deir-el-medina", "giza"],
-    imageSlug: "karnak-hypostyle",
-    gallerySlugs: ["karnak-obelisk-hatshepsut", "luxor-temple"],
+    imageSlug: "karnak-obelisk-hatshepsut",
+    gallerySlugs: ["karnak-hypostyle"],
   },
   {
     slug: "valley-of-the-kings",
@@ -4687,7 +4686,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: ["persepolis", "susa"],
     mapSlugs: ["persian-empire"],
     relatedSites: ["naqsh-e-rustam", "behistun"],
-    imageSlug: "tomb-of-cyrus",
+    imageSlug: "pasargadae-palace-ruins",
   },
   {
     slug: "naqsh-e-rustam",

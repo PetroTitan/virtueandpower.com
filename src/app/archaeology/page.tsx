@@ -64,10 +64,11 @@ export default function ArchaeologyIndexPage() {
               those pages carries a line at the top pointing at its city.
             </p>
             <p>
-              It is also not a buildings layer.{" "}
-              <Link href="/architecture">Architecture</Link> explains what a
-              temple, a stoa or a barrel vault is; a site page names its
-              structures and links each one to the type that explains it.
+              It is also not a buildings layer. Individual buildings have
+              their own pages under <Link href="/monuments">Monuments</Link>,
+              and <Link href="/architecture">Architecture</Link> explains what
+              a temple, a stoa or a barrel vault is as a form; a site page
+              names its structures and links out to both.
             </p>
 
             <h2>What the excavators got wrong</h2>
@@ -123,6 +124,11 @@ export default function ArchaeologyIndexPage() {
               <li>
                 <Link href="/cities" className="vp-link text-charcoal-100">
                   Ancient cities
+                </Link>
+              </li>
+              <li>
+                <Link href="/monuments" className="vp-link text-charcoal-100">
+                  Named monuments
                 </Link>
               </li>
               <li>
