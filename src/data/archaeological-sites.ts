@@ -756,6 +756,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: [],
     mapSlugs: ["ancient-greece"],
     relatedSites: ["mycenae", "akrotiri", "pylos"],
+    imageSlug: "knossos-north-entrance",
   },
   {
     slug: "akrotiri",
@@ -910,6 +911,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: [],
     mapSlugs: ["ancient-greece"],
     relatedSites: ["knossos", "mycenae", "herculaneum"],
+    imageSlug: "akrotiri-excavation",
   },
   {
     slug: "pylos",
@@ -1694,6 +1696,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: ["athens", "alexandria"],
     mapSlugs: ["ancient-greece", "mediterranean"],
     relatedSites: ["acropolis-of-athens", "eleusis", "epidaurus"],
+    imageSlug: "delos-terrace-of-the-lions",
   },
   {
     slug: "eleusis",
@@ -1895,6 +1898,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: ["athens"],
     mapSlugs: ["athens"],
     relatedSites: ["acropolis-of-athens", "athenian-agora", "epidaurus", "delos"],
+    imageSlug: "eleusis-telesterion",
     gallerySlugs: ["polyphemus-amphora-eleusis"],
   },
   {
@@ -2081,6 +2085,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: ["corinth", "athens"],
     mapSlugs: ["ancient-greece"],
     relatedSites: ["eleusis", "delos", "acropolis-of-athens"],
+    imageSlug: "epidaurus-theatre",
   },
   {
     slug: "vergina",
@@ -2266,6 +2271,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: [],
     mapSlugs: ["ancient-greece", "alexander-empire"],
     relatedSites: ["mycenae", "acropolis-of-athens"],
+    imageSlug: "vergina-tomb-facade",
   },
   // ─── The Roman world ─────────────────────────────────────────────────
   {
@@ -2722,6 +2728,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: [],
     mapSlugs: ["roman-republic", "roman-empire"],
     relatedSites: ["roman-forum", "hadrians-villa"],
+    imageSlug: "palatine-domus-augustana",
   },
   {
     slug: "herculaneum",
@@ -2926,6 +2933,8 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: ["pompeii", "rome"],
     mapSlugs: ["roman-empire"],
     relatedSites: ["akrotiri", "roman-forum", "hadrians-villa"],
+    imageSlug: "herculaneum-excavations-19c",
+    gallerySlugs: ["herculaneum-maiuri-excavation"],
   },
   {
     slug: "hadrians-villa",
@@ -3112,6 +3121,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: ["rome", "alexandria"],
     mapSlugs: ["roman-empire"],
     relatedSites: ["palatine-hill", "roman-forum", "herculaneum"],
+    imageSlug: "hadrians-villa-canopus",
   },
   {
     slug: "dura-europos",
@@ -4314,6 +4324,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: ["memphis"],
     mapSlugs: ["egypt"],
     relatedSites: ["karnak", "deir-el-medina", "valley-of-the-kings"],
+    imageSlug: "amarna-boundary-stela",
   },
   {
     slug: "deir-el-medina",
@@ -4489,6 +4500,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: ["memphis"],
     mapSlugs: ["egypt"],
     relatedSites: ["valley-of-the-kings", "karnak", "amarna"],
+    imageSlug: "deir-el-medina-excavation",
   },
   // ─── Mesopotamia and Iran ────────────────────────────────────────────
   {
@@ -5231,6 +5243,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: ["babylon"],
     mapSlugs: ["mediterranean"],
     relatedSites: ["nineveh", "behistun"],
+    imageSlug: "ur-ziggurat",
     gallerySlugs: ["hammurabi-stele"],
   },
   {
@@ -5442,6 +5455,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     cityRefs: ["babylon"],
     mapSlugs: ["mediterranean"],
     relatedSites: ["ur", "behistun"],
+    imageSlug: "nineveh-mashki-gate",
   },
 ];
 
