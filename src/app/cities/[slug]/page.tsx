@@ -12,7 +12,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { ArchiveImage } from "@/components/site/ArchiveImage";
 import { getArchiveImage } from "@/data/archive-images";
 import { CITIES, getCity } from "@/data/cities";
-import { sitesForCity } from "@/data/archaeological-sites";
+import { sitesInCity } from "@/data/archaeological-sites";
 import { getWarfareTopic } from "@/data/warfare";
 import { getBattle } from "@/data/battles";
 import { getMap } from "@/data/maps";
@@ -85,7 +85,7 @@ export default async function CityPage({
   const topics = c.warfareRefs.map(getWarfareTopic).filter(Boolean);
   const maps = c.mapSlugs.map(getMap).filter(Boolean);
   const others = c.relatedCities.map(getCity).filter(Boolean);
-  const digs = sitesForCity(c.slug);
+  const digs = sitesInCity(c.slug);
   const hero = c.imageSlug ? getArchiveImage(c.imageSlug) : undefined;
 
   return (

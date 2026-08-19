@@ -382,7 +382,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     whatSurvives: [
       "The circuit wall stands to a considerable height over much of its course, built of limestone blocks large enough that later Greeks assumed the Cyclopes had laid them. The Lion Gate is intact apart from the heads of the two animals above the lintel, which were made separately and are lost; what remains is the oldest monumental sculpture in Europe still standing where it was set.",
       "Inside the gate, Grave Circle A survives as a double ring of upright slabs enclosing six shaft graves — the graves themselves emptied, the circle rebuilt in antiquity to bring it inside the extended walls. The palace on the summit survives as foundations and a fragment of the megaron floor; part of the hill has fallen away.",
-      "Outside the walls stand nine tholos tombs, of which the one traditionally called the Treasury of Atreus is complete: a corbelled dome thirteen metres across, approached by a walled passage, its doorway spanned by a lintel block weighing something over a hundred tonnes.",
+      "Outside the walls stand nine tholos tombs, of which the one traditionally called the Treasury of Atreus is complete: a corbelled dome some fourteen metres across, approached by a walled passage, its doorway spanned by a lintel block weighing something over a hundred tonnes.",
     ],
     excavations: [
       {
@@ -407,7 +407,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
         period: "1920–1955",
         by: "Alan Wace, British School at Athens",
         level: "documented",
-        note: "Established by stratigraphy that the tholos tombs form a developmental series and that the citadel's history was independent of Crete's — directly against Arthur Evans, who held that mainland Greece was a Cretan province and who used his standing to have Wace's permit withdrawn.",
+        note: "Established by stratigraphy that the tholos tombs form a developmental series and that the citadel's history was independent of Crete's — directly against Arthur Evans, who held that mainland Greece was a Cretan province. Wace lost his permit to dig at Mycenae in the 1920s during the dispute and did not resume until after Evans's death; how far Evans's standing in the British School caused that is argued rather than documented.",
       },
       {
         period: "1951–1955",
@@ -826,7 +826,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
         period: "1974–present",
         by: "Christos Doumas and the Archaeological Society at Athens",
         level: "documented",
-        note: "Continued excavation, conservation and publication, with a deliberate policy of leaving most of the town unexcavated. Less than a third of the estimated extent is open.",
+        note: "Continued excavation, conservation and publication, with a deliberate policy of leaving most of the town unexcavated. Only a small part of the estimated extent is open, and the estimate of the whole is itself derived from survey rather than from exposure.",
       },
     ],
     structures: [
@@ -865,7 +865,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
       },
       {
         name: "The Spring Fresco",
-        what: "Lilies and swallows over a volcanic landscape, painted on three walls of a room and lifted intact. The only Aegean wall painting recovered complete and in place.",
+        what: "Lilies and swallows over a volcanic landscape, painted on three walls of a room and lifted intact. The only Aegean wall painting recovered complete on all the walls of its room and lifted in place.",
         level: "documented",
         museumSlug: "national-archaeological-museum-athens",
       },
@@ -1474,7 +1474,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
       S(
         "The Constitution of the Athenians",
         "43–69",
-        "The council's rota, the allotment of jurors, the water clock, the ballots and the courts, described as working procedure. Attributed to Aristotle or his school; recovered on papyrus in 1879 and published in 1891, which is to say the text was read before most of the objects were dug up.",
+        "The council's rota, the allotment of jurors, the water clock, the ballots and the courts, described as working procedure. Attributed to Aristotle or his school. The text was lost until papyri carrying it reached Europe and were first published in 1891, which is to say it was read forty years before most of the objects were dug up.",
         "Aristotle",
       ),
     ],
@@ -1588,7 +1588,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
         name: "The Terrace of the Lions",
         date: "c. 600 BCE",
         level: "documented",
-        note: "Naxian marble lions flanking the processional way to the sanctuary. Between five and sixteen originally; nine survive in various states, one of them in Venice since the seventeenth century.",
+        note: "Naxian marble lions flanking the processional way to the sanctuary. Between five and sixteen originally; nine survive in various states, and one stands at the Venetian Arsenal, taken in the early modern period.",
       },
       {
         name: "The Temple of the Delians",
@@ -3789,7 +3789,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     },
     civilizations: ["egypt", "new-kingdom", "middle-kingdom", "ptolemaic-egypt"],
     whatSurvives: [
-      "An enclosure of about thirty hectares containing the temple of Amun-Re, with ten pylons on two axes, courts, a sacred lake, festival halls, storerooms and chapels, and beyond it two further walled precincts for Mut and for Montu.",
+      "An enclosure of around twenty-five hectares containing the temple of Amun-Re, with ten pylons on two axes, courts, a sacred lake, festival halls, storerooms and chapels, and beyond it two further walled precincts for Mut and for Montu.",
       "The Great Hypostyle Hall stands: a hundred and thirty-four columns over some five thousand square metres, the central twelve of them about twenty-one metres tall with open papyrus capitals, carrying clerestory windows in stone grilles. The roofing slabs are gone from most of it and remain in a few bays.",
       "One of Hatshepsut's obelisks still stands, close to thirty metres of a single piece of granite. Its pair lies broken beside the sacred lake, and the base of Thutmose I's stands nearby.",
     ],
@@ -4841,10 +4841,10 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
         "Herodotus",
       ),
       S(
-        "Anabasis of Alexander",
-        "3.16, 6.30",
-        "Arrian on the Persian royal tombs and Alexander's treatment of them.",
-        "Arrian",
+        "Library of History",
+        "17.71.7",
+        "Diodorus describes the tombs of the Persian kings cut high in a rock face, reachable only by machines, which is an accurate account of what a visitor to this cliff sees and the closest thing to an ancient description of it.",
+        "Diodorus Siculus",
       ),
     ],
     museumSlugs: ["national-museum-of-iran", "louvre"],
@@ -4916,7 +4916,7 @@ export const ARCHAEOLOGICAL_SITES: ReadonlyArray<ArchaeologicalSite> = [
     },
     civilizations: ["achaemenid-empire", "persia", "persian-imperial-system"],
     whatSurvives: [
-      "A carved panel some fifteen metres wide, about a hundred metres above the road: Darius with his bow, his foot on a prone figure, facing nine bound men roped by the neck, with the winged disc above and two attendants behind him.",
+      "A worked surface some fifteen metres wide and twenty-five high, about a hundred metres above the road. The figured relief within it is about five and a half metres across: Darius with his bow, his foot on a prone figure, facing nine bound men roped by the neck, with the winged disc above and two attendants behind him.",
       "Around and below it, columns of cuneiform in three languages — Old Persian, Elamite and Akkadian — running to well over a thousand lines in total. The Old Persian version is the longest Achaemenid royal inscription known.",
       "The rock is weathering and water runs across parts of the text. Much of what is now read comes from squeezes, casts and photographs taken over the last two centuries rather than from the surface as it stands.",
     ],
@@ -5480,11 +5480,15 @@ export function sitesForMuseum(museumSlug: string): ArchaeologicalSite[] {
   );
 }
 
-/** Sites that sit inside, or are otherwise tied to, a given city. */
-export function sitesForCity(citySlug: string): ArchaeologicalSite[] {
-  return ARCHAEOLOGICAL_SITES.filter(
-    (s) => s.parentCitySlug === citySlug || s.cityRefs.includes(citySlug),
-  );
+/**
+ * Sites that sit inside a given city — the Acropolis in Athens, the
+ * Forum in Rome. Strictly the parent relationship: a site that merely
+ * names a city among its cityRefs is related to it, not in it, and
+ * conflating the two would put Delos and Epidaurus under "excavated
+ * sites" on the Athens page.
+ */
+export function sitesInCity(citySlug: string): ArchaeologicalSite[] {
+  return ARCHAEOLOGICAL_SITES.filter((s) => s.parentCitySlug === citySlug);
 }
 
 /** Sites carrying a coordinate pair, for future mapping. */
