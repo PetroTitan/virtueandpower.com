@@ -272,6 +272,60 @@ export function placeJsonLd({
   };
 }
 
+type LandmarkJsonLdInput = {
+  name: string;
+  url: string;
+  description: string;
+  alternateName?: string;
+  addressCountry?: string;
+  /** Decimal degrees. Emitted only as a complete pair. */
+  latitude?: number;
+  longitude?: number;
+};
+
+/**
+ * LandmarksOrHistoricalBuildings schema for the archaeological-sites
+ * layer.
+ *
+ * Unlike `placeJsonLd`, this one will emit geo coordinates — but only
+ * where the registry carries a pair, and the registry only carries a pair
+ * where it can name the feature the pair points at. Sites whose extent or
+ * centre is not established have no coordinates in the data and therefore
+ * none here.
+ */
+export function landmarkJsonLd({
+  name,
+  url,
+  description,
+  alternateName,
+  addressCountry,
+  latitude,
+  longitude,
+}: LandmarkJsonLdInput) {
+  const hasGeo =
+    typeof latitude === "number" && typeof longitude === "number";
+  return {
+    "@context": "https://schema.org",
+    "@type": "LandmarksOrHistoricalBuildings",
+    name,
+    url: absoluteUrl(url),
+    description,
+    ...(alternateName ? { alternateName } : {}),
+    ...(addressCountry
+      ? { address: { "@type": "PostalAddress", addressCountry } }
+      : {}),
+    ...(hasGeo
+      ? {
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude,
+            longitude,
+          },
+        }
+      : {}),
+  };
+}
+
 type BookJsonLdInput = {
   name: string;
   url: string;
