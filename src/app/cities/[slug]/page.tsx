@@ -13,6 +13,7 @@ import { ArchiveImage } from "@/components/site/ArchiveImage";
 import { getArchiveImage } from "@/data/archive-images";
 import { CITIES, getCity } from "@/data/cities";
 import { sitesInCity } from "@/data/archaeological-sites";
+import { monumentsForCity } from "@/data/monuments";
 import { getWarfareTopic } from "@/data/warfare";
 import { getBattle } from "@/data/battles";
 import { getMap } from "@/data/maps";
@@ -86,6 +87,7 @@ export default async function CityPage({
   const maps = c.mapSlugs.map(getMap).filter(Boolean);
   const others = c.relatedCities.map(getCity).filter(Boolean);
   const digs = sitesInCity(c.slug);
+  const monuments = monumentsForCity(c.slug);
   const hero = c.imageSlug ? getArchiveImage(c.imageSlug) : undefined;
 
   return (
@@ -519,11 +521,34 @@ export default async function CityPage({
               </>
             ) : null}
 
+            {monuments.length ? (
+              <>
+                <p className="vp-eyebrow mt-8">Monuments</p>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {monuments.map((mo) => (
+                    <li key={mo.slug}>
+                      <Link
+                        href={`/monuments/${mo.slug}`}
+                        className="vp-link text-charcoal-100"
+                      >
+                        {mo.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+
             <p className="vp-eyebrow mt-8">More</p>
             <ul className="mt-3 space-y-2 text-sm">
               <li>
                 <Link href="/cities" className="vp-link text-charcoal-100">
                   All cities
+                </Link>
+              </li>
+              <li>
+                <Link href="/monuments" className="vp-link text-charcoal-100">
+                  Named monuments
                 </Link>
               </li>
               <li>

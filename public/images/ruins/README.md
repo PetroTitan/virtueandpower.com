@@ -203,3 +203,55 @@ this platform treats as **disputed**, the caption does not repeat it.
   Maiuri, *Ercolano* (1932). CC BY 4.0 via the Bulletin of the History
   of Archaeology. Source 1200 × 1804 → 1064 × 1600, ~166 KB.
   https://commons.wikimedia.org/wiki/File:The_excavation_of_Herulaneum,_ca._1929_(published_by_A._Maiuri;_Ercolano._Rome-Novara-Paris._Istituto_Geografico_de_Agostini,_1932,_p._16).jpg
+
+## Named monuments batch (2026-08-19)
+
+Vendored for the `/monuments` layer, and to resolve the hero-image
+collisions the `monuments:images` check found. Verified through the
+Commons API before download; 1600 px longest edge, WebP q80 e6.
+
+**Identification hazard specific to this batch:** there is a Baths of
+Caracalla in Ankara as well as in Rome, and Commons has good photographs
+of both. The file taken here is the Roman one, and the registry entry
+says so explicitly.
+
+- `basilica-julia.webp` — The pavement and pier stumps of the Basilica
+  Julia, Rome. Nothing of the elevation is ancient above a few courses.
+  Photo Falk2, CC BY-SA 4.0. Source 6535 × 4357 → 1600 × 1067.
+  https://commons.wikimedia.org/wiki/File:L06_667_Forum_Romanum,_Basilica_Iulia.jpg
+- `temple-of-saturn.webp` — The eight standing columns, from a
+  late-4th-century CE rebuilding; the shafts are reused and do not match,
+  and one is set upside down. Photo Nicholas Hartmann, CC BY-SA 4.0.
+  Source 5313 × 3542 → 1600 × 1067.
+  https://commons.wikimedia.org/wiki/File:Roman_Forum_Temple_of_Saturn.jpg
+- `temple-of-castor-and-pollux.webp` — The three Corinthian columns of
+  the Tiberian rebuilding, dedicated 6 CE. Photo Nicholas Hartmann,
+  CC BY-SA 4.0. Source 4314 × 3236 → 1600 × 1200.
+  https://commons.wikimedia.org/wiki/File:Roman_Forum_Temple_of_Castor_and_Pollux.jpg
+- `forum-of-trajan.webp` — The Forum of Trajan, dedicated 112 CE, in its
+  excavated hollow below the modern street; a substantial part lies under
+  the Via dei Fori Imperiali. Photo Phyrexian, CC BY-SA 4.0. Source
+  3872 × 2592 → 1600 × 1071.
+  https://commons.wikimedia.org/wiki/File:Roma_-_Foro_di_Traiano_5823.JPG
+- `forum-of-augustus.webp` — The Temple of Mars Ultor against the
+  Gabine-stone fire wall, dedicated 2 BCE. Photo Szilas, public domain.
+  Source 4752 × 3168 → 1600 × 1067.
+  https://commons.wikimedia.org/wiki/File:Forum_of_Augustus,_Temple_of_Mars_Ultor_2013.jpg
+- `baths-of-caracalla.webp` — The bath block **in Rome**, opened 216 CE.
+  Photo Nick-D, CC BY-SA 3.0. Source 3896 × 2924 → 1600 × 1201.
+  https://commons.wikimedia.org/wiki/File:Part_of_the_Baths_of_Caracalla_November_2013.jpg
+- `acropolis-from-philopappos.webp` — The Acropolis of Athens from the
+  west. Vendored as a general view of the site so that the Parthenon
+  photograph could serve the Parthenon's own page. Photo Jakub Hałun,
+  CC BY 4.0. Source 4754 × 3174 → 1600 × 1068.
+  https://commons.wikimedia.org/wiki/File:View_of_the_Acropolis_from_Philopappos_Hill,_Athens,_20240601_1137_0117.jpg
+- `pasargadae-palace-ruins.webp` — The palace ruins at Pasargadae,
+  dispersed across an unwalled plain. Vendored so that the tomb of Cyrus
+  photograph could serve the tomb's own page. Photo A. Davey, CC BY 2.0.
+  Source 4288 × 2848 → 1600 × 1063.
+  https://commons.wikimedia.org/wiki/File:Pasargadae_ruins.jpg
+- `olympia-sanctuary.webp` — The sanctuary of Zeus at Olympia. Vendored
+  so that the photograph of the fallen columns could serve the Temple of
+  Zeus's own page. Photo Annatsach, CC BY-SA 4.0. Source 4496 × 3000 →
+  1600 × 1068.
+  https://commons.wikimedia.org/wiki/File:Archaeological_Site_of_Ancient_Olympia_-_3.jpg

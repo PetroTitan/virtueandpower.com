@@ -144,6 +144,56 @@ const WARFARE_BAND: ReadonlyArray<{
  * Roman housing, Alexandria for a city that cannot be dug, Troy for the
  * limits of what excavation can settle.
  */
+const MONUMENTS_BAND: ReadonlyArray<{
+  href: string;
+  kind: string;
+  title: string;
+  blurb: string;
+}> = [
+  {
+    href: "/monuments/parthenon",
+    kind: "Standing ruin",
+    title: "The Parthenon",
+    blurb:
+      "A temple with almost no straight lines in it, paid for out of an alliance's treasury, and blown apart in 1687 by a shell finding a powder store.",
+  },
+  {
+    href: "/monuments/pantheon",
+    kind: "Standing",
+    title: "The Pantheon",
+    blurb:
+      "The largest unreinforced concrete dome ever built, carrying an inscription that names the wrong man, intact because it became a church.",
+  },
+  {
+    href: "/monuments/curia-julia",
+    kind: "Standing",
+    title: "The Curia Julia",
+    blurb:
+      "The Senate's hall, seating about half the Senate — which is a fact about how the body actually worked, recovered from the building rather than the sources.",
+  },
+  {
+    href: "/monuments/great-pyramid",
+    kind: "Standing",
+    title: "The Great Pyramid",
+    blurb:
+      "A base levelled to a couple of centimetres across thirteen acres, and a construction method that is still genuinely unknown.",
+  },
+  {
+    href: "/monuments/tomb-of-darius-i",
+    kind: "Standing",
+    title: "The Tomb of Darius I",
+    blurb:
+      "Thirty labelled peoples holding the king's platform up, and the nearest thing to a Persian statement of what a ruler should be.",
+  },
+  {
+    href: "/monuments/ara-pacis",
+    kind: "Re-erected",
+    title: "The Ara Pacis",
+    blurb:
+      "Dug out of waterlogged ground in pieces over four centuries, reassembled for a Fascist anniversary, and standing several hundred metres from where it was built.",
+  },
+];
+
 const MATERIAL_EVIDENCE_BAND: ReadonlyArray<{
   href: string;
   kind: string;
@@ -769,6 +819,36 @@ export default async function HomePage() {
         />
         <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {ARCHITECTURE_BAND.map((item) => (
+            <article key={item.href} className="border-l border-rule pl-5">
+              <p className="text-xs uppercase tracking-eyebrow text-stone">
+                {item.kind}
+              </p>
+              <h3 className="mt-2 font-serif text-xl text-charcoal">
+                <Link href={item.href} className="hover:text-bronze">
+                  {item.title}
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-100">
+                {item.blurb}
+              </p>
+            </article>
+          ))}
+        </div>
+      </PageSection>
+
+      {/* Named monuments — the building layer, placed immediately after
+          architecture because the type page explains the form and the
+          monument page is one building, and the two are read together. */}
+      <PageSection label="Ancient monuments" variant="ruled">
+        <SectionIntro
+          eyebrow="Ancient monuments"
+          title="One building at a time, with every number sourced"
+          description="Thirty-five named buildings — patron, architect, materials, measurements, political meaning, later history, and how much of each is actually still standing. No figure is stored without saying whether it is a survey, an ancient text, a conversion or a modern estimate."
+          href="/monuments"
+          hrefLabel="Enter the monuments layer"
+        />
+        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {MONUMENTS_BAND.map((item) => (
             <article key={item.href} className="border-l border-rule pl-5">
               <p className="text-xs uppercase tracking-eyebrow text-stone">
                 {item.kind}

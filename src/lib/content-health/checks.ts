@@ -14,6 +14,7 @@ import { runArchitectureGate } from "./architecture-gate";
 import { runInstitutionsGate } from "./institutions-gate";
 import { runReligionGate } from "./religion-gate";
 import { runSitesGate } from "./sites-gate";
+import { runMonumentsGate } from "./monuments-gate";
 import type { Issue } from "./types";
 
 /**
@@ -749,5 +750,11 @@ export function runAllChecks(
     // evidence discipline an excavation page needs, and the boundary with
     // the cities layer.
     ...runSitesGate(entries),
+    // Named monuments: referential integrity, the chronology model,
+    // the discipline that keeps borrowed dimensions and late
+    // attributions from being stated as fact, the boundary between
+    // city, site, monument and building type, and hero-image
+    // uniqueness.
+    ...runMonumentsGate(entries),
   ];
 }
